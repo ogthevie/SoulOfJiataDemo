@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fb9e6d217823048967e01cf9cba6df, type: 3}
+  m_Name: Prune
+  m_EditorClassIdentifier: 
+  consumablesprite: {fileID: 21300000, guid: a1a764ab350361d4aadfedea0969718a, type: 3}
+  consumableIcon: {fileID: 21300000, guid: e04257d00b40e1c4a941e08fedcbcbe4, type: 3}
+  consumableName: Prune
+  ConsumableDescription: "La prune de Kabwandu est un fruit tropical de couleur vert
+    vif a maturite. Elle a une saveur acidulee. Cuite aux cendres de feu de bois,
+    elle restaure un peu plus de sant\xE9 que lorsqu\u2019elle est consommee crue."
+  HealthPoint: 2
+  StaminaPoint: 0
+  consumablePrefab: {fileID: 2778101973918818393, guid: d898bdaf51b64e645ba1b2ad8522d24a,
+    type: 3}

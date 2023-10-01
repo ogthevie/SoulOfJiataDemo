@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fb9e6d217823048967e01cf9cba6df, type: 3}
+  m_Name: Katorro
+  m_EditorClassIdentifier: 
+  consumablesprite: {fileID: 21300000, guid: 0ff9e32f1064608408228189b32ac52a, type: 3}
+  consumableIcon: {fileID: 21300000, guid: 66cd6dc2f654b9d4d826380f4d9e506f, type: 3}
+  consumableName: Katorro
+  ConsumableDescription: "\xAB le roi des herbes \xBB est une plante qui fascine
+    et intrigue tous les peuples du continent. On la surnomme d\u2019ailleurs \xAB
+    celle qui traite plus de 200 maladies \xBB"
+  HealthPoint: 50
+  StaminaPoint: 100
+  consumablePrefab: {fileID: 3930785992908400170, guid: 46b9ce13393cdd0459faa2989afd9932,
+    type: 3}

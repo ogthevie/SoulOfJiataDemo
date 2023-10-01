@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: CommercantDialog
+  m_EditorClassIdentifier: 
+  characterName: "Commer\xE7ant"
+  mainCharacterName: Ruben
+  firstConversation:
+  - Tuez les souris Tuez les souris Tuez les souris
+  - Tuez les souris ?
+  - Souris qui mange les actes de naissance, souris qui ouvrent les marmites, souris
+    qui font la concurrence avec le bailleur..
+  secondConversation:
+  - Tuez les souris Tuez les souris Tuez les souris
+  - (Le type ci n'est pas fou ?)
+  - Tuez les souris Tuez les souris Tuez les souris
+  - ...
+  - Tuez les souris Tuez les souris Tuez les souris
+  - ...
+  - Tuez les souris Tuez les souris Tuez les souris
+  thirdConversation:
+  - Tuez les souris Tuez les souris Tuez les souris
+  fConv: 1
+  sConv: 1

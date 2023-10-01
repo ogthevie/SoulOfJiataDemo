@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723c98ec6f4ce147b10e05c8e5f31f6, type: 3}
+  m_Name: Baemb
+  m_EditorClassIdentifier: 
+  sorceryName: Force Kossi
+  sorcerySprite: {fileID: 21300000, guid: 1ddf330fcf7449e4f9b09d45503756e2, type: 3}
+  timer: 0
+  sorceryDescription: "Selon certains r\xE9cits, il existait un peuple qui avait
+    la capacit\xE9 de se m\xE9tamorphoser en animaux divers. Mais avec les ann\xE9es
+    qui sont pass\xE9es, ce peuple a finalement disparu laissant derri\xE8re eux
+    des fragments de leurs pouvoirs parmis lesquells la Force Kossi"
+  isActive: 0

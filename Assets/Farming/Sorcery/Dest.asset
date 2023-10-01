@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723c98ec6f4ce147b10e05c8e5f31f6, type: 3}
+  m_Name: Dest
+  m_EditorClassIdentifier: 
+  sorceryName: "Destins crois\xE9s"
+  sorcerySprite: {fileID: 21300000, guid: 8027e3ee87c54bb4e8d6dc49193b49c9, type: 3}
+  timer: 0
+  sorceryDescription: "On raconte que les membres de la lign\xE9e du grand Muna Sawa
+    Dibotto ont r\xE9ussi \xE0 reproduire le sortil\xE8ge de manipulation de l'esprit.
+    D'apr\xE9s les dires, celui qui lance le sort du destin crois\xE9 partage sa
+    douleur \xE0 sa victime."
+  isActive: 0

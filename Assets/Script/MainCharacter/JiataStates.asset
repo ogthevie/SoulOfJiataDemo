@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5ea816b80a96f4592b63bc6a865ea5, type: 3}
+  m_Name: JiataStates
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  isInteract: 0
+  isIndomitable: 0
+  isHidden: 0
+  d_HighAttack: 10
+  d_LowAttack: 5
+  d_ArcLight: 46
+  d_Thunder: 160
+  d_Magneti: 5
+  sNorth: {fileID: 21300000, guid: a20a893e202639b45b04e69fb2725da2, type: 3}
+  sEast: {fileID: 21300000, guid: 1ddf330fcf7449e4f9b09d45503756e2, type: 3}
+  sSouth: {fileID: 21300000, guid: 8027e3ee87c54bb4e8d6dc49193b49c9, type: 3}
+  sWest: {fileID: 21300000, guid: 10f6965858d60e84f8058371fa9e7293, type: 3}
