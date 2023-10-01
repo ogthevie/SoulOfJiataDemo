@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fb9e6d217823048967e01cf9cba6df, type: 3}
+  m_Name: Mangue
+  m_EditorClassIdentifier: 
+  consumablesprite: {fileID: 21300000, guid: f69f6e0eb5a30aa43b75543249bd163a, type: 3}
+  consumableIcon: {fileID: 21300000, guid: e6fed0cdc22d2de49a2b44bf1e473173, type: 3}
+  consumableName: Mangue
+  ConsumableDescription: "La mangue de Kabwandu a cette particularite d\u2019avoir
+    une couleur verte. Elle est appr\xE9ciee pour son gout sucre et rafraichissant"
+  HealthPoint: 3
+  StaminaPoint: 0
+  consumablePrefab: {fileID: 5120546334178886231, guid: 8b548d48baa5d094d9c998074a53e545,
+    type: 3}

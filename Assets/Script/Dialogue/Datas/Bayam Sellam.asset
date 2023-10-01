@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Bayam Sellam
+  m_EditorClassIdentifier: 
+  characterName: Mami Cube
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Mangues M\xFBres Mangues M\xFBres Mangues M\xFBres! Bon prix Bon Prix"
+  - ...
+  - Chaud gars j'emballe pour combien ?
+  - "C'est combien la m\xE8re ?"
+  - "C'est seulement 3 \xE0 1000f, c'est le dernier march\xE9 comme \xE7a"
+  - "Ekiee la m\xE8re, tuez nous une fois"
+  - "Ekiee quoi? Ce n'est pas les mangues qu'on formolise ici. Mes mangues font comme
+    le beaume fran\xE7ois. Quand tu suces \xE7a \xE7a tape que ta nuque que toup
+    toup"
+  - "C'est bon la m\xE8re je vais revenir apr\xE8s"
+  - Ok Je t'attends chaud gars
+  secondConversation:
+  - C'est bon maintenant? j'emballe pour combien ?
+  - "la m\xE8re, fais moi le prix sur les 3 mangues ci et avec 2 mintoumbas dessus"
+  - "Bon comme c'est toi et ma journ\xE9e est finie, Prends le tout \xE0 2500f"
+  - "la m\xE8re la m\xE8re, toi aussi, tu n'as rien enlev\xE9"
+  - "Ekie ?? le mintoumba de Boumnyebel ?? c'est 1000f en principe hein, comment
+    tu dis que je n'ai rien enlev\xE9? Tu chasses les clients, pars ! je ne vends
+    plus"
+  - "La m\xE8re ?"
+  - Hoooooo, quitte devant mon comptoir
+  thirdConversation:
+  - 'Tu viens faire encore quoi ici? '
+  fConv: 0
+  sConv: 0
