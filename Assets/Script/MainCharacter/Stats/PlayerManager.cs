@@ -91,7 +91,6 @@ namespace SJ
             inputManager.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleFlipping(delta);
-            playerLocomotion.HandleDancing();
             playerLocomotion.HandleJumping();
             playerLocomotion.HandleFootStep();
             playerStats.HandleReloadStamina(delta);
@@ -120,12 +119,12 @@ namespace SJ
             if(isDead) return;
             if(cameraManager != null)
             {
-                cameraManager.FollowTarget(delta);
+                cameraManager.FollowTarget();
                 cameraManager.HandleCameraRotation(delta, inputManager.mouseX, inputManager.mouseY);
             }
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
 
-            playerAttacker.HandleInteractTree();
+            //playerAttacker.HandleInteractTree();
             playerLocomotion.HandleMovementAngle();
             
         }

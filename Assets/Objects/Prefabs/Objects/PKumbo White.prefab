@@ -112,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &8291823435288045578
 BoxCollider:
@@ -148,20 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vaseContainerData: {fileID: 11400000, guid: b1b6aed025086964f9ae56748ea8e976, type: 2}
-  statesPlayerData: {fileID: 11400000, guid: 3739c9a0ca7a848418e3c761ed693a0d, type: 2}
   consumableDatas:
   - {fileID: 11400000, guid: d8efcb13d5572df4db1d3614cc4ceaee, type: 2}
   - {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
   - {fileID: 11400000, guid: b8bec308e73ad87448281b86926fcfd1, type: 2}
   - {fileID: 11400000, guid: af97d641f5b07364280741153b339145, type: 2}
   destroyFx: {fileID: 6156250405393206693}
-  probaMint: 0
-  probaMatan: 0
-  probaGes: 0
-  probaKala: 0
-  probaColaS: 0
-  probaColaL: 0
-  probaOdon: 0
   qtyConsumable: 0
   qtyMintoumba: 0
   qtyMatango: 0
