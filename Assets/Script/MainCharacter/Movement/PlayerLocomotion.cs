@@ -35,6 +35,7 @@ namespace SJ
         [Header("Movement Stats")]
         Vector3 normalVector;
         Vector3 targetPosition;
+        Vector3 checkGroundPosition =  new Vector3 (0, 0.5f, 0);
         public bool jumpFlag;
         
         public float speed;
@@ -150,8 +151,8 @@ namespace SJ
 
         public void HandleMovementAngle()
         {
-            Debug.DrawRay(playerAttacker.interactOriginRay.transform.position, playerAttacker.interactOriginRay.transform.forward * 1.5f, Color.red, 0.5f);
-            if(Physics.Raycast(playerAttacker.interactOriginRay.transform.position, playerAttacker.interactOriginRay.transform.forward, out RaycastHit hit, 1.5f))
+            Debug.DrawRay(playerAttacker.interactOriginRay.transform.position + checkGroundPosition, playerAttacker.interactOriginRay.transform.forward * 1.5f, Color.red, 0.5f);
+            if(Physics.Raycast(playerAttacker.interactOriginRay.transform.position + checkGroundPosition, playerAttacker.interactOriginRay.transform.forward, out RaycastHit hit, 1.5f))
             {
                 if(hit.collider.gameObject.layer == 9) 
                 {
@@ -351,13 +352,6 @@ namespace SJ
                 }
             }
             
-        }
-
-        public void HandleDancing()
-        {
-            if(Input.GetKey(KeyCode.H) && !playerManager.isInteracting) animatorManager.PlayTargetAnimation("dance 1", true);
-            if(Input.GetKey(KeyCode.J) && !playerManager.isInteracting) animatorManager.PlayTargetAnimation("dance 2", true);
-            if(Input.GetKey(KeyCode.L) && !playerManager.isInteracting) animatorManager.PlayTargetAnimation("dance 4", true);
         }
 
         public void DisableKinematic()
