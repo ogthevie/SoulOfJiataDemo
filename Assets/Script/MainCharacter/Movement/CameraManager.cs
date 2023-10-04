@@ -5,9 +5,10 @@ namespace SJ
 {
     public class CameraManager : MonoBehaviour
     {
-        public Transform targetTransform;
-        public Transform cameraTransform;
-        public Transform cameraPivotTransform;
+        #region variables
+        public Transform targetTransform; //la position de l'objet à suivre
+        public Transform cameraTransform; //la position actuel du parent de la camera
+        public Transform cameraPivotTransform; //la position du pivot de la caméra
         public Transform myTransform;
         private Vector3 cameraTransformPosition;
         public LayerMask ignoreLayers;
@@ -24,15 +25,15 @@ namespace SJ
         public float followSpeed = 0.07f;
         public float pivotSpeed = 0.2f;
 
-        private float targetPosition;
-        private float defautlPosition;
+        private float targetPosition; 
+        private float defautlPosition; //la position par défaut de la camera en Y
         private float lookAngle;
         private float pivotAngle;
         public float minimumPivot = -5;
         public float maximumPivot = 90;
 
         public float cameraSphereRadius = 0.2f;
-        public float cameraCollisionOffset = 0.2f;
+        public readonly float cameraCollisionOffset = 0.2f; //De combien la camera sera décalé en cas de collision
         public float minimumCollisionOffset = 0.2f;
         public float lockedPivotPosition = 2.25f;
         public float unlockedPivotPosition = 1.65f;
@@ -46,6 +47,7 @@ namespace SJ
         public EnemyManager leftLockTarget;
         public EnemyManager rightLockTarget;
 
+        #endregion
 
 
         private void Awake()
@@ -64,25 +66,27 @@ namespace SJ
         {
             environmentLayer = LayerMask.NameToLayer("Environment");
         }
-        public void FollowTarget(float delta)
+        public void FollowTarget()
         {
-            Vector3 targetPosition = Vector3.SmoothDamp(myTransform.position, targetTransform.position, ref cameraFollowVelocity ,delta / followSpeed);
+            Vector3 targetPosition = Vector3.SmoothDamp(myTransform.position, targetTransform.position, ref cameraFollowVelocity , followSpeed);
             myTransform.position = targetPosition;
 
-            HandleCameraCollisions(delta);
+            HandleCameraCollisions();
         }
 
         public void HandleCameraRotation(float delta, float mouseXInput, float mouseYInput)
         {
             if(inputManager.lockOnFlag == false && currentLockOnTarget == null)
             {
+                Vector3 rotation;
+                Quaternion targetRotation ;
                 lookAngle += (mouseXInput * lookSpeed) / delta;
                 pivotAngle -= (mouseYInput * pivotSpeed) / delta;
                 pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
 
-                Vector3 rotation = Vector3.zero;
+                rotation = Vector3.zero;
                 rotation.y = lookAngle;
-                Quaternion targetRotation = Quaternion.Euler(rotation);
+                targetRotation = Quaternion.Euler(rotation);
                 myTransform.rotation =  targetRotation;
 
                 rotation = Vector3.zero;
@@ -114,7 +118,7 @@ namespace SJ
             }
         }
 
-        private void HandleCameraCollisions(float delta)
+        private void HandleCameraCollisions()
         {
             targetPosition =  defautlPosition;
             RaycastHit hit;
@@ -132,7 +136,7 @@ namespace SJ
                 targetPosition = -minimumCollisionOffset;
             }
 
-            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, delta / 0.2f);
+            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 0.2f);
             cameraTransform.localPosition = cameraTransformPosition;
         }
 

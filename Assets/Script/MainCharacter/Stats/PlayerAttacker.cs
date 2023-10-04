@@ -51,7 +51,6 @@ namespace SJ
         readonly float magnetiMaxDistance = 30f;
         readonly float arcLightMaxDistance = 35f;
         readonly float thunderMaxDistance = 20; //20f
-        readonly float interactMaxDistance = 1.5f;
         readonly float magnetiRadius = 2f;
         readonly int magnetiDamage = 5;
         Vector3 arclightbox = new (1f, 1f, 1f);
@@ -323,8 +322,8 @@ namespace SJ
 
         public void MagnetiRay()
         {
-            float a = -0.75f;
-            float b = 24f;
+            float a = -1.5f;
+            float b = 48f;
             Instantiate(magnetiFX, magicRayOrigin.transform.position, Quaternion.identity);
 
             //Debug.DrawRay(magnetiOriginGrab.transform.position, magnetiOriginGrab.transform.forward * magnetiMaxDistance, Color.red, duration);
@@ -675,7 +674,7 @@ namespace SJ
             playerStats.TakeStaminaDamage(thunderDrain);
         }
 
-        public void HandleInteractTree()
+        /*public void HandleInteractTree()
         {
             Debug.DrawRay(interactOriginRay.transform.position, interactOriginRay.transform.forward * interactMaxDistance, Color.white);
 
@@ -687,7 +686,7 @@ namespace SJ
                 }
 
             }
-        }
+        }*/
 
         public void HandleSorceryPad()
         {
