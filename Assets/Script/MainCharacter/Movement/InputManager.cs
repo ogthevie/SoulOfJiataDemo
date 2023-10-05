@@ -24,6 +24,7 @@ namespace SJ
         PlayerManager playerManager;
         CameraManager cameraManager;
         PlayerLocomotion playerLocomotion;
+        public StatesCharacterData jiatastats;
         PlayerStats playerStats;
 
         #region variables
@@ -333,6 +334,8 @@ namespace SJ
 
         private void HandleSurchargeInput()
         {
+            if(!jiatastats.canSurcharge)
+                return;
 
             if(magicAttackFlag && circle) surchargeFlag = true;
             else surchargeFlag = false;
@@ -340,12 +343,17 @@ namespace SJ
 
         private void HandleArcLighInput()
         { 
+            if(!jiatastats.canArcLight)
+                return;
+
             if(magicAttackFlag && south_input) arcLightFlag = true;     
             else arcLightFlag = false;   
         }
 
         private void HandleThunderInput()
         {
+            if(!jiatastats.canThunder)
+                return;
             if(magicAttackFlag && triangle) thunderFlag = true;
             else thunderFlag = false;
         }

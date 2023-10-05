@@ -28,7 +28,7 @@ public class HandleDamageTolol : MonoBehaviour
     {
         if(other.gameObject.layer == 3)
         {
-            playerStats.TakeDamage(damage);
+            playerStats.TakeDamage(damage, 0);
             playerManager.takeDamage = true;
         }
     }

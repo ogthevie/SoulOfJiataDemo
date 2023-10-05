@@ -16,12 +16,11 @@ MonoBehaviour:
   isInteract: 0
   isIndomitable: 0
   isHidden: 0
+  canSurcharge: 0
+  canArcLight: 0
+  canThunder: 0
   d_HighAttack: 10
   d_LowAttack: 5
   d_ArcLight: 46
   d_Thunder: 160
   d_Magneti: 5
-  sNorth: {fileID: 21300000, guid: a20a893e202639b45b04e69fb2725da2, type: 3}
-  sEast: {fileID: 21300000, guid: 1ddf330fcf7449e4f9b09d45503756e2, type: 3}
-  sSouth: {fileID: 21300000, guid: 8027e3ee87c54bb4e8d6dc49193b49c9, type: 3}
-  sWest: {fileID: 21300000, guid: 10f6965858d60e84f8058371fa9e7293, type: 3}

@@ -333,7 +333,9 @@ namespace SJ
                 if(hit.collider.gameObject.layer ==  8)
                 {
                     hit.rigidbody.AddForce(this.transform.forward * force + this.transform.up * 8f, ForceMode.Impulse);
+                    audioManager.ReadMagnetiFireSphereFx();
                     Instantiate(magnetiFX, hit.point, Quaternion.identity);
+                    
                 }
 
                 else if(hit.collider.gameObject.layer == 10)
@@ -377,8 +379,9 @@ namespace SJ
                 float force = (a * hit.distance) + b; //y = ax+b
                 if(hit.collider.gameObject.layer ==  8)
                 {
-                    Instantiate(surchargeFX, hit.point, Quaternion.identity);
                     hit.rigidbody.AddForce(-this.transform.forward * force, ForceMode.Impulse);
+                    Instantiate(surchargeFX, hit.point, Quaternion.identity);
+                    audioManager.ReadMagnetiFireSphereFx();
                 }
 
                 else if(hit.collider.gameObject.layer == 10)

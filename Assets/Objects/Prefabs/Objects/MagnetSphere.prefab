@@ -9840,9 +9840,9 @@ GameObject:
   - component: {fileID: 6733092483285749029}
   - component: {fileID: 8832764729660897775}
   - component: {fileID: 1410950127898637138}
-  - component: {fileID: 4056459246692067856}
   - component: {fileID: 2749438157458866584}
   - component: {fileID: 5784041000180332704}
+  - component: {fileID: 449564900419131969}
   m_Layer: 8
   m_Name: MagnetSphere
   m_TagString: Untagged
@@ -9858,13 +9858,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7031443695604258874}
   m_LocalRotation: {x: -0.34061348, y: -0.61966324, z: -0.6196632, w: 0.34061342}
-  m_LocalPosition: {x: -112.54, y: 59.66, z: -122.97}
+  m_LocalPosition: {x: -33.36, y: 59.32, z: -160.47}
   m_LocalScale: {x: 236.68063, y: 236.68063, z: 236.68063}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1206498299807332550}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -122.407}
 --- !u!33 &6733092483285749029
 MeshFilter:
@@ -9938,18 +9938,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.010210821
   m_Center: {x: -0.000000003259629, y: -0.0000000032596283, z: 0.0000000018626448}
---- !u!114 &4056459246692067856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7031443695604258874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978d710a143112542bd9e6838739a9ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2749438157458866584
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9989,6 +9977,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978d710a143112542bd9e6838739a9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &449564900419131969
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031443695604258874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b9c6d8c7a3fdc374b8f47d04859b9218, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.716
+  m_Pitch: 0.44
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0.6
+  MinDistance: 1
+  MaxDistance: 45
+  Pan2D: 1
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7747002053765534775
 GameObject:
   m_ObjectHideFlags: 0
@@ -10040,7 +10124,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -10068,12 +10152,12 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0

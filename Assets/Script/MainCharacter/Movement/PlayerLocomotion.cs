@@ -277,12 +277,12 @@ namespace SJ
                     {
                         animatorManager.PlayTargetAnimation("Hard Landing", true);
                         int landDamage = (int)Math.Truncate(inAirTimer);
-                        playerStats.TakeDamage(landDamage);
+                        playerStats.TakeDamage(landDamage, 3);
                         inAirTimer = 0;
                     }
                     else if(inAirTimer >= 5f)
                     {
-                        playerStats.TakeDamage(1000);
+                        playerStats.TakeDamage(1000, 3);
                         
                         if(playerStats.stateJiataData.isIndomitable)
                             animatorManager.PlayTargetAnimation("Hard Landing", true);

@@ -7,11 +7,11 @@ public class StatesCharacterData : ScriptableObject
     public bool isInteract;
     public bool isIndomitable;
     public bool isHidden;
+    public bool canSurcharge, canArcLight, canThunder;
     public int d_HighAttack = 10;
     public int d_LowAttack = 5;
     public int d_ArcLight = 46;
     public int d_Thunder = 160;
     public int d_Magneti = 5;
-    public Sprite sNorth, sEast, sSouth, sWest;
 
 }
