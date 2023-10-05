@@ -66,9 +66,9 @@ namespace SJ
             pauseMenu.SetActive(false);
             dialogUI.SetActive(false);
             onPause = false;
-            brassardG.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            brassardG.GetComponent<SkinnedMeshRenderer>().enabled = true;
             brassardL.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            brasG.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            brasG.GetComponent<SkinnedMeshRenderer>().enabled = true;
             brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
             mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
             maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;
@@ -241,7 +241,7 @@ namespace SJ
             {
                 if(Input.GetKey(KeyCode.M))
                 {
-                    playerStats.TakeDamage(1000);
+                    playerStats.TakeDamage(1000, 3);
                 }
             }
             
