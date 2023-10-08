@@ -161,37 +161,6 @@ public class SorceryManager : MonoBehaviour
         if(inventory.haveEauCad && inventory.haveCorde) inventory.canSomm = true; else inventory.canSomm = false;
         if(inventory.haveClouMoluk && inventory.havePierreSel) inventory.canDest = true; else inventory.canDest = false;
         if(inventory.haveDentBK && inventory.havePierreBaemb) inventory.canBaemb = true; else inventory.canBaemb = false;
-
-        if(!inventory.canPur) s1.GetComponent<Image>().enabled = false; 
-        else 
-        {
-            s1.GetComponent<Image>().enabled = true;
-            statesJiataData.sNorth = s1.GetComponent<Image>().sprite;
-            sorceryPadManager.sorcerPalettes[0].sprite = statesJiataData.sNorth;            
-        }
-
-        if(!inventory.canSomm) s2.GetComponent<Image>().enabled = false; 
-        else
-        {
-            s2.GetComponent<Image>().enabled = true;
-            statesJiataData.sEast = s2.GetComponent<Image>().sprite;
-            sorceryPadManager.sorcerPalettes[1].sprite = statesJiataData.sEast;           
-        }
-
-        if(!inventory.canDest) s3.GetComponent<Image>().enabled = false;
-        else
-        {
-            s3.GetComponent<Image>().enabled = true;
-            statesJiataData.sSouth = s3.GetComponent<Image>().sprite;
-            sorceryPadManager.sorcerPalettes[2].sprite = statesJiataData.sSouth;  
-        }
-
-        if(!inventory.canBaemb) s4.GetComponent<Image>().enabled = false;else
-        {
-            s4.GetComponent<Image>().enabled = true;
-            statesJiataData.sWest = s4.GetComponent<Image>().sprite;
-            sorceryPadManager.sorcerPalettes[3].sprite = statesJiataData.sWest;  
-        }
     }
 
 }

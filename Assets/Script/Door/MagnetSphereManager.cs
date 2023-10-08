@@ -5,9 +5,12 @@ public class MagnetSphereManager : MonoBehaviour
 {
     Rigidbody msRigibody;
     VaseContainerManager vaseContainerManager;
+    PlayerStats playerStats;
+    readonly int flameDamage = 6;
 
     void Awake()
     {
+        playerStats = FindObjectOfType<PlayerStats>();
         msRigibody = GetComponent<Rigidbody>();
     }
 
@@ -19,7 +22,7 @@ public class MagnetSphereManager : MonoBehaviour
     {
         if(other.gameObject.layer == 3)
         {
-            msRigibody.velocity = Vector3.zero;
+            playerStats.TakeDamage(flameDamage, 1);
         }
         else if(other.gameObject.layer == 10)
         {

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6d889be1a703cf548a82a7f9028083e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - runeData: {fileID: 11400000, guid: 3f3b899738cef384d8b15da4b0d8acfd, type: 2}
+  - onRuneH: {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
+  - onRuneB: {fileID: 2100000, guid: 82bd10e787bafa448b8444efc28ae6f5, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

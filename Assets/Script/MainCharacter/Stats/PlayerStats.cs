@@ -62,7 +62,7 @@ namespace SJ
         }
 
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, int levelDamage)
         {
             if(stateJiataData.isIndomitable)
                 return;
@@ -73,8 +73,9 @@ namespace SJ
 
             if(currentHealth > 0 && !playerManager.isInAir) 
             {
-                if(damage < 20) animatorManager.PlayTargetAnimation("Low Damage", true);
-                else animatorManager.PlayTargetAnimation("High Damage", true);
+                if(levelDamage == 0) animatorManager.PlayTargetAnimation("Low Damage", true);
+                else if(levelDamage == 1) animatorManager.PlayTargetAnimation("Middle Damage", true);
+                else if(levelDamage == 2) animatorManager.PlayTargetAnimation("High Damage", true);
             }
 
             else if(currentHealth <= 0)

@@ -16,8 +16,6 @@ namespace SJ
         public StatesCharacterData statesJiataData;
         public GameObject sorceryUp, sorceryDown, sorceryLeft, sorceryRight;
 
-
-        public List <Image> sorcerPalettes = new();
         public List <Shader> jiataShaders = new();
         public List <SkinnedMeshRenderer> jiatabodyRenderer = new();
 
@@ -37,10 +35,6 @@ namespace SJ
             sorceryLeft = GameObject.Find("SoulPefussep");
             sorceryRight = GameObject.Find("SoulLituba");
 
-            sorcerPalettes[0] = GameObject.Find("SNorth").GetComponent<Image>();
-            sorcerPalettes[1] = GameObject.Find("SEast").GetComponent<Image>();
-            sorcerPalettes[2] = GameObject.Find("SSouth").GetComponent<Image>();
-            sorcerPalettes[3] = GameObject.Find("SWest").GetComponent<Image>();
         }
 
         void Start()
@@ -49,10 +43,6 @@ namespace SJ
             sorceryDown.SetActive(false);
             sorceryRight.SetActive(false);
             sorceryLeft.SetActive(false);
-            sorcerPalettes[0].sprite = statesJiataData.sNorth;
-            sorcerPalettes[1].sprite = statesJiataData.sEast;
-            sorcerPalettes[2].sprite = statesJiataData.sSouth;
-            sorcerPalettes[3].sprite = statesJiataData.sWest;
         }
 
         void Update()

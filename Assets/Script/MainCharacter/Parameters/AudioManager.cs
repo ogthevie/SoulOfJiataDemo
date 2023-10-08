@@ -104,22 +104,10 @@ namespace SJ
             jiataAudioSource.PlayOneShot(fightSfx[3]);
         }
 
-        public void ReadAttractionFx()
-        {
-            jiataAudioSource.volume = footStepVolume;
-            jiataAudioSource.PlayOneShot(fightSfx[2]);
-        }
-
-        public void ReadSurchargeFx()
-        {
-            jiataAudioSource.volume = footStepVolume;
-            jiataAudioSource.PlayOneShot(fightSfx[7]);
-        }
-
-        public void ReadDismissFx()
+        public void ReadMagnetiFireSphereFx()
         {
             jiataAudioSource.volume = attackVolume;
-            jiataAudioSource.PlayOneShot(fightSfx[8]);
+            jiataAudioSource.PlayOneShot(fightSfx[11]);
         }
 
         public void ReadArcLightningFx()
@@ -140,6 +128,12 @@ namespace SJ
         {
             interactionAudioSource.volume = attackVolume;
             interactionAudioSource.PlayOneShot(fightSfx[13]);
+        }
+
+        public void ReadBurnHitFx()
+        {
+            interactionAudioSource.volume = attackVolume;
+            interactionAudioSource.PlayOneShot(fightSfx[8]);
         }
 
         public void ReadNavigationInventoryFx()
@@ -176,12 +170,6 @@ namespace SJ
         {
             interactionAudioSource.volume = jumpVolume;
             interactionAudioSource.PlayOneShot(pause[3]);
-        }
-
-        public void ActivateRune()
-        {
-            cameraAudioSource.volume = jumpVolume;
-            cameraAudioSource.PlayOneShot(fightSfx[11]);
         }
 
         public void BreakVase()
