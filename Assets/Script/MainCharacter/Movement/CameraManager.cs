@@ -29,7 +29,7 @@ namespace SJ
         private float defautlPosition; //la position par défaut de la camera en Y
         private float lookAngle;
         private float pivotAngle;
-        public float minimumPivot = -5;
+        public readonly float minimumPivot = -10;
         public float maximumPivot = 90;
 
         public float cameraSphereRadius = 0.2f;

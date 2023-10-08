@@ -1,19 +1,8 @@
 using UnityEngine;
-using SJ;
 
-
-public class SurchargeBrassardManager : MonoBehaviour
+public class SurchargeEventManager : EventStoryTriggerManager
 {
-    PlayerManager playerManager;
-    InputManager inputManager;
-
-    void Start()
-    {
-        playerManager = FindObjectOfType<PlayerManager>();
-        inputManager = FindObjectOfType<InputManager>();
-    }
-
-    void OnCollisionEnter(Collision other)
+    protected override void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.layer == 3)
         {
@@ -21,7 +10,8 @@ public class SurchargeBrassardManager : MonoBehaviour
             playerManager.brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
             //Tutoscreen
             inputManager.jiatastats.canSurcharge = true;
-            Destroy(this.gameObject);
+            Destroy(this.transform.GetChild(0).gameObject);
+            Destroy(this);
         }
 
         

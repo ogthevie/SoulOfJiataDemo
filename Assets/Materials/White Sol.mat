@@ -150,7 +150,7 @@ Material:
     - _FaceShadowMapPow: 0.2
     - _FaceShadowSmoothness: 0
     - _FlattenGI: 0
-    - _FresnelPower: 3
+    - _FresnelPower: 2.63
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
@@ -219,7 +219,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.7809719, g: 0.80355227, b: 0.8490566, a: 1}
-    - _Color: {r: 0.7809719, g: 0.80355227, b: 0.8490566, a: 1}
+    - _Color: {r: 0.015451076, g: 2.8598423, b: 0.0134898545, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
     - _FaceRightDirection: {r: 1, g: 0, b: 0, a: 0}

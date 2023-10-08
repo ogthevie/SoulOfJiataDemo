@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1487860038422377755}
   m_Layer: 16
   m_Name: RockBalise
-  m_TagString: Rune
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -115,7 +115,7 @@ Transform:
   - {fileID: 5259987302888606664}
   - {fileID: 6855372597541644247}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1487860038422377755
 BoxCollider:
@@ -199,7 +199,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82bd10e787bafa448b8444efc28ae6f5, type: 2}
+  - {fileID: 2100000, guid: 10b63e3cd3222b344bf4ab54caa0a5cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
