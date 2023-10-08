@@ -2,6 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Inventory", menuName = "Jiata/Inventory Data")]
 
+[System.Serializable]
 public class InventoryData : ScriptableObject
 
 {

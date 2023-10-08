@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6117000968639047465}
   - component: {fileID: 7155138358824167564}
   - component: {fileID: 4947449538230918214}
-  - component: {fileID: 1235660232505260445}
+  - component: {fileID: 1251266292694183164}
   m_Layer: 6
   m_Name: MarmiteFeu
   m_TagString: Untagged
@@ -64,7 +64,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 248c4d2898374ff489c3d251a74b21ae, type: 2}
   - {fileID: 2100000, guid: 357e8c47d1a837c4a8d942bd5463cf9c, type: 2}
-  - {fileID: 2100000, guid: 55e4d98f2443ab04e8c6c7e3a7bfed56, type: 2}
+  - {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
   - {fileID: 2100000, guid: f5a111a568bb8a6498a788d1605c789d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1235660232505260445
-MeshCollider:
+--- !u!65 &1251266292694183164
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7361345526050009783, guid: a6224ff950a01f448944cf4414468c83, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.06151782, y: 0.06866118, z: 0.23565407}
+  m_Center: {x: -0.0007093854, y: -0.005893597, z: 0.11893178}
