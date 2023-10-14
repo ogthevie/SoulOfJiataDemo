@@ -16,7 +16,7 @@ MonoBehaviour:
   isInteract: 0
   isIndomitable: 0
   isHidden: 0
-  canSurcharge: 1
+  canSurcharge: 0
   canArcLight: 0
   canThunder: 0
   d_HighAttack: 10

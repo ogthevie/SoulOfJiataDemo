@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a455dc05e72a3744962bc1d54e42da1, type: 3}
   m_Name: Rune
   m_EditorClassIdentifier: 
-  base_Door: 1
+  base_Door: 0
   mid_Door: 0
   sup_Door: 0
-  base_DoorH: 1
+  base_DoorH: 0
   mid_DoorH: 0
   mid_DoorB: 0
   sup_DoorH: 0
