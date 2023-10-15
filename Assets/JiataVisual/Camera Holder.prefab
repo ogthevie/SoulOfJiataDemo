@@ -297,7 +297,7 @@ Transform:
   m_Children:
   - {fileID: 9033572076768253194}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 9.731, y: -0.343, z: -1.387}
 --- !u!114 &9033572077373476051
 MonoBehaviour:
@@ -324,10 +324,8 @@ MonoBehaviour:
   lookSpeed: 0.03
   followSpeed: 0.08
   pivotSpeed: 0.02
-  minimumPivot: -2
   maximumPivot: 90
   cameraSphereRadius: 0.2
-  cameraCollisionOffset: 0.2
   minimumCollisionOffset: 0.2
   lockedPivotPosition: 2.25
   unlockedPivotPosition: 1.65

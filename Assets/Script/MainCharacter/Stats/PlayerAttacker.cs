@@ -61,11 +61,9 @@ namespace SJ
 
         public RaycastHit targetHit;
         public RaycastHit [] targetsThunderHits;
+        public Material [] lightingMaterials;
 
         string[] lowAttackArray = new string[] { "LowAttack1", "LowAttack2", "LowAttack3", "LowAttack4"};
-
-
-
 
         private void Awake()
         {
@@ -335,6 +333,11 @@ namespace SJ
                     hit.rigidbody.AddForce(this.transform.forward * force + this.transform.up * 8f, ForceMode.Impulse);
                     audioManager.ReadMagnetiFireSphereFx();
                     Instantiate(magnetiFX, hit.point, Quaternion.identity);
+                    if(!hit.collider.transform.GetChild(1).gameObject.activeSelf)
+                    {
+                        hit.collider.transform.GetChild(1).gameObject.SetActive(true);
+                    }
+                    hit.collider.transform.GetChild(0).gameObject.SetActive(false);
                     
                 }
 
@@ -364,6 +367,10 @@ namespace SJ
                         }
                     }
                 }
+                else if(hit.collider.gameObject.tag == "Stele")
+                {
+                    hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[1];
+                }   
 
             }
         }
@@ -382,6 +389,12 @@ namespace SJ
                     hit.rigidbody.AddForce(-this.transform.forward * force, ForceMode.Impulse);
                     Instantiate(surchargeFX, hit.point, Quaternion.identity);
                     audioManager.ReadMagnetiFireSphereFx();
+
+                    if(!hit.collider.transform.GetChild(0).gameObject.activeSelf)
+                    {
+                        hit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                    }
+                    hit.collider.transform.GetChild(1).gameObject.SetActive(false);
                 }
 
                 else if(hit.collider.gameObject.layer == 10)
@@ -410,7 +423,10 @@ namespace SJ
                         }
                     }
                 }
-                
+                else if(hit.collider.gameObject.tag == "Stele")
+                {
+                    hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[0];
+                }                
 
             }
 

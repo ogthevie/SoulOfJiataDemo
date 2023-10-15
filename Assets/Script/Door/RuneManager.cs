@@ -30,15 +30,14 @@ public class RuneType
     {
         if(other.gameObject.layer == 8)
         {
-            if(runeManager.gameObject.tag == other.gameObject.tag)
+
+            if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.base_DoorH)
             {
-                if(other.gameObject.tag == "RuneH" && !runeManager.runeData.base_DoorH)
-                {
-                    Debug.Log("Rune de base Active");
-                    runeManager.runeData.base_DoorH = true;
-                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
-                }
+                Debug.Log("Rune de base Active");
+                runeManager.runeData.base_DoorH = true;
+                runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
             }
+
         }        
     }
 
@@ -47,21 +46,18 @@ public class RuneType
 
         if(other.gameObject.layer == 8)
         {
-            if(runeManager.gameObject.tag == other.gameObject.tag)
+            if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.mid_DoorH)
             {
-                if(other.gameObject.tag == "RuneH" && !runeManager.runeData.mid_DoorH)
-                {
-                    //Debug.Log("Rune de base Active");
-                    runeManager.runeData.mid_DoorH = true;
-                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
+                //Debug.Log("Rune de base Active");
+                runeManager.runeData.mid_DoorH = true;
+                runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
 
-                }
-                else if(other.gameObject.tag == "RuneB" && !runeManager.runeData.mid_DoorB)
-                {
-                    //Debug.Log("Rune de base Active");
-                    runeManager.runeData.mid_DoorB = true;
-                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
-                }
+            }
+            else if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && !runeManager.runeData.mid_DoorB)
+            {
+                //Debug.Log("Rune de base Active");
+                runeManager.runeData.mid_DoorB = true;
+                runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
             }
         }
 
@@ -70,20 +66,17 @@ public class RuneType
     public void HandleSupDoorRune(Collider other, RuneManager runeManager)
         {
 
-            if(other.gameObject.layer == 8)
+            if(runeManager.gameObject.tag == other.gameObject.tag)
             {
-                if(runeManager.gameObject.tag == other.gameObject.tag)
+                if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.sup_DoorH)
                 {
-                    if(other.gameObject.tag == "RuneH" && !runeManager.runeData.sup_DoorH)
-                    {
-                        runeManager.runeData.sup_DoorH = true;
-                        runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
-                    }
-                    else if(other.gameObject.tag == "RuneB" && !runeManager.runeData.sup_DoorB)
-                    {
-                        runeManager.runeData.sup_DoorH = true;
-                        runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
-                    }
+                    runeManager.runeData.sup_DoorH = true;
+                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
+                }
+                else if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && !runeManager.runeData.sup_DoorB)
+                {
+                    runeManager.runeData.sup_DoorH = true;
+                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
                 }
             }
 

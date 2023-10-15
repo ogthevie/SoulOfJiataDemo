@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degreeSun: 0
-  litubaData: {fileID: 11400000, guid: ff72b7dc32a1f2641a869636a268ec98, type: 2}
+  dayTimer: 0

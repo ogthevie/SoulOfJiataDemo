@@ -8,9 +8,11 @@ public class DontDestroyOnLoad : MonoBehaviour
 
     void Awake()
     {
+
         foreach (var elt in objects)
         {
             DontDestroyOnLoad(elt);
-        }       
+        }
+
     }
 }

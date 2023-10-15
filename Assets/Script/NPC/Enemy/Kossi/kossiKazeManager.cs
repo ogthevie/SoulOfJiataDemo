@@ -50,7 +50,7 @@ public class kossiKazeManager : EnemyManager
     {
         if(isDead) 
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 15f);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 10f);
 
             foreach(var elt in colliders)
             {
