@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rune
   m_EditorClassIdentifier: 
   base_Door: 0
-  mid_Door: 0
+  mid_Door: 1
   sup_Door: 0
   base_DoorB: 0
   mid_DoorH: 1
