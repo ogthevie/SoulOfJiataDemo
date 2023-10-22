@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3884404486478618647}
   - component: {fileID: 3374047037732769338}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: rock02 Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3621440489706520613}
   - {fileID: 7417027160475643459}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &3374047037732769338
 LODGroup:
@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d23e2c399fa8bac47908afbc009b48bd,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d23e2c399fa8bac47908afbc009b48bd,
         type: 3}

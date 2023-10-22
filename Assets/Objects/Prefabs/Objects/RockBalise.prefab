@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6855372597541644247}
   - component: {fileID: 4879330522465083699}
   - component: {fileID: 1252989886115756256}
-  m_Layer: 16
+  m_Layer: 6
   m_Name: RockBalise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3023326878356759317}
   - component: {fileID: 1487860038422377755}
-  m_Layer: 16
+  m_Layer: 6
   m_Name: RockBalise
   m_TagString: Stele
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5259987302888606664}
   - component: {fileID: 8129998900162573061}
   - component: {fileID: 6116651971881530944}
-  m_Layer: 16
+  m_Layer: 6
   m_Name: HeartRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

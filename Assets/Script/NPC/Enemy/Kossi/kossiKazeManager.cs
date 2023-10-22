@@ -33,11 +33,12 @@ public class kossiKazeManager : EnemyManager
 
     void HandleCurrentAction()
     {
-        if(kossiKazePattern.currentTarget == null)
+        /*if(kossiKazePattern.currentTarget == null)
         {
             kossiKazePattern.HandleDetection();
         }
-        else kossiKazePattern.HandleMoveToTarget();
+        else*/
+        kossiKazePattern.HandleMoveToTarget();
 
     }
 

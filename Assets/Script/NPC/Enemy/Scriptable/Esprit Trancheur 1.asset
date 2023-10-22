@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Esprit Trancheur 1
   m_EditorClassIdentifier: 
   mobName: Tolol
-  mobHealth: 200
+  mobHealth: 90
   mobPrefab: {fileID: 0}
   mobFAtt: 8
   mobSAtt: 14

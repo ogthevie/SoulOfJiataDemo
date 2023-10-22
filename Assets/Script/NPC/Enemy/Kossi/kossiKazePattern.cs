@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class kossiKazePattern : MonoBehaviour
 {
+    public PlayerManager playerManager;
     public PlayerManager currentTarget;
     kossiKazeManager kossiKazeManager;
     public StatesCharacterData statesJiataData;
@@ -27,6 +28,7 @@ public class kossiKazePattern : MonoBehaviour
 
     void Start()
     {
+        playerManager = FindObjectOfType<PlayerManager>();
         kossiKazeManager = GetComponent<kossiKazeManager>();
         kazeAudioManager = GetComponent<KazeAudioManager>();
         kossiKazeAnimatorManager = GetComponent<KossiKazeAnimatorManager>();
@@ -34,9 +36,11 @@ public class kossiKazePattern : MonoBehaviour
         agentKossiKaze = GetComponentInChildren<NavMeshAgent>();
         agentKossiKaze.enabled = false;
         kossiKazeRigibody.isKinematic = false;
+        currentTarget = playerManager;
+        kossiKazeManager.isPreformingAction = false;     
     }
 
-    public void HandleDetection()
+    /*public void HandleDetection()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, kossiKazeManager.detectionRadius, detectionLayer);
 
@@ -57,10 +61,12 @@ public class kossiKazePattern : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public void HandleMoveToTarget()
     {
+        if(currentTarget.isDead)
+            return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
 
@@ -73,6 +79,14 @@ public class kossiKazePattern : MonoBehaviour
         {
             if(distanceFromTarget > stoppingDistance)
             {
+                if(distanceFromTarget < 15)
+                {
+                    instability.Play();   
+                }
+                else
+                {
+                    instability.Stop();
+                }
                 kossiKazeAnimatorManager.anim.SetFloat("run", 1);
                 canExplose = false;
             }
@@ -104,12 +118,20 @@ public class kossiKazePattern : MonoBehaviour
 
     void HandleStopChase()
     {
-        if(distanceFromTarget >= maxDistanceFromTarget || statesJiataData.isHidden || currentTarget.isDead)
+        if(statesJiataData.isHidden || currentTarget.isDead) //distanceFromTarget >= maxDistanceFromTarget
         {
             currentTarget = null;
             kossiKazeAnimatorManager.anim.SetFloat("run", 0);
             kossiKazeManager.isPreformingAction = true;
             agentKossiKaze.enabled = false;
+        }
+        else
+        {
+            if(currentTarget == null)
+            {
+                currentTarget = playerManager;
+                kossiKazeManager.isPreformingAction = false;
+            }
         }
     }
 

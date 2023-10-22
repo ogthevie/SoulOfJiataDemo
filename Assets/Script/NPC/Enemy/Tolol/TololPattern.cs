@@ -8,6 +8,7 @@ using SJ;
 public class TololPattern : MonoBehaviour
 {
     PlayerAttacker playerAttacker;
+    PlayerManager playerManager;
     public StatesCharacterData statesJiataData;
     public TololAnimatorManager tololAnimatorManager;
     TololManager tololManager;
@@ -16,7 +17,7 @@ public class TololPattern : MonoBehaviour
     public PlayerManager currentTarget;
     public NavMeshAgent agentTolol;
     public Rigidbody tololRigibody;
-    public LayerMask detectionLayer;
+    //public LayerMask detectionLayer;
     public float distanceFromTarget;
     public float maxDistanceFromTarget = 30;
     float stoppingDistance = 2.75f;
@@ -29,6 +30,7 @@ public class TololPattern : MonoBehaviour
     void Start()
     {
         playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerManager = FindObjectOfType<PlayerManager>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
         tololManager = GetComponent<TololManager>();
         tololRigibody = GetComponent<Rigidbody>();
@@ -37,6 +39,8 @@ public class TololPattern : MonoBehaviour
         agentTolol.enabled = false;
         tololRigibody.isKinematic = false;
         collider.enabled = false;
+        currentTarget = playerManager;
+        tololManager.isPreformingAction = false;
     }
 
     void LateUpdate()
@@ -53,7 +57,7 @@ public class TololPattern : MonoBehaviour
     }
 
 
-    public void HandleDetection()
+    /*public void HandleDetection()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, tololManager.detectionRadius, detectionLayer);
 
@@ -75,10 +79,12 @@ public class TololPattern : MonoBehaviour
             }
         }
 
-    }
+    }*/
 
     public void HandleMoveToTarget()
     {
+        if(currentTarget.isDead)
+            return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
 
@@ -123,13 +129,21 @@ public class TololPattern : MonoBehaviour
 
     public void HandleStopChase()
     {
-        if(distanceFromTarget >= maxDistanceFromTarget || statesJiataData.isHidden)
+        if(statesJiataData.isHidden) //distanceFromTarget >= maxDistanceFromTarget ||   -- xa peut etre utile
         {
             currentTarget = null;
             tololAnimatorManager.anim.SetFloat("vertical", 0);
             tololManager.isPreformingAction = true;
             agentTolol.enabled = false;
             collider.enabled = false;
+        }
+        else
+        {
+            if(currentTarget == null)
+            {
+                currentTarget = playerManager;
+                tololManager.isPreformingAction = false;
+            }
         }
     }
 

@@ -177,8 +177,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb1bf8b4a7e6dbd4c8db571f00bd2847, type: 2}
-  - {fileID: 2100000, guid: c37c426eff2ae5c44996061e04c7178d, type: 2}
+  - {fileID: 2100000, guid: c41f85f042a73bf4a905e90a663b824c, type: 2}
+  - {fileID: 2100000, guid: 08a1f77ff8ad69349a201bcc25b4ec46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5239,7 +5239,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 20407c8e388f47640988e824492da710, type: 2}
-  - {fileID: 2100000, guid: c37c426eff2ae5c44996061e04c7178d, type: 2}
+  - {fileID: 2100000, guid: 08a1f77ff8ad69349a201bcc25b4ec46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5280,8 +5280,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.011240015, y: 0.009614365, z: 0.047280375}
-  m_Center: {x: -0.002437327, y: -0.0005450087, z: 0.035893027}
+  m_Size: {x: 0.008732674, y: 0.009614365, z: 0.037572805}
+  m_Center: {x: -0.0020920818, y: -0.000545009, z: 0.031038737}
 --- !u!114 &5383455080792516455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6625,9 +6625,6 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   agentTolol: {fileID: 0}
   tololRigibody: {fileID: 0}
-  detectionLayer:
-    serializedVersion: 2
-    m_Bits: 8
   distanceFromTarget: 0
   maxDistanceFromTarget: 30
   timeAttack: 0

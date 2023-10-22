@@ -20,7 +20,7 @@ public class RuneManager : MonoBehaviour
         if(this.transform.parent.name == "Base Door") runeType.HandleBaseDoorRune(other, this);
         else if(this.transform.parent.name == "Mid Door") runeType.HandleMidDoorRune(other, this);
         else if(this.transform.parent.name == "Sup Door") runeType.HandleSupDoorRune(other, this);
-        Debug.Log(runeData.base_DoorH);
+        Debug.Log(runeData.base_DoorB);
     }
 }
 
@@ -31,11 +31,11 @@ public class RuneType
         if(other.gameObject.layer == 8)
         {
 
-            if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.base_DoorH)
+            if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && !runeManager.runeData.base_DoorB)
             {
                 Debug.Log("Rune de base Active");
-                runeManager.runeData.base_DoorH = true;
-                runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
+                runeManager.runeData.base_DoorB = true;
+                runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
             }
 
         }        

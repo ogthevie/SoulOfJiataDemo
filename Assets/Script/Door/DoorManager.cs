@@ -25,7 +25,7 @@ public class DoorType
     {
         if(!runeData.base_Door)
         {
-            if(runeData.base_DoorH)
+            if(runeData.base_DoorB)
             {
                 float velocity = 0.2f;
                 doorManager.transform.position = Vector3.Lerp(doorManager.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
@@ -34,7 +34,6 @@ public class DoorType
             if(doorManager.transform.position.y > doorManager.stopPosition.y) 
             {
                 runeData.base_Door = true;
-                doorManager.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
     }
@@ -54,7 +53,6 @@ public class DoorType
             if(doorManager.transform.position.y > doorManager.stopPosition.y)
             {
                 runeData.mid_Door = true;
-                doorManager.transform.GetChild(0).gameObject.SetActive(true);
             }
 
         }
