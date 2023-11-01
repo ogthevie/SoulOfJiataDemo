@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -16.163}
 --- !u!33 &7491510859668099589
 MeshFilter:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 248c4d2898374ff489c3d251a74b21ae, type: 2}
-  - {fileID: 2100000, guid: 357e8c47d1a837c4a8d942bd5463cf9c, type: 2}
+  - {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
   - {fileID: 2100000, guid: c71e90ecdee9ba548bbc2d21f485e7de, type: 2}
   - {fileID: 2100000, guid: 20407c8e388f47640988e824492da710, type: 2}
   - {fileID: 2100000, guid: 144f59e27f2986645ab246642b03fe1c, type: 2}

@@ -1,3 +1,4 @@
+using System.Collections;
 using SJ;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class MagnetSphereManager : MonoBehaviour
     AudioSource audioSource;
     PlayerStats playerStats;
     PlayerAttacker playerAttacker;
+    MagnetoSourceManager magnetoSourceManager;
     Material magnetSphereMaterial;
     readonly int flameDamage = 6;
 
@@ -14,6 +16,7 @@ public class MagnetSphereManager : MonoBehaviour
     {
         playerStats = FindObjectOfType<PlayerStats>();
         playerAttacker = FindObjectOfType<PlayerAttacker>();
+        magnetoSourceManager = FindObjectOfType<MagnetoSourceManager>();
         msRigibody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         magnetSphereMaterial = GetComponent<Renderer>().materials[1];
@@ -52,11 +55,7 @@ public class MagnetSphereManager : MonoBehaviour
                     if(component is kossiKazeManager kossiKazeManager)
                     {
                         kossiKazeManager.kossiKazePattern.HandleExplosion();
-                        Destroy(this.gameObject);
-                    }
-                    else if(component is TololManager tololManager)
-                    {
-                        tololManager.TakeDamage(100);
+                        HandleDestroyMagnetSphere();
                     }
                 }
             }
@@ -82,4 +81,19 @@ public class MagnetSphereManager : MonoBehaviour
                 }      
         }
     }
+
+    public void HandleDestroyMagnetSphere()
+    {
+
+        StartCoroutine (DestroyMagnet());
+
+        IEnumerator DestroyMagnet()
+        {
+            magnetoSourceManager.HandleSpawnMagnetSphere();
+            yield return new WaitForSeconds(0.5f);
+            Destroy(this.gameObject);
+        }
+    }
+
+
 }

@@ -598,6 +598,7 @@ namespace SJ
                 if(hit.collider.gameObject.layer == 8)
                 {
                     StartCoroutine(HandleThunderEffect(hit.transform.position));
+                    hit.collider.gameObject.GetComponent<MagnetSphereManager>().HandleDestroyMagnetSphere();
                 }
 
                 if(hit.collider.gameObject.layer == 12)

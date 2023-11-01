@@ -81,7 +81,7 @@ public class kossiKazePattern : MonoBehaviour
             {
                 if(distanceFromTarget < 15)
                 {
-                    instability.Play();   
+                    instability.Play();
                 }
                 else
                 {

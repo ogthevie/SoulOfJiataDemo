@@ -10653,7 +10653,7 @@ AudioSource:
   Priority: 100
   DopplerLevel: 1
   MinDistance: 0.5
-  MaxDistance: 20
+  MaxDistance: 18
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10688,7 +10688,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10783,6 +10783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b74aa83ea0e804cac319e144b6ce93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   currentTarget: {fileID: 0}
   statesJiataData: {fileID: 11400000, guid: 3739c9a0ca7a848418e3c761ed693a0d, type: 2}
   detectionLayer:
@@ -10826,7 +10827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAudioSource: {fileID: 0}
   enemySfx:
-  - {fileID: 8300000, guid: 4468d1fdc9d377b479656930d7f89095, type: 3}
+  - {fileID: 8300000, guid: 4647f24ce9d2d1c49b63c48e7fe76030, type: 3}
   - {fileID: 8300000, guid: 4468d1fdc9d377b479656930d7f89095, type: 3}
 --- !u!1 &6784273815541979371
 GameObject:

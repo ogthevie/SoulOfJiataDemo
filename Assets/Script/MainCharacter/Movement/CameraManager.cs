@@ -23,7 +23,7 @@ namespace SJ
 
         public float lookSpeed = 0.03f;
         public float followSpeed = 0.07f;
-        public float pivotSpeed = 0.2f;
+        public float pivotSpeed = 0.006f;
 
         private float targetPosition; 
         private float defautlPosition; //la position par défaut de la camera en Y
@@ -34,7 +34,7 @@ namespace SJ
 
         public float cameraSphereRadius = 0.2f;
         public readonly float cameraCollisionOffset = 0.2f; //De combien la camera sera décalé en cas de collision
-        public float minimumCollisionOffset = 0.2f;
+        public float minimumCollisionOffset = 0.1f;
         public float lockedPivotPosition = 2.25f;
         public float unlockedPivotPosition = 1.65f;
 

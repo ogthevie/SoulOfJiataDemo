@@ -13,10 +13,15 @@ public abstract class  EnemyAudioManager : MonoBehaviour
 
     public AudioSource enemyAudioSource;
     public List<AudioClip> enemySfx = new (); //0 -- detect' 1 -- att 2 -- mort
+    void Awake()
+    {
+        enemyAudioSource = GetComponent<AudioSource>();
+    }
 
     public virtual void ReadDetectionFx()
     {
         enemyAudioSource.PlayOneShot(enemySfx[0]);
+
     }
 
     public virtual void ReadAttackFx()

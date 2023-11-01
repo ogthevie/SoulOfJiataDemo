@@ -1,9 +1,13 @@
+using UnityEngine;
 
 public class SupDoorManager : DoorManager
 {
+    public GameObject supDoor;
+    Vector3 stopSupDoorposition;
+
     private void LateUpdate() 
     {
-        doorType.HandleSupDoor(runeData, this);
+        doorType.HandleSupDoor(runeData, supDoor, this);
         HandleStopDoorRuneProcess();    
     }
 

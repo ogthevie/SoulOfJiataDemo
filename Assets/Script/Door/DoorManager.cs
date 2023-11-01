@@ -3,16 +3,11 @@ using UnityEngine;
 public abstract class DoorManager : MonoBehaviour
 {
     public RuneData runeData;
+    public AudioSource doorAudioSource;
     protected DoorType doorType = new DoorType();
     public Vector3 openPosition;
     public Vector3 stopPosition;
 
-
-    void Awake()
-    {
-        openPosition = this.transform.position + new Vector3 (0, 10, 0);
-        stopPosition = openPosition - Vector3.up*2;
-    }
 
     protected abstract void HandleStopDoorRuneProcess();
 
@@ -38,19 +33,20 @@ public class DoorType
         }
     }
 
-    public void HandleMidDoor (RuneData runeData, DoorManager doorManager)
+    public void HandleMidDoor (RuneData runeData, GameObject midDoorDown, GameObject wall, DoorManager doorManager)
     {
         if(!runeData.mid_Door)
         {
-            Vector3 openPosition = doorManager.transform.position + new Vector3 (0, 10, 0);
 
             if(runeData.mid_DoorH && runeData.mid_DoorB)
             {
-                float velocity = 0.2f;
-                doorManager.transform.position = Vector3.Lerp(doorManager.transform.position, openPosition, velocity * Time.deltaTime);
+                float velocity = 0.1f;
+                doorManager.doorAudioSource.enabled = true;
+                midDoorDown.transform.position = Vector3.Lerp(midDoorDown.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
+                wall.SetActive(false);
             }
 
-            if(doorManager.transform.position.y > doorManager.stopPosition.y)
+            if(midDoorDown.transform.position.y > doorManager.stopPosition.y)
             {
                 runeData.mid_Door = true;
             }
@@ -58,19 +54,17 @@ public class DoorType
         }
     }
 
-    public void HandleSupDoor (RuneData runeData, DoorManager doorManager)
+    public void HandleSupDoor (RuneData runeData, GameObject supDoorDown, DoorManager doorManager)
     {
         if(!runeData.sup_Door)
         {
-            Vector3 openPosition = doorManager.transform.position + new Vector3 (0, 10, 0);
-
             if(runeData.sup_DoorH && runeData.sup_DoorB && runeData.sup_DoorG)
             {
                 float velocity = 0.2f;
-                doorManager.transform.position = Vector3.Lerp(doorManager.transform.position, openPosition, velocity * Time.deltaTime);
+                doorManager.transform.position = Vector3.Lerp(supDoorDown.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
             }
 
-            if(doorManager.transform.position.y > doorManager.stopPosition.y)
+            if(supDoorDown.transform.position.y > doorManager.stopPosition.y)
             {
                 runeData.sup_Door = true;
             }  

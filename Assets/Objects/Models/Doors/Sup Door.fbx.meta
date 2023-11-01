@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 2fc9ee7cdfaba9a43ab9ac9aae771d9a
+guid: 82a07c5e2f1789040a5d264fd48738fa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fenetre
+    second: {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HFather
+    second: {fileID: 2100000, guid: 0c89fd48f18793f4394f15289b781b45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 6542d43e8e2f4e7498227cc7ff33545e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,22 @@ guid: 090f8d1cea75341409c051bf82979878
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HFather
+    second: {fileID: 2100000, guid: 1fb97968431dbe74181aafb001238a25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HRockMat
+    second: {fileID: 2100000, guid: 415d7979e1e66fe428528045266b1857, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RuneLituba
+    second: {fileID: 2100000, guid: 21670e7c84d5ff14d88a6bc3096716d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

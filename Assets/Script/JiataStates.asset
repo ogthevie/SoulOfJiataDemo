@@ -17,8 +17,8 @@ MonoBehaviour:
   isIndomitable: 0
   isHidden: 0
   canSurcharge: 0
-  canArcLight: 0
-  canThunder: 0
+  canArcLight: 1
+  canThunder: 1
   d_HighAttack: 10
   d_LowAttack: 5
   d_ArcLight: 46

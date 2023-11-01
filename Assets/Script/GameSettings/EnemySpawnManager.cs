@@ -6,9 +6,10 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public EnemyManager [] enemyManagers = new EnemyManager[5];
 
-    void LateUpdate()
+    void OnTriggerStay(Collider other)
     {
-        CheckisEnemy();
+        if(other.gameObject.layer == 3)
+            CheckisEnemy();
     }
 
     static int CheckRandomEnemy()
@@ -23,6 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
         visuals.transform.SetParent(transform);
         visuals.transform.localPosition = Vector3.zero;
         visuals.transform.rotation = Quaternion.identity;
+        Debug.Log("New kossikaze");
     }
     
     private void CheckisEnemy()
