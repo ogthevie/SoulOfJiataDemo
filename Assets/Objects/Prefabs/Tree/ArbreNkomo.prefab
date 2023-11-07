@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 18
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &478606
 Transform:
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 2055869310249224709}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3359922
 MeshFilter:
@@ -216,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 2284222385587809410, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5768348921944325335, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}

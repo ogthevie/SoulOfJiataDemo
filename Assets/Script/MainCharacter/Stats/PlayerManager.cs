@@ -41,9 +41,11 @@ namespace SJ
         public bool onInventory;
         public bool onSorceryTree;
 
+        public static bool created = false;
+
 
         private void Awake()
-        {
+        { 
             developerModeManager = GetComponent<DeveloperModeManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();

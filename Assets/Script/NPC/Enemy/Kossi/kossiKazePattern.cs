@@ -138,7 +138,7 @@ public class kossiKazePattern : MonoBehaviour
     public void HandleExplosion()
     {
         Instantiate(KazeExplosion, this.gameObject.transform.position, Quaternion.identity);
-        kazeAudioManager.ReadAttackFx();
+        kazeAudioManager.ReadDead();
         instability.Stop();
         kossiKazeManager.isDead = true;
     }

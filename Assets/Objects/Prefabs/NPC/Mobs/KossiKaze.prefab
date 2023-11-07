@@ -10644,7 +10644,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.224
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10655,7 +10655,7 @@ AudioSource:
   MinDistance: 0.5
   MaxDistance: 18
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -10703,7 +10703,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.07777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10827,8 +10827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAudioSource: {fileID: 0}
   enemySfx:
-  - {fileID: 8300000, guid: 4647f24ce9d2d1c49b63c48e7fe76030, type: 3}
   - {fileID: 8300000, guid: 4468d1fdc9d377b479656930d7f89095, type: 3}
+  - {fileID: 8300000, guid: 4647f24ce9d2d1c49b63c48e7fe76030, type: 3}
 --- !u!1 &6784273815541979371
 GameObject:
   m_ObjectHideFlags: 0

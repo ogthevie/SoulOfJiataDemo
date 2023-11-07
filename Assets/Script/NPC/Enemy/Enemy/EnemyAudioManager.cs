@@ -12,13 +12,13 @@ public abstract class  EnemyAudioManager : MonoBehaviour
     //lire le son de mort
 
     public AudioSource enemyAudioSource;
-    public List<AudioClip> enemySfx = new (); //0 -- detect' 1 -- att 2 -- mort
+    public List<AudioClip> enemySfx = new ();
     void Awake()
     {
         enemyAudioSource = GetComponent<AudioSource>();
     }
 
-    public virtual void ReadDetectionFx()
+    public virtual void ReadDead()
     {
         enemyAudioSource.PlayOneShot(enemySfx[0]);
 

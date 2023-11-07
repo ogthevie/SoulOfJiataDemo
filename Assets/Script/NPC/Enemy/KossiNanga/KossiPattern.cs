@@ -61,7 +61,7 @@ public class KossiPattern : MonoBehaviour
                 {
                     currentTarget = playerManager;
                     kossiManager.isPreformingAction = false;
-                    kossiAudioManager.ReadDetectionFx();
+                    kossiAudioManager.ReadAttackFx();
                 }
             }
         }

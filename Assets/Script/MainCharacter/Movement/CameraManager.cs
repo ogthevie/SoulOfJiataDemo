@@ -23,13 +23,13 @@ namespace SJ
 
         public float lookSpeed = 0.03f;
         public float followSpeed = 0.07f;
-        public float pivotSpeed = 0.006f;
+        public float pivotSpeed = 0.02f;
 
         private float targetPosition; 
         private float defautlPosition; //la position par défaut de la camera en Y
         private float lookAngle;
         private float pivotAngle;
-        public readonly float minimumPivot = -10;
+        readonly float minimumPivot = -5f;
         public float maximumPivot = 90;
 
         public float cameraSphereRadius = 0.2f;
@@ -52,6 +52,17 @@ namespace SJ
 
         private void Awake()
         {
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("MainCamera"); // Recherche d'objets avec le tag spécifique
+
+            if (objs.Length > 1) // Vérifier s'il y a déjà des objets persistants présents
+            {
+                // Si oui, détruire les doublons
+                for (int i = 1; i < objs.Length; i++)
+                {
+                    Destroy(objs[i]);
+                }
+            }
+            DontDestroyOnLoad(this.gameObject);
 
             singleton = this;
             myTransform = transform;
