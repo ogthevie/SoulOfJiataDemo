@@ -7,6 +7,7 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
 {
     public TololAnimatorManager tololAnimatorManager;
     public TololPattern tololPattern;
+    TololAudioManager tololAudioManager;
     EnemyHealthBar enemyHealthBar;
     public GameObject tololHealthBar;
     public GameObject epeeTolol;
@@ -20,6 +21,7 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
         cameraManager = FindObjectOfType<CameraManager>();
         tololPattern = GetComponent<TololPattern>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
+        tololAudioManager = GetComponent<TololAudioManager>();
         playerAttacker = FindObjectOfType<PlayerAttacker>();
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
         tololHealthBar = transform.Find("UI Ennemy").gameObject;
@@ -84,10 +86,12 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
 
     protected override void HandleDeath()
     {
+
         if(isDead) 
         {
             Destroy(epeeTolol);
             Destroy(tololHealthBar);
+            tololAudioManager.ReadDead();
         }
         base.HandleDeath();
     }

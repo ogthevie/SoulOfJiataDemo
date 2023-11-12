@@ -35,14 +35,14 @@ namespace SJ
         ParticleSystem.MainModule lMain;
         ParticleSystem.MainModule rMain;
         ParticleSystem fxLA, fxHAone, fxHATwo, fxHAThree;
-        public ParticleSystem magnetiFX, surchargeFX;
+        public ParticleSystem magnetiFX, surchargeFX, powerupFX;
         ParticleSystem auraFx;
         Color lekbaRuben = new(0.87f, 0.25f, 0.87f);
         Color lekbaRubenLituba = new(0.07f, 0.5f, 0);
 
         readonly int highAttackDrain = 5;
         public readonly int magnetiDrain = 8;
-        public readonly int arcLightningDrain = 20;
+        public readonly int arcLightningDrain = 30;
         public readonly int extDomaineDrain = 60;
         public readonly int thunderDrain = 80;
 
@@ -426,6 +426,7 @@ namespace SJ
                 else if(hit.collider.gameObject.tag == "Stele")
                 {
                     hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[0];
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
                 }                
 
             }
@@ -733,7 +734,12 @@ namespace SJ
                 soul_Lituba_Fx.Play();
                 sorceryPadManager.sRight = false;
             }
+        }
 
+        public void HandlePowerUpFx()
+        {
+            Instantiate(powerupFX, magicRayOrigin.transform.position, Quaternion.identity);
+            Instantiate(surchargeFX, magicRayOrigin.transform.position, Quaternion.identity);
         }
 
     }

@@ -4,6 +4,7 @@ public class BaseDoorManager : DoorManager
 {
     void Awake()
     {
+        gameSaveManager = FindObjectOfType<GameSaveManager>();
         openPosition = this.transform.position + new Vector3 (0, 5.3f, 0);
         stopPosition = openPosition - Vector3.up*2;
     }
@@ -16,6 +17,10 @@ public class BaseDoorManager : DoorManager
 
     protected override void HandleStopDoorRuneProcess()
     {
-        if(runeData.base_Door)  Destroy(this);
+        if(base_Door)
+        {
+            gameSaveManager.SaveGrotteData();
+            Destroy(this);
     }
+        }  
 }

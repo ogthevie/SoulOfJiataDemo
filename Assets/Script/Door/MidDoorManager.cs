@@ -21,6 +21,6 @@ public class MidDoorManager : DoorManager
 
     protected override void HandleStopDoorRuneProcess()
     {
-        if(runeData.mid_Door)  Destroy(this);
+        if(mid_Door)  Destroy(this);
     }
 }

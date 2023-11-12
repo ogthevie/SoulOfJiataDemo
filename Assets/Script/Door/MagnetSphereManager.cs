@@ -62,7 +62,11 @@ public class MagnetSphereManager : MonoBehaviour
             else if(other.gameObject.tag == "Stele")
             {
                 if(this.transform.GetChild(0).gameObject.activeSelf)
+                {
                     other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[0];
+                    other.gameObject.GetComponent<AudioSource>().Play();
+                }
+
                 else if(this.transform.GetChild(1).gameObject.activeSelf)
                     other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[1];
             }        

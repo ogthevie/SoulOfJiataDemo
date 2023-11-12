@@ -5725,8 +5725,8 @@ GameObject:
   - component: {fileID: 7386130759132590520}
   - component: {fileID: 5218626412365200770}
   - component: {fileID: 8424483764371982989}
-  - component: {fileID: -9197425464877830889}
   - component: {fileID: -7274103787417465464}
+  - component: {fileID: -517764663580989527}
   m_Layer: 12
   m_Name: Tolol Superior
   m_TagString: Untagged
@@ -5743,7 +5743,7 @@ Transform:
   m_GameObject: {fileID: 3410284225137346882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 122.25, y: 0, z: 30.2}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7514327511200707436}
@@ -5885,7 +5885,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
---- !u!82 &-9197425464877830889
+--- !u!114 &-7274103787417465464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410284225137346882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9bba8cc8065de4ca313dfde60b0ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAudioSource: {fileID: 0}
+  enemySfx:
+  - {fileID: 8300000, guid: ce9b5bfca7f73e94bbb2d027a37157d3, type: 3}
+  - {fileID: 8300000, guid: 8dda39190d7ef0c46a766dd2b23af7f4, type: 3}
+--- !u!82 &-517764663580989527
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5906,7 +5922,7 @@ AudioSource:
   Priority: 100
   DopplerLevel: 1
   MinDistance: 0.5
-  MaxDistance: 18
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5941,7 +5957,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5981,22 +5997,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-7274103787417465464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410284225137346882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9bba8cc8065de4ca313dfde60b0ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAudioSource: {fileID: 0}
-  enemySfx:
-  - {fileID: 8300000, guid: ce9b5bfca7f73e94bbb2d027a37157d3, type: 3}
-  - {fileID: 8300000, guid: 8dda39190d7ef0c46a766dd2b23af7f4, type: 3}
 --- !u!1 &3533034296100013054
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ namespace SJ
     public class HADetectionManager : MonoBehaviour
     {
         PlayerAttacker playerAttacker;
+        public ParticleSystem impactFx;
+
 
         void Awake()
         {
@@ -33,6 +35,7 @@ namespace SJ
             {
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
+                    Instantiate(impactFx, component.transform.position, Quaternion.identity);
                     if(component is TololManager tololManager)
                     {
                         tololManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);

@@ -34,6 +34,7 @@ namespace SJ
         public bool isInAir;
         public bool isGrounded;
         public bool canAttack;
+        public bool canSurcharge, canArcLight, canThunder;
         public bool canDoCombo;
         public bool onPause;
         public bool onTutoScreen;
@@ -68,12 +69,10 @@ namespace SJ
             pauseMenu.SetActive(false);
             dialogUI.SetActive(false);
             onPause = false;
-            brassardG.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            brassardL.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            brasG.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            
+            HandleSurchargeBrassard();
+            //mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            //maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;
         }
 
         public void Update()
@@ -104,8 +103,8 @@ namespace SJ
             developerModeManager.HandleInstantiateVases();
             developerModeManager.HandleInstantiateTolols();
             developerModeManager.HandleStats();
-            developerModeManager.HandleSorcery();
-            developerModeManager.ResetInventory();
+            developerModeManager.LoadSave();
+            developerModeManager.ResetSave();
             developerModeManager.HandleInstantiateKossi();
             developerModeManager.HandleInstantiateKossiKaze();
 
@@ -247,6 +246,20 @@ namespace SJ
                 }
             }
             
+        }
+
+        public void HandleSurchargeBrassard()
+        {
+            if(canSurcharge)
+                {
+                    brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                    brasL.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                }
+            else
+                {
+                    brassardL.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                    brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                }
         }
     }
 }

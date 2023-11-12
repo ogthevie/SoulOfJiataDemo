@@ -4,10 +4,11 @@ public abstract class DoorManager : MonoBehaviour
 {
     public RuneData runeData;
     public AudioSource doorAudioSource;
+    protected GameSaveManager gameSaveManager;
     protected DoorType doorType = new DoorType();
     public Vector3 openPosition;
     public Vector3 stopPosition;
-
+    public bool base_Door, mid_Door, sup_Door;
 
     protected abstract void HandleStopDoorRuneProcess();
 
@@ -18,7 +19,7 @@ public class DoorType
 {
     public void HandleBaseDoor(RuneData runeData, DoorManager doorManager)
     {
-        if(!runeData.base_Door)
+        if(!doorManager.base_Door)
         {
             if(runeData.base_DoorB)
             {
@@ -28,14 +29,14 @@ public class DoorType
 
             if(doorManager.transform.position.y > doorManager.stopPosition.y) 
             {
-                runeData.base_Door = true;
+                doorManager.base_Door = true;
             }
         }
     }
 
     public void HandleMidDoor (RuneData runeData, GameObject midDoorDown, GameObject wall, DoorManager doorManager)
     {
-        if(!runeData.mid_Door)
+        if(!doorManager.mid_Door)
         {
 
             if(runeData.mid_DoorH && runeData.mid_DoorB)
@@ -48,7 +49,7 @@ public class DoorType
 
             if(midDoorDown.transform.position.y > doorManager.stopPosition.y)
             {
-                runeData.mid_Door = true;
+                doorManager.mid_Door = true;
             }
 
         }
@@ -56,7 +57,7 @@ public class DoorType
 
     public void HandleSupDoor (RuneData runeData, GameObject supDoorDown, DoorManager doorManager)
     {
-        if(!runeData.sup_Door)
+        if(!doorManager.sup_Door)
         {
             if(runeData.sup_DoorH && runeData.sup_DoorB && runeData.sup_DoorG)
             {
@@ -66,7 +67,7 @@ public class DoorType
 
             if(supDoorDown.transform.position.y > doorManager.stopPosition.y)
             {
-                runeData.sup_Door = true;
+                doorManager.sup_Door = true;
             }  
         }
     }

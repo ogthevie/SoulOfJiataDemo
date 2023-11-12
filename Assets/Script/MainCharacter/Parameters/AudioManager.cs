@@ -178,6 +178,12 @@ namespace SJ
             interactionAudioSource.PlayOneShot(fightSfx[12]);
         }
 
+        public void PowerUp()
+        {
+            interactionAudioSource.volume = attackVolume;
+            interactionAudioSource.PlayOneShot(fightSfx[2]);
+        }
+
 
     }
 }

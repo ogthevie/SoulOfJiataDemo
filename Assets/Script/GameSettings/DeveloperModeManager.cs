@@ -7,6 +7,7 @@ namespace SJ
     {
         InputManager inputManager;
         PlayerStats playerStats;
+        GameSaveManager gameSaveManager;
         public StatesCharacterData jiataCharacterData;
         public InventoryData inventoryData;
         public List <GameObject> vases = new ();
@@ -16,6 +17,7 @@ namespace SJ
 
         void Awake()
         {
+            gameSaveManager = FindObjectOfType<GameSaveManager>();
             inputManager = GetComponent<InputManager>();
             playerStats = GetComponent<PlayerStats>();
         }
@@ -70,28 +72,31 @@ namespace SJ
 
         public void HandleStats()
         {
-            if(inputManager.three_input && playerStats.currentHealth < playerStats.maxHealth)
+            if(inputManager.three_input && playerStats.currentHealth <= playerStats.maxHealth)
+            {
                 playerStats.AddHealth(1000);
+            }
 
-            else if(inputManager.four_input && playerStats.currentStamina < playerStats.maxStamina)
+
+            else if(inputManager.four_input && playerStats.currentStamina <= playerStats.maxStamina)
+            {
                 playerStats.AddStamina(1000);
+            }
+                
         }
 
-        public void HandleSorcery()
+        public void LoadSave()
         {
             if(inputManager.five_input)
-                inventoryData.canBaemb = inventoryData.canPur = inventoryData.canSomm = inventoryData.canDest = true;
-
-            else if (inputManager.six_input)
-            inventoryData.canBaemb = inventoryData.canPur = inventoryData.canSomm = inventoryData.canDest = false;
+                gameSaveManager.LoadAllData();
 
         }
 
-        public void ResetInventory()
+        public void ResetSave()
         {
             if(inputManager.seven_input)
-                inventoryData.nkomoQty = inventoryData.pruneQty = inventoryData.mangueQty = inventoryData.mintoumbaQty = inventoryData.matangoQty = 
-                inventoryData.kalabaQty = inventoryData.gesierQty = inventoryData.colaLionQty = inventoryData.colaSingeQty = inventoryData.odontolQty = inventoryData.katorroQty = inventoryData.ikokQty = 0;
+                gameSaveManager.ClearAllSaves();
+
         }
 
         static int CheckTypesOfVases()

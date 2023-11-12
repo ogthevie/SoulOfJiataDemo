@@ -13,6 +13,6 @@ public class SupDoorManager : DoorManager
 
     protected override void HandleStopDoorRuneProcess()
     {
-        if(runeData.sup_Door)  Destroy(this);
+        if(sup_Door)  Destroy(this);
     }
 }

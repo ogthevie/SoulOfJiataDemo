@@ -93,6 +93,7 @@ namespace SJ
             playerManager = GetComponent<PlayerManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerStats = GetComponent<PlayerStats>();
+            playerManager.canSurcharge = false;
         }
         
 
@@ -334,7 +335,7 @@ namespace SJ
 
         private void HandleSurchargeInput()
         {
-            if(!jiatastats.canSurcharge)
+            if(!playerManager.canSurcharge)
                 return;
 
             if(magicAttackFlag && circle) surchargeFlag = true;
@@ -343,7 +344,7 @@ namespace SJ
 
         private void HandleArcLighInput()
         { 
-            if(!jiatastats.canArcLight)
+            if(!playerManager.canArcLight)
                 return;
 
             if(magicAttackFlag && south_input) arcLightFlag = true;     
@@ -352,7 +353,7 @@ namespace SJ
 
         private void HandleThunderInput()
         {
-            if(!jiatastats.canThunder)
+            if(!playerManager.canThunder)
                 return;
             if(magicAttackFlag && triangle) thunderFlag = true;
             else thunderFlag = false;
