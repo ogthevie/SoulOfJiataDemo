@@ -13,7 +13,7 @@ namespace SJ
         PlayerLocomotion playerLocomotion;
         public  PlayerStats playerStats;
         PlayerManager playerManager;
-        SorceryPadManager sorceryPadManager;
+        public SorceryPadManager sorceryPadManager;
         AudioManager audioManager;
 
         public StatesCharacterData statesJiataData;
