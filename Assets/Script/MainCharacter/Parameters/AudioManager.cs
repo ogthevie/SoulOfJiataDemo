@@ -180,7 +180,7 @@ namespace SJ
 
         public void PowerUp()
         {
-            interactionAudioSource.volume = attackVolume;
+            interactionAudioSource.volume = 0.8f;
             interactionAudioSource.PlayOneShot(fightSfx[2]);
         }
 

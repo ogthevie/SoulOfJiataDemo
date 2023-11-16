@@ -140,13 +140,12 @@ namespace SJ
             inputManager.west_input = false;
             inputManager.south_input = false;
             inputManager.magicFlag = false;
-            if(onPause)
-            {
-                inputManager.left_input = false;
-                inputManager.right_input = false;
-                inputManager.up_input = false;
-                inputManager.down_input = false;
-            }
+
+            inputManager.left_input = false;
+            inputManager.right_input = false;
+            inputManager.up_input = false;
+            inputManager.down_input = false;
+
             inputManager.start_input = false;
             inputManager.left_menu_input = false;
             inputManager.right_menu_input = false;

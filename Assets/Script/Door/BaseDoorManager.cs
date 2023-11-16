@@ -4,9 +4,10 @@ public class BaseDoorManager : DoorManager
 {
     void Awake()
     {
-        gameSaveManager = FindObjectOfType<GameSaveManager>();
         openPosition = this.transform.position + new Vector3 (0, 5.3f, 0);
         stopPosition = openPosition - Vector3.up*2;
+        doorAudioSource = GetComponent<AudioSource>();
+        gameSaveManager = FindObjectOfType<GameSaveManager>();
     }
 
     private void LateUpdate() 
@@ -21,6 +22,6 @@ public class BaseDoorManager : DoorManager
         {
             gameSaveManager.SaveGrotteData();
             Destroy(this);
-    }
-        }  
+        }
+    }  
 }

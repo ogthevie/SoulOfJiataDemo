@@ -12,6 +12,7 @@ public class SurchargeEventManager : EventStoryTriggerManager
             playerManager.brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
             //Tutoscreen
             playerManager.canSurcharge = true;
+            grotteKossiManager.enemySpawnOne.SetActive(true);
 
             gameSaveManager.SaveAllData();
 

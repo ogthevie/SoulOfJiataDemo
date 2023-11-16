@@ -24,6 +24,7 @@ public class DoorType
             if(runeData.base_DoorB)
             {
                 float velocity = 0.2f;
+                doorManager.doorAudioSource.enabled = true;
                 doorManager.transform.position = Vector3.Lerp(doorManager.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
             }
 

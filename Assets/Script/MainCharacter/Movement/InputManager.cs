@@ -57,9 +57,7 @@ namespace SJ
         public bool left_Stick_input;
         public bool start_input;
 
-        float rollInputTimer;
         float magicInputTimer;
-        public float dpad_Timer, lpad_Timer, rpad_Timer, upad_Timer;
 
         public bool upFlag, downFlag, leftFlag, rightFlag;
         public bool flipFlag;
@@ -121,6 +119,11 @@ namespace SJ
                 playerControls.PlayerMovement.NavigateLeftMenu.performed += i => left_menu_input = true;
                 playerControls.PlayerMovement.NavigateRightMenu.performed += i => right_menu_input = true;
 
+                playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input = true;
+                playerControls.PlayerMovement.InventoryMovementDown.performed += i => down_input = true;
+                playerControls.PlayerMovement.InventoryMovementLeft.performed += i => left_input = true;
+                playerControls.PlayerMovement.InventoryMovementRight.performed += i => right_input = true;
+
 
                 playerControls.DevMode.AddVases.performed += i => one_input = true;
                 playerControls.DevMode.AddTolol.performed += i => two_input = true;
@@ -157,7 +160,7 @@ namespace SJ
             HandleArcLighInput();
             HandleThunderInput();
             HandleInteractInput();
-            HandleSorceryPad(delta);
+            HandleSorceryPad();
         }
 
         private void HandleMoveInput (float delta)
@@ -374,77 +377,9 @@ namespace SJ
                 playerManager.onPause = false;
         }
 
-        private void HandleSorceryPad(float delta)
+        private void HandleSorceryPad()
         {
-            up_input = playerControls.PlayerMovement.InventoryMovementUp.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
-            down_input = playerControls.PlayerMovement.InventoryMovementDown.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
-            left_input = playerControls.PlayerMovement.InventoryMovementLeft.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
-            right_input = playerControls.PlayerMovement.InventoryMovementRight.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
-            
 
-            if(up_input)
-            {
-                upad_Timer += delta;
-                //un flag peut etre utile;
-            }
-            else
-            {
-                if(upad_Timer > 0.6f)
-                {
-                    upFlag = true;
-                }
-
-                upad_Timer = 0;
-                //upFlag = false;
-            }
-
-
-
-            if(down_input)
-            {
-                dpad_Timer += delta;
-                //un flag peut etre utile;
-            }
-            else
-            {
-                if(dpad_Timer > 0.6f)
-                {
-                    downFlag = true;
-                }
-
-                dpad_Timer = 0;
-            }
-
-
-            if(left_input)
-            {
-                lpad_Timer += delta;
-                //un flag peut etre utile;
-            }
-            else
-            {
-                if(lpad_Timer > 0.6f)
-                {
-                    leftFlag = true;
-                }
-
-                lpad_Timer = 0;
-            }
-
-            if(right_input)
-            {
-                rpad_Timer += delta;
-                //un flag peut etre utile;
-            }
-            else
-            {
-                if(rpad_Timer > 0.6f)
-                {
-                    rightFlag = true;
-                }
-
-                rpad_Timer = 0;
-            }           
         }
 
     }

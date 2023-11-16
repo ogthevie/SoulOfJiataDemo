@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using SJ;
 
+[DefaultExecutionOrder(-1)]
 public class GameSaveManager : MonoBehaviour
 {
     PlayerManager playerManager;
@@ -60,7 +61,10 @@ public class GameSaveManager : MonoBehaviour
     {
         LoadGrotteData();
         LoadPlayerData();
+        Debug.Log("Données chargées");
     }
+
+    #region Sauvegarde
 
     public void SaveGrotteData()
     {
@@ -85,7 +89,10 @@ public class GameSaveManager : MonoBehaviour
     {
         PlayerData playerData = new PlayerData
         {
-            playerPV = playerStats.currentHealth, surcharge = playerManager.canSurcharge, arcLight = playerManager.canArcLight, thunder = playerManager.canThunder
+            playerPV = playerStats.currentHealth, surcharge = playerManager.canSurcharge, arcLight = playerManager.canArcLight, thunder = playerManager.canThunder,
+            playerX = playerManager.gameObject.transform.position.x,
+            playerY = playerManager.gameObject.transform.position.y,
+            playerZ = playerManager.gameObject.transform.position.z,
         };
 
         string playerJSon = JsonUtility.ToJson(playerData);
@@ -93,6 +100,9 @@ public class GameSaveManager : MonoBehaviour
         System.IO.File.WriteAllText(filepath, playerJSon);
     }
 
+    #endregion
+    
+    #region chargement des données
     public void LoadGrotteData()
     {
         string filePath = Application.persistentDataPath + "/grotteKossiData.json";
@@ -116,7 +126,7 @@ public class GameSaveManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aucune position sauvegardée trouvée");
+            Debug.Log("Aucune porte trouvée");
         }
     }
 
@@ -129,6 +139,8 @@ public class GameSaveManager : MonoBehaviour
             string playerJson = System.IO.File.ReadAllText(filePath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(playerJson);
 
+            playerManager.gameObject.transform.position = new Vector3(playerData.playerX, playerData.playerY, playerData.playerZ);
+
             playerStats.healthBar.SetCurrentHealth(playerData.playerPV);
             playerStats.currentHealth = playerData.playerPV;
 
@@ -139,6 +151,8 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
+    #endregion
+    
     public void ClearAllSaves()
     {
         // Chemin du dossier de sauvegarde
@@ -166,6 +180,7 @@ public class GameSaveManager : MonoBehaviour
 
 }
 
+#region  classe de data à save
 public class GrotteKossiData
 {
     public float basedoorX, basedoorY, baseDoorZ;
@@ -177,6 +192,9 @@ public class GrotteKossiData
 
 public class PlayerData
 {
+    public float playerX, playerY, playerZ;
     public int playerPV;
     public bool surcharge, arcLight, thunder;
 }
+
+#endregion
