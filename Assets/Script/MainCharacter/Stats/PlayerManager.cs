@@ -35,6 +35,7 @@ namespace SJ
         public bool isGrounded;
         public bool canAttack;
         public bool canSurcharge, canArcLight, canThunder;
+        public bool canBaemb, canSomm, canDest, canPur;
         public bool canDoCombo;
         public bool onPause;
         public bool onTutoScreen;

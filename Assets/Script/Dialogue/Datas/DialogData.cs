@@ -8,8 +8,7 @@ public class DialogData : ScriptableObject
     public string mainCharacterName = "Ruben";
     [TextArea(1,3)] public List <string> firstConversation = new List<string>();
     [TextArea(1,3)] public List <string> secondConversation = new List<string>();
-    [TextArea(1,3)] public List <string> thirdConversation = new List<string>();
 
-    public bool fConv, sConv;
+    public bool fConv;
 
 }

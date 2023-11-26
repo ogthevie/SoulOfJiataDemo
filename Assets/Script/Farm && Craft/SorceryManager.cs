@@ -46,13 +46,12 @@ public class SorceryManager : MonoBehaviour
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         if(!playerManager.onSorceryTree)
             return;
         HandleNavigationSorceryTree();
         HandleSorceryDescription();
-        HandleActivationSorcery();
     }
 
     void HandleNavigationSorceryTree()
@@ -119,7 +118,7 @@ public class SorceryManager : MonoBehaviour
 
         if(selPos == s1.transform.position)
         {
-            if(!inventory.canPur) sorcerySprite.color = blurredColor;
+            if(!playerManager.canPur) sorcerySprite.color = blurredColor;
             else sorcerySprite.color = Color.white;
 
             sorcerySprite.sprite = sorceryDatas[0].sorcerySprite;
@@ -128,7 +127,7 @@ public class SorceryManager : MonoBehaviour
         }
         else if(selPos == s2.transform.position)
         {
-            if(!inventory.canSomm) sorcerySprite.color = blurredColor;
+            if(!playerManager.canSomm) sorcerySprite.color = blurredColor;
             else sorcerySprite.color = Color.white;
 
             sorcerySprite.sprite = sorceryDatas[1].sorcerySprite;
@@ -137,7 +136,7 @@ public class SorceryManager : MonoBehaviour
         }
         else if(selPos == s3.transform.position)
         {
-            if(!inventory.canDest) sorcerySprite.color = blurredColor;
+            if(!playerManager.canDest) sorcerySprite.color = blurredColor;
             else sorcerySprite.color = Color.white;
 
             sorcerySprite.sprite = sorceryDatas[2].sorcerySprite;
@@ -146,21 +145,13 @@ public class SorceryManager : MonoBehaviour
         }
         else if(selPos == s4.transform.position)
         {
-            if(!inventory.canBaemb) sorcerySprite.color = blurredColor;
+            if(!playerManager.canBaemb) sorcerySprite.color = blurredColor;
             else sorcerySprite.color = Color.white;
 
             sorcerySprite.sprite = sorceryDatas[3].sorcerySprite;
             sorceryName.text = sorceryDatas[3].sorceryName;
             sorceryDescription.text = sorceryDatas[3].sorceryDescription;            
         }
-    }
-
-    void HandleActivationSorcery()
-    {
-        if(inventory.haveJujube && inventory.haveKatorro) inventory.canPur = true; else    inventory.canPur = false;
-        if(inventory.haveEauCad && inventory.haveCorde) inventory.canSomm = true; else inventory.canSomm = false;
-        if(inventory.haveClouMoluk && inventory.havePierreSel) inventory.canDest = true; else inventory.canDest = false;
-        if(inventory.haveDentBK && inventory.havePierreBaemb) inventory.canBaemb = true; else inventory.canBaemb = false;
     }
 
 }

@@ -44,6 +44,7 @@ public class DoorType
             {
                 float velocity = 0.1f;
                 doorManager.doorAudioSource.enabled = true;
+                
                 midDoorDown.transform.position = Vector3.Lerp(midDoorDown.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
                 wall.SetActive(false);
             }

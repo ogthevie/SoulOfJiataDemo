@@ -16,6 +16,11 @@ public class DialogTriggerManager : MonoBehaviour
         characterDialogManager = GetComponent<CharacterDialogManager>();
     }
 
+    void Start()
+    {
+        dialogUI = GameObject.Find("Player UI").transform.GetChild(2).gameObject;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3)

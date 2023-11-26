@@ -34,11 +34,6 @@ namespace SJ
             sorceryLeft = GameObject.Find("SoulPefussep");
             sorceryRight = GameObject.Find("SoulLituba");
 
-            sorceryUp.SetActive(false);
-            sorceryDown.SetActive(false);
-            sorceryRight.SetActive(false);
-            sorceryLeft.SetActive(false);
-
         }
 
         void Start()
@@ -46,7 +41,7 @@ namespace SJ
 
         }
 
-        void Update()
+        void LateUpdate()
         {
             float delta = Time.deltaTime;
             HandlePlayVFXSorcery();
@@ -55,33 +50,17 @@ namespace SJ
 
         void HandlePlayVFXSorcery()
         {
-            if(!sorceryUp.activeSelf)
-                if(inventoryData.pruneQty > 4 && inventoryData.kalabaQty > 1)
-                {
-                    sorceryUp.SetActive(true);
-                    sorceryUp.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.pruneQty > 4 && inventoryData.kalabaQty > 1) sorceryUp.SetActive(true);
+                else sorceryUp.SetActive(false);
             
-            if(!sorceryDown.activeSelf)
-                if(inventoryData.ikokQty > 0)
-                {
-                    sorceryDown.SetActive(true);
-                    sorceryDown.GetComponent<ParticleSystem>().Play();
-                }
+                /*if(inventoryData.ikokQty > 0) sorceryDown.SetActive(true);
+                else sorceryDown.SetActive(false);*/
 
-            if(!sorceryLeft.activeSelf)
-                if(inventoryData.mangueQty > 4 && inventoryData.colaSingeQty > 2)
-                {
-                    sorceryLeft.SetActive(true);
-                    sorceryLeft.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.mangueQty > 4 && inventoryData.colaSingeQty > 2) sorceryLeft.SetActive(true);
+                else sorceryLeft.SetActive(false);
 
-            if(!sorceryRight.activeSelf)
-                if(inventoryData.nkomoQty > 6 && inventoryData.mintoumbaQty > 4)
-                {
-                    sorceryRight.SetActive(true);
-                    sorceryRight.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.nkomoQty > 6 && inventoryData.mintoumbaQty > 4) sorceryRight.SetActive(true);
+                else sorceryRight.SetActive(false);
             
         }
 
@@ -90,29 +69,38 @@ namespace SJ
             if(sorceryUp.activeSelf && inputManager.up_input)
             {
                 sorceryUp.GetComponent<ParticleSystem>().Stop();
+                sUp = true;
                 sorceryUp.SetActive(false);
-                HandleSorceryUpEffect();     
+                HandleSorceryUpEffect();
+                inventoryData.pruneQty -= 4;
+                inventoryData.kalabaQty -=1; 
             }
 
-            else if(sorceryDown.activeSelf && inputManager.down_input)
+            /*else if(sorceryDown.activeSelf && inputManager.down_input)
             {
                 sorceryDown.GetComponent<ParticleSystem>().Stop();
                 sorceryDown.SetActive(false);
-            }
+            }*/
             
             else if(sorceryLeft.activeSelf && inputManager.left_input)
             {
                 sorceryLeft.GetComponent<ParticleSystem>().Stop();
+                sLeft = true;
                 sorceryLeft.SetActive(false);
                 HandleSorceryLeftEffect();
+                inventoryData.mangueQty -= 4;
+                inventoryData.colaSingeQty -= 2;
                 
             }
 
             else if(sorceryRight.activeSelf && inputManager.right_input)
             {
                 sorceryRight.GetComponent<ParticleSystem>().Stop();
+                sRight = true;
                 sorceryRight.SetActive(false);
                 HandleSorceryRightEffect();
+                inventoryData.nkomoQty -= 6;
+                inventoryData.mintoumbaQty -= 4;
             }
         }
 
