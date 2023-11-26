@@ -8,8 +8,8 @@ namespace SJ
         InputManager inputManager;
         PlayerStats playerStats;
         GameSaveManager gameSaveManager;
+
         public StatesCharacterData jiataCharacterData;
-        public InventoryData inventoryData;
         public List <GameObject> vases = new ();
         public List <GameObject> tolols = new ();
         public GameObject kossi, kossiKaze;
@@ -20,11 +20,6 @@ namespace SJ
             gameSaveManager = FindObjectOfType<GameSaveManager>();
             inputManager = GetComponent<InputManager>();
             playerStats = GetComponent<PlayerStats>();
-        }
-
-        void Start()
-        {
-            inventoryData.canBaemb = inventoryData.canPur = inventoryData.canSomm = inventoryData.canDest = true;
         }
 
         public void HandleInstantiateVases()

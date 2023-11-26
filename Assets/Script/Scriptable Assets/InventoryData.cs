@@ -18,7 +18,4 @@ public class InventoryData : ScriptableObject
     public int colaLionQty;
     public int katorroQty;
     public int ikokQty;
-
-    public bool haveKatorro, haveDentBK, havePierreSel, haveJujube, havePierreBaemb, haveCorde, haveEauCad, haveClouMoluk;
-    public bool canBaemb, canSomm, canDest, canPur;
 }

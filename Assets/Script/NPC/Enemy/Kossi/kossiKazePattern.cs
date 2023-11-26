@@ -65,7 +65,7 @@ public class kossiKazePattern : MonoBehaviour
 
     public void HandleMoveToTarget()
     {
-        if(currentTarget.isDead)
+        if(currentTarget.isDead || statesJiataData.isHidden)
             return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);

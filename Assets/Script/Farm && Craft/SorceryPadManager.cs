@@ -20,7 +20,6 @@ namespace SJ
         public List <SkinnedMeshRenderer> jiatabodyRenderer = new();
 
         public bool sUp, sDown, sLeft, sRight;
-        public float timeS_Up = 45f, timeS_Down = 45f, timeS_Left = 45f, timeS_Right = 45f;
         readonly int coefBoostBaemb = 2;
 
         void Awake()
@@ -39,124 +38,70 @@ namespace SJ
 
         void Start()
         {
-            sorceryUp.SetActive(false);
-            sorceryDown.SetActive(false);
-            sorceryRight.SetActive(false);
-            sorceryLeft.SetActive(false);
+
         }
 
-        void Update()
+        void LateUpdate()
         {
             float delta = Time.deltaTime;
             HandlePlayVFXSorcery();
             HandleSorcery();
-            HandleTimer(delta);
         }
 
         void HandlePlayVFXSorcery()
         {
-            if(!sorceryUp.activeSelf)
-                if(inventoryData.canPur && timeS_Up == 45f)
-                {
-                    sorceryUp.SetActive(true);
-                    sorceryUp.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.pruneQty > 4 && inventoryData.kalabaQty > 1) sorceryUp.SetActive(true);
+                else sorceryUp.SetActive(false);
             
-            if(!sorceryDown.activeSelf)
-                if(inventoryData.canDest && timeS_Down == 45f)
-                {
-                    sorceryDown.SetActive(true);
-                    sorceryDown.GetComponent<ParticleSystem>().Play();
-                }
+                /*if(inventoryData.ikokQty > 0) sorceryDown.SetActive(true);
+                else sorceryDown.SetActive(false);*/
 
-            if(!sorceryLeft.activeSelf)
-                if(inventoryData.canSomm && timeS_Left == 45f)
-                {
-                    sorceryLeft.SetActive(true);
-                    sorceryLeft.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.mangueQty > 4 && inventoryData.colaSingeQty > 2) sorceryLeft.SetActive(true);
+                else sorceryLeft.SetActive(false);
 
-            if(!sorceryRight.activeSelf)
-                if(inventoryData.canBaemb && timeS_Right == 45f)
-                {
-                    sorceryRight.SetActive(true);
-                    sorceryRight.GetComponent<ParticleSystem>().Play();
-                }
+                if(inventoryData.nkomoQty > 6 && inventoryData.mintoumbaQty > 4) sorceryRight.SetActive(true);
+                else sorceryRight.SetActive(false);
             
         }
 
         public void HandleSorcery()
         {
-            if(sorceryUp.activeSelf && inputManager.upFlag)
+            if(sorceryUp.activeSelf && inputManager.up_input)
             {
                 sorceryUp.GetComponent<ParticleSystem>().Stop();
+                sUp = true;
                 sorceryUp.SetActive(false);
-
-                if(timeS_Up > 0 )
-                {
-                    sUp = true;
-                    timeS_Up -= 1;
-                    inputManager.upFlag = false;
-                    HandleSorceryUpEffect(); 
-                }        
+                HandleSorceryUpEffect();
+                inventoryData.pruneQty -= 4;
+                inventoryData.kalabaQty -=1; 
             }
 
-            else if(sorceryDown.activeSelf && inputManager.downFlag)
+            /*else if(sorceryDown.activeSelf && inputManager.down_input)
             {
                 sorceryDown.GetComponent<ParticleSystem>().Stop();
                 sorceryDown.SetActive(false);
-
-                if(timeS_Down > 0)
-                {
-                    sDown = true;
-                    timeS_Down -= 1;
-                    inputManager.downFlag = false;
-                }
-            }
+            }*/
             
-            else if(sorceryLeft.activeSelf && inputManager.leftFlag)
+            else if(sorceryLeft.activeSelf && inputManager.left_input)
             {
                 sorceryLeft.GetComponent<ParticleSystem>().Stop();
+                sLeft = true;
                 sorceryLeft.SetActive(false);
-
-                if(timeS_Left > 0)
-                {
-                    sLeft = true;
-                    timeS_Left -= 1;
-                    inputManager.leftFlag = false;
-                    HandleSorceryLeftEffect();
-                }
+                HandleSorceryLeftEffect();
+                inventoryData.mangueQty -= 4;
+                inventoryData.colaSingeQty -= 2;
+                
             }
 
-            else if(sorceryRight.activeSelf && inputManager.rightFlag)
+            else if(sorceryRight.activeSelf && inputManager.right_input)
             {
                 sorceryRight.GetComponent<ParticleSystem>().Stop();
+                sRight = true;
                 sorceryRight.SetActive(false);
-
-                if(timeS_Right > 0)
-                {
-                    sRight = true;
-                    timeS_Right -= 1;
-                    inputManager.rightFlag = false;
-                    HandleSorceryRightEffect();
-                }
+                HandleSorceryRightEffect();
+                inventoryData.nkomoQty -= 6;
+                inventoryData.mintoumbaQty -= 4;
             }
-        }
-
-        void HandleTimer(float delta)
-        {
-            if(timeS_Up > 0f && timeS_Up < 45f) timeS_Up -= delta;
-            else timeS_Up = 45f;
-
-            if(timeS_Down > 0 && timeS_Down < 45f) timeS_Down -= delta;
-            else timeS_Down = 45f;
-
-            if(timeS_Left > 0 && timeS_Left < 45f) timeS_Left -= delta;
-            else timeS_Left = 45f;
-
-            if(timeS_Right > 0 && timeS_Right < 45f) timeS_Right -= delta;
-            else timeS_Right = 45f;
-
         }
 
         void HandleSorceryUpEffect()

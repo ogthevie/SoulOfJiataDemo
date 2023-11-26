@@ -1,16 +1,19 @@
 using UnityEngine;
 using TMPro;
 using SJ;
+using System;
 
 public class CharacterDialogManager : MonoBehaviour
 {
-    public DialogData characterDialogData;
+    public DialogData[] characterDialogData = new DialogData [5];
     InputManager inputManager;
     PlayerManager playerManager;
     public DialogTriggerManager dialogTriggerManager;
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
+    GameObject playerStatsUi;
     int i = 0;
+    int k = 0;
     public bool canDialog;
 
     void Awake()
@@ -22,13 +25,15 @@ public class CharacterDialogManager : MonoBehaviour
 
     void Start()
     {
-        characterDialogData.fConv = false;
-        characterDialogData.sConv = false;
+        actorName = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        actorSentence = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        playerStatsUi = GameObject.Find("Player UI").transform.GetChild(0).gameObject;
     }
 
     public void StartDialogue()
     {
         canDialog = true;
+        playerStatsUi.SetActive(false);
     }
 
     public void HandleDialogue()
@@ -36,73 +41,45 @@ public class CharacterDialogManager : MonoBehaviour
         if(!canDialog)
             return;
 
-        if(!characterDialogData.fConv)
+
+        if(!characterDialogData[k].fConv && i < characterDialogData[k].firstConversation.Count)
         {
+            if(i % 2 == 0) actorName.text = characterDialogData[k].characterName;
+            else actorName.text = characterDialogData[k].mainCharacterName;
 
-            if(i < characterDialogData.firstConversation.Count)
-            {
-                if(i % 2 == 0) actorName.text = characterDialogData.characterName;
-                else actorName.text = characterDialogData.mainCharacterName;
-
-                actorSentence.text = characterDialogData.firstConversation[i];
-                nextFirstDialogue();
-            }
+            actorSentence.text = characterDialogData[k].firstConversation[i];
+            nextFirstDialogue();
         }
+    
 
-        else if(characterDialogData.fConv && !characterDialogData.sConv)
+        else if(characterDialogData[k].fConv)
         {
 
-            if(i < characterDialogData.secondConversation.Count)
-            {
-                if(i % 2 == 0) actorName.text = characterDialogData.characterName;
-                else actorName.text = characterDialogData.mainCharacterName;
-
-                actorSentence.text = characterDialogData.secondConversation[i];
-                nextSecondDialogue();
-            }        
-        }
-
-        else if(characterDialogData.sConv)
-        {
-            actorName.text = characterDialogData.characterName;
-            actorSentence.text = characterDialogData.thirdConversation[i];
+                actorName.text = characterDialogData[k].characterName;
+                actorSentence.text = characterDialogData[k].secondConversation[i];   
         }
     }
 
     public void CloseDialogue()
     {
         dialogTriggerManager.EndDialogue();
+        playerStatsUi.SetActive(true);
         canDialog = false;
     }
 
     void nextFirstDialogue()
     {
-        if(inputManager.InteractFlag && i < characterDialogData.firstConversation.Count) 
+        if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
             i++;
-            if(i >= characterDialogData.firstConversation.Count)
+            if(i >= characterDialogData[k].firstConversation.Count)
             {
                 i = 0;
-                characterDialogData.fConv = true;
+                characterDialogData[k].fConv = true;
                 CloseDialogue();
             }
         }
 
-    }   
-
-    void nextSecondDialogue()
-    {
-        if(inputManager.InteractFlag && i < characterDialogData.secondConversation.Count)
-        {
-            i++;
-            if(i >= characterDialogData.secondConversation.Count)
-            {
-                i = 0;
-                characterDialogData.sConv = true;
-                CloseDialogue();
-            }
-        }
-
-    } 
+    }
 
 }

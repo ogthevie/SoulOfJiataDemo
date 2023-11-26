@@ -18,7 +18,7 @@ namespace SJ
         public List<AudioClip> fightSfx = new ();
         public List<AudioClip> pause = new ();
         readonly float attackVolume = 0.15f;
-        readonly float footStepVolume = 0.05f;
+        readonly float footStepVolume = 0.02f;
         readonly float jumpVolume = 0.05f;
         readonly float ThunderVolume= 0.3f;
         
@@ -180,7 +180,7 @@ namespace SJ
 
         public void PowerUp()
         {
-            interactionAudioSource.volume = attackVolume;
+            interactionAudioSource.volume = 0.8f;
             interactionAudioSource.PlayOneShot(fightSfx[2]);
         }
 

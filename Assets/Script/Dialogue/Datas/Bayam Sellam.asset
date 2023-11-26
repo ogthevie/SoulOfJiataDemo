@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Bayam Sellam
   m_EditorClassIdentifier: 
-  characterName: Mami Cube
+  characterName: Ngonda
   mainCharacterName: Ruben
   firstConversation:
   - "Mangues M\xFBres Mangues M\xFBres Mangues M\xFBres! Bon prix Bon Prix"
@@ -36,7 +36,4 @@ MonoBehaviour:
     plus"
   - "La m\xE8re ?"
   - Hoooooo, quitte devant mon comptoir
-  thirdConversation:
-  - 'Tu viens faire encore quoi ici? '
   fConv: 0
-  sConv: 0
