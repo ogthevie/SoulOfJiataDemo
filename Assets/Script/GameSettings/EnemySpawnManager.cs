@@ -14,7 +14,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     static int CheckRandomEnemy()
     {
-        int probability = Random.Range(0,4);
+        int probability = Random.Range(0,3);
         return probability;
     }
 

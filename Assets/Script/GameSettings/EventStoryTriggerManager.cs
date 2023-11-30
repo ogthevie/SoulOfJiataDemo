@@ -10,13 +10,18 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected GameSaveManager gameSaveManager;
     protected GrotteKossiManager grotteKossiManager;
 
-    void Start()
+    void Awake()
     {
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         playerManager = FindObjectOfType<PlayerManager>();
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
         grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
+    }
+
+    protected void Save()
+    {
+        gameSaveManager.SaveAllData();
     }
 
     protected abstract void OnCollisionEnter(Collision other);

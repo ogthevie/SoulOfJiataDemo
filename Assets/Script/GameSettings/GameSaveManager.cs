@@ -1,21 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using SJ;
 
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-3)]
 public class GameSaveManager : MonoBehaviour
 {
     PlayerManager playerManager;
     PlayerStats playerStats;
-    public GameObject baseDoor, midDoor, supDoor, msOne, msTwo;
-    public Transform baseDoorPosition, midDoorPosition, supDoorPosition, msOnePos, msTwoPos;
+    ArcLightEventManager arcLightEventManager;
+    public GameObject baseDoor, midDoor, supDoor;
+    public Transform baseDoorPosition, midDoorPosition, supDoorPosition;
 
     void Awake()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         playerStats = FindObjectOfType<PlayerStats>();
-
-        CollectMagnetSphere();
+        arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
 
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager"); // Recherche d'objets avec le tag spécifique
 
@@ -31,53 +32,51 @@ public class GameSaveManager : MonoBehaviour
 
         baseDoorPosition = baseDoor.transform;
         midDoorPosition = midDoor.transform;
-        supDoorPosition = supDoor.transform;
-        msOnePos = msOne.transform;
-        msTwoPos = msTwo.transform;
+        supDoorPosition = supDoor.transform;  
 
     }
 
     void Start()
     {
-        //LoadAllData();
-    }
-
-    void CollectMagnetSphere()
-    {
-        MagnetSphereManager[] magnetSpheres = FindObjectsOfType<MagnetSphereManager>();
-
-        msOne = magnetSpheres[0].gameObject;
-        msTwo = magnetSpheres[1].gameObject;
+        LoadAllData();
     }
 
     public void SaveAllData()
     {
-        SaveGrotteData();
+        int i = SceneManager.GetActiveScene().buildIndex;
+
+        if(i == 2) 
+        {
+            SaveDoorData();
+            SaveTorcheGrotteData();
+        }
+
         SavePlayerData();
         Debug.Log("sauvegarde effectuée");
     }
 
     public void LoadAllData()
     {
-        LoadGrotteData();
+        int i = SceneManager.GetActiveScene().buildIndex;
+        ;
+        if(i == 2) 
+        {
+            LoadGrotteData();
+            LoadTorcheGrotteData();
+        }
         LoadPlayerData();
         Debug.Log("Données chargées");
     }
 
     #region Sauvegarde
 
-    public void SaveGrotteData()
+    public void SaveDoorData()
     {
-        CollectMagnetSphere();
-
         GrotteKossiData grotteKossiData = new GrotteKossiData
         {
             basedoorX = baseDoorPosition.position.x, basedoorY = baseDoorPosition.position.y, baseDoorZ = baseDoorPosition.position.z,
             midDoorX = midDoorPosition.position.x, midDoorY = midDoorPosition.position.y, midDoorZ = midDoorPosition.position.z,
             supDoorX = supDoorPosition.position.x, supDoorY = midDoorPosition.position.y, supDoorZ = supDoorPosition.position.z,
-
-            msOneX = msOnePos.position.x, msOneY = msOnePos.position.y, msOneZ = msOnePos.position.z,
-            msTwoX = msTwoPos.position.x, msTwoY = msTwoPos.position.y, msTwoZ = msTwoPos.position.z,
         };
 
         string grotteKossiJon = JsonUtility.ToJson(grotteKossiData);
@@ -85,7 +84,7 @@ public class GameSaveManager : MonoBehaviour
         System.IO.File.WriteAllText(filePath, grotteKossiJon);
     }
 
-    public void SavePlayerData()
+    void SavePlayerData()
     {
         PlayerData playerData = new PlayerData
         {
@@ -100,10 +99,25 @@ public class GameSaveManager : MonoBehaviour
         System.IO.File.WriteAllText(filepath, playerJSon);
     }
 
+    void SaveTorcheGrotteData()
+    {
+        TorcheData torcheData = new TorcheData();
+        for(int i = 0; i < 8; i++)
+        {
+            torcheData.HeartStelesState[i] = arcLightEventManager.IndexHeartSteles[i];
+        }
+
+        string torcheJson = JsonUtility.ToJson(torcheData);
+        string filepath = Application.persistentDataPath + "/torcheData.json";
+        System.IO.File.WriteAllText(filepath, torcheJson);
+
+    }
+
+
     #endregion
     
     #region chargement des données
-    public void LoadGrotteData()
+    void LoadGrotteData()
     {
         string filePath = Application.persistentDataPath + "/grotteKossiData.json";
 
@@ -117,9 +131,6 @@ public class GameSaveManager : MonoBehaviour
             midDoorPosition.position = new Vector3(grotteKossiData.midDoorX, grotteKossiData.midDoorY, grotteKossiData.midDoorZ);
             supDoorPosition.position = new Vector3(grotteKossiData.supDoorX, grotteKossiData.supDoorY, grotteKossiData.supDoorZ);
 
-            msOnePos.position = new Vector3(grotteKossiData.msOneX, grotteKossiData.msOneY, grotteKossiData.msOneZ);
-            msTwoPos.position = new Vector3(grotteKossiData.msTwoX, grotteKossiData.msTwoY, grotteKossiData.msTwoZ);
-
             if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component))
                 component.LoadStateBaseRune();
 
@@ -130,7 +141,23 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
-    public void LoadPlayerData()
+    void LoadTorcheGrotteData()
+    {
+        string filepath = Application.persistentDataPath + "/torcheData.json";
+
+        if(System.IO.File.Exists(filepath))
+        {
+            string torcheJson = System.IO.File.ReadAllText(filepath);
+            TorcheData torcheData = JsonUtility.FromJson<TorcheData>(torcheJson);
+
+            for(int i = 0; i < 8; i++)
+            {
+                arcLightEventManager.IndexHeartSteles[i] = torcheData.HeartStelesState[i];
+            }
+        }
+    }
+
+    void LoadPlayerData()
     {
         string filePath = Application.persistentDataPath + "/playerData.json";
 
@@ -181,20 +208,25 @@ public class GameSaveManager : MonoBehaviour
 }
 
 #region  classe de data à save
-public class GrotteKossiData
+class GrotteKossiData
 {
     public float basedoorX, basedoorY, baseDoorZ;
     public float midDoorX, midDoorY, midDoorZ;
     public float supDoorX, supDoorY, supDoorZ;
-    public float msOneX, msOneY, msOneZ;
-    public float msTwoX, msTwoY, msTwoZ;
 }
 
-public class PlayerData
+class PlayerData
 {
     public float playerX, playerY, playerZ;
     public int playerPV;
     public bool surcharge, arcLight, thunder;
 }
+
+class TorcheData
+{
+    public int [] HeartStelesState = new int[8];
+}
+
+
 
 #endregion

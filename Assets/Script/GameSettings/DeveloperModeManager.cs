@@ -70,6 +70,7 @@ namespace SJ
             if(inputManager.three_input && playerStats.currentHealth <= playerStats.maxHealth)
             {
                 playerStats.AddHealth(1000);
+                gameSaveManager.SaveAllData();
             }
 
 

@@ -3,6 +3,7 @@ using UnityEngine;
 public class MidDoorManager : DoorManager
 {
     public GameObject midDoorDown, wall;
+    GrotteKossiManager grotteKossiManager;
 
     void Awake()
     {
@@ -10,6 +11,15 @@ public class MidDoorManager : DoorManager
         stopPosition = openPosition - Vector3.up*2;
         doorAudioSource = GetComponent<AudioSource>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
+        grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
+    }
+
+    void Start()
+    {
+        if(grotteKossiManager.enemySpawntwo.activeSelf)
+        {
+            Destroy(wall);
+        }
     }
 
 
@@ -24,8 +34,8 @@ public class MidDoorManager : DoorManager
 
         if(mid_Door)  
         {
-            gameSaveManager.SaveGrotteData();
             gameSaveManager.SaveAllData();
+            mid_Door = false;
             Destroy(this);
         }
     }

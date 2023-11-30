@@ -14,12 +14,12 @@ public class SurchargeEventManager : EventStoryTriggerManager
             playerManager.canSurcharge = true;
             grotteKossiManager.enemySpawnOne.SetActive(true);
 
-            gameSaveManager.SaveAllData();
+            Invoke("Save", 30f);
 
             Destroy(this.transform.GetChild(0).gameObject, 4);
-            Destroy(this, 5f);
+            this.GetComponent<Collider>().enabled = false;
+            Destroy(this, 30f);
         }
-
-        
     }
+
 }
