@@ -7,22 +7,26 @@ public class GrotteKossiManager : MonoBehaviour
     public GameObject enemySpawnOne, enemySpawntwo, enemySpawnthree, enemySpawnFour;
     PlayerManager playerManager;
     GameSaveManager gameSaveManager;
+    GameObject midDoorDownGO;
 
     void Awake()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
+        midDoorDownGO = FindObjectOfType<MidDoorManager>().gameObject.transform.GetChild(1).gameObject;
     }
     
 
     void Start()
     {
         enemySpawnOne.SetActive(playerManager.canSurcharge);
-        if(gameSaveManager.midDoor.transform.position.y > 13)
+        if(midDoorDownGO.transform.position.y > 59.3f)
         {
             enemySpawntwo.SetActive(true);
         }
         else enemySpawntwo.SetActive(false);
+
+        Debug.Log(midDoorDownGO.transform.position.y);
         
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
         sun.transform.rotation = Quaternion.identity;

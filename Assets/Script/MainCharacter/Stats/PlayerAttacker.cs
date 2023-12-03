@@ -35,7 +35,7 @@ namespace SJ
         ParticleSystem.MainModule lMain;
         ParticleSystem.MainModule rMain;
         ParticleSystem fxLA, fxHAone, fxHATwo, fxHAThree;
-        public ParticleSystem magnetiFX, surchargeFX, powerupFX;
+        public ParticleSystem magnetiFX, surchargeFX, powerupFX, powerupBaembFX;
         ParticleSystem auraFx;
         Color lekbaRuben = new(0.87f, 0.25f, 0.87f);
         Color lekbaRubenLituba = new(0.07f, 0.5f, 0);
@@ -740,6 +740,12 @@ namespace SJ
         {
             Instantiate(powerupFX, magicRayOrigin.transform.position, Quaternion.identity);
             Instantiate(surchargeFX, magicRayOrigin.transform.position, Quaternion.identity);
+        }
+
+        public void HandlePowerUpBaembFx()
+        {
+            Instantiate(powerupBaembFX, magicRayOrigin.transform.position, Quaternion.identity);
+            Instantiate(magnetiFX, magicRayOrigin.transform.position, Quaternion.identity);
         }
 
     }

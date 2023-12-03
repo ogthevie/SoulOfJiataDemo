@@ -10,6 +10,7 @@ namespace SJ
         InputManager inputManager;
         PlayerAttacker playerAttacker;
         PlayerLocomotion playerLocomotion;
+        PlayerManager playerManager;
         AnimatorManager animatorManager;
         
         public InventoryData inventoryData;
@@ -28,6 +29,7 @@ namespace SJ
             playerAttacker = GetComponent<PlayerAttacker>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
+            playerManager = GetComponent<PlayerManager>();
 
             sorceryUp = GameObject.Find("SoulSokoto");
             sorceryDown = GameObject.Find("SoulIsango");
@@ -66,6 +68,7 @@ namespace SJ
 
         public void HandleSorcery()
         {
+
             if(sorceryUp.activeSelf && inputManager.up_input)
             {
                 sorceryUp.GetComponent<ParticleSystem>().Stop();
@@ -76,32 +79,40 @@ namespace SJ
                 inventoryData.kalabaQty -=1; 
             }
 
+
             /*else if(sorceryDown.activeSelf && inputManager.down_input)
             {
                 sorceryDown.GetComponent<ParticleSystem>().Stop();
                 sorceryDown.SetActive(false);
             }*/
             
-            else if(sorceryLeft.activeSelf && inputManager.left_input)
+            if(playerManager.canSomm)
             {
-                sorceryLeft.GetComponent<ParticleSystem>().Stop();
-                sLeft = true;
-                sorceryLeft.SetActive(false);
-                HandleSorceryLeftEffect();
-                inventoryData.mangueQty -= 4;
-                inventoryData.colaSingeQty -= 2;
-                
+                if(sorceryLeft.activeSelf && inputManager.left_input)
+                {
+                    sorceryLeft.GetComponent<ParticleSystem>().Stop();
+                    sLeft = true;
+                    sorceryLeft.SetActive(false);
+                    HandleSorceryLeftEffect();
+                    inventoryData.mangueQty -= 4;
+                    inventoryData.colaSingeQty -= 2;
+                    
+                }
             }
 
-            else if(sorceryRight.activeSelf && inputManager.right_input)
+            if(playerManager.canBaemb)
             {
-                sorceryRight.GetComponent<ParticleSystem>().Stop();
-                sRight = true;
-                sorceryRight.SetActive(false);
-                HandleSorceryRightEffect();
-                inventoryData.nkomoQty -= 6;
-                inventoryData.mintoumbaQty -= 4;
+                if(sorceryRight.activeSelf && inputManager.right_input)
+                {
+                    sorceryRight.GetComponent<ParticleSystem>().Stop();
+                    sRight = true;
+                    sorceryRight.SetActive(false);
+                    HandleSorceryRightEffect();
+                    inventoryData.nkomoQty -= 6;
+                    inventoryData.mintoumbaQty -= 4;
+                }
             }
+
         }
 
         void HandleSorceryUpEffect()

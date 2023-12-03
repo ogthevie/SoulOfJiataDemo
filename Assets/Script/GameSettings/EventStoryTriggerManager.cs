@@ -6,7 +6,6 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected PlayerManager playerManager;
     protected InputManager inputManager;
     protected AnimatorManager animatorManager;
-    protected AudioManager audioManager;
     protected GameSaveManager gameSaveManager;
     protected GrotteKossiManager grotteKossiManager;
 

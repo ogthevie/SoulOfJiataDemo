@@ -9,22 +9,29 @@ public class ArcLightEventManager : EventStoryTriggerManager
     public GameObject [] Torche = new GameObject [8];
     public int [] IndexHeartSteles = new int [8];
     bool stelesGreenOn, stelesYellowOn;
+    public bool inSecteurFour;
 
     void Start()
     {
+        inSecteurFour = false;
         stelesGreenOn = stelesYellowOn = false;
         HandleHeartSteleActivationWithIndex();
-        HandleTorcheLight();
+        HandleBaliseLight();
     }
 
 
     void LateUpdate()
     {
-        HandleTorcheLight();
-        HandleArcLightActivation();
-        HandleStele();
+        if(inSecteurFour)
+        {
+            HandleBaliseLight();
+            HandleArcLightActivation();
+            HandleForceKossiActivation();
+            HandleStele();
+        }
+
     }
-    private void HandleTorcheLight()
+    private void HandleBaliseLight()
     {
         int i;
         for(i = 0; i <= 7; i++)
@@ -65,11 +72,15 @@ public class ArcLightEventManager : EventStoryTriggerManager
             {
                 this.GetComponent<Renderer>().material = altarGreenMat;
                 transform.GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(1).gameObject.SetActive(false);
                 this.GetComponent<AudioSource>().enabled = true;
             }
             else if(stelesYellowOn)
             {
                 this.GetComponent<Renderer>().material = altarYellowmat;
+                transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(false);
+                this.GetComponent<AudioSource>().enabled = false;
             }
             else if(!stelesGreenOn)
             {
@@ -78,6 +89,26 @@ public class ArcLightEventManager : EventStoryTriggerManager
             }
         }
 
+    }
+
+    void HandleForceKossiActivation()
+    {
+        bool endLoop = true;
+
+        if(!stelesYellowOn)
+        {
+            foreach(GameObject heartStele in HeartSteles)
+            {
+                materialHeart = heartStele.GetComponent<Renderer>().sharedMaterial;
+                if(materialHeart != refYellowmaterial) 
+                {
+                    endLoop = false;
+                    break;
+                }
+            }
+
+            if(endLoop) stelesYellowOn = true;
+        }
     }
 
     public void HandleStele()
@@ -89,14 +120,40 @@ public class ArcLightEventManager : EventStoryTriggerManager
                 steles.GetComponent<Renderer>().material = refGreenMaterial;
             }
         }
+        else if(Input.GetKeyDown(KeyCode.H))
+        {
+            foreach(GameObject steles in HeartSteles)
+            {
+                steles.GetComponent<Renderer>().material = refYellowmaterial;
+            }            
+        }
+
+        if(playerManager.canArcLight) 
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            this.GetComponent<AudioSource>().Stop();
+
+        }
+        if(playerManager.canBaemb) transform.GetChild(1).gameObject.SetActive(false);
+
+
+        //H
     }
 
     protected override void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.layer == 3 && !playerManager.canArcLight)
+        if(other.gameObject.layer == 3 && stelesGreenOn)
         {
+            if(playerManager.canArcLight ) return;
+            inSecteurFour = true;
             StartCoroutine(arcLightEvent());
-        }        
+        }
+        else if(other.gameObject.layer == 3 && stelesYellowOn)
+        {
+            if(playerManager.canBaemb) return;
+            inSecteurFour = true;
+            StartCoroutine(ForceKossiEvent());
+        }
     }
 
     IEnumerator arcLightEvent()
@@ -106,13 +163,30 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
         this.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
 
-        Destroy(this.transform.GetChild(0).gameObject, 5f);
+        this.transform.GetChild(0).gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
         this.GetComponent<AudioSource>().enabled = false;
         yield return new WaitForSeconds(4f);
-        Invoke("Save", 2f);
+        Invoke("Save", 5f);
         
     }
+
+    IEnumerator ForceKossiEvent()
+    {
+        animatorManager.PlayTargetAnimation("PowerUp Baemb", true);
+        playerManager.canBaemb = true;
+
+        this.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+
+        this.transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        this.GetComponent<AudioSource>().enabled = false;
+        yield return new WaitForSeconds(4f);
+        Invoke("Save", 5f);
+        
+    }
+
+    //corroutine forcekossievent
 
     public void HandleHeartSteleActivationWithIndex()
     {

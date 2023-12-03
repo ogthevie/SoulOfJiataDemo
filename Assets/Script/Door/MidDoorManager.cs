@@ -36,6 +36,8 @@ public class MidDoorManager : DoorManager
         {
             gameSaveManager.SaveAllData();
             mid_Door = false;
+            grotteKossiManager.enemySpawntwo.SetActive(true);
+            if(wall != null) Destroy(wall);
             Destroy(this);
         }
     }

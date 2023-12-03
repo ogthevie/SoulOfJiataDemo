@@ -10,7 +10,7 @@ public class GameSaveManager : MonoBehaviour
     PlayerStats playerStats;
     ArcLightEventManager arcLightEventManager;
     public GameObject baseDoor, midDoor, supDoor;
-    public Transform baseDoorPosition, midDoorPosition, supDoorPosition;
+    public Transform baseDoorPosition, midDoorPosition;
 
     void Awake()
     {
@@ -32,7 +32,6 @@ public class GameSaveManager : MonoBehaviour
 
         baseDoorPosition = baseDoor.transform;
         midDoorPosition = midDoor.transform;
-        supDoorPosition = supDoor.transform;  
 
     }
 
@@ -58,7 +57,6 @@ public class GameSaveManager : MonoBehaviour
     public void LoadAllData()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
-        ;
         if(i == 2) 
         {
             LoadGrotteData();
@@ -76,7 +74,6 @@ public class GameSaveManager : MonoBehaviour
         {
             basedoorX = baseDoorPosition.position.x, basedoorY = baseDoorPosition.position.y, baseDoorZ = baseDoorPosition.position.z,
             midDoorX = midDoorPosition.position.x, midDoorY = midDoorPosition.position.y, midDoorZ = midDoorPosition.position.z,
-            supDoorX = supDoorPosition.position.x, supDoorY = midDoorPosition.position.y, supDoorZ = supDoorPosition.position.z,
         };
 
         string grotteKossiJon = JsonUtility.ToJson(grotteKossiData);
@@ -88,7 +85,11 @@ public class GameSaveManager : MonoBehaviour
     {
         PlayerData playerData = new PlayerData
         {
-            playerPV = playerStats.currentHealth, surcharge = playerManager.canSurcharge, arcLight = playerManager.canArcLight, thunder = playerManager.canThunder,
+            playerPV = playerStats.currentHealth, 
+            surcharge = playerManager.canSurcharge, 
+            arcLight = playerManager.canArcLight, 
+            thunder = playerManager.canThunder,
+            canBaemb = playerManager.canBaemb,
             playerX = playerManager.gameObject.transform.position.x,
             playerY = playerManager.gameObject.transform.position.y,
             playerZ = playerManager.gameObject.transform.position.z,
@@ -129,7 +130,6 @@ public class GameSaveManager : MonoBehaviour
             // Appliquer la position chargée au GameObject
             baseDoorPosition.position = new Vector3(grotteKossiData.basedoorX, grotteKossiData.basedoorY, grotteKossiData.baseDoorZ);
             midDoorPosition.position = new Vector3(grotteKossiData.midDoorX, grotteKossiData.midDoorY, grotteKossiData.midDoorZ);
-            supDoorPosition.position = new Vector3(grotteKossiData.supDoorX, grotteKossiData.supDoorY, grotteKossiData.supDoorZ);
 
             if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component))
                 component.LoadStateBaseRune();
@@ -174,8 +174,17 @@ public class GameSaveManager : MonoBehaviour
             playerManager.canSurcharge = playerData.surcharge;
             playerManager.canArcLight = playerData.arcLight;
             playerManager.canThunder = playerData.thunder;
+            playerManager.canBaemb = playerData.canBaemb;
             playerManager.HandleSurchargeBrassard();
         }
+
+        int i = SceneManager.GetActiveScene().buildIndex;
+        if(i == 2) FindObjectOfType<SpawnPlayer>().gameObject.SetActive(false);
+        //verifier si nous sommes dans la grotte
+        //si nous sommes dans la grotte, desactiver le startZoneKossi, sinon laisser activer
+
+        //verifier si nous sommes dans le village de bongo
+        // si nous sommes dans le village, desactiver le startZoneSibongo et  le PlayerInitPosition, sinon laisser activer
     }
 
     #endregion
@@ -212,14 +221,13 @@ class GrotteKossiData
 {
     public float basedoorX, basedoorY, baseDoorZ;
     public float midDoorX, midDoorY, midDoorZ;
-    public float supDoorX, supDoorY, supDoorZ;
 }
 
 class PlayerData
 {
     public float playerX, playerY, playerZ;
     public int playerPV;
-    public bool surcharge, arcLight, thunder;
+    public bool surcharge, arcLight, thunder, canBaemb;
 }
 
 class TorcheData
