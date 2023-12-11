@@ -6,9 +6,12 @@ using SJ;
 
 public class DialogTriggerManager : MonoBehaviour
 {
-    CharacterDialogManager characterDialogManager;
+    public Vector3 [] positions = new Vector3[5];
+    protected CharacterDialogManager characterDialogManager;
+    public StoryManager storyManager;
     public CameraManager cameraManager;
     public GameObject dialogUI;
+    public int idDialog;
 
     void Awake()
     {
@@ -19,9 +22,10 @@ public class DialogTriggerManager : MonoBehaviour
     void Start()
     {
         dialogUI = GameObject.Find("Player UI").transform.GetChild(2).gameObject;
+        storyManager = FindObjectOfType<StoryManager>();
     }
 
-    void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3)
         {
@@ -33,7 +37,7 @@ public class DialogTriggerManager : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        characterDialogManager.HandleDialogue();
+        characterDialogManager.HandleDialogue(idDialog);
     }
 
     void OnTriggerExit(Collider other)

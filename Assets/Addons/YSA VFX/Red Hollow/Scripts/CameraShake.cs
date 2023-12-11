@@ -1,23 +1,60 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using SJ;
 
 public class CameraShake : MonoBehaviour
 {
     Transform point;
+    AudioManager audioManager;
+    AnimatorManager animatorManager;
 
     public AnimationCurve smooth;
 
     void Start()
     {
-         point = new GameObject("Camera - PointInterested").transform;
+        audioManager = FindObjectOfType<AudioManager>();
+        animatorManager = FindObjectOfType<AnimatorManager>();
+        point = new GameObject("Camera - PointInterested").transform;
     }
 
-    public void Shake(float duartion, float magnitude){
+    void LateUpdate()
+    {
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            Shake(8.5f, 1.25f);
+        }
+
+    }
+
+    void OnEnable()
+    {
+        // S'abonner à l'événement activeSceneChanged
+        SceneManager.activeSceneChanged += OnActiveSceneChanged;
+    }
+
+    void OnDisable()
+    {
+        // Se désabonner de l'événement lorsque le script est désactivé ou détruit
+        SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+    }
+
+    void OnActiveSceneChanged(Scene previousScene, Scene newScene)
+    {
+        point = new GameObject("Camera - PointInterested").transform;
+        /*Debug.Log("Scène précédente : " + previousScene.name);
+        Debug.Log("Nouvelle scène : " + newScene.name);*/
+
+    }
+
+    public void Shake(float duartion, float magnitude)
+    {   
         StartCoroutine(Shaker(duartion, magnitude));
     }
-    IEnumerator Shaker(float duartion, float magnitude) {
-
+    IEnumerator Shaker(float duartion, float magnitude) 
+    {
+        audioManager.EarthQuakeFx();
+        animatorManager.PlayTargetAnimation("LookAround", true);
         point.position = transform.position + transform.forward;
 
         Vector3 oldPos = point.position;

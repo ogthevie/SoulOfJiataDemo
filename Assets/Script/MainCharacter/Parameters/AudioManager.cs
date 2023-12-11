@@ -179,9 +179,10 @@ namespace SJ
             interactionAudioSource.PlayOneShot(fightSfx[2]);
         }
 
-        public void AltarArcLight()
+        public void EarthQuakeFx()
         {
-
+            cameraAudioSource.volume = 0.8f;
+            cameraAudioSource.PlayOneShot(fightSfx[7]);
         }
 
 

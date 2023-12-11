@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SibongoManager : MonoBehaviour
 {
@@ -6,14 +7,20 @@ public class SibongoManager : MonoBehaviour
     public ParticleSystem [] fireLights;
     public Light [] pointLights;
     public Material[] dayPeriodSkyboxes;
+    public GameObject[] HommPosition; // les activites des PNJ se divisent en 05 périodes de la journée de la journéee
+    public int dayPeriod;
+
 
     void Awake()
     {
         dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
+        dayNightCycleManager.dayTimer += 180f;
+        TimerRoutine();  
     }
 
     void Start()
     {
+
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
         sun.transform.rotation = Quaternion.identity;
 
@@ -42,8 +49,18 @@ public class SibongoManager : MonoBehaviour
                 sun.transform.rotation = rotation; 
                 RenderSettings.skybox = dayPeriodSkyboxes[1];
             }
-        }
-              
+
+            
+        }         
+    }
+
+    void TimerRoutine()
+    {
+        if(dayNightCycleManager.dayTimer >= 360f && dayNightCycleManager.dayTimer < 600f) dayPeriod = 0;
+        else if(dayNightCycleManager.dayTimer >= 600f && dayNightCycleManager.dayTimer < 960f) dayPeriod = 1;
+        else if(dayNightCycleManager.dayTimer >= 960f && dayNightCycleManager.dayTimer < 1140f) dayPeriod = 2;
+        else if(dayNightCycleManager.dayTimer >= 1140f && dayNightCycleManager.dayTimer < 1320f) dayPeriod = 3;
+        else if(dayNightCycleManager.dayTimer >= 1320f || dayNightCycleManager.dayTimer < 360f) dayPeriod = 4;
     }
 
 }

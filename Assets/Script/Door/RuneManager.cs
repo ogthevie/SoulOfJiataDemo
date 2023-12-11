@@ -21,8 +21,6 @@ public class RuneManager : MonoBehaviour
 
     public void LoadStateBaseRune()
     {
-
-            runeData.base_DoorB = true;
             transform.gameObject.GetComponent<Renderer>().material = onRuneB;
             Destroy(this, 5);
     }
@@ -33,7 +31,7 @@ public class RuneManager : MonoBehaviour
         if(this.transform.parent.name == "Base Door") runeType.HandleBaseDoorRune(other, this, audioSource);
         else if(this.transform.parent.name == "Mid Door") runeType.HandleMidDoorRune(other, this, audioSource);
         else if(this.transform.parent.name == "Sup Door") runeType.HandleSupDoorRune(other, this, audioSource);
-        Debug.Log(runeData.base_DoorB);
+        //Debug.Log(runeData.base_DoorB);
     }
 }
 

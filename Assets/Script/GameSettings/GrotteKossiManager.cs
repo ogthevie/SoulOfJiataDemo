@@ -26,7 +26,7 @@ public class GrotteKossiManager : MonoBehaviour
         }
         else enemySpawntwo.SetActive(false);
 
-        Debug.Log(midDoorDownGO.transform.position.y);
+        //Debug.Log(midDoorDownGO.transform.position.y);
         
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
         sun.transform.rotation = Quaternion.identity;

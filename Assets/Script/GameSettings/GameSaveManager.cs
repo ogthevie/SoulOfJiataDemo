@@ -8,6 +8,7 @@ public class GameSaveManager : MonoBehaviour
 {
     PlayerManager playerManager;
     PlayerStats playerStats;
+    StoryManager storyManager;
     ArcLightEventManager arcLightEventManager;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
@@ -17,6 +18,7 @@ public class GameSaveManager : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         playerStats = FindObjectOfType<PlayerStats>();
         arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
+        storyManager = GetComponent<StoryManager>();
 
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager"); // Recherche d'objets avec le tag spécifique
 
@@ -51,6 +53,7 @@ public class GameSaveManager : MonoBehaviour
         }
 
         SavePlayerData();
+        SaveStoryData();
         Debug.Log("sauvegarde effectuée");
     }
 
@@ -63,6 +66,7 @@ public class GameSaveManager : MonoBehaviour
             LoadTorcheGrotteData();
         }
         LoadPlayerData();
+        LoadStoryData();
         Debug.Log("Données chargées");
     }
 
@@ -92,12 +96,25 @@ public class GameSaveManager : MonoBehaviour
             canBaemb = playerManager.canBaemb,
             playerX = playerManager.gameObject.transform.position.x,
             playerY = playerManager.gameObject.transform.position.y,
-            playerZ = playerManager.gameObject.transform.position.z,
+            playerZ = playerManager.gameObject.transform.position.z
         };
-
         string playerJSon = JsonUtility.ToJson(playerData);
+
         string filepath = Application.persistentDataPath + "/playerData.json";
         System.IO.File.WriteAllText(filepath, playerJSon);
+    }
+
+    void SaveStoryData()
+    {
+        StoryData storyData = new StoryData
+        {
+            storyStep = storyManager.storyStep
+        };
+
+        string storyStepJson = JsonUtility.ToJson(storyData);
+
+        string filepath = Application.persistentDataPath + "/StoryData.json";
+        System.IO.File.WriteAllText(filepath, storyStepJson);   
     }
 
     void SaveTorcheGrotteData()
@@ -187,6 +204,19 @@ public class GameSaveManager : MonoBehaviour
         // si nous sommes dans le village, desactiver le startZoneSibongo et  le PlayerInitPosition, sinon laisser activer
     }
 
+    void LoadStoryData()
+    {
+        string filepath = Application.persistentDataPath + "/StoryData.json";
+
+        if(System.IO.File.Exists(filepath))
+        {
+            string storyStepJson = System.IO.File.ReadAllText(filepath);
+            StoryData storyData = JsonUtility.FromJson<StoryData>(storyStepJson);
+
+            storyManager.storyStep = storyData.storyStep;
+        }
+    }
+
     #endregion
     
     public void ClearAllSaves()
@@ -233,6 +263,11 @@ class PlayerData
 class TorcheData
 {
     public int [] HeartStelesState = new int[8];
+}
+
+class StoryData
+{
+    public int storyStep;
 }
 
 

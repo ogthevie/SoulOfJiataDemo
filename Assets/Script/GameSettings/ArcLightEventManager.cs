@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class ArcLightEventManager : EventStoryTriggerManager
 {
+    BigKossiEventManager bigKossiEventManager;
     public Material altarOriginMat, altarGreenMat, altarYellowmat, refGreenMaterial, refYellowmaterial, materialHeart;
     public GameObject [] HeartSteles = new GameObject [8];
     public GameObject [] Torche = new GameObject [8];
     public int [] IndexHeartSteles = new int [8];
     bool stelesGreenOn, stelesYellowOn;
+    public GameObject arcLight, forceKossi;
     public bool inSecteurFour;
 
     void Start()
     {
+        bigKossiEventManager = FindObjectOfType<BigKossiEventManager>();
         inSecteurFour = false;
         stelesGreenOn = stelesYellowOn = false;
+        arcLight = transform.GetChild(0).gameObject;
+        forceKossi = transform.GetChild(1).gameObject;
         HandleHeartSteleActivationWithIndex();
         HandleBaliseLight();
     }
@@ -22,8 +27,13 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
     void LateUpdate()
     {
+        HandleActivationBigKossiEvent();
+        
         if(inSecteurFour)
         {
+            if(playerManager.canArcLight && playerManager.canBaemb)
+            return;
+
             HandleBaliseLight();
             HandleArcLightActivation();
             HandleForceKossiActivation();
@@ -68,23 +78,23 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
             stelesGreenOn = true && Torche.All(t => t.activeSelf);
 
-            if(stelesGreenOn)
+            if(stelesGreenOn && !arcLight.activeSelf)
             {
                 this.GetComponent<Renderer>().material = altarGreenMat;
-                transform.GetChild(0).gameObject.SetActive(true);
-                transform.GetChild(1).gameObject.SetActive(false);
+                arcLight.SetActive(true);
+                forceKossi.SetActive(false);
                 this.GetComponent<AudioSource>().enabled = true;
             }
             else if(stelesYellowOn)
             {
                 this.GetComponent<Renderer>().material = altarYellowmat;
-                transform.GetChild(1).gameObject.SetActive(true);
-                transform.GetChild(0).gameObject.SetActive(false);
+                forceKossi.SetActive(true);
+                arcLight.SetActive(false);
                 this.GetComponent<AudioSource>().enabled = false;
             }
             else if(!stelesGreenOn)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
+                arcLight.SetActive(false);
                 this.GetComponent<Renderer>().material = altarOriginMat;
             }
         }
@@ -111,6 +121,8 @@ public class ArcLightEventManager : EventStoryTriggerManager
         }
     }
 
+    //////////////////////////////////////////A RETIRER ////////////////////////////////////////////////////////////////
+
     public void HandleStele()
     {
         if(Input.GetKeyDown(KeyCode.F))
@@ -130,15 +142,16 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
         if(playerManager.canArcLight) 
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            arcLight.SetActive(false);
             this.GetComponent<AudioSource>().Stop();
 
         }
-        if(playerManager.canBaemb) transform.GetChild(1).gameObject.SetActive(false);
+        if(playerManager.canBaemb) forceKossi.SetActive(false);
 
 
-        //H
     }
+
+    ///////////////////////////////////////////////        FIN A RETIRER    ////////////////////////////////////////////////////////////////////////////
 
     protected override void OnCollisionEnter(Collision other)
     {
@@ -161,9 +174,9 @@ public class ArcLightEventManager : EventStoryTriggerManager
         animatorManager.PlayTargetAnimation("PowerUp", true);
         playerManager.canArcLight = true;
 
-        this.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+        arcLight.GetComponent<ParticleSystem>().Stop();
 
-        this.transform.GetChild(0).gameObject.SetActive(false);
+        arcLight.SetActive(false);
         yield return new WaitForSeconds(3f);
         this.GetComponent<AudioSource>().enabled = false;
         yield return new WaitForSeconds(4f);
@@ -176,9 +189,9 @@ public class ArcLightEventManager : EventStoryTriggerManager
         animatorManager.PlayTargetAnimation("PowerUp Baemb", true);
         playerManager.canBaemb = true;
 
-        this.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+        forceKossi.GetComponent<ParticleSystem>().Stop();
 
-        this.transform.GetChild(1).gameObject.SetActive(false);
+        forceKossi.SetActive(false);
         yield return new WaitForSeconds(3f);
         this.GetComponent<AudioSource>().enabled = false;
         yield return new WaitForSeconds(4f);
@@ -194,6 +207,20 @@ public class ArcLightEventManager : EventStoryTriggerManager
         {
             if(IndexHeartSteles[i] == 1) HeartSteles[i].GetComponent<Renderer>().material = refGreenMaterial;
             else if (IndexHeartSteles[i] == 2) HeartSteles[i].GetComponent<Renderer>().material = refYellowmaterial;
+        }
+    }
+
+    public void HandleActivationBigKossiEvent()
+    {
+        if(bigKossiEventManager.enabled)
+            return; 
+        if(playerManager.canArcLight && playerManager.canBaemb)
+        {
+            bigKossiEventManager.enabled = true;
+            foreach(GameObject steles in HeartSteles)
+            {
+                steles.GetComponent<Renderer>().material = altarOriginMat;
+            }
         }
     }
 }
