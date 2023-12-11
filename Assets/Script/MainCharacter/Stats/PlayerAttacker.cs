@@ -29,16 +29,16 @@ namespace SJ
         public Collider hittable360Attack, hittableCrossAttack, hittableFallAttack;
         public Collider leftHitBox, rightHitBox;
 
-        ParticleSystem soul_Lituba_Fx, soul_Isango_Fx ,soul_Sokoto_Fx, soul_Pefussep_Fx;
+        ParticleSystem soul_Lituba_Fx, /*soul_Isango_Fx ,soul_Sokoto_Fx,*/ soul_Pefussep_Fx;
 
         GameObject leffectLitubaFx, reffectLitubaFx;
         ParticleSystem.MainModule lMain;
         ParticleSystem.MainModule rMain;
         ParticleSystem fxLA, fxHAone, fxHATwo, fxHAThree;
-        public ParticleSystem magnetiFX, surchargeFX, powerupFX;
+        public ParticleSystem magnetiFX, surchargeFX, powerupFX, powerupBaembFX;
         ParticleSystem auraFx;
         Color lekbaRuben = new(0.87f, 0.25f, 0.87f);
-        Color lekbaRubenLituba = new(0.07f, 0.5f, 0);
+        Color lekbaRubenLituba = new(0.85f, 0.55f, 0.1f);
 
         readonly int highAttackDrain = 5;
         public readonly int magnetiDrain = 8;
@@ -84,8 +84,8 @@ namespace SJ
             //lowAttackOrigin = GameObject.Find("lowAttackOrigin");
 
             soul_Lituba_Fx = GameObject.Find("SoulLitubaFx").GetComponent<ParticleSystem>();
-            soul_Isango_Fx = GameObject.Find("SoulIsangoFx").GetComponent<ParticleSystem>();
-            soul_Sokoto_Fx = GameObject.Find("SoulSokotoFx").GetComponent<ParticleSystem>();
+            //soul_Isango_Fx = GameObject.Find("SoulIsangoFx").GetComponent<ParticleSystem>();
+            //soul_Sokoto_Fx = GameObject.Find("SoulSokotoFx").GetComponent<ParticleSystem>();
             soul_Pefussep_Fx = GameObject.Find("SoulPefussepFx").GetComponent<ParticleSystem>();
 
             leffectLitubaFx = GameObject.Find("LEffectSoulLitubaFx");
@@ -370,6 +370,7 @@ namespace SJ
                 else if(hit.collider.gameObject.tag == "Stele")
                 {
                     hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[1];
+                    hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
                 }   
 
             }
@@ -426,7 +427,7 @@ namespace SJ
                 else if(hit.collider.gameObject.tag == "Stele")
                 {
                     hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[0];
-                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                    hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
                 }                
 
             }
@@ -711,7 +712,7 @@ namespace SJ
 
         public void HandleSorceryPad()
         {
-            if(sorceryPadManager.sUp)   
+            /*if(sorceryPadManager.sUp)   
             {
                 soul_Sokoto_Fx.Play();
                 sorceryPadManager.sUp = false;
@@ -721,9 +722,9 @@ namespace SJ
             {
                 soul_Isango_Fx.Play();
                 sorceryPadManager.sDown = false;
-            }
+            }*/
 
-            else if(sorceryPadManager.sLeft)
+            if(sorceryPadManager.sLeft)
             {
                 soul_Pefussep_Fx.Play();
                 sorceryPadManager.sLeft = false;
@@ -740,6 +741,12 @@ namespace SJ
         {
             Instantiate(powerupFX, magicRayOrigin.transform.position, Quaternion.identity);
             Instantiate(surchargeFX, magicRayOrigin.transform.position, Quaternion.identity);
+        }
+
+        public void HandlePowerUpBaembFx()
+        {
+            Instantiate(powerupBaembFX, magicRayOrigin.transform.position, Quaternion.identity);
+            Instantiate(magnetiFX, magicRayOrigin.transform.position, Quaternion.identity);
         }
 
     }

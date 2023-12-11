@@ -163,7 +163,10 @@ GameObject:
   m_Component:
   - component: {fileID: 936472131067107919}
   - component: {fileID: 6493953879228743733}
-  - component: {fileID: 7565607646733971933}
+  - component: {fileID: 2995710271508451383}
+  - component: {fileID: 5269934292043199915}
+  - component: {fileID: 7872227219575147338}
+  - component: {fileID: 5413799023709155562}
   m_Layer: 0
   m_Name: Poa Libum
   m_TagString: Untagged
@@ -209,7 +212,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &7565607646733971933
+--- !u!136 &2995710271508451383
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,10 +231,63 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.02
+  m_Radius: 0.59
+  m_Height: 2.3997848
   m_Direction: 1
-  m_Center: {x: 0, y: 0.99, z: 0}
+  m_Center: {x: 0, y: 0.6998927, z: 0}
+--- !u!65 &5269934292043199915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555302702158872821}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0916197, y: 1.7632871, z: 2.8361058}
+  m_Center: {x: 0.22620755, y: 0.96839535, z: 0.9180522}
+--- !u!114 &7872227219575147338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555302702158872821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce126155efa2a64b967fbdaa9ed4895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
+  dialogUI: {fileID: 0}
+--- !u!114 &5413799023709155562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555302702158872821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cfa1b51c1d33440bb2ff1ce8687ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDialogData:
+  - {fileID: 0}
+  dialogTriggerManager: {fileID: 0}
+  actorName: {fileID: 0}
+  actorSentence: {fileID: 0}
+  canDialog: 0
 --- !u!1 &678530030886387682
 GameObject:
   m_ObjectHideFlags: 0

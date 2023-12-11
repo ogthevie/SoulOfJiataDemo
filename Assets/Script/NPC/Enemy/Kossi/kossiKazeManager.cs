@@ -57,7 +57,7 @@ public class kossiKazeManager : EnemyManager
             {
                 if(elt.gameObject.layer == 3)
                 {
-                    playerStats.TakeDamage(kamikazeDamage, 1);
+                    playerStats.TakeDamage(kamikazeDamage, 0);
                 }
                 else if(elt.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager vaseContainerManager))
                 {

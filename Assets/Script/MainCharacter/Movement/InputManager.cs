@@ -159,7 +159,6 @@ namespace SJ
             HandleSurchargeInput();
             HandleArcLighInput();
             HandleThunderInput();
-            HandleInteractInput();
             HandleSorceryPad();
         }
 
@@ -362,7 +361,7 @@ namespace SJ
             else thunderFlag = false;
         }
 
-        private void HandleInteractInput()
+        public void HandleInteractInput()
         {
             if(west_input)  InteractFlag = true;
             else InteractFlag = false;

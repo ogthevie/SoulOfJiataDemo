@@ -8,7 +8,7 @@ public abstract class DoorManager : MonoBehaviour
     protected DoorType doorType = new DoorType();
     public Vector3 openPosition;
     public Vector3 stopPosition;
-    public bool base_Door, mid_Door, sup_Door;
+    public bool base_Door, mid_Door;
 
     protected abstract void HandleStopDoorRuneProcess();
 
@@ -54,23 +54,6 @@ public class DoorType
                 doorManager.mid_Door = true;
             }
 
-        }
-    }
-
-    public void HandleSupDoor (RuneData runeData, GameObject supDoorDown, DoorManager doorManager)
-    {
-        if(!doorManager.sup_Door)
-        {
-            if(runeData.sup_DoorH && runeData.sup_DoorB && runeData.sup_DoorG)
-            {
-                float velocity = 0.2f;
-                doorManager.transform.position = Vector3.Lerp(supDoorDown.transform.position, doorManager.openPosition, velocity * Time.deltaTime);
-            }
-
-            if(supDoorDown.transform.position.y > doorManager.stopPosition.y)
-            {
-                doorManager.sup_Door = true;
-            }  
         }
     }
 }

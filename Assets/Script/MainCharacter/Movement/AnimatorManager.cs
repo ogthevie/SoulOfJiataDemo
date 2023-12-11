@@ -11,6 +11,8 @@ namespace SJ
         int vertical;
         int horizontal;
         public bool canRotate;
+        
+        public bool animationState;
 
 
         #endregion
@@ -24,6 +26,7 @@ namespace SJ
             horizontal = Animator.StringToHash("Horizontal");
             anim.SetFloat("BoostBaemb", 1f);
             canRotate = true;
+            animationState = true;
         }
         public void PlayTargetAnimation(string targetAnim, bool isInteracting)
         {

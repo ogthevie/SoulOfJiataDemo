@@ -74,7 +74,7 @@ namespace SJ
             if(currentHealth > 0 && !playerManager.isInAir) 
             {
                 if(levelDamage == 0) animatorManager.PlayTargetAnimation("Low Damage", true);
-                else if(levelDamage == 1) animatorManager.PlayTargetAnimation("Middle Damage", true);
+                else animatorManager.PlayTargetAnimation("Middle Damage", true);
             }
 
             else if(currentHealth <= 0)

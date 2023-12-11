@@ -1002,7 +1002,6 @@ GameObject:
   - component: {fileID: 3748150085983527049}
   - component: {fileID: 7125880371557186291}
   - component: {fileID: 1222064787483443118}
-  - component: {fileID: 443320117369678266}
   - component: {fileID: 1211413593005086813}
   m_Layer: 0
   m_Name: Ngonda
@@ -1073,20 +1072,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1928792, y: 1, z: 1.9829639}
   m_Center: {x: -0.19974999, y: 0.44999993, z: 0.4914815}
---- !u!114 &443320117369678266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4562087090192759347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce126155efa2a64b967fbdaa9ed4895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
-  dialogUI: {fileID: 0}
 --- !u!114 &1211413593005086813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,11 +1084,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cfa1b51c1d33440bb2ff1ce8687ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDialogData: {fileID: 11400000, guid: 468bb505b6ef2ea4d88d1aa83f3a0122,
-    type: 2}
+  characterDialogData:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   dialogTriggerManager: {fileID: 0}
   actorName: {fileID: 0}
   actorSentence: {fileID: 0}
+  playerStatsUi: {fileID: 0}
   canDialog: 0
 --- !u!1 &5052083865120706545
 GameObject:

@@ -85,11 +85,12 @@ namespace SJ
             cameraManager.DestroyLockOntargets();
 
             float delta = Time.deltaTime;
+            inputManager.HandleInteractInput();
 
             HandleLife();
-            
-            if(isDead)
+            if(!animatorManager.animationState || isDead)
                 return;
+
             inputManager.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleFlipping(delta);
@@ -182,6 +183,11 @@ namespace SJ
             magnetiFX.SetActive(true);
             GameObject magnetiFXClone = Instantiate(magnetiFX, transform);
             Destroy(magnetiFXClone, 1.5f);
+        }
+
+        void OnCollisionEnter(Collision other)
+        {
+            Debug.Log(other.gameObject.name);
         }
 
         public void HandleInventory()

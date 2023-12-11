@@ -6,17 +6,25 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected PlayerManager playerManager;
     protected InputManager inputManager;
     protected AnimatorManager animatorManager;
-    protected AudioManager audioManager;
     protected GameSaveManager gameSaveManager;
     protected GrotteKossiManager grotteKossiManager;
+    protected StoryManager storyManager;
+    protected CameraShake cameraShake;
 
-    void Start()
+    void Awake()
     {
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         playerManager = FindObjectOfType<PlayerManager>();
-        inputManager = FindObjectOfType<InputManager>();
-        animatorManager = FindObjectOfType<AnimatorManager>();
+        inputManager = playerManager.GetComponent<InputManager>();
+        animatorManager = playerManager.GetComponent<AnimatorManager>();
         grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
+        cameraShake = FindObjectOfType<CameraShake>();
+        storyManager = gameSaveManager.GetComponent<StoryManager>();
+    }
+
+    protected void Save()
+    {
+        gameSaveManager.SaveAllData();
     }
 
     protected abstract void OnCollisionEnter(Collision other);

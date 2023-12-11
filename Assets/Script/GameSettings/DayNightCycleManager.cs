@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class DayNightCycleManager : MonoBehaviour
 {
+    /// 1 journée(24h) équivaut à 24 min donc 1h équivaut à 1 min (60s)
+    /// 1080 c'est le debut de la nuit
+    /// 300 - 720 c'est le matin
+    /// 720 c'est le jour
     public float dayTimer;
+
+    void Awake()
+    {
+        dayTimer = Random.Range(0f, 1439f);
+    }
     
     void Update()
     {

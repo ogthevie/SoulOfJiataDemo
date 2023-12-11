@@ -10,6 +10,7 @@ namespace SJ
         InputManager inputManager;
         PlayerAttacker playerAttacker;
         PlayerLocomotion playerLocomotion;
+        PlayerManager playerManager;
         AnimatorManager animatorManager;
         
         public InventoryData inventoryData;
@@ -28,6 +29,7 @@ namespace SJ
             playerAttacker = GetComponent<PlayerAttacker>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
+            playerManager = GetComponent<PlayerManager>();
 
             sorceryUp = GameObject.Find("SoulSokoto");
             sorceryDown = GameObject.Find("SoulIsango");
@@ -50,8 +52,8 @@ namespace SJ
 
         void HandlePlayVFXSorcery()
         {
-                if(inventoryData.pruneQty > 4 && inventoryData.kalabaQty > 1) sorceryUp.SetActive(true);
-                else sorceryUp.SetActive(false);
+                /*if(inventoryData.pruneQty > 4 && inventoryData.kalabaQty > 1) sorceryUp.SetActive(true);
+                else sorceryUp.SetActive(false);*/
             
                 /*if(inventoryData.ikokQty > 0) sorceryDown.SetActive(true);
                 else sorceryDown.SetActive(false);*/
@@ -66,7 +68,8 @@ namespace SJ
 
         public void HandleSorcery()
         {
-            if(sorceryUp.activeSelf && inputManager.up_input)
+
+            /*if(sorceryUp.activeSelf && inputManager.up_input)
             {
                 sorceryUp.GetComponent<ParticleSystem>().Stop();
                 sUp = true;
@@ -74,7 +77,8 @@ namespace SJ
                 HandleSorceryUpEffect();
                 inventoryData.pruneQty -= 4;
                 inventoryData.kalabaQty -=1; 
-            }
+            }*/
+
 
             /*else if(sorceryDown.activeSelf && inputManager.down_input)
             {
@@ -82,29 +86,38 @@ namespace SJ
                 sorceryDown.SetActive(false);
             }*/
             
-            else if(sorceryLeft.activeSelf && inputManager.left_input)
+            if(playerManager.canSomm)
             {
-                sorceryLeft.GetComponent<ParticleSystem>().Stop();
-                sLeft = true;
-                sorceryLeft.SetActive(false);
-                HandleSorceryLeftEffect();
-                inventoryData.mangueQty -= 4;
-                inventoryData.colaSingeQty -= 2;
-                
+                if(sorceryLeft.activeSelf && inputManager.left_input)
+                {
+                    if(jiatabodyRenderer[12].material.shader == jiataShaders[3]) return;
+                    sorceryLeft.GetComponent<ParticleSystem>().Stop();
+                    sLeft = true;
+                    sorceryLeft.SetActive(false);
+                    HandleSorceryLeftEffect();
+                    inventoryData.mangueQty -= 4;
+                    inventoryData.colaSingeQty -= 2;
+                    
+                }
             }
 
-            else if(sorceryRight.activeSelf && inputManager.right_input)
+            if(playerManager.canBaemb)
             {
-                sorceryRight.GetComponent<ParticleSystem>().Stop();
-                sRight = true;
-                sorceryRight.SetActive(false);
-                HandleSorceryRightEffect();
-                inventoryData.nkomoQty -= 6;
-                inventoryData.mintoumbaQty -= 4;
+                if(sorceryRight.activeSelf && inputManager.right_input)
+                {
+                    if(jiatabodyRenderer[12].material.shader == jiataShaders[2]) return;
+                    sorceryRight.GetComponent<ParticleSystem>().Stop();
+                    sRight = true;
+                    sorceryRight.SetActive(false);
+                    HandleSorceryRightEffect();
+                    inventoryData.nkomoQty -= 6;
+                    inventoryData.mintoumbaQty -= 4;
+                }
             }
+
         }
 
-        void HandleSorceryUpEffect()
+        /*void HandleSorceryUpEffect()
         {
             StartCoroutine(effect());
             
@@ -133,7 +146,7 @@ namespace SJ
                 statesJiataData.isIndomitable = false;
                 
             }
-        }
+        }*/
 
         void HandleSorceryLeftEffect()
         {
@@ -171,7 +184,11 @@ namespace SJ
             
             IEnumerator effect()
             {
+                int i;
 
+                for (i = 0; i < jiatabodyRenderer.Count; i ++) jiatabodyRenderer[i].material.shader = jiataShaders[2];
+
+                statesJiataData.isIndomitable = true;
                 playerLocomotion.movementSpeed *= 1.7f;
                 playerLocomotion.sprintSpeed *= 1.7f;
                 HandleUpStatsAttack(coefBoostBaemb);
@@ -181,12 +198,18 @@ namespace SJ
                 //ajouter un son ici
                 yield return new WaitForSeconds(30f);
 
+                for (i = 0; i < (jiatabodyRenderer.Count - 1); i++)
+                {
+                    jiatabodyRenderer[i].material.shader = jiataShaders[0];
+                    jiatabodyRenderer[12].material.shader = jiataShaders[1];
+                }
                 playerLocomotion.movementSpeed = 6f;
                 playerLocomotion.sprintSpeed = 11f;
                 HandleDownStatsAttack(coefBoostBaemb);
                 playerAttacker.StopAuraFx();
                 playerAttacker.StopEffectLitubaxFx();
                 animatorManager.anim.SetFloat("BoostBaemb", 1f);
+                statesJiataData.isIndomitable = false;
                 
             }
 

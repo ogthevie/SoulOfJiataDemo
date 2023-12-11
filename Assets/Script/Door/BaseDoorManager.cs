@@ -20,7 +20,7 @@ public class BaseDoorManager : DoorManager
     {
         if(base_Door)
         {
-            gameSaveManager.SaveGrotteData();
+            gameSaveManager.SaveDoorData();
             Destroy(this);
         }
     }  

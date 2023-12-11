@@ -7,20 +7,22 @@ public class CharacterDialogManager : MonoBehaviour
 {
     public DialogData[] characterDialogData = new DialogData [5];
     InputManager inputManager;
-    PlayerManager playerManager;
+    AnimatorManager animatorManager;
+
+    protected Animator characterAnimator;
     public DialogTriggerManager dialogTriggerManager;
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
-    GameObject playerStatsUi;
+    public GameObject playerStatsUi;
     int i = 0;
-    int k = 0;
     public bool canDialog;
 
     void Awake()
     {
-        inputManager = FindAnyObjectByType<InputManager>();
+        inputManager = FindObjectOfType<InputManager>();
+        animatorManager = FindObjectOfType<AnimatorManager>();
         dialogTriggerManager = GetComponent<DialogTriggerManager>();
-        playerManager = FindAnyObjectByType<PlayerManager>();
+        characterAnimator = GetComponent<Animator>();
     }
 
     void Start()
@@ -34,9 +36,10 @@ public class CharacterDialogManager : MonoBehaviour
     {
         canDialog = true;
         playerStatsUi.SetActive(false);
+        characterAnimator.SetBool("animState", true);
     }
 
-    public void HandleDialogue()
+    public virtual void HandleDialogue(int k)
     {
         if(!canDialog)
             return;
@@ -48,7 +51,7 @@ public class CharacterDialogManager : MonoBehaviour
             else actorName.text = characterDialogData[k].mainCharacterName;
 
             actorSentence.text = characterDialogData[k].firstConversation[i];
-            nextFirstDialogue();
+            nextFirstDialogue(k);
         }
     
 
@@ -65,12 +68,15 @@ public class CharacterDialogManager : MonoBehaviour
         dialogTriggerManager.EndDialogue();
         playerStatsUi.SetActive(true);
         canDialog = false;
+        animatorManager.animationState = true;
+        characterAnimator.SetBool("animState", false);
     }
 
-    void nextFirstDialogue()
+    public virtual void nextFirstDialogue(int k)
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
+            animatorManager.animationState = false;
             i++;
             if(i >= characterDialogData[k].firstConversation.Count)
             {
