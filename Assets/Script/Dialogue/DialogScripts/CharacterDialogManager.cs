@@ -1,23 +1,22 @@
 using UnityEngine;
 using TMPro;
 using SJ;
-using System;
 
 public class CharacterDialogManager : MonoBehaviour
 {
-    public DialogData[] characterDialogData = new DialogData [5];
-    InputManager inputManager;
-    AnimatorManager animatorManager;
+
+    protected InputManager inputManager;
+    protected AnimatorManager animatorManager;
 
     protected Animator characterAnimator;
     public DialogTriggerManager dialogTriggerManager;
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
     public GameObject playerStatsUi;
-    int i = 0;
+    protected int i = 0;
     public bool canDialog;
 
-    void Awake()
+    protected virtual void Awake()
     {
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
@@ -25,21 +24,25 @@ public class CharacterDialogManager : MonoBehaviour
         characterAnimator = GetComponent<Animator>();
     }
 
-    void Start()
+
+
+    protected void Start()
     {
         actorName = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         actorSentence = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         playerStatsUi = GameObject.Find("Player UI").transform.GetChild(0).gameObject;
     }
 
-    public void StartDialogue()
+
+
+    public virtual void StartDialogue()
     {
         canDialog = true;
         playerStatsUi.SetActive(false);
         characterAnimator.SetBool("animState", true);
     }
 
-    public virtual void HandleDialogue(int k)
+    public virtual void HandleDialogue(int k, DialogData[] characterDialogData)
     {
         if(!canDialog)
             return;
@@ -51,7 +54,7 @@ public class CharacterDialogManager : MonoBehaviour
             else actorName.text = characterDialogData[k].mainCharacterName;
 
             actorSentence.text = characterDialogData[k].firstConversation[i];
-            nextFirstDialogue(k);
+            nextFirstDialogue(k, characterDialogData);
         }
     
 
@@ -63,7 +66,7 @@ public class CharacterDialogManager : MonoBehaviour
         }
     }
 
-    public void CloseDialogue()
+    public virtual void CloseDialogue()
     {
         dialogTriggerManager.EndDialogue();
         playerStatsUi.SetActive(true);
@@ -72,7 +75,7 @@ public class CharacterDialogManager : MonoBehaviour
         characterAnimator.SetBool("animState", false);
     }
 
-    public virtual void nextFirstDialogue(int k)
+    public virtual void nextFirstDialogue(int k, DialogData[] characterDialogData)
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {

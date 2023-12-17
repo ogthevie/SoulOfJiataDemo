@@ -41,8 +41,6 @@ namespace SJ
         public bool onTutoScreen;
         public bool canPass;
         public bool onInventory;
-        public bool onSorceryTree;
-
         public static bool created = false;
 
 
@@ -183,11 +181,6 @@ namespace SJ
             magnetiFX.SetActive(true);
             GameObject magnetiFXClone = Instantiate(magnetiFX, transform);
             Destroy(magnetiFXClone, 1.5f);
-        }
-
-        void OnCollisionEnter(Collision other)
-        {
-            Debug.Log(other.gameObject.name);
         }
 
         public void HandleInventory()

@@ -48,7 +48,7 @@ namespace SJ
 
         readonly float arcLightningForce = 2f;
         readonly float duration = 2f;
-        readonly float magnetiMaxDistance = 30f;
+        public readonly float magnetiMaxDistance = 30f;
         readonly float arcLightMaxDistance = 35f;
         readonly float thunderMaxDistance = 20; //20f
         readonly float magnetiRadius = 2f;

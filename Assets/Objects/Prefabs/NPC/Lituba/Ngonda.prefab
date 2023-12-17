@@ -1003,6 +1003,7 @@ GameObject:
   - component: {fileID: 7125880371557186291}
   - component: {fileID: 1222064787483443118}
   - component: {fileID: 1211413593005086813}
+  - component: {fileID: 8056783259940322442}
   m_Layer: 0
   m_Name: Ngonda
   m_TagString: Untagged
@@ -1093,6 +1094,28 @@ MonoBehaviour:
   actorSentence: {fileID: 0}
   playerStatsUi: {fileID: 0}
   canDialog: 0
+--- !u!114 &8056783259940322442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562087090192759347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfaa04d12361b3448aa7c23598f300c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  storyManager: {fileID: 0}
+  cameraManager: {fileID: 0}
+  dialogUI: {fileID: 0}
+  idDialog: 0
 --- !u!1 &5052083865120706545
 GameObject:
   m_ObjectHideFlags: 0

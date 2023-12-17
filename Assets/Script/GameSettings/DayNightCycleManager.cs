@@ -11,6 +11,7 @@ public class DayNightCycleManager : MonoBehaviour
     void Awake()
     {
         dayTimer = Random.Range(0f, 1439f);
+        //dayTimer = 900f;
     }
     
     void Update()

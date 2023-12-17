@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 5269934292043199915}
   - component: {fileID: 7872227219575147338}
   - component: {fileID: 5413799023709155562}
+  - component: {fileID: 5519349070407561840}
   m_Layer: 0
   m_Name: Poa Libum
   m_TagString: Untagged
@@ -268,8 +269,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce126155efa2a64b967fbdaa9ed4895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  storyManager: {fileID: 0}
   cameraManager: {fileID: 0}
   dialogUI: {fileID: 0}
+  idDialog: 0
 --- !u!114 &5413799023709155562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +296,32 @@ MonoBehaviour:
   dialogTriggerManager: {fileID: 0}
   actorName: {fileID: 0}
   actorSentence: {fileID: 0}
+  playerStatsUi: {fileID: 0}
   canDialog: 0
+--- !u!114 &5519349070407561840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555302702158872821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a0942c0e6329e4fbf8d21d3d0ae62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterpositions:
+  - {x: 109.81, y: 3.09, z: 140.75}
+  - {x: 200.58, y: 10.993, z: 83.03}
+  - {x: 150.454, y: 2.765, z: 218.653}
+  - {x: 122.16, y: 3.45, z: 287.81}
+  - {x: 158.802, y: 3.45, z: 210.285}
+  characterRotation:
+  - {x: 0, y: -0.9382759, z: 0, w: 0.34588787}
+  - {x: 0, y: -0.06377465, z: 0, w: 0.9979643}
+  - {x: 0, y: -0.9382759, z: 0, w: 0.34588787}
+  - {x: 0, y: 0.7898393, z: 0, w: 0.6133138}
+  - {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &678530030886387682
 GameObject:
   m_ObjectHideFlags: 0

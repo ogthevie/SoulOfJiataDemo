@@ -15,7 +15,7 @@ namespace SJ
         public List<AudioClip> jumpSfx = new ();
         public List<AudioClip> fightSfx = new ();
         public List<AudioClip> pause = new ();
-        readonly float attackVolume = 0.15f, footStepVolume = 0.02f, jumpVolume = 0.05f, ThunderVolume= 0.3f;
+        readonly float attackVolume = 0.15f, footStepVolume = 0.035f, jumpVolume = 0.05f, ThunderVolume= 0.3f;
         
         void Awake()
         {
