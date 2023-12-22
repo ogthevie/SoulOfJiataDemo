@@ -83,31 +83,33 @@ public class TololPattern : MonoBehaviour
 
     public void HandleMoveToTarget()
     {
-        if(currentTarget.isDead)
-            return;
-        Vector3 targetDirection = currentTarget.transform.position - transform.position;
-        distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
-
-        if(tololManager.isPreformingAction)
+        if(currentTarget != null)
         {
-            tololAnimatorManager.anim.SetFloat("vertical", 0, 0.1f, Time.deltaTime);
-            agentTolol.enabled = false;
-        }
-        else
-        {
-            if(tololManager.currentHealth == 0) return;
+            Vector3 targetDirection = currentTarget.transform.position - transform.position;
+            distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
 
-            if(distanceFromTarget > stoppingDistance)
-            {
-                tololAnimatorManager.anim.SetFloat("vertical", 1, 0.1f, Time.deltaTime);
-            }
-            else if(distanceFromTarget <= stoppingDistance)
+            if(tololManager.isPreformingAction)
             {
                 tololAnimatorManager.anim.SetFloat("vertical", 0, 0.1f, Time.deltaTime);
+                agentTolol.enabled = false;
             }
-            HandleRotateTowardsTarget();
+            else
+            {
+                if(tololManager.currentHealth == 0) return;
 
+                if(distanceFromTarget > stoppingDistance)
+                {
+                    tololAnimatorManager.anim.SetFloat("vertical", 1, 0.1f, Time.deltaTime);
+                }
+                else if(distanceFromTarget <= stoppingDistance)
+                {
+                    tololAnimatorManager.anim.SetFloat("vertical", 0, 0.1f, Time.deltaTime);
+                }
+                HandleRotateTowardsTarget();
+
+            }
         }
+
         transform.position = new Vector3(transform.position.x, agentTolol.transform.position.y, transform.position.z);
         agentTolol.transform.localPosition = Vector3.zero;
         agentTolol.transform.localRotation = Quaternion.identity;
@@ -141,7 +143,7 @@ public class TololPattern : MonoBehaviour
         {
             if(currentTarget == null)
             {
-                currentTarget = playerManager;
+                currentTarget = FindObjectOfType<PlayerManager>();
                 tololManager.isPreformingAction = false;
             }
         }

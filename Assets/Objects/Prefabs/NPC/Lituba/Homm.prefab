@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 698793677567392989}
   - component: {fileID: 6262127038614978038}
   - component: {fileID: 5653997372219424859}
-  - component: {fileID: 6335698148944177825}
+  - component: {fileID: 7411565654818353302}
   m_Layer: 0
   m_Name: Homm
   m_TagString: Untagged
@@ -863,16 +863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cfa1b51c1d33440bb2ff1ce8687ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDialogData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   dialogTriggerManager: {fileID: 0}
   actorName: {fileID: 0}
   actorSentence: {fileID: 0}
   playerStatsUi: {fileID: 0}
   canDialog: 0
---- !u!114 &6335698148944177825
+--- !u!114 &7411565654818353302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -881,19 +877,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6059981828439997469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585657c6942c93c419a95283c388f734, type: 3}
+  m_Script: {fileID: 11500000, guid: 7399d6386850b194cbb01b6960be0772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  storyManager: {fileID: 0}
-  cameraManager: {fileID: 0}
-  dialogUI: {fileID: 0}
-  idDialog: 0
+  characterpositions:
+  - {x: 186.71, y: 1.996, z: 221.03}
+  - {x: 206.96, y: 10.996, z: 89.22}
+  - {x: 150.331, y: 2.78, z: 214.943}
+  - {x: 131.5, y: 3.51, z: 290.24}
+  - {x: 187.295, y: 10.963, z: 170.192}
+  characterRotation:
+  - {x: 0, y: -0.9431705, z: 0, w: 0.33230925}
+  - {x: 0, y: 0.9961052, z: 0, w: 0.0881729}
+  - {x: 0, y: -0.38492364, z: 0, w: 0.9229484}
+  - {x: 0, y: -0.9080592, z: 0, w: 0.41884193}
+  - {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6331225520144719686
 GameObject:
   m_ObjectHideFlags: 0

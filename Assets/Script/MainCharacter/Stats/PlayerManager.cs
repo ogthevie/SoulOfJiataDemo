@@ -15,10 +15,9 @@ namespace SJ
         CameraManager cameraManager;
         PlayerStats playerStats;
         PlayerAttacker playerAttacker;
-        AudioManager audioManager;
         public SkillTreeManager skillTreeManager;
 
-        public GameObject magnetiFX;
+        //public GameObject magnetiFX;
         public GameObject pauseMenu;
 
         public GameObject dialogUI;
@@ -41,8 +40,6 @@ namespace SJ
         public bool onTutoScreen;
         public bool canPass;
         public bool onInventory;
-        public bool onSorceryTree;
-
         public static bool created = false;
 
 
@@ -52,9 +49,8 @@ namespace SJ
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
-            audioManager = GetComponent<AudioManager>();
-            pauseMenu = GameObject.Find("Pause");
-            dialogUI = GameObject.Find("Dialog");
+            pauseMenu = FindObjectOfType<PauseMenuManager>().gameObject;
+            dialogUI = FindObjectOfType<PlayerUIManager>().transform.GetChild(2).gameObject;
  
         }
 
@@ -66,7 +62,6 @@ namespace SJ
             animatorManager = GetComponent<AnimatorManager>();
             isDead = false;
             playerStats = GetComponent<PlayerStats>();
-            skillTreeManager = GameObject.Find("SkillTree").GetComponent<SkillTreeManager>();
             pauseMenu.SetActive(false);
             dialogUI.SetActive(false);
             onPause = false;
@@ -178,17 +173,12 @@ namespace SJ
 
         }
 
-        public void EnablemagnetiFX()
+        /*public void EnablemagnetiFX()
         {
             magnetiFX.SetActive(true);
             GameObject magnetiFXClone = Instantiate(magnetiFX, transform);
             Destroy(magnetiFXClone, 1.5f);
-        }
-
-        void OnCollisionEnter(Collision other)
-        {
-            Debug.Log(other.gameObject.name);
-        }
+        }*/
 
         public void HandleInventory()
         {

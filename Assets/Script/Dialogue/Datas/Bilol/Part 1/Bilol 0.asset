@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Bilol 0
+  m_EditorClassIdentifier: 
+  canNextStep: 1
+  characterName: "B\xF4k Bilol"
+  mainCharacterName: Ruben
+  firstConversation:
+  - Aujourd'hui tu es matinale, Jeune Jiata
+  - "Bonjour papa Bilol\u2026Comment tu vas?"
+  - "Tu sais mon fils, \xE0 mon \xE2ge, c'est des questions qui ne se posent plus,
+    on attend juste le moment de rejoindre la terre de nos parents"
+  - "(rires) ne t'inqui\xE8te pas, j'ai encore deux trois ann\xE9es devant moi, profite
+    de moi tant qu'il est encore temps... Mais passons, qu'est ce qui s'est pass\xE9
+    pour que tu sois debout si t\xF4t, d'habitude tu dors comme le boa.\r"
+  - "hahaha, bon c'est un peu vrai quand m\xEAme...mais il n'y a rien eu hein.  Depuis
+    je devais te voir mais ah"
+  - Ah quoi ?
+  - "Disons qu'aujourd'hui j'ai senti que c'\xE9tait le bon jour."
+  - "Parle donc, je t'\xE9coute"
+  - "Poa, Qu'est ce qui s'est r\xE9ellement pass\xE9 il y a 12 ans? je veux dire
+    ...mon p\xE8re, comment il est mort?"
+  - "Si tu me poses cette question, \xE7a veut dire qu'Anita ne t'a jamais rien dit."
+  - "Elle a toujours survol\xE9 le sujet sans rentrer dans les d\xE9tails"
+  - "Et toi, ce sont les d\xE9tails qui t'int\xE9ressent...bien...prends place, \xE7a
+    risque d'\xEAtre un peu long."
+  secondConversation:
+  - "Avec du recul, je pense qu'on s'est pr\xE9cipit\xE9..."
+  fConv: 0

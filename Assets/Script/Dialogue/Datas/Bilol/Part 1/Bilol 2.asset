@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Bilol 2
+  m_EditorClassIdentifier: 
+  canNextStep: 1
+  characterName: "B\xF4k Bilol"
+  mainCharacterName: Ruben
+  firstConversation:
+  - "A jiata, si tu veux devenir un grand ma\xEEtre des arts Lituba, tu dois savoir
+    jouer le Songo"
+  - "Je n'ai jamais aim\xE9 ce jeu"
+  - "Nu nu mangu\xE8 ah..., si ton p\xE8re pouvait suivre ce que tu viens de dire
+    l\xE0, il allait te cocsser"
+  - "Il jouait aussi \xE0 \xE7a ? "
+  - "De toute ma vie je ne l'ai jamais vu perdre une partie. Et crois-moi, on a rencontr\xE9
+    tout genre de joueur sur le triangle national"
+  - "Tu peux m'en dire plus sur lui, j'esp\xE8re que je ne pertube pas ton jeu"
+  - "Ooh, je peux bien battre Libum et r\xE9pondre  tes questions. Dis-moi, qu'est
+    ce que tu veux savoir pr\xE9cis\xE9ment"
+  - "Poa, Qu'est ce qui s'est r\xE9ellement pass\xE9 il y a 12 ans? je veux dire
+    ...mon p\xE8re, comment il est mort?\r"
+  - "Pour une question, \xE7a c'est une question, et je suppose qu'Anita n'a jamais
+    abord\xE9 de sujet avec toi\r"
+  - "Effectivement\r"
+  - "Le contraire m'aurait surpris, mais bon prend place, \xE7a risque d'\xEAtre
+    un peu long....\r"
+  secondConversation:
+  - Maintenant, je finis avec le gars ci...
+  fConv: 0

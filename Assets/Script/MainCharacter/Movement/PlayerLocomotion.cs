@@ -52,13 +52,14 @@ namespace SJ
         private void Awake() 
         {
             cameraManager = FindObjectOfType<CameraManager>();
+            normalCamera = cameraManager.transform.GetChild(0).GetChild(0).gameObject;
             rigidbody = GetComponent<Rigidbody>();
             inputManager = GetComponent<InputManager>();
             animatorManager = GetComponentInChildren<AnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
             playerStats = GetComponent<PlayerStats>();
             playerAttacker = GetComponent<PlayerAttacker>();
-            audioManager = GetComponent<AudioManager>();  
+            audioManager = GetComponent<AudioManager>();
         }
         void Start()
         {
@@ -72,8 +73,6 @@ namespace SJ
 
             playerManager.isGrounded = true;
             ignoreForGroundCheck = ~(1 << 8 | 1 << 6);
-
-            originGym = GameObject.Find("originGym");
         }
 
         private void HandleRotation (float delta)

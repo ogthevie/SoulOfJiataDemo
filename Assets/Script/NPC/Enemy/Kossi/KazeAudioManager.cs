@@ -15,7 +15,6 @@ public class KazeAudioManager : MonoBehaviour
     public void ReadDead()
     {
         enemyAudioSource.PlayOneShot(enemySfx[0]);
-        Debug.Log("Bang");
     }
 
     public void ReadAttack()

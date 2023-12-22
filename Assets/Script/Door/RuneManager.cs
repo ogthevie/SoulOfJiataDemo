@@ -31,6 +31,14 @@ public class RuneManager : MonoBehaviour
         if(this.transform.parent.name == "Base Door") runeType.HandleBaseDoorRune(other, this, audioSource);
         else if(this.transform.parent.name == "Mid Door") runeType.HandleMidDoorRune(other, this, audioSource);
         else if(this.transform.parent.name == "Sup Door") runeType.HandleSupDoorRune(other, this, audioSource);
+
+        if(other.gameObject.layer == 12)
+        {
+            if(other.gameObject.TryGetComponent<kossiKazePattern>(out kossiKazePattern component))
+            {
+                component.HandleExplosion();
+            }
+        }
         //Debug.Log(runeData.base_DoorB);
     }
 }

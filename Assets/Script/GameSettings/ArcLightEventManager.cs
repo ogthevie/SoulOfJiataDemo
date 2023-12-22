@@ -27,7 +27,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
     void LateUpdate()
     {
-        HandleActivationBigKossiEvent();
+        //HandleActivationBigKossiEvent();
         
         if(inSecteurFour)
         {
@@ -96,6 +96,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
             {
                 arcLight.SetActive(false);
                 this.GetComponent<Renderer>().material = altarOriginMat;
+                this.GetComponent<AudioSource>().enabled = false;
             }
         }
 
@@ -116,9 +117,11 @@ public class ArcLightEventManager : EventStoryTriggerManager
                     break;
                 }
             }
-
-            if(endLoop) stelesYellowOn = true;
         }
+
+        Debug.Log(endLoop);
+
+        stelesYellowOn = endLoop;
     }
 
     //////////////////////////////////////////A RETIRER ////////////////////////////////////////////////////////////////
@@ -217,6 +220,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
         if(playerManager.canArcLight && playerManager.canBaemb)
         {
             bigKossiEventManager.enabled = true;
+            storyManager.storyStep = 6;
             foreach(GameObject steles in HeartSteles)
             {
                 steles.GetComponent<Renderer>().material = altarOriginMat;

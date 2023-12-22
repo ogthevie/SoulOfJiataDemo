@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class SurchargeEventManager : EventStoryTriggerManager
 {
-    BaseDoorManager baseDoorManager;
+    BomboktanManager bomboktanManager;
 
     void Start()
     {
-        baseDoorManager = FindObjectOfType<BaseDoorManager>();
-        if(baseDoorManager.base_Door)
+        bomboktanManager = FindObjectOfType<BomboktanManager>();
+
+        if(playerManager.canSurcharge)
         {
             Destroy(this.transform.GetChild(0).gameObject);
             Destroy(this);
@@ -25,8 +26,10 @@ public class SurchargeEventManager : EventStoryTriggerManager
             playerManager.brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
             //Tutoscreen
             grotteKossiManager.enemySpawnOne.SetActive(true);
+            
             storyManager.storyStep = 5;
-
+            bomboktanManager.Spawn(0);
+            
             Invoke("Save", 30f);
 
             Destroy(this.transform.GetChild(0).gameObject, 4);

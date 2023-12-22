@@ -79,15 +79,15 @@ public class PauseMenuManager : MonoBehaviour
             inventory.SetActive(true);
             sorceryTree.SetActive(false);
             menuName.text = "Inventaire";
-            playerManager.onInventory = true;
-            playerManager.onSorceryTree = false;
+            playerManager.onInventory = true; 
+            //playerManager.onSorceryTree = false; activer pour le menu Inventory
         }
         else if(selPos == iconSorc.transform.position)
         {
             sorceryTree.SetActive(true);
             inventory.SetActive(false);
             menuName.text = "sortileges";
-            playerManager.onSorceryTree = true;
+            //playerManager.onSorceryTree = true; desactiver pour le menu Inventory
             playerManager.onInventory = false;
         }
     }
