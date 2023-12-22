@@ -11,6 +11,7 @@ public class GrotteKossiManager : MonoBehaviour
 
     void Awake()
     {
+        GameObject.Find("DayPeriod").SetActive(false);
         playerManager = FindObjectOfType<PlayerManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         midDoorDownGO = FindObjectOfType<MidDoorManager>().gameObject.transform.GetChild(1).gameObject;

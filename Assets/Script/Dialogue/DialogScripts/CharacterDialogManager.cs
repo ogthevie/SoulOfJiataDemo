@@ -62,7 +62,8 @@ public class CharacterDialogManager : MonoBehaviour
         {
 
                 actorName.text = characterDialogData[k].characterName;
-                actorSentence.text = characterDialogData[k].secondConversation[i];   
+                actorSentence.text = characterDialogData[k].secondConversation[i];
+                dialogTriggerManager.storyManager.checkstoryStep(characterDialogData[k].canNextStep); 
         }
     }
 

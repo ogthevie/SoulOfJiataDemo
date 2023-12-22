@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff0d8be1762284c9bb8474153dd38a, type: 3}
   m_Name: Inventory Data
   m_EditorClassIdentifier: 
-  nkomoQty: 27
-  pruneQty: 2
-  mangueQty: 10
-  mintoumbaQty: 33
-  matangoQty: 10
-  gesierQty: 10
-  kalabaQty: 8
-  odontolQty: 10
-  colaSingeQty: 10
-  colaLionQty: 10
-  katorroQty: 10
-  ikokQty: 10
+  nkomoQty: 99
+  pruneQty: 99
+  mangueQty: 79
+  mintoumbaQty: 99
+  matangoQty: 99
+  gesierQty: 99
+  kalabaQty: 99
+  odontolQty: 99
+  colaSingeQty: 89
+  colaLionQty: 99
+  katorroQty: 99
+  ikokQty: 99

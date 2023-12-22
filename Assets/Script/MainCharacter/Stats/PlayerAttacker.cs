@@ -18,8 +18,8 @@ namespace SJ
 
         public StatesCharacterData statesJiataData;
         public string lastAttack;
-        GameObject magicRayOrigin;
-        GameObject magnetiOriginGrab;
+        [SerializeField] GameObject magicRayOrigin;
+        [SerializeField] GameObject magnetiOriginGrab;
         public GameObject interactOriginRay;
 
         public GameObject arcLightningFx;
@@ -78,9 +78,9 @@ namespace SJ
 
             cameraManager = FindObjectOfType<CameraManager>();
 
-            magicRayOrigin = GameObject.Find("MagicRayOrigin");
-            magnetiOriginGrab = GameObject.Find("magnetiOriginGrab");
-            interactOriginRay = GameObject.Find("interactOriginRay");
+            magicRayOrigin = transform.GetChild(20).gameObject;
+            magnetiOriginGrab = transform.GetChild(24).gameObject;
+            interactOriginRay = transform.GetChild(25).gameObject;
             //lowAttackOrigin = GameObject.Find("lowAttackOrigin");
 
             soul_Lituba_Fx = GameObject.Find("SoulLitubaFx").GetComponent<ParticleSystem>();
@@ -94,15 +94,17 @@ namespace SJ
             lMain = leffectLitubaFx.GetComponent<ParticleSystem>().main;
             rMain = reffectLitubaFx.GetComponent<ParticleSystem>().main;
 
-            fxLA = GameObject.Find("Low hit").GetComponent<ParticleSystem>();
-            fxHAone = GameObject.Find("Electro slash").GetComponent<ParticleSystem>();
-            fxHATwo = GameObject.Find("Hit electro Cross").GetComponent<ParticleSystem>();
-            fxHAThree = GameObject.Find("Electro fall").GetComponent<ParticleSystem>();
+            Transform brassard = transform.GetChild(19);
+
+            fxHAThree = brassard.GetChild(0).GetComponent<ParticleSystem>();
+            fxHAone = brassard.GetChild(1).GetComponent<ParticleSystem>();
+            fxHATwo = brassard.GetChild(2 ).GetComponent<ParticleSystem>();
+            fxLA = brassard.GetChild(3).GetComponent<ParticleSystem>();           
 
             //magnetiFX = magicRayOrigin.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
             //surchargeFX = magicRayOrigin.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
 
-            auraFx = GameObject.Find("AuraFx").GetComponent<ParticleSystem>();
+            auraFx = transform.GetChild(21).GetComponent<ParticleSystem>();
 
 
         }

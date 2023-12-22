@@ -15,7 +15,7 @@ public class DialogTriggerManager : MonoBehaviour
     
     public DialogData[][] partsManager = new DialogData[5][];
     protected CharacterDialogManager characterDialogManager;
-    protected StoryManager storyManager;
+    public  StoryManager storyManager;
     CameraManager cameraManager;
     SibongoManager sibongoManager;
     public GameObject dialogUI;
@@ -61,6 +61,7 @@ public class DialogTriggerManager : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         characterDialogManager.HandleDialogue(idDialog, partsManager[storyManager.storyStep]);
+
     }
 
     void OnTriggerExit(Collider other)

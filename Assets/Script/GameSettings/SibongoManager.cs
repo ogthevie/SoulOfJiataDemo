@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SibongoManager : MonoBehaviour
 {
@@ -10,6 +11,20 @@ public class SibongoManager : MonoBehaviour
     public GameObject[] HommPosition; // les activites des PNJ se divisent en 05 périodes de la journée de la journéee
     public int dayPeriod;
     public GameObject fireFly;
+    GameObject dayPeriodPanel;
+    Image [] dayPeriodIcon = new Image[5];
+
+
+    void Awake()
+    {
+        dayPeriodPanel = FindObjectOfType<PlayerUIManager>().transform.GetChild(4).gameObject;
+        dayPeriodPanel.SetActive(true);
+        dayPeriodIcon[0] = dayPeriodPanel.transform.GetChild(0).GetComponent<Image>();
+        dayPeriodIcon[1] = dayPeriodPanel.transform.GetChild(1).GetComponent<Image>();
+        dayPeriodIcon[2] = dayPeriodPanel.transform.GetChild(2).GetComponent<Image>();
+        dayPeriodIcon[3] = dayPeriodPanel.transform.GetChild(3).GetComponent<Image>();
+        dayPeriodIcon[4] = dayPeriodPanel.transform.GetChild(4).GetComponent<Image>();
+    }
 
 
     void OnEnable()
@@ -53,9 +68,11 @@ public class SibongoManager : MonoBehaviour
                 sun.transform.rotation = rotation; 
                 RenderSettings.skybox = dayPeriodSkyboxes[1];
             }
+        }
 
-            
-        }         
+        foreach(var elt in dayPeriodIcon) elt.enabled = false;
+
+        dayPeriodIcon[dayPeriod].enabled = true;         
     }
 
     void TimerRoutine()

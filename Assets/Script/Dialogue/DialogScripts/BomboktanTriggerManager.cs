@@ -30,7 +30,9 @@ public class BomboktanTriggerManager : MonoBehaviour
     public virtual void OnTriggerEnter(Collider other)
     {
         if(storyManager.storyStep == 5) idDialog = 0;
-        else if(storyManager.storyStep == 6) idDialog = 1;
+        else if(storyManager.storyStep == 53) idDialog = 1;
+        else if(storyManager.storyStep == 6) idDialog = 2;
+
         if(other.gameObject.layer == 3)
         {
             dialogUI.SetActive(true);

@@ -18,6 +18,7 @@ namespace SJ
         {
             slider = GetComponent<Slider>();
             globalVolume = FindObjectOfType<Volume>();
+            globalVolume = FindObjectOfType<GlobalVolumeManager>().GetComponent<Volume>();
         }
 
         private void Start()

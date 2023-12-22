@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class SurchargeEventManager : EventStoryTriggerManager
 {
-    BaseDoorManager baseDoorManager;
     BomboktanManager bomboktanManager;
 
     void Start()
     {
         bomboktanManager = FindObjectOfType<BomboktanManager>();
-        baseDoorManager = FindObjectOfType<BaseDoorManager>();
 
-        if(baseDoorManager.base_Door)
+        if(playerManager.canSurcharge)
         {
             Destroy(this.transform.GetChild(0).gameObject);
             Destroy(this);

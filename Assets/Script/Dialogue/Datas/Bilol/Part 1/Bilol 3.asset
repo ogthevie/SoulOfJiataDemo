@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Bilol 3
+  m_EditorClassIdentifier: 
+  canNextStep: 1
+  characterName: "B\xF4k Bilol"
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Alors, j'esp\xE8re que tu pla\xEEs ici \xE0 Lituba. Tu vois que nous sommes
+    une grande famille ici"
+  - Oui Poa, un retour aux sources fait toujours du bien
+  - "\xE7a me fait plaisir que tu te sentes bien"
+  - "Poa, peut-\xEAtre le moment est mal choisi, mais j'aimerais qu'on parle de quelque
+    chose,  j'esp\xE8re que je ne pertube pas ton jeu....\r"
+  - "Nkwel ba yi djam u nom b\xE9, le temps que tu finisses ta phrase, j'aurai fini
+    avec Libum\r"
+  - "Poa, Qu'est ce qui s'est r\xE9ellement pass\xE9 il y a 12 ans? je veux dire
+    ...mon p\xE8re, comment il est mort?\r"
+  - "Pour une question, \xE7a c'est une question, et je suppose qu'Anita n'a jamais
+    abord\xE9 de sujet avec toi\r\r"
+  - "Effectivement\r\r"
+  - "Le contraire m'aurait surpris, mais bon prend place, \xE7a risque d'\xEAtre
+    un peu long....\r\r"
+  secondConversation:
+  - "J'esp\xE8re que j'ai pu t'aider, \xE0 toi de faire les bons choix et surtout
+    mener les bons combats"
+  fConv: 0

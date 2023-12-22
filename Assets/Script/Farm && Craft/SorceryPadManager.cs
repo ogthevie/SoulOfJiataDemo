@@ -91,7 +91,7 @@ namespace SJ
                 for (i = 0; i < (jiatabodyRenderer.Count - 1); i++)
                 {
                     jiatabodyRenderer[i].material.shader = jiataShaders[0];
-                    jiatabodyRenderer[12].material.shader = jiataShaders[1];
+                    jiatabodyRenderer[10].material.shader = jiataShaders[1];
                 }
 
                 statesJiataData.isHidden = false;
