@@ -1,7 +1,7 @@
 using UnityEngine;
 using SJ;
 
-[DefaultExecutionOrder(-2)]
+//[DefaultExecutionOrder(-2)]
 public class GrotteKossiManager : MonoBehaviour
 {
     public GameObject enemySpawnOne, enemySpawntwo, enemySpawnthree, enemySpawnFour;
@@ -9,17 +9,13 @@ public class GrotteKossiManager : MonoBehaviour
     GameSaveManager gameSaveManager;
     GameObject midDoorDownGO;
 
-    void Awake()
+    void Start()
     {
-        GameObject.Find("DayPeriod").SetActive(false);
+        FindObjectOfType<PlayerUIManager>().transform.GetChild(4).gameObject.SetActive(false);
         playerManager = FindObjectOfType<PlayerManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         midDoorDownGO = FindObjectOfType<MidDoorManager>().gameObject.transform.GetChild(1).gameObject;
-    }
-    
 
-    void Start()
-    {
         enemySpawnOne.SetActive(playerManager.canSurcharge);
         if(midDoorDownGO.transform.position.y > 59.3f)
         {

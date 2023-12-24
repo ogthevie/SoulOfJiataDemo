@@ -16,8 +16,12 @@ namespace SJ
         void Awake()
         {
             staminaBar = FindObjectOfType<StaminaBar>();
+        }
+
+        void Start()
+        {
             playerAttacker = FindObjectOfType<PlayerAttacker>();
-            playerManager = playerAttacker.GetComponent<PlayerManager>();
+            playerManager = FindObjectOfType<PlayerManager>();
         }
 
         public void HandleActivateSlot()

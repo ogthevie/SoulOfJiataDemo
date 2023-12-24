@@ -15,6 +15,14 @@ public class SibongoManager : MonoBehaviour
     Image [] dayPeriodIcon = new Image[5];
 
 
+    void OnEnable()
+    {
+        dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
+        sibongoManager = FindObjectOfType<SibongoManager>();
+        dayNightCycleManager.dayTimer += 180f;
+        TimerRoutine();  
+    }
+
     void Awake()
     {
         dayPeriodPanel = FindObjectOfType<PlayerUIManager>().transform.GetChild(4).gameObject;
@@ -25,16 +33,7 @@ public class SibongoManager : MonoBehaviour
         dayPeriodIcon[3] = dayPeriodPanel.transform.GetChild(3).GetComponent<Image>();
         dayPeriodIcon[4] = dayPeriodPanel.transform.GetChild(4).GetComponent<Image>();
     }
-
-
-    void OnEnable()
-    {
-        dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
-        sibongoManager = FindObjectOfType<SibongoManager>();
-        dayNightCycleManager.dayTimer += 180f;
-        TimerRoutine();  
-    }
-
+    
     void Start()
     {
 

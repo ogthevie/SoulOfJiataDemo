@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SJ;
 
+
+[DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {private set; get; }
+    public GameObject [] goDontDestroy = new GameObject [4];
     public Canvas loadingScreen;
     public Image loadSlider;
 
-
     private void Awake()
     {
+        /*foreach(GameObject elt in goDontDestroy)
+        {
+            elt.SetActive(false);
+        }*/
         loadingScreen = GetComponentInChildren<Canvas>();
         loadingScreen.enabled = false;
         /*if(Instance != null)
@@ -24,6 +31,22 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
         */
+        //SceneManager.activeSceneChanged += ActiveOnDestroy;
+    }
+
+    public void ActiveOnDestroy()
+    {
+        float activeScene = SceneManager.GetActiveScene().buildIndex;
+        
+        //if(activeScene != 0)
+        {
+            foreach(GameObject objPrefab in goDontDestroy)
+            {
+                objPrefab.SetActive(true);
+            }
+
+            //SceneManager.activeSceneChanged -= ActiveOnDestroy;
+        }
     }
 
     public void LoadScene(string scene)

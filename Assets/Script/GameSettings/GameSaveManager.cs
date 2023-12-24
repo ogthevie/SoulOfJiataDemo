@@ -1,23 +1,30 @@
 using System;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 using SJ;
 
 [DefaultExecutionOrder(-3)]
 public class GameSaveManager : MonoBehaviour
 {
-    PlayerManager playerManager;
-    PlayerStats playerStats;
+    [SerializeField] PlayerManager playerManager;
+    [SerializeField] PlayerStats playerStats;
     StoryManager storyManager;
-    ArcLightEventManager arcLightEventManager;
+    GameManager gameManager;
+    [SerializeField] ArcLightEventManager arcLightEventManager;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
+    public bool isloaded;
 
     void Awake()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
-        playerStats = FindObjectOfType<PlayerStats>();
-        arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
+        SceneManager.sceneLoaded += HandleGrotteKossiDoor;
+
+
+        string ActiveScene = SceneManager.GetActiveScene().name;
+        //playerManager = FindObjectOfType<PlayerManager>();
+        //playerStats = FindObjectOfType<PlayerStats>();
+        gameManager = GetComponent<GameManager>();
         storyManager = GetComponent<StoryManager>();
 
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager"); // Recherche d'objets avec le tag spécifique
@@ -32,14 +39,16 @@ public class GameSaveManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-        baseDoorPosition = baseDoor.transform;
-        midDoorPosition = midDoor.transform;
+        if(ActiveScene == "GrotteKossi")
+        {
+            arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
+            baseDoor = GameObject.Find("Base Door");
+            midDoor = GameObject.Find("MidDoorDown");
+            baseDoorPosition = baseDoor.transform;
+            midDoorPosition = midDoor.transform;
+        }
 
-    }
 
-    void Start()
-    {
-        LoadAllData();
     }
 
     public void SaveAllData()
@@ -60,14 +69,15 @@ public class GameSaveManager : MonoBehaviour
     public void LoadAllData()
     {
         int i = SceneManager.GetActiveScene().buildIndex;
+        LoadStoryData();
         if(i == 2) 
         {
             LoadGrotteData();
             LoadTorcheGrotteData();
         }
         LoadPlayerData();
-        LoadStoryData();
         Debug.Log("Données chargées");
+        isloaded = true;
     }
 
     #region Sauvegarde
@@ -95,7 +105,7 @@ public class GameSaveManager : MonoBehaviour
             thunder = playerManager.canThunder,
             canBaemb = playerManager.canBaemb,
             playerX = playerManager.gameObject.transform.position.x,
-            playerY = playerManager.gameObject.transform.position.y,
+            playerY = playerManager.gameObject.transform.position.y + 20,
             playerZ = playerManager.gameObject.transform.position.z
         };
         string playerJSon = JsonUtility.ToJson(playerData);
@@ -108,7 +118,8 @@ public class GameSaveManager : MonoBehaviour
     {
         StoryData storyData = new StoryData
         {
-            storyStep = storyManager.storyStep
+            storyStep = storyManager.storyStep,
+            activeScene = SceneManager.GetActiveScene().name
         };
 
         string storyStepJson = JsonUtility.ToJson(storyData);
@@ -207,6 +218,7 @@ public class GameSaveManager : MonoBehaviour
     void LoadStoryData()
     {
         string filepath = Application.persistentDataPath + "/StoryData.json";
+        string sceneName;
 
         if(System.IO.File.Exists(filepath))
         {
@@ -214,6 +226,16 @@ public class GameSaveManager : MonoBehaviour
             StoryData storyData = JsonUtility.FromJson<StoryData>(storyStepJson);
 
             storyManager.storyStep = storyData.storyStep;
+            sceneName = storyData.activeScene;
+            StartCoroutine(StartLoadingScene());
+        }
+
+        IEnumerator StartLoadingScene()
+        {     
+            gameManager.loadSlider.fillAmount = 0;
+            gameManager.loadingScreen.enabled = true;
+            yield return new WaitForSeconds(0.15f);
+            gameManager.LoadScene(sceneName);
         }
     }
 
@@ -242,6 +264,22 @@ public class GameSaveManager : MonoBehaviour
         {
             Debug.LogError("Erreur lors de la suppression des sauvegardes : " + e.Message);
         }
+
+        isloaded = false;
+    }
+
+    void HandleGrotteKossiDoor(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        string ActiveScene = SceneManager.GetActiveScene().name;
+        if(ActiveScene == "GrotteKossi")
+        {
+            arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
+            baseDoor = GameObject.Find("Base Door");
+            midDoor = GameObject.Find("MidDoorDown");
+
+            baseDoorPosition = baseDoor.transform;
+            midDoorPosition = midDoor.transform;
+        }       
     }
 
 }
@@ -268,6 +306,7 @@ class TorcheData
 class StoryData
 {
     public int storyStep;
+    public string activeScene;
 }
 
 
