@@ -13,7 +13,7 @@ public class NotificationManager : MonoBehaviour
     public TextMeshProUGUI tutoDescription;
     public List<ConsumableData> consumableDatas = new ();
 
-    void Awake()
+    void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
     }

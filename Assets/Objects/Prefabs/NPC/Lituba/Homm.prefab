@@ -783,6 +783,7 @@ GameObject:
   - component: {fileID: 6262127038614978038}
   - component: {fileID: 5653997372219424859}
   - component: {fileID: 7411565654818353302}
+  - component: {fileID: 4633776638544652830}
   m_Layer: 0
   m_Name: Homm
   m_TagString: Untagged
@@ -892,6 +893,51 @@ MonoBehaviour:
   - {x: 0, y: -0.38492364, z: 0, w: 0.9229484}
   - {x: 0, y: -0.9080592, z: 0, w: 0.41884193}
   - {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4633776638544652830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059981828439997469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce126155efa2a64b967fbdaa9ed4895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partZero:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partOne:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partTwo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partThree:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partFour:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  storyManager: {fileID: 0}
+  dialogUI: {fileID: 0}
+  idDialog: 0
 --- !u!1 &6331225520144719686
 GameObject:
   m_ObjectHideFlags: 0

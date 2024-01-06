@@ -8,7 +8,7 @@ public class KossiPattern : MonoBehaviour
 {
     public KossiAnimatorManager kossiAnimatorManager;
     public KossiAudioManager kossiAudioManager;
-    public PlayerManager currentTarget;
+    public PlayerManager currentTarget, playerManager;
     KossiManager kossiManager;
     public StatesCharacterData statesJiataData;
     public GameObject bulletPrefab;
@@ -30,6 +30,7 @@ public class KossiPattern : MonoBehaviour
     void Awake()
     {
         kossiManager = GetComponent<KossiManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
         kossiAudioManager = GetComponent<KossiAudioManager>();
         kossiAnimatorManager = GetComponent<KossiAnimatorManager>();
         spawnPoint = transform.GetChild(0);
@@ -41,10 +42,12 @@ public class KossiPattern : MonoBehaviour
         maxDistanceFromTarget = 35;
         stoppingDistance = 10;
         agentKossi.enabled = false;
+        currentTarget = playerManager;
+        kossiManager.isPreformingAction = false;
         kossiRigibody.isKinematic = false;
     }
 
-    public void HandleDetection()
+    /*public void HandleDetection()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, kossiManager.detectionRadius, detectionLayer);
 
@@ -65,10 +68,12 @@ public class KossiPattern : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public void HandleMoveToTarget()
     {
+        if(currentTarget.isDead || statesJiataData.isHidden)
+            return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
 
@@ -114,13 +119,21 @@ public class KossiPattern : MonoBehaviour
 
     void HandleStopChase()
     {
-        if(distanceFromTarget >= maxDistanceFromTarget || statesJiataData.isHidden || currentTarget.isDead)
+        if(statesJiataData.isHidden || currentTarget.isDead)/*distanceFromTarget >= maxDistanceFromTarget ||*/
         {
             currentTarget = null;
             kossiAnimatorManager.anim.SetFloat("run", 0);
             kossiManager.isPreformingAction = true;
             agentKossi.enabled = false;
             bulletAttack = false;
+        }
+        else
+        {
+            if(currentTarget == null)
+            {
+                currentTarget = playerManager;
+                kossiManager.isPreformingAction = false;
+            }
         }
     }
 

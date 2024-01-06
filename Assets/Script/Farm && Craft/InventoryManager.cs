@@ -24,16 +24,12 @@ namespace SJ
         public TextMeshProUGUI healthDescription;
         public TextMeshProUGUI staminaDeescription;
         
-
-        void Awake()
+        private void Start()
         {
             inputManager = FindObjectOfType<InputManager>();
             playerManager = FindObjectOfType<PlayerManager>();
             playerStats = FindObjectOfType<PlayerStats>();
             audioManager = FindObjectOfType<AudioManager>();
-        }
-        private void Start()
-        {
             i = 0;
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
             currentSelectable = gridLayoutGroup.transform.GetChild(i).GetComponent<Selectable>();

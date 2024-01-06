@@ -1004,6 +1004,7 @@ GameObject:
   - component: {fileID: 1222064787483443118}
   - component: {fileID: 1211413593005086813}
   - component: {fileID: 8056783259940322442}
+  - component: {fileID: 3370385312565345065}
   m_Layer: 0
   m_Name: Ngonda
   m_TagString: Untagged
@@ -1085,10 +1086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cfa1b51c1d33440bb2ff1ce8687ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDialogData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   dialogTriggerManager: {fileID: 0}
   actorName: {fileID: 0}
   actorSentence: {fileID: 0}
@@ -1106,16 +1103,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfaa04d12361b3448aa7c23598f300c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  partZero:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partOne:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partTwo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partThree:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partFour:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   storyManager: {fileID: 0}
-  cameraManager: {fileID: 0}
   dialogUI: {fileID: 0}
   idDialog: 0
+--- !u!114 &3370385312565345065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562087090192759347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df03d4e4662e784a97ac35c597a1d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterpositions:
+  - {x: 163.893, y: 9.978, z: 156.734}
+  - {x: 165.05, y: 10.721, z: 98.07}
+  - {x: 153, y: 9.97, z: 147.49}
+  - {x: 134.2, y: 3.475, z: 286.71}
+  - {x: 195.5, y: 11.4, z: 195.04}
+  characterRotation:
+  - {x: 0, y: -0.33025905, z: 0, w: 0.94389033}
+  - {x: 0, y: 0.93252873, z: 0, w: -0.36109573}
+  - {x: 0, y: 0.515038, z: 0, w: -0.8571673}
+  - {x: 0, y: -0.72722787, z: 0, w: 0.6863961}
+  - {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5052083865120706545
 GameObject:
   m_ObjectHideFlags: 0

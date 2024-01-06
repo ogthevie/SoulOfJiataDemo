@@ -1,5 +1,6 @@
 using UnityEngine;
 using SJ;
+using System.Collections;
 
 public abstract class EventStoryTriggerManager : MonoBehaviour
 {

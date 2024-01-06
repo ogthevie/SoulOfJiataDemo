@@ -13,7 +13,7 @@ namespace SJ
         AnimatorManager animatorManager;
         AudioManager audioManager;
         PlayerAttacker playerAttacker;
-        [HideInInspector] public Transform cameraObject;
+        public Transform cameraObject;
         [HideInInspector] public Vector3 moveDirection;
 
         [HideInInspector] public Transform myTransform;
@@ -276,12 +276,12 @@ namespace SJ
                     {
                         animatorManager.PlayTargetAnimation("Hard Landing", true);
                         int landDamage = (int)Math.Truncate(inAirTimer);
-                        playerStats.TakeDamage(landDamage, 3);
+                        //playerStats.TakeDamage(landDamage, 3);
                         inAirTimer = 0;
                     }
                     else if(inAirTimer >= 5f)
                     {
-                        playerStats.TakeDamage(1000, 3);
+                        //playerStats.TakeDamage(1000, 3);
                         
                         if(playerStats.stateJiataData.isIndomitable)
                             animatorManager.PlayTargetAnimation("Hard Landing", true);

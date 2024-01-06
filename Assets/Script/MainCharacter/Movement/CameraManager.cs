@@ -68,13 +68,16 @@ namespace SJ
             myTransform = transform;
             defautlPosition = cameraTransform.localPosition.z;
             ignoreLayers = ~(1 << 8 | 1 << 9 | 1 << 10);
-            targetTransform = FindObjectOfType<PlayerManager>().transform;
+            /*targetTransform = FindObjectOfType<PlayerManager>().transform;
             inputManager = FindObjectOfType<InputManager>();
-            playerManager = FindObjectOfType<PlayerManager>();
+            playerManager = FindObjectOfType<PlayerManager>();*/
             enemyManager = FindObjectOfType<EnemyManager>();
         }
         private void Start() 
         {
+            targetTransform = FindObjectOfType<PlayerManager>().transform;
+            inputManager = FindObjectOfType<InputManager>();
+            playerManager = FindObjectOfType<PlayerManager>();
             environmentLayer = LayerMask.NameToLayer("Environment");
         }
         public void FollowTarget()

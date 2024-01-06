@@ -7,19 +7,15 @@ public class PauseMenuManager : MonoBehaviour
     InputManager inputManager;
     PlayerManager playerManager;
     AudioManager audioManager;
-    public GameObject inventory, sorceryTree, iconInven, iconSorc, selector;
+    public GameObject inventory, buttonMap, iconInven, iconSorc, selector;
     public TextMeshProUGUI menuName;
     Vector3 selPos;
 
-    void Awake()
+    void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
         playerManager = FindObjectOfType<PlayerManager>();
         audioManager = FindObjectOfType<AudioManager>();
-    }
-
-    void Start()
-    {
         selector.transform.position = iconInven.transform.position;
         selPos = selector.transform.position;
     }
@@ -77,17 +73,17 @@ public class PauseMenuManager : MonoBehaviour
         else if(selPos == iconInven.transform.position)
         {
             inventory.SetActive(true);
-            sorceryTree.SetActive(false);
+            buttonMap.SetActive(false);
             menuName.text = "Inventaire";
             playerManager.onInventory = true; 
-            //playerManager.onSorceryTree = false; activer pour le menu Inventory
+            //playerManager.onSorceryTree = false; //activer pour le menu Inventory
         }
         else if(selPos == iconSorc.transform.position)
         {
-            sorceryTree.SetActive(true);
+            buttonMap.SetActive(true);
             inventory.SetActive(false);
-            menuName.text = "sortileges";
-            //playerManager.onSorceryTree = true; desactiver pour le menu Inventory
+            menuName.text = "Commandes";
+            //playerManager.onSorceryTree = true; //desactiver pour le menu Inventory
             playerManager.onInventory = false;
         }
     }

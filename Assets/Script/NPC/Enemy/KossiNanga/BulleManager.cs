@@ -15,7 +15,7 @@ public class BulleManager : MonoBehaviour
         playerStats = FindObjectOfType<PlayerStats>();    
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3)
         {

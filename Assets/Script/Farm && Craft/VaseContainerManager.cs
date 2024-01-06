@@ -14,7 +14,7 @@ public class VaseContainerManager : MonoBehaviour
 
     void Awake()
     {
-        audioManager = FindAnyObjectByType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void HandleVaseConatinerProcess()

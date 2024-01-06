@@ -9,25 +9,29 @@ public class GrotteKossiManager : MonoBehaviour
     GameSaveManager gameSaveManager;
     GameObject midDoorDownGO;
 
-    void Awake()
+    
+    void Start()
     {
-        GameObject.Find("DayPeriod").SetActive(false);
+        FindObjectOfType<PlayerUIManager>().transform.GetChild(4).gameObject.SetActive(false);
         playerManager = FindObjectOfType<PlayerManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         midDoorDownGO = FindObjectOfType<MidDoorManager>().gameObject.transform.GetChild(1).gameObject;
-    }
-    
 
-    void Start()
-    {
+        gameSaveManager.HandleGrotteKossiDoor();
+
+        if(gameSaveManager.isloaded)
+        {
+
+            gameSaveManager.LoadGrotteData();
+            gameSaveManager.LoadTorcheGrotteData();          
+        }
+
         enemySpawnOne.SetActive(playerManager.canSurcharge);
         if(midDoorDownGO.transform.position.y > 59.3f)
         {
             enemySpawntwo.SetActive(true);
         }
         else enemySpawntwo.SetActive(false);
-
-        //Debug.Log(midDoorDownGO.transform.position.y);
         
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
         sun.transform.rotation = Quaternion.identity;

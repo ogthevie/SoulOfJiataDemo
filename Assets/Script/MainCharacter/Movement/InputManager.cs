@@ -119,10 +119,10 @@ namespace SJ
                 playerControls.PlayerMovement.NavigateLeftMenu.performed += i => left_menu_input = true;
                 playerControls.PlayerMovement.NavigateRightMenu.performed += i => right_menu_input = true;
 
-                playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input = true;
+                /*playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input = true;
                 playerControls.PlayerMovement.InventoryMovementDown.performed += i => down_input = true;
                 playerControls.PlayerMovement.InventoryMovementLeft.performed += i => left_input = true;
-                playerControls.PlayerMovement.InventoryMovementRight.performed += i => right_input = true;
+                playerControls.PlayerMovement.InventoryMovementRight.performed += i => right_input = true;*/
 
 
                 playerControls.DevMode.AddVases.performed += i => one_input = true;
@@ -159,7 +159,6 @@ namespace SJ
             HandleSurchargeInput();
             HandleArcLighInput();
             HandleThunderInput();
-            HandleSorceryPad();
         }
 
         private void HandleMoveInput (float delta)
@@ -374,11 +373,6 @@ namespace SJ
 
             else if(start_input && playerManager.onPause)
                 playerManager.onPause = false;
-        }
-
-        private void HandleSorceryPad()
-        {
-
         }
 
     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   characterName: "B\xF4k Bilol"
   mainCharacterName: Ruben
   firstConversation:
-  - Aujourd'hui tu es matinale, Jeune Jiata
+  - Jeune Jiata
   - "Bonjour papa Bilol\u2026Comment tu vas?"
   - "Tu sais mon fils, \xE0 mon \xE2ge, c'est des questions qui ne se posent plus,
     on attend juste le moment de rejoindre la terre de nos parents"
@@ -32,8 +32,43 @@ MonoBehaviour:
     ...mon p\xE8re, comment il est mort?"
   - "Si tu me poses cette question, \xE7a veut dire qu'Anita ne t'a jamais rien dit."
   - "Elle a toujours survol\xE9 le sujet sans rentrer dans les d\xE9tails"
-  - "Et toi, ce sont les d\xE9tails qui t'int\xE9ressent...bien...prends place, \xE7a
-    risque d'\xEAtre un peu long."
+  - "Et toi, ce sont les d\xE9tails qui t'int\xE9ressent."
+  - Oui Poa.
+  - "C'est vrai que je peux te raconter ce qui s'est pass\xE9 mais il existe une
+    bien meilleure option..."
+  - "je ne comprends pas tr\xE8s bien."
+  - "Je ne sais pas si tu as remarqu\xE9 mais ce petit village est construit au pied
+    d'une colline, la colline BONGO. En as-tu d\xE9j\xE0 entendu parl\xE9?"
+  - Pas vraiment...
+  - "Tu as peut-\xEAtre oubli\xE9, mais bon c'est pas grave. Ce qu'il faut savoir
+    c'est que cette colline a longtemps \xE9t\xE9 un lieu sacr\xE9 pour le peuple
+    LITUBA."
+  - "Quel genre de lieu sacr\xE9 ?"
+  - "le genre de lieu sacr\xE9 o\xF9 il est possible de rencontrer les anc\xEAtres,
+    de lire dans ce qu'on pourrait appeler en langage humain, le SANCTUAIRE FAMILIAL."
+  - "\xE7a devient un peu bizarre Poa."
+  - "Rien de plus d\xE9concertant que de voir le familier prendre l'allure du bizarre.
+    c'est ta culture jeune Jiata. Si tu veux avoir les r\xE9ponses \xE0 tes questions
+    tu dois aller chercher ses r\xE9ponses dans les souvenirs de l'esprit de ton
+    p\xE8re, je connais une partie de l'histoire mais \xE0 la toute fin, je n'\xE9tais
+    pas \xE0 ses c\xF4t\xE9s, je n'ai pas id\xE9e de comment il est mort, encore
+    moins de qui l'as tu\xE9."
+  - "Pourquoi vous n'y \xEAtes pas all\xE9...dans cette colline pour fouiller dans
+    ses souvenirs."
+  - "il est bien vrai que nous descendons d'un seul et m\xEAme anc\xEAtre mais ma
+    famille MOBI et celle ton p\xE8re JIATA n'ont pas des liens de sang suffisamment
+    proche pour pouvoir partager des souvenirs aussi r\xE9cents. Peut-\xEAtre si
+    on remonte sur 100 ans."
+  - "Donc je dois gravir cette colline c'est \xE7a "
+  - "l'acc\xE8s aux SANCTUAIRES FAMILIAUX  est \xE0 l'int\xE9rieur de BONGO."
+  - Comment je fais pour entrer dans la colline ?
+  - "Je ne sais pas si tu es apte \xE0 te d\xE9fendre tout seul. Je pr\xE9f\xE8re
+    que tu voies notre ma\xEEtre d'armes LIBUM pour qu'il me donne son approbation.
+    Sinon tu risquer laisser un bras l\xE0-bas si tu es un quelqu'un de tr\xE8s chanceux. "
+  - "Je croyais que c'\xE9tait un lieu sacr\xE9... Que font des cr\xE9atures mystiques."
+  - "Il faut bien la prot\xE9ger intrus..."
   secondConversation:
-  - "Avec du recul, je pense qu'on s'est pr\xE9cipit\xE9..."
+  - "Cherche LIBUM, tu lui dis que c'est moi qui t'envoie, il saura. \xE7a ne sert
+    \xE0 rien de le rencontrer au village, il va te raconter les histoires \xE0 dormir
+    debout. Quand il sera avec Homm au Ter, il faut le voir."
   fConv: 0
