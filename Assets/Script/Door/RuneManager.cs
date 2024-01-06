@@ -21,16 +21,19 @@ public class RuneManager : MonoBehaviour
 
     public void LoadStateBaseRune()
     {
-            transform.gameObject.GetComponent<Renderer>().material = onRuneB;
-            Destroy(this, 5);
+        transform.GetComponent<Renderer>().material = onRuneB;
+        Destroy(this, 5);
     }
 
-
+    public void LoadStateGreenMidRune()
+    {
+        transform.GetComponent<Renderer>().material = onRuneH;
+        Destroy(this, 5);
+    }
     void OnTriggerEnter(Collider other)
     {
         if(this.transform.parent.name == "Base Door") runeType.HandleBaseDoorRune(other, this, audioSource);
         else if(this.transform.parent.name == "Mid Door") runeType.HandleMidDoorRune(other, this, audioSource);
-        else if(this.transform.parent.name == "Sup Door") runeType.HandleSupDoorRune(other, this, audioSource);
 
         if(other.gameObject.layer == 12)
         {
@@ -66,7 +69,7 @@ public class RuneType
 
         if(other.gameObject.layer == 8)
         {
-            if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.mid_DoorH)
+            if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && runeManager.gameObject.name == "RuneH" && !runeManager.runeData.mid_DoorH)
             {
                 //Debug.Log("Rune de base Active");
                 audioSource.Play();
@@ -74,7 +77,7 @@ public class RuneType
                 runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
 
             }
-            else if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && !runeManager.runeData.mid_DoorB)
+            else if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && runeManager.gameObject.name == "RuneB" && !runeManager.runeData.mid_DoorB)
             {
                 //Debug.Log("Rune de base Active");
                 audioSource.Play();
@@ -84,25 +87,4 @@ public class RuneType
         }
 
     }
-
-    public void HandleSupDoorRune(Collider other, RuneManager runeManager, AudioSource audioSource)
-        {
-
-            if(runeManager.gameObject.tag == other.gameObject.tag)
-            {
-                if(other.gameObject.transform.GetChild(0).gameObject.activeSelf && !runeManager.runeData.sup_DoorH)
-                {
-                    runeManager.runeData.sup_DoorH = true;
-                    audioSource.Play();
-                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneH;
-                }
-                else if(other.gameObject.transform.GetChild(1).gameObject.activeSelf && !runeManager.runeData.sup_DoorB)
-                {
-                    runeManager.runeData.sup_DoorH = true;
-                    audioSource.Play();
-                    runeManager.transform.gameObject.GetComponent<Renderer>().material = runeManager.onRuneB;
-                }
-            }
-
-        }
 }

@@ -187,6 +187,12 @@ namespace SJ
             cameraAudioSource.PlayOneShot(fightSfx[7]);
         }
 
+        public void FightTheme()
+        {
+            interactionAudioSource.volume = 0.8f;
+            interactionAudioSource.PlayOneShot(fightSfx[15]);            
+        }
+
 
     }
 }

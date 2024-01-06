@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Bomboktan 0
   m_EditorClassIdentifier: 
+  canNextStep: 0
   characterName: Bomboktan
   mainCharacterName: Ruben
   firstConversation:
@@ -43,4 +44,4 @@ MonoBehaviour:
   - Je t'ai tout dit... On se retrouve dans la grande salle.
   secondConversation:
   - Qu'est ce que tu fais encore ici? Kena ni bisu
-  fConv: 1
+  fConv: 0

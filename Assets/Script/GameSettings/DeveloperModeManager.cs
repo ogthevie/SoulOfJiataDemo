@@ -40,7 +40,7 @@ namespace SJ
            {
                 Debug.Log("un kossi est apparu");
                 Vector3 kossiKazePosition = transform.position + new Vector3 (10f, 0f, -20f);
-                Instantiate(kossiKaze, kossiKazePosition, Quaternion.identity);
+                Instantiate(kossi, kossiKazePosition, Quaternion.identity);
            } 
         }
 

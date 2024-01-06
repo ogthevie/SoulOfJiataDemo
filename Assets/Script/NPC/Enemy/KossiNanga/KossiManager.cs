@@ -49,11 +49,12 @@ public class KossiManager : EnemyManager
 
     void HandleCurrentAction()
     {
-        if(kossiPattern.currentTarget == null)
+        /*if(kossiPattern.currentTarget == null)
         {
             kossiPattern.HandleDetection();
         }
-        else kossiPattern.HandleMoveToTarget();
+        else */
+        kossiPattern.HandleMoveToTarget();
 
     }
     public override void TakeDamage(int damage)

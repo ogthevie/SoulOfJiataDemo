@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class SibongoManager : MonoBehaviour
     public GameObject[] HommPosition; // les activites des PNJ se divisent en 05 périodes de la journée de la journéee
     public int dayPeriod;
     public GameObject fireFly;
+    
+    AudioSource sibongoAudiosource;
+    public AudioClip [] sibongoAmbiances = new AudioClip[3];
     GameObject dayPeriodPanel;
     Image [] dayPeriodIcon = new Image[5];
 
@@ -19,6 +23,7 @@ public class SibongoManager : MonoBehaviour
     {
         dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
         sibongoManager = FindObjectOfType<SibongoManager>();
+        sibongoAudiosource = GetComponent<AudioSource>();
         dayNightCycleManager.dayTimer += 180f;
         TimerRoutine();  
     }
@@ -71,7 +76,8 @@ public class SibongoManager : MonoBehaviour
 
         foreach(var elt in dayPeriodIcon) elt.enabled = false;
 
-        dayPeriodIcon[dayPeriod].enabled = true;         
+        dayPeriodIcon[dayPeriod].enabled = true;
+        HandleAmbiance();         
     }
 
     void TimerRoutine()
@@ -81,6 +87,15 @@ public class SibongoManager : MonoBehaviour
         else if(dayNightCycleManager.dayTimer >= 960f && dayNightCycleManager.dayTimer < 1140f) dayPeriod = 2;
         else if(dayNightCycleManager.dayTimer >= 1140f && dayNightCycleManager.dayTimer < 1320f) dayPeriod = 3;
         else if(dayNightCycleManager.dayTimer >= 1320f || dayNightCycleManager.dayTimer < 360f) dayPeriod = 4;
+    }
+
+    void HandleAmbiance()
+    {
+        if(sibongoManager.dayPeriod <= 1) sibongoAudiosource.clip = sibongoAmbiances[0];
+        else if(sibongoManager.dayPeriod == 2) sibongoAudiosource.clip = sibongoAmbiances[1];
+        else if(sibongoManager.dayPeriod >= 3) sibongoAudiosource.clip = sibongoAmbiances[2];
+
+        sibongoAudiosource.Play();
     }
 
 }

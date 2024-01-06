@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 
@@ -22,6 +23,7 @@ namespace SJ
 
         public GameObject dialogUI;
         public GameObject brassardG, brassardL, brasG, brasL, mask, maskEye;
+        [SerializeField] protected GameObject achievementUi, achievementFx;
 
         public Transform lockOnTransform;
         public bool isDead;
@@ -257,5 +259,16 @@ namespace SJ
                     brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
                 }
         }
+
+        public IEnumerator HandleAchievement(string stepName)
+        {
+            Instantiate(achievementFx, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds (0.6f);
+            achievementUi.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = stepName;
+            yield return new WaitForSeconds (0.8f);
+            achievementUi.SetActive(true);
+            yield return new WaitForSeconds (6f);
+            achievementUi.SetActive(false);
+        }        
     }
 }

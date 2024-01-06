@@ -281,7 +281,7 @@ namespace SJ
                     }
                     else if(inAirTimer >= 5f)
                     {
-                        playerStats.TakeDamage(1000, 3);
+                        //playerStats.TakeDamage(1000, 3);
                         
                         if(playerStats.stateJiataData.isIndomitable)
                             animatorManager.PlayTargetAnimation("Hard Landing", true);

@@ -15,7 +15,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.794448, g: 0.8773585, b: 0.7490655, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -625,8 +625,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 214.11298, y: 13.342942, z: 135.63226}
-  m_Center: {x: -89.67735, y: 6.5566373, z: 38.165665}
+  m_Size: {x: 214.11298, y: 65.66519, z: 131.32364}
+  m_Center: {x: -89.67735, y: 25.95847, z: 36.011353}
 --- !u!114 &121694082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,6 +989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: rock01 Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544658040455675144, guid: 25e24cef2f4311e42a6316f4e7354a51,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8469330543617264012, guid: 25e24cef2f4311e42a6316f4e7354a51,
         type: 3}
@@ -2147,9 +2152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManagers:
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
-  - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
-  - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
 --- !u!4 &788701119
 Transform:
   m_ObjectHideFlags: 0
@@ -3746,6 +3751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock02 Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8739980824474359234, guid: 62c3c308f7ad99947ac57c657f27bdea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3921,6 +3931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: rock03 Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355269603752587500, guid: 6d02cd179d2933c44b6de02e615025bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4505,7 +4520,7 @@ MonoBehaviour:
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
   - {fileID: 7741970863079464497, guid: 54ef202f655cbcf4790519ab4d2cb82f, type: 3}
   - {fileID: 7386130759132590520, guid: 9e4129842bde66a4881fcfec6e92e9d0, type: 3}
-  - {fileID: 7380080224873159555, guid: 573c745f36cdad84fb4e6fb42df47db6, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
 --- !u!4 &1473441818
 Transform:
   m_ObjectHideFlags: 0
@@ -4540,8 +4555,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 142.71318, y: 44.87078, z: 84.96435}
-  m_Center: {x: -3.3565903, y: 23.810093, z: 27.15783}
+  m_Size: {x: 142.71318, y: 51.768585, z: 84.96435}
+  m_Center: {x: -3.3565903, y: 27.258995, z: 27.15783}
 --- !u!82 &1473441820
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4877,7 +4892,7 @@ MonoBehaviour:
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
   - {fileID: 7741970863079464497, guid: 54ef202f655cbcf4790519ab4d2cb82f, type: 3}
   - {fileID: 7386130759132590520, guid: 9e4129842bde66a4881fcfec6e92e9d0, type: 3}
-  - {fileID: 7380080224873159555, guid: 573c745f36cdad84fb4e6fb42df47db6, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
 --- !u!4 &1516654420
 Transform:
   m_ObjectHideFlags: 0
@@ -4912,8 +4927,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 153.05124, y: 60.52465, z: 236.58214}
-  m_Center: {x: -15.5260315, y: -0.5276756, z: -32.716072}
+  m_Size: {x: 153.05124, y: 92.62604, z: 236.58214}
+  m_Center: {x: -15.5260315, y: -16.578367, z: -32.716072}
 --- !u!82 &1516654422
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5561,6 +5576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SibongoPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 6557975920598618597, guid: 6378d551a237da44cbdac6124afc9e3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6987787338740095702, guid: 6378d551a237da44cbdac6124afc9e3c,
         type: 3}
       propertyPath: m_RootOrder
@@ -5709,9 +5729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManagers:
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
   - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
-  - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
-  - {fileID: 3377215912304397061, guid: 01c0df834b5485840af2a966b1d03299, type: 3}
+  - {fileID: 4583090968400428997, guid: 459c6aebeac95c34a8aae56b1bca261e, type: 3}
 --- !u!4 &1845311853
 Transform:
   m_ObjectHideFlags: 0
@@ -5746,8 +5766,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 64.08497, y: 47.94195, z: 141.87085}
-  m_Center: {x: -6.282482, y: 17.57572, z: -46.49038}
+  m_Size: {x: 64.08497, y: 63.792233, z: 141.87085}
+  m_Center: {x: -6.282482, y: 19.61117, z: -46.49038}
 --- !u!82 &1845311855
 AudioSource:
   m_ObjectHideFlags: 0

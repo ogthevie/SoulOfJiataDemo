@@ -80,8 +80,15 @@ public class HomeInputManager : MonoBehaviour
             if(selectorY == quitY) Application.Quit();
             else if(selectorY == continueY) 
             {
-                gameManager.ActiveOnDestroy();
-                gameSaveManager.LoadAllData();
+                if(!gameSaveManager.haveSave)
+                {
+                    selectorAudioSource.Play();
+                }
+                else
+                {
+                    gameManager.ActiveOnDestroy();
+                    gameSaveManager.LoadAllData();                    
+                }
             }
             else if(selectorY == newGameY) 
             {

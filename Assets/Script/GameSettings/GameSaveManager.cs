@@ -14,12 +14,10 @@ public class GameSaveManager : MonoBehaviour
     [SerializeField] ArcLightEventManager arcLightEventManager;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
-    public bool isloaded;
+    public bool isloaded, haveSave;
 
     void Awake()
     {
-        SceneManager.sceneLoaded += HandleGrotteKossiDoor;
-
 
         string ActiveScene = SceneManager.GetActiveScene().name;
         //playerManager = FindObjectOfType<PlayerManager>();
@@ -39,14 +37,14 @@ public class GameSaveManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-        if(ActiveScene == "GrotteKossi")
+        /*if(ActiveScene == "GrotteKossi")
         {
             arcLightEventManager = FindFirstObjectByType<ArcLightEventManager>();
             baseDoor = GameObject.Find("Base Door");
             midDoor = GameObject.Find("MidDoorDown");
             baseDoorPosition = baseDoor.transform;
             midDoorPosition = midDoor.transform;
-        }
+        }*/
 
 
     }
@@ -62,6 +60,7 @@ public class GameSaveManager : MonoBehaviour
         }
 
         SavePlayerData();
+        SavePlayerPosition();
         SaveStoryData();
         Debug.Log("sauvegarde effectuée");
     }
@@ -70,14 +69,11 @@ public class GameSaveManager : MonoBehaviour
     {
         int i = SceneManager.GetActiveScene().buildIndex;
         LoadStoryData();
-        if(i == 2) 
-        {
-            LoadGrotteData();
-            LoadTorcheGrotteData();
-        }
+        if(!haveSave) return;
         LoadPlayerData();
         Debug.Log("Données chargées");
         isloaded = true;
+        
     }
 
     #region Sauvegarde
@@ -93,6 +89,7 @@ public class GameSaveManager : MonoBehaviour
         string grotteKossiJon = JsonUtility.ToJson(grotteKossiData);
         string filePath = Application.persistentDataPath + "/grotteKossiData.json";
         System.IO.File.WriteAllText(filePath, grotteKossiJon);
+        Debug.Log("portes save");
     }
 
     void SavePlayerData()
@@ -104,13 +101,26 @@ public class GameSaveManager : MonoBehaviour
             arcLight = playerManager.canArcLight, 
             thunder = playerManager.canThunder,
             canBaemb = playerManager.canBaemb,
-            playerX = playerManager.gameObject.transform.position.x,
-            playerY = playerManager.gameObject.transform.position.y + 20,
-            playerZ = playerManager.gameObject.transform.position.z
         };
         string playerJSon = JsonUtility.ToJson(playerData);
 
         string filepath = Application.persistentDataPath + "/playerData.json";
+        System.IO.File.WriteAllText(filepath, playerJSon);
+    }
+
+    void SavePlayerPosition()
+    {
+        PlayerPosition playerPosition = new PlayerPosition
+        {
+            playerX = playerManager.gameObject.transform.position.x,
+            playerY = playerManager.gameObject.transform.position.y + 20,
+            playerZ = playerManager.gameObject.transform.position.z
+        };
+        string playerJSon = JsonUtility.ToJson(playerPosition);
+
+        Debug.Log(playerJSon);
+
+        string filepath = Application.persistentDataPath + "/playerPosition.json";
         System.IO.File.WriteAllText(filepath, playerJSon);
     }
 
@@ -125,7 +135,8 @@ public class GameSaveManager : MonoBehaviour
         string storyStepJson = JsonUtility.ToJson(storyData);
 
         string filepath = Application.persistentDataPath + "/StoryData.json";
-        System.IO.File.WriteAllText(filepath, storyStepJson);   
+        System.IO.File.WriteAllText(filepath, storyStepJson);
+        haveSave = true;   
     }
 
     void SaveTorcheGrotteData()
@@ -146,7 +157,7 @@ public class GameSaveManager : MonoBehaviour
     #endregion
     
     #region chargement des données
-    void LoadGrotteData()
+    public void LoadGrotteData()
     {
         string filePath = Application.persistentDataPath + "/grotteKossiData.json";
 
@@ -159,9 +170,11 @@ public class GameSaveManager : MonoBehaviour
             baseDoorPosition.position = new Vector3(grotteKossiData.basedoorX, grotteKossiData.basedoorY, grotteKossiData.baseDoorZ);
             midDoorPosition.position = new Vector3(grotteKossiData.midDoorX, grotteKossiData.midDoorY, grotteKossiData.midDoorZ);
 
-            if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component))
-                component.LoadStateBaseRune();
-
+            //if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component)) component.LoadStateBaseRune();
+            if(!baseDoor.TryGetComponent<DoorManager>(out DoorManager component)) 
+            {
+                if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component1)) component1.LoadStateBaseRune();
+            }
         }
         else
         {
@@ -169,7 +182,7 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
-    void LoadTorcheGrotteData()
+    public void LoadTorcheGrotteData()
     {
         string filepath = Application.persistentDataPath + "/torcheData.json";
 
@@ -194,8 +207,6 @@ public class GameSaveManager : MonoBehaviour
             string playerJson = System.IO.File.ReadAllText(filePath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(playerJson);
 
-            playerManager.gameObject.transform.position = new Vector3(playerData.playerX, playerData.playerY, playerData.playerZ);
-
             playerStats.healthBar.SetCurrentHealth(playerData.playerPV);
             playerStats.currentHealth = playerData.playerPV;
 
@@ -208,12 +219,22 @@ public class GameSaveManager : MonoBehaviour
 
         int i = SceneManager.GetActiveScene().buildIndex;
         if(i == 2) FindObjectOfType<SpawnPlayer>().gameObject.SetActive(false);
-        //verifier si nous sommes dans la grotte
-        //si nous sommes dans la grotte, desactiver le startZoneKossi, sinon laisser activer
+ }
 
-        //verifier si nous sommes dans le village de bongo
-        // si nous sommes dans le village, desactiver le startZoneSibongo et  le PlayerInitPosition, sinon laisser activer
-    }
+    public void LoadPlayerPosition()
+    {
+        string filePath = Application.persistentDataPath + "/playerPosition.json";
+
+        if(System.IO.File.Exists(filePath))
+        {
+            string playerJson = System.IO.File.ReadAllText(filePath);
+            PlayerPosition playerPosition = JsonUtility.FromJson<PlayerPosition>(playerJson);
+
+            playerManager.gameObject.transform.position = new Vector3(playerPosition.playerX, playerPosition.playerY, playerPosition.playerZ);
+        }
+
+        Debug.Log("Position chargée");
+  }
 
     void LoadStoryData()
     {
@@ -229,6 +250,7 @@ public class GameSaveManager : MonoBehaviour
             sceneName = storyData.activeScene;
             StartCoroutine(StartLoadingScene());
         }
+        else haveSave = false;
 
         IEnumerator StartLoadingScene()
         {     
@@ -268,7 +290,7 @@ public class GameSaveManager : MonoBehaviour
         isloaded = false;
     }
 
-    void HandleGrotteKossiDoor(Scene scene, LoadSceneMode loadSceneMode)
+    public void HandleGrotteKossiDoor()
     {
         string ActiveScene = SceneManager.GetActiveScene().name;
         if(ActiveScene == "GrotteKossi")
@@ -293,9 +315,13 @@ class GrotteKossiData
 
 class PlayerData
 {
-    public float playerX, playerY, playerZ;
     public int playerPV;
     public bool surcharge, arcLight, thunder, canBaemb;
+}
+
+class PlayerPosition
+{
+    public float playerX, playerY, playerZ;
 }
 
 class TorcheData

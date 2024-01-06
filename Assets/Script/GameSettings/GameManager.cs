@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 using SJ;
 
 
-[DefaultExecutionOrder(-1)]
+//[DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
 {
+    GameSaveManager gameSaveManager;
     public static GameManager Instance {private set; get; }
     public GameObject [] goDontDestroy = new GameObject [4];
     public Canvas loadingScreen;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        gameSaveManager = GetComponent<GameSaveManager>();
         /*foreach(GameObject elt in goDontDestroy)
         {
             elt.SetActive(false);
@@ -54,10 +56,13 @@ public class GameManager : MonoBehaviour
         List<AsyncOperation> operations = new List<AsyncOperation>();
         operations.Add(SceneManager.LoadSceneAsync(scene));
         StartCoroutine(Loading(operations));
+
+
     }
 
     private IEnumerator Loading(List<AsyncOperation> operations)
     {
+
         for (int i = 0; i < operations.Count; i++)
         {
             while(!operations[i].isDone)
@@ -67,6 +72,8 @@ public class GameManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(1.5f);
+
         loadingScreen.enabled = false;
+
     }
 }
