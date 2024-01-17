@@ -25,21 +25,13 @@ public class BomboktanDialogManager : CharacterDialogManager
             return;
 
 
-        if(!bomboktanTriggerManager.dialogDatas[k].fConv && i < bomboktanTriggerManager.dialogDatas[k].firstConversation.Count)
+        if(i < bomboktanTriggerManager.dialogDatas[k].firstConversation.Count)
         {
             if(i % 2 == 0) actorName.text = bomboktanTriggerManager.dialogDatas[k].characterName;
             else actorName.text = bomboktanTriggerManager.dialogDatas[k].mainCharacterName;
 
             actorSentence.text = bomboktanTriggerManager.dialogDatas[k].firstConversation[i];
             nextFirstDialogue(k, bomboktanTriggerManager.dialogDatas);
-        }
-    
-
-        else if(bomboktanTriggerManager.dialogDatas[k].fConv)
-        {
-
-                actorName.text = bomboktanTriggerManager.dialogDatas[k].characterName;
-                actorSentence.text = bomboktanTriggerManager.dialogDatas[k].secondConversation[i];   
         }
     }
 
@@ -58,7 +50,6 @@ public class BomboktanDialogManager : CharacterDialogManager
             if(i >= characterDialogData[k].firstConversation.Count)
             {
                 i = 0;
-                characterDialogData[k].fConv = true;
                 CloseDialogue();
             }
         }

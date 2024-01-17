@@ -1,4 +1,3 @@
-using UnityEngine;
 
 public class NgomaaManager : CharacterManager
 {
@@ -7,5 +6,6 @@ public class NgomaaManager : CharacterManager
         base.Start();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
     }
+
 }
 

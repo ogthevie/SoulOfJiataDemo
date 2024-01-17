@@ -8,6 +8,7 @@ namespace SJ
         InputManager inputManager;
         PlayerStats playerStats;
         GameSaveManager gameSaveManager;
+        PlayerUIManager playerUIManager;
 
         public StatesCharacterData jiataCharacterData;
         public List <GameObject> vases = new ();
@@ -20,6 +21,7 @@ namespace SJ
             gameSaveManager = FindObjectOfType<GameSaveManager>();
             inputManager = GetComponent<InputManager>();
             playerStats = GetComponent<PlayerStats>();
+            playerUIManager = FindObjectOfType<PlayerUIManager>();
         }
 
         public void HandleInstantiateVases()
@@ -70,10 +72,9 @@ namespace SJ
             if(inputManager.three_input && playerStats.currentHealth <= playerStats.maxHealth)
             {
                 playerStats.AddHealth(1000);
-                gameSaveManager.SaveAllData();
+                //StartCoroutine(playerUIManager.HandleAchievement("Sauvegarde effectuée"));
+                //gameSaveManager.SaveAllData();
             }
-
-
             else if(inputManager.four_input && playerStats.currentStamina <= playerStats.maxStamina)
             {
                 playerStats.AddStamina(1000);

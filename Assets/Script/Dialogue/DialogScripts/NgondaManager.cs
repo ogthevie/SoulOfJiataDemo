@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class NgondaManager : CharacterManager
 {
@@ -9,4 +6,5 @@ public class NgondaManager : CharacterManager
         base.Start();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
     }
+
 }

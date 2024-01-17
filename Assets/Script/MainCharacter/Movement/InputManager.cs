@@ -144,7 +144,8 @@ namespace SJ
 
         public void TickInput(float delta)
         {
-            HandlePauseMenu();
+            HandleDisablePauseMenu();
+            HandleEnablePauseMenu();
 
             if(Time.timeScale == 0f)
                 return;
@@ -366,14 +367,17 @@ namespace SJ
             else InteractFlag = false;
         }
 
-        private void HandlePauseMenu()
+        private void HandleEnablePauseMenu()
         {
             if(start_input && !playerManager.onPause)
                 playerManager.onPause = true;
-
-            else if(start_input && playerManager.onPause)
-                playerManager.onPause = false;
         }
-
+        private void HandleDisablePauseMenu()
+        {
+            if(playerManager.onPause)
+            {
+                if(start_input || lowAttack_input) playerManager.onPause = false;
+            }
+        }
     }
 }

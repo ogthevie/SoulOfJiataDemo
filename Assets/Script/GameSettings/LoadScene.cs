@@ -17,6 +17,7 @@ public class LoadScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            gameManager.newGame = null;
             StartCoroutine(StartLoadingScene());
         }
     }

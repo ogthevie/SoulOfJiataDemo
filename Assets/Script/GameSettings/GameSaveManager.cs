@@ -14,7 +14,7 @@ public class GameSaveManager : MonoBehaviour
     [SerializeField] ArcLightEventManager arcLightEventManager;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
-    public bool isloaded, haveSave;
+    public bool isloaded;
 
     void Awake()
     {
@@ -69,7 +69,6 @@ public class GameSaveManager : MonoBehaviour
     {
         int i = SceneManager.GetActiveScene().buildIndex;
         LoadStoryData();
-        if(!haveSave) return;
         LoadPlayerData();
         Debug.Log("Données chargées");
         isloaded = true;
@@ -113,12 +112,12 @@ public class GameSaveManager : MonoBehaviour
         PlayerPosition playerPosition = new PlayerPosition
         {
             playerX = playerManager.gameObject.transform.position.x,
-            playerY = playerManager.gameObject.transform.position.y + 20,
+            playerY = playerManager.gameObject.transform.position.y,
             playerZ = playerManager.gameObject.transform.position.z
         };
         string playerJSon = JsonUtility.ToJson(playerPosition);
 
-        Debug.Log(playerJSon);
+        //Debug.Log(playerJSon);
 
         string filepath = Application.persistentDataPath + "/playerPosition.json";
         System.IO.File.WriteAllText(filepath, playerJSon);
@@ -135,8 +134,7 @@ public class GameSaveManager : MonoBehaviour
         string storyStepJson = JsonUtility.ToJson(storyData);
 
         string filepath = Application.persistentDataPath + "/StoryData.json";
-        System.IO.File.WriteAllText(filepath, storyStepJson);
-        haveSave = true;   
+        System.IO.File.WriteAllText(filepath, storyStepJson); 
     }
 
     void SaveTorcheGrotteData()
@@ -250,7 +248,6 @@ public class GameSaveManager : MonoBehaviour
             sceneName = storyData.activeScene;
             StartCoroutine(StartLoadingScene());
         }
-        else haveSave = false;
 
         IEnumerator StartLoadingScene()
         {     

@@ -1,9 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using SJ;
 
 public class PlayerUIManager : MonoBehaviour
 {
+    [SerializeField] GameObject notifAchiementUI, achievementFx;
+    [SerializeField] AudioManager audioManager;
+    
     void Awake()
     {
             GameObject[] objs = GameObject.FindGameObjectsWithTag("Playerui"); // Recherche d'objets avec le tag spécifique
@@ -18,4 +24,20 @@ public class PlayerUIManager : MonoBehaviour
             }
             DontDestroyOnLoad(this.gameObject);
     }
+
+    public void HandleCompleteQuestNotification(String stepName)
+    {
+        Transform notifPosition = transform.GetChild(5).GetComponent<Transform>();
+        GameObject newNotif = Instantiate(notifAchiementUI, notifPosition);
+        newNotif.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = stepName;
+    }
+
+    public IEnumerator HandleAchievement(string stepName)
+    {
+        Instantiate(achievementFx, audioManager.transform.position, Quaternion.identity);
+        audioManager.PowerUp();
+        HandleCompleteQuestNotification(stepName);
+        yield return new WaitForSeconds(0.1f);
+        
+    }  
 }

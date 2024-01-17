@@ -14,6 +14,7 @@ public class CharacterDialogManager : MonoBehaviour
     public TextMeshProUGUI actorSentence;
     public GameObject playerStatsUi;
     protected int i = 0;
+    
     public bool canDialog;
 
     protected virtual void Awake()
@@ -28,9 +29,10 @@ public class CharacterDialogManager : MonoBehaviour
 
     protected void Start()
     {
-        actorName = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        actorSentence = GameObject.Find("Player UI").transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        playerStatsUi = GameObject.Find("Player UI").transform.GetChild(0).gameObject;
+        GameObject playerUI = GameObject.Find("Player UI");
+        actorName = playerUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        actorSentence = playerUI.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        playerStatsUi = playerUI.transform.GetChild(0).gameObject;
     }
 
 
@@ -48,7 +50,7 @@ public class CharacterDialogManager : MonoBehaviour
             return;
 
 
-        if(!characterDialogData[k].fConv && i < characterDialogData[k].firstConversation.Count)
+        if(i < characterDialogData[k].firstConversation.Count)
         {
             if(i % 2 == 0) actorName.text = characterDialogData[k].characterName;
             else actorName.text = characterDialogData[k].mainCharacterName;
@@ -56,15 +58,7 @@ public class CharacterDialogManager : MonoBehaviour
             actorSentence.text = characterDialogData[k].firstConversation[i];
             nextFirstDialogue(k, characterDialogData);
         }
-    
-
-        else if(characterDialogData[k].fConv)
-        {
-
-                actorName.text = characterDialogData[k].characterName;
-                actorSentence.text = characterDialogData[k].secondConversation[i];
-                dialogTriggerManager.storyManager.checkstoryStep(characterDialogData[k].canNextStep); 
-        }
+                //dialogTriggerManager.storyManager.checkstoryStep(characterDialogData[k].canNextStep); 
     }
 
     public virtual void CloseDialogue()
@@ -80,16 +74,17 @@ public class CharacterDialogManager : MonoBehaviour
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
+            //Debug.Log("i est egal à : " +i);
             animatorManager.animationState = false;
             i++;
             if(i >= characterDialogData[k].firstConversation.Count)
             {
+                Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
                 i = 0;
-                characterDialogData[k].fConv = true;
                 CloseDialogue();
+                FindObjectOfType<GameManager>().GlobalFixedCursorPosition();
             }
         }
-
     }
 
 }

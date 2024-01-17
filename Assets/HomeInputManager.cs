@@ -10,9 +10,12 @@ public class HomeInputManager : MonoBehaviour
     PlayerControls playerControls;
     GameSaveManager gameSaveManager;
     GameManager gameManager;
+    RectTransform selector;
+    [SerializeField] AudioClip [] selectorSfx = new AudioClip [2];
     float continueY, newGameY, quitY;
     bool up_input, down_input, south_input;
-    RectTransform selector;
+    string filePath;
+
     void OnEnable()
     {
         if(playerControls == null)
@@ -24,6 +27,7 @@ public class HomeInputManager : MonoBehaviour
             playerControls.PlayerActions.Jump.performed += i => south_input = true;            
         }
         playerControls.Enable();
+        
     }
 
     void Awake()
@@ -37,7 +41,7 @@ public class HomeInputManager : MonoBehaviour
         newGameY = parentGameobject.GetChild(1).GetComponent<RectTransform>().anchoredPosition.y;
         quitY = parentGameobject.GetChild(2).GetComponent<RectTransform>().anchoredPosition.y;
         selector = GetComponent<RectTransform>();
-        
+        filePath = Application.persistentDataPath + "/playerPosition.json";
     }
 
     private void OnDisable()
@@ -61,14 +65,14 @@ public class HomeInputManager : MonoBehaviour
             if(selector.anchoredPosition.y == continueY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, quitY);
             else if(selector.anchoredPosition.y == newGameY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, continueY);
             else if(selector.anchoredPosition.y == quitY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, newGameY);
-            selectorAudioSource.Play();
+            selectorAudioSource.PlayOneShot(selectorSfx[0]);
         }
         else if(down_input)
         {
             if(selector.anchoredPosition.y == continueY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, newGameY);
             else if(selector.anchoredPosition.y == newGameY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, quitY);
             else if(selector.anchoredPosition.y == quitY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, continueY);            
-            selectorAudioSource.Play();
+            selectorAudioSource.PlayOneShot(selectorSfx[0]);
         }
     }
 
@@ -76,24 +80,25 @@ public class HomeInputManager : MonoBehaviour
     {
         if(south_input) 
         {
-            sceneAudioSource.Stop();
             if(selectorY == quitY) Application.Quit();
             else if(selectorY == continueY) 
             {
-                if(!gameSaveManager.haveSave)
+                if(System.IO.File.Exists(filePath))
                 {
-                    selectorAudioSource.Play();
-                }
-                else
-                {
+                    sceneAudioSource.Stop();
                     gameManager.ActiveOnDestroy();
-                    gameSaveManager.LoadAllData();                    
+                    gameManager.newGame = 0;  
+                    gameSaveManager.LoadAllData();
                 }
+                else selectorAudioSource.PlayOneShot(selectorSfx[1]);
+
             }
             else if(selectorY == newGameY) 
             {
+                sceneAudioSource.Stop();
                 gameManager.ActiveOnDestroy();
                 gameSaveManager.ClearAllSaves();
+                gameManager.newGame = 1;
                 StartCoroutine(StartLoadingScene("Sibongo"));
             }
         }

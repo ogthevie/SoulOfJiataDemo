@@ -5,28 +5,39 @@ using UnityEngine;
 public class GolemEventManager : EventStoryTriggerManager
 {
     public GameObject KossiDoor;
+    [SerializeField] BoxCollider golemBoxCollider;
     [SerializeField] GameObject tololBase, smoke;
-    [SerializeField] Vector3 [] tololBasePositions = new Vector3 [4];
-    [SerializeField] Quaternion [] tololQuaternions = new Quaternion [4];
-    [SerializeField] TololManager[] tololManagers = new TololManager [4];
+    [SerializeField] Vector3 tololBasePosition = new Vector3 (183.38f, 5.697f, 98.65f);
+    [SerializeField] Quaternion tololQuaternion = Quaternion.Euler(0f, 44.839f, 0f);
+
+    [SerializeField] TololManager tololManager;
     [SerializeField] bool tololExist;
+
+    void Awake()
+    {
+        if(storyManager.storyStep > 2 )KossiDoor.SetActive(true);
+    }
+
+    void Update()
+    {
+        if(tololExist)
+        {
+            if(tololManager == null) 
+            {
+                StartCoroutine(golemAchievement());
+            }
+        }        
+    }
 
     protected override void OnCollisionEnter(Collision other)
     {
 
     }
 
-    void OnTriggerEnter(Collider other)
+    public IEnumerator tutoEvent()
     {
-        if(other.gameObject.layer == 3 && storyManager.storyStep == 21)
-        {
-            StartCoroutine(tutoEvent());
-        }
-    }
-
-    IEnumerator tutoEvent()
-    {
-        playerManager.GetComponent<AudioManager>().FightTheme();
+        audioManager.FightTheme();
+        golemBoxCollider.enabled = false;
         yield return new WaitForSeconds(5f);
         HandleInstantiateTolols();
     }
@@ -35,36 +46,27 @@ public class GolemEventManager : EventStoryTriggerManager
     {
         if(tololExist) return;
 
-        for(int i = 0; i < 2; i++)
-        {
-            Instantiate(smoke, tololBasePositions[i], tololQuaternions[i]);
-            Instantiate(tololBase, tololBasePositions[i], tololQuaternions[i]);
-        }
+        Instantiate(smoke, tololBasePosition, tololQuaternion);
+        Instantiate(tololBase, tololBasePosition, tololQuaternion);
         
-        tololManagers = FindObjectsOfType<TololManager>();
+        tololManager = FindObjectOfType<TololManager>();
         tololExist = true;
     }
-
-    void OnTriggerStay(Collider other)
+    IEnumerator golemAchievement()
     {
-        if(tololExist)
-        {
-            if(tololManagers[1] == null && tololManagers[0] == null) 
-            {
-                StartCoroutine(golemAchievement());
-            }
+        audioManager.interactionAudioSource.Stop();
+        //storyManager.storyStep = 4;
+        KossiDoor.SetActive(true);
+        storyManager.storyStep = 3;
+        gameSaveManager.SaveAllData();
+        yield return new WaitForSeconds(3.5f);
+        StartCoroutine(playerUIManager.HandleAchievement("Entrainement de Libum"));
+        Destroy(this, 1.5f);
+        golemBoxCollider.enabled = true;
+    }
 
-        }
-
-        IEnumerator golemAchievement()
-        {
-            animatorManager.PlayTargetAnimation("Victory", true);
-            storyManager.storyStep = 5;
-            KossiDoor.SetActive(true);
-            gameSaveManager.SaveAllData();
-            StartCoroutine(playerManager.HandleAchievement("Entrainement de Libum"));
-            yield return new WaitForSeconds(0.2f);
-            Destroy(this, 1.5f);
-        }
+    public void ActivateGolemBoxCollider()
+    {
+        golemBoxCollider.enabled = true;
     }
 }

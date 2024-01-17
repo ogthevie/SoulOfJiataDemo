@@ -8,26 +8,38 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GreenMirror
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
-  - _OCCLUSIONMAP
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
+  stringTagMap: {}
+  disabledShaderPasses:
+  - GRABPASS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_394B3CC8:
+        m_Texture: {fileID: 2800000, guid: 8413c07f62d51434385ab0d58fff4d77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_617ED469:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A6D45FCA:
+        m_Texture: {fileID: 2800000, guid: 327e3ecb66b52bf47864f60040a632bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B3D03DD2:
+        m_Texture: {fileID: 2800000, guid: 327e3ecb66b52bf47864f60040a632bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: b3c8938cc4f3d2445abc7f282f4765f4, type: 3}
         m_Scale: {x: 2, y: 2}
@@ -104,6 +116,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9b4cdcf6c4f0068bb1b1493d26b6fd08_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 8413c07f62d51434385ab0d58fff4d77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SnowNormal:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -114,6 +130,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecularClipMask:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_b1b0c22fca25d5809c5efdbb192645f2_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 8413c07f62d51434385ab0d58fff4d77, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -130,8 +150,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_24724565: 90
+    - Vector1_3666016D: 0.1
+    - Vector1_44455FFC: 0
+    - Vector1_44F27708: 1
+    - Vector1_88C2A66C: 0.1
+    - Vector1_8dd6492e16194799b37d5efeb9926b89: 1
+    - Vector1_B9EE7F0D: 0.1
+    - Vector1_D1E31CE5: 0.1
+    - Vector1_D522AE9C: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Anim: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
@@ -139,24 +169,35 @@ Material:
     - _BrushLowerCut: 0
     - _BrushSize: 0.8
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffuseStep: 0.301
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
     - _DitherTexelSize: 1
     - _DitherThreshold: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EmissionEnabled: 0
     - _EmissionMultiplier: 1
     - _EnabledHairSpec: 0
     - _EnvironmentReflections: 1
+    - _Exposure: 1
     - _FaceShadowMapEnabled: 0
     - _FaceShadowMapPow: 0.2
     - _FaceShadowSmoothness: 0
     - _FlattenGI: 0
+    - _FlipbookMode: 0
     - _FresnelPower: 2.63
     - _GlitchDensity: 0
     - _GlitchPeriod: 0
@@ -187,7 +228,11 @@ Material:
     - _HoloDistance: 0.5
     - _HoloSpeed: 1
     - _HoloValue: 1
+    - _InvFade: 1
+    - _LightingEnabled: 0
     - _Metallic: 0
+    - _Mode: 0
+    - _Multiply_Clip: 0
     - _NoiseScale: 1
     - _NoiseStrength: 0.1
     - _NormalStrength: 0.25
@@ -197,6 +242,7 @@ Material:
     - _OutlineWidth: 0
     - _OverrideShadowColor: 0
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimEnabled: 0
@@ -212,6 +258,9 @@ Material:
     - _SnowAmount: 0.75
     - _SnowGlossiness: 0.5
     - _SnowMetallic: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecClipMaskScale: 1
     - _SpecShadowStrength: 1
     - _SpecSource: 0
@@ -228,11 +277,20 @@ Material:
     - _StepViaRampTexture: 0
     - _Surface: 0
     - _UseRampColor: 0
+    - _Vibration: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_e33122dd1341407eb6ef24a34b660f09: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_5148D11C: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_AEEA843B: {r: 2, g: 2, b: 0, a: 0}
+    - Vector2_B12BF039: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_E187B6BC: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.7809719, g: 0.80355227, b: 0.8490566, a: 1}
-    - _Color: {r: 0.7809719, g: 0.80355227, b: 0.8490566, a: 1}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0.186319, g: 3.520879, b: 0, a: 1}
+    - _Color1: {r: 0, g: 1.568627, b: 4, a: 0}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
     - _FaceRightDirection: {r: 1, g: 0, b: 0, a: 0}
@@ -250,8 +308,10 @@ Material:
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SnowColor: {r: 1, g: 1, b: 1, a: 1}
     - _SnowDirection: {r: 0, g: 1, b: 0, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _WindDirection: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8323762358911212273

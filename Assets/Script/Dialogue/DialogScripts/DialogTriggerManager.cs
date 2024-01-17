@@ -49,7 +49,7 @@ public class DialogTriggerManager : MonoBehaviour
     }
     public virtual void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 3 && storyManager.storyStep != 21)
+        if(other.gameObject.layer == 3)
         {
             idDialog = sibongoManager.dayPeriod;
             dialogUI.SetActive(true);
@@ -60,8 +60,7 @@ public class DialogTriggerManager : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(storyManager.storyStep != 21) characterDialogManager.HandleDialogue(idDialog, partsManager[storyManager.storyStep]);
-
+        characterDialogManager.HandleDialogue(idDialog, partsManager[storyManager.storyStep]);
     }
 
     void OnTriggerExit(Collider other)
