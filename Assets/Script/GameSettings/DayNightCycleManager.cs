@@ -10,7 +10,8 @@ public class DayNightCycleManager : MonoBehaviour
 
     void Awake()
     {
-        dayTimer = Random.Range(0f, 1321);
+        //dayTimer = Random.Range(360, 1120);
+        dayTimer = 400;
     }
     
     void Update()

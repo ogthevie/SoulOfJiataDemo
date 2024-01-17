@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Golem20
+  m_EditorClassIdentifier: 
+  characterName: Homme dans la pierre
+  mainCharacterName: Ruben
+  firstConversation:
+  - Je ne t'ai jamais vu ici....Qui...es...tu ?
+  - Je m'appelle Ruben Jiata
+  - Ruben de Nyobe... ou jiata de.... Mban ?
+  - Jiata de Mban.
+  - Je ne savais pas... qu'il avait un fils...
+  - J'ai grandi chez les mundele
+  - Ah...mais dis moi...pourquoi... es...tu... revenu ici...?
+  - "C'est la terre de mes anc\xEAtres....hmmm ? Quel est votre nom au fait ?"
+  - on m'appelle L'HOMME DANS LA PIERRE
+  - "oui \xE7a je sais, on me l'a dit, mais vous n'avez pas de nom de naissance ?un
+    nom choisi par vos parents. "
+  - "Un jour... j'ai ouvert les yeux... Je me suis retrouv\xE9...ici...ancr\xE9 dans
+    le sol...les gens...du coin...m'ont baptis\xE9...l'homme dans la pierre...et
+    depuis...c'est rest\xE9 ainsi. "
+  - "c'est un peu bizarre. Mais bon ! je suis pas venu pour \xE7a. On m'a dit que
+    c'est vous qui transmettez les TALISMANS FAMILIAUX."
+  - c'est...exact.
+  - "Dans ma famille, c'est des BRASSARDS qui sont transmis de g\xE9n\xE9ration en
+    g\xE9n\xE9ration. Vu que je suis le seul fils de mon p\xE8re, il me parait logique
+    que vous me les remettiez."
+  - Im..possible
+  - Hein ?
+  - "Je ne vois pas...en toi...une force suffisante... pour supporter... toute cette
+    h\xE9ritage. Ton p\xE8re...a emmagasiner trop de LEKBA dans ce talisman. Tu ne
+    pourras pas... en faire bonne usage...tu es... faible..."
+  - "HOMME DANS LA PIERRE, je n'ai probablement pas l'aura d'un grand sorcier pour
+    l'instant, mais je ne suis pas aussi faible que vous le pr\xE9tendiez."
+  - "Tu...crois...\xE7a ?"
+  - "J'en suis persuad\xE9 et je suis pr\xEAt \xE0 vous le prouver."
+  - "On verra \xE7a...fais attention \xE0 tes arri\xE8res."
+  - '?'

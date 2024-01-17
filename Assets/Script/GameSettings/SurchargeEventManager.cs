@@ -24,7 +24,8 @@ public class SurchargeEventManager : EventStoryTriggerManager
 
             playerManager.brasL.GetComponent<SkinnedMeshRenderer>().enabled = true;
             playerManager.brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            //Tutoscreen
+            
+            StartCoroutine(playerUIManager.HandleAchievement("Initiation au Baemb"));
             grotteKossiManager.enemySpawnOne.SetActive(true);
             
             storyManager.storyStep = 5;

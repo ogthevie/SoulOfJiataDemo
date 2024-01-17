@@ -177,7 +177,7 @@ namespace SJ
 
         public void PowerUp()
         {
-            interactionAudioSource.volume = 0.8f;
+            interactionAudioSource.volume = 0.5f;
             interactionAudioSource.PlayOneShot(fightSfx[2]);
         }
 
@@ -189,7 +189,7 @@ namespace SJ
 
         public void FightTheme()
         {
-            interactionAudioSource.volume = 0.8f;
+            interactionAudioSource.volume = 0.4f;
             interactionAudioSource.PlayOneShot(fightSfx[15]);            
         }
 

@@ -27,13 +27,18 @@ public class TololPattern : MonoBehaviour
     public new Collider collider;
 
 
+
+    void OnEnable()
+    {
+        tololRigibody = GetComponent<Rigidbody>();        
+    }
+    
     void Start()
     {
         playerAttacker = FindObjectOfType<PlayerAttacker>();
         playerManager = FindObjectOfType<PlayerManager>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
         tololManager = GetComponent<TololManager>();
-        tololRigibody = GetComponent<Rigidbody>();
         agentTolol = GetComponentInChildren<NavMeshAgent>();
         handleDamageTolol = GetComponentInChildren<HandleDamageTolol>();
         agentTolol.enabled = false;

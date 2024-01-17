@@ -6,11 +6,9 @@ using SJ;
 public class SpawnPlayer : MonoBehaviour
 {
     GameManager gameManager;
-    bool checkLoadScreen;
     
     void Start()
     {
-        checkLoadScreen = false;
         GameSaveManager gameSaveManager;
         gameManager = FindObjectOfType<GameManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
@@ -31,18 +29,5 @@ public class SpawnPlayer : MonoBehaviour
 
         gameSaveManager.isloaded = false;
 
-    }
-    void LateUpdate()
-    {
-        if(!checkLoadScreen)
-        {
-            float activeScene = SceneManager.GetActiveScene().buildIndex;
-            if(!gameManager.loadingScreen.enabled)
-            {
-                if(activeScene ==  1) FindObjectOfType<PlayerManager>().transform.position = new Vector3 (123.76f, 5.3f, 346.57f);
-                else if(activeScene == 2) FindObjectOfType<PlayerManager>().transform.position = new Vector3 (-124.38f, 60, -179.057f);
-                checkLoadScreen = true;
-            }
-        }
-    }  
+    } 
 }

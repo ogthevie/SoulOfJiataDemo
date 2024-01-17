@@ -5,4 +5,5 @@ public class BilolManager : CharacterManager
         base.Start();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
     }
+
 }

@@ -880,7 +880,7 @@ MonoBehaviour:
   isPreformingAction: 0
   maximumDetectionAngle: 60
   minimumDetectionAngle: -25
-  kossiHealth: 35
+  kossiHealth: 1
 --- !u!114 &5577364482627414455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,6 +896,7 @@ MonoBehaviour:
   kossiAnimatorManager: {fileID: 0}
   kossiAudioManager: {fileID: 0}
   currentTarget: {fileID: 0}
+  playerManager: {fileID: 0}
   statesJiataData: {fileID: 11400000, guid: 3739c9a0ca7a848418e3c761ed693a0d, type: 2}
   bulletPrefab: {fileID: 5679781952932991129, guid: f1184303d8ae35d45b398a678d48ee23,
     type: 3}
@@ -935,10 +936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858a3187dc31174fbe9e1d5f7a8273c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAudioSource: {fileID: 0}
-  enemySfx:
-  - {fileID: 8300000, guid: 983fa5092fdb0554397f5a180130cc71, type: 3}
-  - {fileID: 8300000, guid: 4cd5973d2f8ade24a8aae0db89ac0c8a, type: 3}
 --- !u!1 &5518702736830776444
 GameObject:
   m_ObjectHideFlags: 0
