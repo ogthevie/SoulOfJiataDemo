@@ -34,9 +34,9 @@ namespace SJ
 
             else if(other.gameObject.layer == 12)
             {
+                playerAttacker.FxLowAttack();
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
-                    Instantiate(impactFx, component.transform.position, Quaternion.identity);
                     if(component is TololManager tololManager)
                     {
                         tololManager.TakeDamage(playerAttacker.statesJiataData.d_LowAttack);

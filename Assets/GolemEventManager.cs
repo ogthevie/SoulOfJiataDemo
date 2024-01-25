@@ -13,7 +13,7 @@ public class GolemEventManager : EventStoryTriggerManager
     [SerializeField] TololManager tololManager;
     [SerializeField] bool tololExist;
 
-    void Awake()
+    void Start()
     {
         if(storyManager.storyStep > 2 )KossiDoor.SetActive(true);
     }

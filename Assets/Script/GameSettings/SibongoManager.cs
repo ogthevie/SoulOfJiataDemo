@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +6,10 @@ public class SibongoManager : MonoBehaviour
     DayNightCycleManager dayNightCycleManager;
     SibongoManager sibongoManager;
     public ParticleSystem [] fireLights;
-    public Light [] pointLights;
+    //public Light [] pointLights;
     public Material[] dayPeriodSkyboxes;
-    public GameObject[] HommPosition; // les activites des PNJ se divisent en 05 périodes de la journée de la journéee
     public int dayPeriod;
-    public GameObject fireFly;
+    public GameObject fireFly, sun, tBilol, tLibum, tNgoMaa, tNgonda;
     
     AudioSource sibongoAudiosource;
     public AudioClip [] sibongoAmbiances = new AudioClip[3];
@@ -41,34 +39,38 @@ public class SibongoManager : MonoBehaviour
     
     void Start()
     {
-
-        GameObject sun = GameObject.FindGameObjectWithTag("Sun");
-        sun.transform.rotation = Quaternion.identity;
-
-        if(sibongoManager.dayPeriod == 3 || sibongoManager.dayPeriod == 4)
+        if(sibongoManager.dayPeriod > 2)
         {
             RenderSettings.skybox = dayPeriodSkyboxes[2];
             foreach(var elt in fireLights) elt.Play();
-            foreach (var elt in pointLights) elt.enabled = true;
+            //foreach (var elt in pointLights) elt.enabled = true;
             fireFly.SetActive(true);
-            Quaternion rotation = Quaternion.Euler(-40f, 0f, 0f);
-            sun.transform.rotation = rotation; 
+            sun.SetActive(false);
         }
         else
         {
             foreach (var elt in fireLights) elt.Stop();
-            foreach (var elt in pointLights) elt.enabled = false;
+            //foreach (var elt in pointLights) elt.enabled = false;
             fireFly.SetActive(false);
             
             if(sibongoManager.dayPeriod == 0) 
             {
                 RenderSettings.skybox = dayPeriodSkyboxes[0];
-                Quaternion rotation = Quaternion.Euler(15f, 0f, 0f);
+                float _xAxis = Random.Range(0,30);
+                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
                 sun.transform.rotation = rotation;  
             }
-            else
+            else if(sibongoManager.dayPeriod == 1)
             {
-                Quaternion rotation = Quaternion.Euler(45f, 0f, 0f);
+                float _xAxis = Random.Range(30,110);
+                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
+                sun.transform.rotation = rotation; 
+                RenderSettings.skybox = dayPeriodSkyboxes[1];
+            }
+            else if(sibongoManager.dayPeriod == 2)
+            {
+                float _xAxis = Random.Range(110,160);
+                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
                 sun.transform.rotation = rotation; 
                 RenderSettings.skybox = dayPeriodSkyboxes[1];
             }
@@ -93,7 +95,14 @@ public class SibongoManager : MonoBehaviour
     {
         if(sibongoManager.dayPeriod <= 1) sibongoAudiosource.clip = sibongoAmbiances[0];
         else if(sibongoManager.dayPeriod == 2) sibongoAudiosource.clip = sibongoAmbiances[1];
-        else if(sibongoManager.dayPeriod >= 3) sibongoAudiosource.clip = sibongoAmbiances[2];
+        else if(sibongoManager.dayPeriod >= 3) 
+        {
+            tBilol.SetActive(true);
+            tLibum.SetActive(true);
+            tNgonda.SetActive(true);
+            tNgoMaa.SetActive(true);
+            sibongoAudiosource.clip = sibongoAmbiances[2];
+        }
 
         sibongoAudiosource.Play();
     }
