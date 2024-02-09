@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Ngonda 01
+  m_EditorClassIdentifier: 
+  characterName: Ngonda
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Tu sais\u2026 quand je regarde le fonctionnement de ce village, je constate
+    juste que nous les femmes on est restreint \xE0 jouer le second r\xF4le. "
+  - "Pourquoi tu dis \xE7a ?"
+  - "C\u2019est nous qui allons au champ, c\u2019est nous qui faisons \xE0 manger
+    chaque jour pour la communaut\xE9, c\u2019est nous qui nous occupions de la communaut\xE9
+    mais dans les r\xE9cits de nos l\xE9gendes, il n\u2019y a aucune femme car tous
+    ne parlent que de puissants sorciers."
+  - "Il n\u2019y a jamais eu de sorci\xE8re issue de la for\xEAt ?"
+  - "Si, il y en a eu forc\xE9ment, mais on ne m\u2019a jamais cont\xE9 une histoire
+    d\u2019une sorci\xE8re."
+  - "Tu as envie de devenir une sorci\xE8re."
+  - "Je le suis depuis deux ans mais mon p\xE8re l\xE0-bas, m\u2019a dit que maintenant
+    que j\u2019avais suffisamment de force pour me d\xE9fendre, il ne voyait plus
+    l\u2019utilit\xE9 de me former. Depuis je suis limit\xE9 \xE0 regarder les gar\xE7ons
+    devenir plus forts. Il m\u2019a dit qu\u2019une femme n\u2019est pas faite pour
+    se battre, mais je compte bien lui prouver le contraire."
+  - Que comptes-tu faire ?
+  - "M\xEAme si tu as l\u2019air diff\xE9rent des autres, ce n\u2019est pas pour
+    autant que je vais te d\xE9voiler mon plan. Vous les hommes, on ne sait jamais
+    \xE0 quoi s\u2019attendre avec vous."

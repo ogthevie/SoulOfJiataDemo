@@ -18,14 +18,15 @@ namespace SJ
 
         public StatesCharacterData statesJiataData;
         public string lastAttack;
-        [SerializeField] GameObject magicRayOrigin;
+        [SerializeField] GameObject magicRayOrigin, kikohaOrigin;
         [SerializeField] GameObject magnetiOriginGrab;
         public GameObject interactOriginRay;
 
         public GameObject arcLightningFx;
-        public GameObject thunderFx;
+        public GameObject thunderFx, kikohaPrefab;
         public GameObject targetarcLightning;
         public GameObject targetThunder;
+        public GameObject preThunder;
         public Collider hittable360Attack, hittableCrossAttack, hittableFallAttack;
         public Collider leftHitBox, rightHitBox;
 
@@ -45,6 +46,7 @@ namespace SJ
         public readonly int arcLightningDrain = 30;
         public readonly int extDomaineDrain = 60;
         public readonly int thunderDrain = 80;
+        public readonly int kikohaDrain = 2;
 
         readonly float arcLightningForce = 2f;
         readonly float duration = 2f;
@@ -63,7 +65,7 @@ namespace SJ
         public RaycastHit [] targetsThunderHits;
         public Material [] lightingMaterials;
 
-        string[] lowAttackArray = new string[] { "LowAttack1", "LowAttack2", "LowAttack3", "LowAttack4"};
+        string[] lowAttackArray = new string[] { "LowAttack1", "LowAttack2"};
 
         private void Awake()
         {
@@ -154,7 +156,7 @@ namespace SJ
 
                 if (lastAttack == "LowAttack1")
                 {
-                    if (inputManager.circle)
+                    if (inputManager.circle && playerStats.currentStamina > 1)
                     {
                         animatorManager.PlayTargetAnimation("LowAttack2", true);
                         lastAttack = "LowAttack2";
@@ -167,10 +169,10 @@ namespace SJ
                 }
                 else if (lastAttack == "LowAttack2")
                 {
-                    if (inputManager.circle)
+                    if (inputManager.circle && playerStats.currentStamina > 1)
                     {
-                        animatorManager.PlayTargetAnimation("LowAttack3", true);
-                        lastAttack = "LowAttack3";
+                        animatorManager.PlayTargetAnimation("LowAttack1", true);
+                        lastAttack = "LowAttack1";
                     }
                     else if (inputManager.triangle && playerStats.currentStamina > 1)
                     {
@@ -178,12 +180,12 @@ namespace SJ
                         lastAttack = "HighAttack3";
                     }
                 }
-                else if (lastAttack == "LowAttack3" && inputManager.circle)
+                else if (lastAttack == "LowAttack2" && inputManager.circle && playerStats.currentStamina > 1)
                 {
-                        animatorManager.PlayTargetAnimation("LowAttack4", true);
-                        lastAttack = "LowAttack4";
+                        animatorManager.PlayTargetAnimation("LowAttack1", true);
+                        lastAttack = "LowAttack1";
                 }
-                else if(lastAttack == "LowAttack4" && inputManager.triangle && playerStats.currentStamina > 1)
+                else if(lastAttack == "LowAttack2" && inputManager.triangle && playerStats.currentStamina > 1)
                 {
                     animatorManager.PlayTargetAnimation("HighAttack3", true);
                     lastAttack = "HighAttack3";
@@ -192,12 +194,12 @@ namespace SJ
 
                 if (lastAttack == "HighAttack1")
                 {
-                    if (inputManager.triangle)
+                    if (inputManager.triangle && playerStats.currentStamina > 1)
                     {
                         animatorManager.PlayTargetAnimation("HighAttack2", true);
                         lastAttack = "HighAttack2";
                     }
-                    else if (inputManager.circle)
+                    else if (inputManager.circle && playerStats.currentStamina > 1)
                     {
                         animatorManager.PlayTargetAnimation("LowAttack2", true);
                         lastAttack = "LowAttack2";
@@ -210,10 +212,10 @@ namespace SJ
                         animatorManager.PlayTargetAnimation("HighAttack3", true);
                         lastAttack = "HighAttack3";
                     }
-                    else if (inputManager.circle)
+                    else if (inputManager.circle && playerStats.currentStamina > 1)
                     {
-                        animatorManager.PlayTargetAnimation("LowAttack3", true);
-                        lastAttack = "LowAttack3";
+                        animatorManager.PlayTargetAnimation("LowAttack2", true);
+                        lastAttack = "LowAttack2";
                     }
 
                 }
@@ -240,9 +242,21 @@ namespace SJ
                 fxLA.Play();
                 audioManager.ReadLowFightAttackFx();
             }
-                
-
         }
+
+        public void HandleKikohaAttack()
+        {
+            GameObject projectile = Instantiate(kikohaPrefab, kikohaOrigin.transform.position, kikohaPrefab.transform.rotation);
+            Rigidbody pRigibody = projectile.GetComponent<Rigidbody>();
+            Vector3 direction = kikohaOrigin.transform.forward;
+            
+            FxLowAttack();
+            playerStats.TakeStaminaDamage(kikohaDrain);
+            pRigibody.AddForce(direction * 70f, ForceMode.Impulse);
+        }
+
+
+
         public void HandleMagicSkill()
         {
             if (animatorManager.anim.GetBool("isInteracting"))
@@ -290,7 +304,7 @@ namespace SJ
             }
         }
 
-        public void OpenDetectionLowAttack()
+        /*public void OpenDetectionLowAttack()
         {
             if(lastAttack == "LowAttack1") leftHitBox.enabled = true;
             
@@ -305,7 +319,7 @@ namespace SJ
         {
             leftHitBox.enabled = rightHitBox.enabled = false;
         }
-
+*/
         public void OpenDetectionHighAttack()
         {
             if(lastAttack == "HighAttack1") hittable360Attack.enabled = true;
@@ -646,6 +660,18 @@ namespace SJ
                 targetThunder.transform.position = tempsPosition + new Vector3(0f, 2f, 0f);
                 yield return new WaitForSeconds(1f);
                 thunderFx.SetActive(false);
+            }
+        }
+
+        public void HandlePreThunder()
+        {
+            StartCoroutine(HandlePreThunderEffect());
+
+            IEnumerator HandlePreThunderEffect()
+            {
+                preThunder.SetActive(true);
+                yield return new WaitForSeconds(2.2f);
+                preThunder.SetActive(false);
             }
         }
 

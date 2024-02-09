@@ -67,21 +67,21 @@ public class GameManager : MonoBehaviour
 
         float activeScene = SceneManager.GetActiveScene().buildIndex;
         
-        if(newGame == 1) 
+        if(newGame == 0)gameSaveManager.LoadPlayerPosition();       
+        else if(newGame == 1) 
         {
             var playerTransform = FindObjectOfType<PlayerManager>().transform;
             playerTransform.position = new Vector3 (128.04f, 4.99f, 337.64f); //position de ruben en tout debut de partie
             playerTransform.rotation = Quaternion.Euler(0, -10.22f, 0f);
             playerTransform.GetComponent<AnimatorManager>().PlayTargetAnimation("Praying", true);
         }
-        else if(newGame == 0)gameSaveManager.LoadPlayerPosition();
         else
         {
             if(activeScene == 1)FindObjectOfType<PlayerManager>().transform.position = new Vector3 (123.76f, 5.3f, 346.57f);
             else if(activeScene == 2)FindObjectOfType<PlayerManager>().transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         loadingScreen.enabled = false;
         isLoading = false;

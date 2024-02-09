@@ -5871,7 +5871,7 @@ MonoBehaviour:
   distanceFromTarget: 0
   maxDistanceFromTarget: 30
   timeAttack: 0
-  collider: {fileID: 2131238313915906427}
+  collidertolol: {fileID: 2131238313915906427}
 --- !u!114 &8424483764371982989
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class DayNightCycleManager : MonoBehaviour
     public void InitialiseDayTimer()
     {
         gameManager = GetComponent<GameManager>();
-    if(gameManager.newGame == 1) dayTimer = 1122;//dayTimer = 350;
+    if(gameManager.newGame == 1) dayTimer = 350;//dayTimer = 350;
         else
         {
             //dayTimer = Random.Range(360, 1120);

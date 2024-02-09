@@ -43,14 +43,16 @@ public class SibongoManager : MonoBehaviour
         {
             RenderSettings.skybox = dayPeriodSkyboxes[2];
             foreach(var elt in fireLights) elt.Play();
-            //foreach (var elt in pointLights) elt.enabled = true;
             fireFly.SetActive(true);
             sun.SetActive(false);
         }
         else
         {
-            foreach (var elt in fireLights) elt.Stop();
-            //foreach (var elt in pointLights) elt.enabled = false;
+            foreach (var elt in fireLights) 
+            {
+                elt.Stop();
+                elt.GetComponent<AudioSource>().enabled = false;
+            }
             fireFly.SetActive(false);
             
             if(sibongoManager.dayPeriod == 0) 

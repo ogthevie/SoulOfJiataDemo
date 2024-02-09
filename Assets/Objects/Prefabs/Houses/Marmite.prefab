@@ -14519,7 +14519,6 @@ GameObject:
   - component: {fileID: 7855509403279004950}
   - component: {fileID: 5395478824144036316}
   - component: {fileID: 1811074209917281939}
-  - component: {fileID: 6625667754949237201}
   m_Layer: 6
   m_Name: Marmite
   m_TagString: Untagged
@@ -14617,16 +14616,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.008674957, y: 0.008401874, z: 0.011084802}
   m_Center: {x: 0.00011793915, y: -0.00012312396, z: 0.0050587016}
---- !u!114 &6625667754949237201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5899833259534106633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11387f75b60ca4347befa7658e2a8eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0

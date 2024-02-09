@@ -91,7 +91,7 @@ namespace SJ
             playerManager = GetComponent<PlayerManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerStats = GetComponent<PlayerStats>();
-            playerManager.canSurcharge = false;
+            playerManager.haveGauntlet = false;
         }
         
 
@@ -325,19 +325,15 @@ namespace SJ
 
         private void HandleMagnetiInput()
         {
-            if(magicAttackFlag && west_input)
-            {
-                magnetiFlag = true;
-            }     
-            else
-            {
-                magnetiFlag = false;
-            }
+            if(!playerManager.haveGauntlet)
+                return;
+            if(magicAttackFlag && west_input) magnetiFlag = true;    
+            else magnetiFlag = false;
         }
 
         private void HandleSurchargeInput()
         {
-            if(!playerManager.canSurcharge)
+            if(!playerManager.haveGauntlet)
                 return;
 
             if(magicAttackFlag && circle) surchargeFlag = true;

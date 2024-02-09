@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class StoryManager : MonoBehaviour
 {
+    GameSaveManager gameSaveManager;
+
+    void Start()
+    {
+        gameSaveManager = GetComponent<GameSaveManager>();
+    }
     /*
     le numero definit la mission dans laquelle nous sommes actu
         0 = NDAP KOKOA -------- il parle avec Isamal sur le village
@@ -17,14 +23,35 @@ public class StoryManager : MonoBehaviour
         7 = DEPART POUR DANAY ------ il sort de la grotte
     */
     public int storyStep = -1; //jeu d'equilibre avec le curseur de quête
+
     public void checkstoryStep(bool canNextStep)
     {
-        if(storyStep == -1 && canNextStep) storyStep = 0;
-        else if(storyStep == 0 && canNextStep) storyStep = 1;
-        else if(storyStep == 1 && canNextStep) storyStep = 2;
-        else if(storyStep == 2 && canNextStep) storyStep = 3; 
-        else if(storyStep == 3 && canNextStep) storyStep = 4;
-        Debug.Log(storyStep);
+        if(storyStep == -1 && canNextStep) 
+        {
+            storyStep = 0;
+            gameSaveManager.SaveAllData();
+        }
+        else if(storyStep == 0 && canNextStep)
+        {
+            storyStep = 1;
+            gameSaveManager.SaveAllData();
+        }
+        else if(storyStep == 1 && canNextStep)
+        {
+            storyStep = 2;
+            gameSaveManager.SaveAllData();
+        }
+        else if(storyStep == 2 && canNextStep)
+        {
+            storyStep = 3;
+            gameSaveManager.SaveAllData();
+        } 
+        else if(storyStep == 3 && canNextStep)
+        {
+            storyStep = 4;
+            gameSaveManager.SaveAllData();
+        }
+        
         return;
     }
 

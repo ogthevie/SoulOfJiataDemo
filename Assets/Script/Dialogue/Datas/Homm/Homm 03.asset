@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Homm 03
+  m_EditorClassIdentifier: 
+  characterName: Isamal
+  mainCharacterName: Ruben
+  firstConversation:
+  - "En soir\xE9e, on se r\xE9unit tous pour remercier les anc\xEAtres et partager
+    ce qui nous est arriv\xE9 dans la journ\xE9e. Il faut souvent y assister."
+  - Pourquoi toi tu restes au sol ?
+  - "Je n\u2019ai pas encore l\u2019\xE2ge d\u2019avoir ma place assise et prendre
+    la parole \xE0 temps voulu. Le moment venu, on me donnera ma place."
+  - Et pourtant tu es un sorcier, tu devrais avoir ta place comme tous les autres
+    ici.
+  - "On dit que L\u2019enfant qui \xE9coute sera un vieillard qui parle. Pour le
+    moment je dois \xE9couter ce qu\u2019on me dit"

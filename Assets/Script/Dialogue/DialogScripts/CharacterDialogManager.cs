@@ -74,6 +74,7 @@ public class CharacterDialogManager : MonoBehaviour
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
+            inputManager.InteractFlag = false;
             //Debug.Log("i est egal à : " +i);
             animatorManager.animationState = false;
             i++;

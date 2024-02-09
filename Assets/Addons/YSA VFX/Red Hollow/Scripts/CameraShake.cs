@@ -18,15 +18,6 @@ public class CameraShake : MonoBehaviour
         point = new GameObject("Camera - PointInterested").transform;
     }
 
-    void LateUpdate()
-    {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            Shake(8.5f, 1.25f);
-        }
-
-    }
-
     void OnEnable()
     {
         // S'abonner à l'événement activeSceneChanged

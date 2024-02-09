@@ -56,7 +56,7 @@ public class GolemDialogManager : CharacterDialogManager
                 CloseDialogue();
                 if(storyManager.storyStep == 2)
                 {
-                    StartCoroutine(golemEventManager.tutoEvent());
+                    StartCoroutine(golemEventManager.golemAchievement());
                 }
             }
         }

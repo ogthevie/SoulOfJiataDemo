@@ -6,7 +6,7 @@ namespace SJ
 {
     public class PlayerManager : MonoBehaviour
     {
-        DeveloperModeManager developerModeManager;
+        //DeveloperModeManager developerModeManager;
         
         InputManager inputManager;
         Animator anim;
@@ -23,6 +23,7 @@ namespace SJ
         public GameObject dialogUI;
         public GameObject brassardG, brassardL, brasG, brasL, mask, maskEye;
 
+        [SerializeField] GameObject deadUI;
         public Transform lockOnTransform;
         public bool isDead;
         public bool takeDamage;
@@ -33,19 +34,18 @@ namespace SJ
         public bool isInAir;
         public bool isGrounded;
         public bool canAttack;
-        public bool canSurcharge, canArcLight, canThunder;
+        public bool haveGauntlet, haveMask, canArcLight, canThunder;
         public bool canBaemb, canSomm, canDest, canPur;
         public bool canDoCombo;
         public bool onPause;
         public bool onTutoScreen;
         public bool canPass;
         public bool onInventory;
-        public static bool created = false;
 
 
         private void Awake()
         { 
-            developerModeManager = GetComponent<DeveloperModeManager>();
+            //developerModeManager = GetComponent<DeveloperModeManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
@@ -67,8 +67,8 @@ namespace SJ
             onPause = false;
             
             HandleSurchargeBrassard();
-            //mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            //maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            HandleMask();
+
         }
 
         public void Update()
@@ -96,14 +96,15 @@ namespace SJ
             HandleInventory();
             playerAttacker.HandleSorceryPad();
 
-
-            developerModeManager.HandleInstantiateVases();
-            developerModeManager.HandleInstantiateTolols();
-            developerModeManager.HandleStats();
-            developerModeManager.LoadSave();
-            developerModeManager.ResetSave();
-            developerModeManager.HandleInstantiateKossi();
-            developerModeManager.HandleInstantiateKossiKaze();
+#if UNITY_EDITOR
+            //developerModeManager.HandleInstantiateVases();
+            //developerModeManager.HandleInstantiateTolols();
+            //developerModeManager.HandleStats();
+            //developerModeManager.LoadSave();
+            //developerModeManager.ResetSave();
+            //developerModeManager.HandleInstantiateKossi();
+            //developerModeManager.HandleInstantiateKossiKaze();
+#endif
 
             //HandleTutoScreen();
 
@@ -246,7 +247,7 @@ namespace SJ
 
         public void HandleSurchargeBrassard()
         {
-            if(canSurcharge)
+            if(haveGauntlet)
                 {
                     brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
                     brasL.GetComponent<SkinnedMeshRenderer>().enabled = true;
@@ -256,6 +257,31 @@ namespace SJ
                     brassardL.GetComponent<SkinnedMeshRenderer>().enabled = false;
                     brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
                 }
+        }
+
+        public void HandleMask()
+        {
+            if(haveMask)
+            {
+                mask.GetComponent<SkinnedMeshRenderer>().enabled = true;
+                maskEye.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
+            else
+            {
+                mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;                
+            }
+        }
+
+
+        public void HandleDeadUI()
+        {
+            StartCoroutine(DeadUIActivation());
+        }
+        IEnumerator DeadUIActivation()
+        {
+            yield return new WaitForSeconds (1.5f);
+            deadUI.SetActive(true);
         }
       
     }
