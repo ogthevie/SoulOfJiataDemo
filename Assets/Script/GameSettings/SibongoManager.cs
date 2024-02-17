@@ -10,7 +10,7 @@ public class SibongoManager : MonoBehaviour
     public Material[] dayPeriodSkyboxes;
     public int dayPeriod;
     public GameObject fireFly, sun, tBilol, tLibum, tNgoMaa, tNgonda;
-    
+    [SerializeField] GameObject lightPortal;
     AudioSource sibongoAudiosource;
     public AudioClip [] sibongoAmbiances = new AudioClip[3];
     GameObject dayPeriodPanel;
@@ -45,15 +45,16 @@ public class SibongoManager : MonoBehaviour
             foreach(var elt in fireLights) elt.Play();
             fireFly.SetActive(true);
             sun.SetActive(false);
+            lightPortal.SetActive(true);
         }
         else
         {
             foreach (var elt in fireLights) 
             {
                 elt.Stop();
-                elt.GetComponent<AudioSource>().enabled = false;
             }
             fireFly.SetActive(false);
+            lightPortal.SetActive(false);
             
             if(sibongoManager.dayPeriod == 0) 
             {

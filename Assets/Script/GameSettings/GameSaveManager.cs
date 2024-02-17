@@ -124,7 +124,7 @@ public class GameSaveManager : MonoBehaviour
         PlayerPosition playerPosition = new PlayerPosition
         {
             playerX = playerManager.gameObject.transform.position.x,
-            playerY = playerManager.gameObject.transform.position.y,
+            playerY = playerManager.gameObject.transform.position.y + 2f,
             playerZ = playerManager.gameObject.transform.position.z
         };
         string playerJSon = JsonUtility.ToJson(playerPosition);

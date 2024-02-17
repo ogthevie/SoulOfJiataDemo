@@ -74,7 +74,7 @@ namespace SJ
             {
                 playerStats.AddHealth(1000);
                 //StartCoroutine(playerUIManager.HandleAchievement("Sauvegarde effectuée"));
-                //gameSaveManager.SaveAllData();
+                gameSaveManager.SaveAllData();
             }
             else if(inputManager.four_input && playerStats.currentStamina <= playerStats.maxStamina)
             {

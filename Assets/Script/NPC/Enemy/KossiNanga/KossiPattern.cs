@@ -148,7 +148,7 @@ public class KossiPattern : MonoBehaviour
                 Vector3 direction = ((currentTarget.transform.position + decal) - spawnPoint.position).normalized; // A corriger
                 
                 bulletPrefabRigibody = projectile.GetComponent<Rigidbody>();
-                bulletPrefabRigibody.AddForce(direction * 70f, ForceMode.Impulse);
+                bulletPrefabRigibody.AddForce(direction * 100f, ForceMode.Impulse);
             }
         }
         

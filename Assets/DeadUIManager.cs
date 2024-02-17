@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using SJ;
 
@@ -35,7 +35,13 @@ public class DeadUIManager : MonoBehaviour
     IEnumerator reloadRoutine()
     {
         gameSaveManager.LoadAllData();
-        animatorManager.PlayTargetAnimation("Falling", true);
+        playerManager.isDead = playerManager.isInteracting = false;
+        float activeScene = SceneManager.GetActiveScene().buildIndex;
+        if(activeScene == 2)
+        {
+            gameSaveManager.LoadGrotteData();
+            gameSaveManager.LoadTorcheGrotteData();
+        }
         yield return new WaitForSeconds (2f);
         this.gameObject.SetActive(false);
 

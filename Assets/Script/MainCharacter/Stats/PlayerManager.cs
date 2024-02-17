@@ -6,7 +6,7 @@ namespace SJ
 {
     public class PlayerManager : MonoBehaviour
     {
-        //DeveloperModeManager developerModeManager;
+        DeveloperModeManager developerModeManager;
         
         InputManager inputManager;
         Animator anim;
@@ -45,7 +45,7 @@ namespace SJ
 
         private void Awake()
         { 
-            //developerModeManager = GetComponent<DeveloperModeManager>();
+            developerModeManager = GetComponent<DeveloperModeManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
@@ -97,12 +97,12 @@ namespace SJ
             playerAttacker.HandleSorceryPad();
 
 #if UNITY_EDITOR
-            //developerModeManager.HandleInstantiateVases();
-            //developerModeManager.HandleInstantiateTolols();
-            //developerModeManager.HandleStats();
+            developerModeManager.HandleInstantiateVases();
+            developerModeManager.HandleInstantiateTolols();
+            developerModeManager.HandleStats();
             //developerModeManager.LoadSave();
             //developerModeManager.ResetSave();
-            //developerModeManager.HandleInstantiateKossi();
+            developerModeManager.HandleInstantiateKossi();
             //developerModeManager.HandleInstantiateKossiKaze();
 #endif
 

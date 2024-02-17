@@ -13,7 +13,7 @@ public class GlobalDamageManager : MonoBehaviour
         dayPeriod = FindObjectOfType<SibongoManager>().dayPeriod;
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3) playerStats.TakeDamage(damage, 1);
     }
