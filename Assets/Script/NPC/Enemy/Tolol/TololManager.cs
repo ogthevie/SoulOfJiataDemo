@@ -46,11 +46,11 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
 
     private void HandleCurrentAction()
     {
-        /*if(tololPattern.currentTarget == null)
+        if(tololPattern.currentTarget == null)
         {
             tololPattern.HandleDetection();
         }
-        else*/
+        else
         tololPattern.HandleMoveToTarget();
 
         if(!isDead) 

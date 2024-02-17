@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArcLightEventManager : EventStoryTriggerManager
 {
-    BigKossiEventManager bigKossiEventManager;
+    public BigKossiEventManager bigKossiEventManager;
     public Material altarOriginMat, altarGreenMat, altarYellowmat, refGreenMaterial, refYellowmaterial, materialHeart;
     public GameObject [] HeartSteles = new GameObject [8];
     public GameObject [] Torche = new GameObject [8];
@@ -13,9 +13,10 @@ public class ArcLightEventManager : EventStoryTriggerManager
     public GameObject arcLight, forceKossi;
     public bool inSecteurFour;
 
+    public GameObject bigKossi, explosionFx, runeAltar;
+
     void Start()
     {
-        bigKossiEventManager = FindObjectOfType<BigKossiEventManager>();
         inSecteurFour = false;
         stelesGreenOn = stelesYellowOn = false;
         arcLight = transform.GetChild(0).gameObject;
@@ -31,7 +32,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
     void LateUpdate()
     {
-        //HandleActivationBigKossiEvent();
+        HandleActivationBigKossiEvent();
         
         if(inSecteurFour)
         {
@@ -219,15 +220,35 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
     public void HandleActivationBigKossiEvent()
     {
-        if(bigKossiEventManager.enabled)
+        if(bigKossi.activeSelf)
             return; 
         if(playerManager.canArcLight && playerManager.canBaemb)
         {
-            bigKossiEventManager.enabled = true;
             storyManager.storyStep = 6;
             foreach(GameObject steles in HeartSteles)
             {
                 steles.GetComponent<Renderer>().material = altarOriginMat;
+            }
+
+            StartCoroutine(HandleBigKossiFlame());
+        
+        
+            IEnumerator HandleBigKossiFlame()
+            {
+                for(int k = 0; k < 8; k++)
+                {
+                    Torche[k].transform.parent.GetChild(1).gameObject.SetActive(true);
+                    yield return new WaitForSeconds(2.5f);
+                }
+                explosionFx.SetActive(true);
+                this.GetComponent<MeshRenderer>().enabled = false;
+                yield return new WaitForSeconds (0.2f);
+                runeAltar.SetActive(false);
+                bigKossi.SetActive(true);
+                yield return new WaitForSeconds (4f);
+                Destroy(this.gameObject);
+                
+                
             }
         }
     }

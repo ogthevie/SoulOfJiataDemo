@@ -17,14 +17,14 @@ public class TololPattern : MonoBehaviour
     public PlayerManager currentTarget;
     public NavMeshAgent agentTolol;
     public Rigidbody tololRigibody;
-    //public LayerMask detectionLayer;
+    public LayerMask detectionLayer;
     public float distanceFromTarget;
     public float maxDistanceFromTarget = 30;
     float stoppingDistance = 2.75f;
     float rotationSpeed = 45f;
 
     public float timeAttack;
-    public new Collider collider;
+    public Collider collidertolol;
 
 
 
@@ -43,7 +43,7 @@ public class TololPattern : MonoBehaviour
         handleDamageTolol = GetComponentInChildren<HandleDamageTolol>();
         agentTolol.enabled = false;
         tololRigibody.isKinematic = false;
-        collider.enabled = false;
+        collidertolol.enabled = false;
         currentTarget = playerManager;
         tololManager.isPreformingAction = false;
     }
@@ -62,7 +62,7 @@ public class TololPattern : MonoBehaviour
     }
 
 
-    /*public void HandleDetection()
+    public void HandleDetection()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, tololManager.detectionRadius, detectionLayer);
 
@@ -84,7 +84,7 @@ public class TololPattern : MonoBehaviour
             }
         }
 
-    }*/
+    }
 
     public void HandleMoveToTarget()
     {
@@ -142,7 +142,7 @@ public class TololPattern : MonoBehaviour
             tololAnimatorManager.anim.SetFloat("vertical", 0);
             tololManager.isPreformingAction = true;
             agentTolol.enabled = false;
-            collider.enabled = false;
+            collidertolol.enabled = false;
         }
         else
         {
@@ -156,19 +156,19 @@ public class TololPattern : MonoBehaviour
 
     public void HandleActiveFirstAttack()
     {
-        if(collider != null) collider.enabled = true;
+        if(collidertolol != null) collidertolol.enabled = true;
         handleDamageTolol.FixDamage(tololData.mobFAtt);
     }
 
     public void HandleActiveSecAttack()
     {
-        if(collider != null) collider.enabled = true;
+        if(collidertolol != null) collidertolol.enabled = true;
         handleDamageTolol.FixDamage(tololData.mobSAtt);
     }
 
     public void CloseHitBox()
     {
-        if(collider != null) collider.enabled = false;
+        if(collidertolol != null) collidertolol.enabled = false;
     }
 
     public void UpdateHitting()

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Ngonda 10-1
+  m_EditorClassIdentifier: 
+  characterName: Ngonda
+  mainCharacterName: Ruben
+  firstConversation:
+  - "La rumeur de ton passage prochain devant l\u2019HOMME DANS LA PIERRE circule
+    au village"
+  - Mince, toute le monde est au courant ?
+  - Sibongo est petit, les nouvelles se propagent plus vite que la malchance ici.
+  - "Et toi, ta question, tu l\u2019as d\xE9j\xE0 pos\xE9 ?"
+  - "Noho, je n\u2019ai rien d\u2019important \xE0 connaitre maintenant. Le moment
+    venu je vais aller le voir."
+  - "Tu penses que je me pr\xE9cipite ?"
+  - "Je n\u2019en sais rien, tu es le seul \xE0 pouvoir r\xE9pondre \xE0 cette question."

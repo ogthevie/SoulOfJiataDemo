@@ -6,19 +6,19 @@ public class GolemEventManager : EventStoryTriggerManager
 {
     public GameObject KossiDoor;
     [SerializeField] BoxCollider golemBoxCollider;
-    [SerializeField] GameObject tololBase, smoke;
-    [SerializeField] Vector3 tololBasePosition = new Vector3 (183.38f, 5.697f, 98.65f);
-    [SerializeField] Quaternion tololQuaternion = Quaternion.Euler(0f, 44.839f, 0f);
+    //[SerializeField] GameObject tololBase, smoke;
+    //[SerializeField] Vector3 tololBasePosition = new Vector3 (183.38f, 5.697f, 98.65f);
+    //[SerializeField] Quaternion tololQuaternion = Quaternion.Euler(0f, 44.839f, 0f);
 
-    [SerializeField] TololManager tololManager;
-    [SerializeField] bool tololExist;
+    //[SerializeField] TololManager tololManager;
+    //[SerializeField] bool tololExist;
 
-    void Awake()
+    void Start()
     {
         if(storyManager.storyStep > 2 )KossiDoor.SetActive(true);
     }
 
-    void Update()
+    /*void Update()
     {
         if(tololExist)
         {
@@ -27,22 +27,22 @@ public class GolemEventManager : EventStoryTriggerManager
                 StartCoroutine(golemAchievement());
             }
         }        
-    }
+    }*/
 
     protected override void OnCollisionEnter(Collision other)
     {
 
     }
 
-    public IEnumerator tutoEvent()
+    /*public IEnumerator tutoEvent()
     {
         audioManager.FightTheme();
         golemBoxCollider.enabled = false;
         yield return new WaitForSeconds(5f);
         HandleInstantiateTolols();
-    }
+    }*/
 
-    public void HandleInstantiateTolols()
+    /*public void HandleInstantiateTolols()
     {
         if(tololExist) return;
 
@@ -51,16 +51,17 @@ public class GolemEventManager : EventStoryTriggerManager
         
         tololManager = FindObjectOfType<TololManager>();
         tololExist = true;
-    }
-    IEnumerator golemAchievement()
+    }*/
+    public IEnumerator golemAchievement()
     {
-        audioManager.interactionAudioSource.Stop();
         //storyManager.storyStep = 4;
         KossiDoor.SetActive(true);
+        //playerManager.haveMask = true;
+        //playerManager.HandleMask();
         storyManager.storyStep = 3;
         gameSaveManager.SaveAllData();
         yield return new WaitForSeconds(3.5f);
-        StartCoroutine(playerUIManager.HandleAchievement("Entrainement de Libum"));
+        StartCoroutine(playerUIManager.HandleAchievement("L'HOMME DANS LA PIERRE"));
         Destroy(this, 1.5f);
         golemBoxCollider.enabled = true;
     }

@@ -66,7 +66,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: da21a2183c9bbc245878e088ed3cddf4, type: 2}
   - {fileID: 2100000, guid: 20407c8e388f47640988e824492da710, type: 2}
   - {fileID: 2100000, guid: c71e90ecdee9ba548bbc2d21f485e7de, type: 2}
-  - {fileID: 2100000, guid: 4c43665d67508f84582da2398ef34a16, type: 2}
+  - {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: da21a2183c9bbc245878e088ed3cddf4, type: 2}
   - {fileID: 2100000, guid: 20407c8e388f47640988e824492da710, type: 2}
   - {fileID: 2100000, guid: c71e90ecdee9ba548bbc2d21f485e7de, type: 2}
-  - {fileID: 2100000, guid: 4c43665d67508f84582da2398ef34a16, type: 2}
+  - {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,7 +232,7 @@ Transform:
   - {fileID: 8686126532287911738}
   - {fileID: 7850061492489331624}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 81.172, z: 0}
 --- !u!205 &3743627676055642728
 LODGroup:
@@ -327,7 +327,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: da21a2183c9bbc245878e088ed3cddf4, type: 2}
   - {fileID: 2100000, guid: 20407c8e388f47640988e824492da710, type: 2}
   - {fileID: 2100000, guid: c71e90ecdee9ba548bbc2d21f485e7de, type: 2}
-  - {fileID: 2100000, guid: 4c43665d67508f84582da2398ef34a16, type: 2}
+  - {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

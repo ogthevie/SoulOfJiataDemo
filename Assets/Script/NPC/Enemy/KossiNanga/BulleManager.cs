@@ -20,7 +20,7 @@ public class BulleManager : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             playerStats.TakeDamage(bulletDamage, 0);
-            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0f, 1.7f, 0f);
+            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0f, 1f, 0f);
             Instantiate(bulletImpact, impactPosition, Quaternion.identity);
             Destroy(this.gameObject, 0.5f);
         }

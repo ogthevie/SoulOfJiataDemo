@@ -49,6 +49,8 @@ public class DialogTriggerManager : MonoBehaviour
     }
     public virtual void OnTriggerEnter(Collider other)
     {
+        if(FindObjectOfType<StoryManager>().storyStep == -1) return;
+        
         if(other.gameObject.layer == 3)
         {
             idDialog = sibongoManager.dayPeriod;

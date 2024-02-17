@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,7 +74,7 @@ namespace SJ
             {
                 playerStats.AddHealth(1000);
                 //StartCoroutine(playerUIManager.HandleAchievement("Sauvegarde effectuée"));
-                //gameSaveManager.SaveAllData();
+                gameSaveManager.SaveAllData();
             }
             else if(inputManager.four_input && playerStats.currentStamina <= playerStats.maxStamina)
             {
@@ -104,9 +105,9 @@ namespace SJ
 
         static int CheckTypesOfTolols()
         {
-            int tololIndex = Random.Range(0,3);
+            int tololIndex = Random.Range(0,1);
             return (tololIndex);
         }
     }
 }
-
+#endif

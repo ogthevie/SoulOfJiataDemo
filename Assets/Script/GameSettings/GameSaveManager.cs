@@ -12,6 +12,7 @@ public class GameSaveManager : MonoBehaviour
     StoryManager storyManager;
     GameManager gameManager;
     [SerializeField] ArcLightEventManager arcLightEventManager;
+    [SerializeField] GameObject saveUi;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
     public bool isloaded;
@@ -62,7 +63,15 @@ public class GameSaveManager : MonoBehaviour
         SavePlayerData();
         SavePlayerPosition();
         SaveStoryData();
-        Debug.Log("sauvegarde effectuée");
+        //Debug.Log("sauvegarde effectuée");
+        StartCoroutine (HandleSaveUI());
+    }
+
+    IEnumerator HandleSaveUI()
+    {
+        saveUi.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        saveUi.SetActive(false);
     }
 
     public void LoadAllData()
@@ -70,6 +79,8 @@ public class GameSaveManager : MonoBehaviour
         int i = SceneManager.GetActiveScene().buildIndex;
         LoadStoryData();
         LoadPlayerData();
+        playerManager.isDead = false;
+        playerStats.stateJiataData.isHidden = false;
         Debug.Log("Données chargées");
         isloaded = true;
         
@@ -96,7 +107,8 @@ public class GameSaveManager : MonoBehaviour
         PlayerData playerData = new PlayerData
         {
             playerPV = playerStats.currentHealth, 
-            surcharge = playerManager.canSurcharge, 
+            gauntlet = playerManager.haveGauntlet, 
+            mask = playerManager.haveMask,
             arcLight = playerManager.canArcLight, 
             thunder = playerManager.canThunder,
             canBaemb = playerManager.canBaemb,
@@ -112,7 +124,7 @@ public class GameSaveManager : MonoBehaviour
         PlayerPosition playerPosition = new PlayerPosition
         {
             playerX = playerManager.gameObject.transform.position.x,
-            playerY = playerManager.gameObject.transform.position.y,
+            playerY = playerManager.gameObject.transform.position.y + 2f,
             playerZ = playerManager.gameObject.transform.position.z
         };
         string playerJSon = JsonUtility.ToJson(playerPosition);
@@ -208,7 +220,8 @@ public class GameSaveManager : MonoBehaviour
             playerStats.healthBar.SetCurrentHealth(playerData.playerPV);
             playerStats.currentHealth = playerData.playerPV;
 
-            playerManager.canSurcharge = playerData.surcharge;
+            playerManager.haveGauntlet = playerData.gauntlet;
+            playerManager.haveMask = playerData.mask;
             playerManager.canArcLight = playerData.arcLight;
             playerManager.canThunder = playerData.thunder;
             playerManager.canBaemb = playerData.canBaemb;
@@ -313,7 +326,7 @@ class GrotteKossiData
 class PlayerData
 {
     public int playerPV;
-    public bool surcharge, arcLight, thunder, canBaemb;
+    public bool gauntlet,mask, arcLight, thunder, canBaemb;
 }
 
 class PlayerPosition

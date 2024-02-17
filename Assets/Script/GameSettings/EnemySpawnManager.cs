@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public EnemyManager [] enemyManagers = new EnemyManager[5];
+    [SerializeField] EnemyManager enemyManagers;
 
     void OnTriggerStay(Collider other)
     {
@@ -12,15 +12,9 @@ public class EnemySpawnManager : MonoBehaviour
             CheckisEnemy();
     }
 
-    static int CheckRandomEnemy()
+    private void LoadEnemy()
     {
-        int probability = Random.Range(0,3);
-        return probability;
-    }
-
-    private void LoadEnemy(int k)
-    {
-        GameObject visuals = Instantiate(enemyManagers[k].gameObject);
+        GameObject visuals = Instantiate(enemyManagers.gameObject);
         visuals.transform.SetParent(transform);
         visuals.transform.localPosition = Vector3.zero;
         visuals.transform.rotation = Quaternion.identity;
@@ -30,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
     private void CheckisEnemy()
     {
         if(transform.childCount == 0)
-            LoadEnemy(CheckRandomEnemy());
+            LoadEnemy();
             //canProduce = true;
     }
 }

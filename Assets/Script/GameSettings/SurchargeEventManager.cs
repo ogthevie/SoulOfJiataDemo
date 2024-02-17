@@ -8,7 +8,7 @@ public class SurchargeEventManager : EventStoryTriggerManager
     {
         bomboktanManager = FindObjectOfType<BomboktanManager>();
 
-        if(playerManager.canSurcharge)
+        if(playerManager.haveGauntlet)
         {
             Destroy(this.transform.GetChild(0).gameObject);
             Destroy(this);
@@ -17,13 +17,11 @@ public class SurchargeEventManager : EventStoryTriggerManager
     
     protected override void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.layer == 3 && !playerManager.canSurcharge)
+        if(other.gameObject.layer == 3 && !playerManager.haveGauntlet)
         {
             animatorManager.PlayTargetAnimation("PowerUp", true);
-            playerManager.canSurcharge = true;
-
-            playerManager.brasL.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            playerManager.brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            playerManager.haveGauntlet = true;
+            playerManager.HandleSurchargeBrassard();
             
             StartCoroutine(playerUIManager.HandleAchievement("Initiation au Baemb"));
             grotteKossiManager.enemySpawnOne.SetActive(true);

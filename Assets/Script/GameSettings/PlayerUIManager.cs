@@ -34,7 +34,7 @@ public class PlayerUIManager : MonoBehaviour
 
     public IEnumerator HandleAchievement(string stepName)
     {
-        Instantiate(achievementFx, audioManager.transform.position, Quaternion.identity);
+        Instantiate(achievementFx, audioManager.transform.position + new Vector3 (0, 1.5f, 0f), Quaternion.identity);
         audioManager.PowerUp();
         HandleCompleteQuestNotification(stepName);
         yield return new WaitForSeconds(0.1f);

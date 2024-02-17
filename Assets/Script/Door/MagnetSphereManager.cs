@@ -10,12 +10,12 @@ public class MagnetSphereManager : MonoBehaviour
     PlayerAttacker playerAttacker;
     MagnetoSourceManager magnetoSourceManager;
     Material magnetSphereMaterial;
-    readonly int flameDamage = 6;
+    [SerializeField] readonly int flameDamage = 6;
 
     void Awake()
     {
         playerStats = FindObjectOfType<PlayerStats>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = playerStats.GetComponent<PlayerAttacker>();
         magnetoSourceManager = FindObjectOfType<MagnetoSourceManager>();
         msRigibody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();

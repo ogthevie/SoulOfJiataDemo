@@ -26,17 +26,17 @@ public class GrotteKossiManager : MonoBehaviour
             gameSaveManager.LoadTorcheGrotteData();          
         }
 
-        enemySpawnOne.SetActive(playerManager.canSurcharge);
+        enemySpawnOne.SetActive(playerManager.haveGauntlet);
         if(midDoorDownGO.transform.position.y > 59.3f)
         {
             enemySpawntwo.SetActive(true);
         }
         else enemySpawntwo.SetActive(false);
         
-        GameObject sun = GameObject.FindGameObjectWithTag("Sun");
-        sun.transform.rotation = Quaternion.identity;
-        Quaternion rotation = Quaternion.Euler(-30f, 0f, 0f);
-        sun.transform.rotation = rotation;          
+       // GameObject sun = GameObject.FindGameObjectWithTag("Sun");
+        //sun.transform.rotation = Quaternion.identity;
+       // Quaternion rotation = Quaternion.Euler(-30f, 0f, 0f);
+        //sun.transform.rotation = rotation;          
 
     }
 }

@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     public Image loadSlider;
     public int? newGame;
     [SerializeField] bool isControllerConnected, isLoading;
+    public int? portalPosition;
+    /*
+        1 = golem
+        0 = kossi
+    */
 
     private void Awake()
     {
@@ -54,6 +59,8 @@ public class GameManager : MonoBehaviour
     {
         isLoading = true;
 
+        GetComponent<DayNightCycleManager>().InitialiseDayTimer();
+
         for (int i = 0; i < operations.Count; i++)
         {
             while(!operations[i].isDone)
@@ -64,19 +71,43 @@ public class GameManager : MonoBehaviour
         }
 
         float activeScene = SceneManager.GetActiveScene().buildIndex;
+        PlayerManager player = FindObjectOfType<PlayerManager>();
         
-        if(newGame == 1) FindObjectOfType<PlayerManager>().transform.position = new Vector3 (123.76f, 5.3f, 346.57f); //position de ruben en tout debut de partie
-        else if(newGame == 0)gameSaveManager.LoadPlayerPosition();
+        if(newGame == 0) gameSaveManager.LoadPlayerPosition();
+ 
+        else if(newGame == 1) 
+        {
+            player.transform.position = new Vector3 (128.04f, 4.99f, 337.64f); //position de ruben en tout debut de partie
+            player.transform.rotation = Quaternion.Euler(0, -10.22f, 0f);
+            player.GetComponent<AnimatorManager>().PlayTargetAnimation("Praying", true);
+        }
         else
         {
-            if(activeScene == 1)FindObjectOfType<PlayerManager>().transform.position = new Vector3 (123.76f, 5.3f, 346.57f);
-            else if(activeScene == 2)FindObjectOfType<PlayerManager>().transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
+            if(activeScene == 1)
+            {
+                if(portalPosition == 0) player.transform.position = new Vector3 (50f, 5f, 307f);
+                else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
+            }
+            else if(activeScene == 2)
+            {
+                if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
+                else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
+
+                gameSaveManager.LoadGrotteData();
+                gameSaveManager.LoadTorcheGrotteData();
+
+                portalPosition = null;
+ 
+            }
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1f);
 
         loadingScreen.enabled = false;
         isLoading = false;
+        
+        player.isInteracting = false;
+        
 
     }
 
@@ -86,7 +117,7 @@ public class GameManager : MonoBehaviour
 
         string[] joystickNames = Input.GetJoystickNames();
 
-        if(string.IsNullOrEmpty(joystickNames[0]))
+        if(joystickNames.Length == 0)
         {
             //Debug.Log("Manette déconnectée");
             needGamepad.enabled = true;

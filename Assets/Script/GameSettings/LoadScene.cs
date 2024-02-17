@@ -5,19 +5,23 @@ using System.Collections;
 public class LoadScene : MonoBehaviour
 {
     GameManager gameManager;
-    AudioSource sceneAudiosource;
+    public AudioSource sceneAudiosource;
     public string sceneName;
+    string portalName;
 
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        sceneAudiosource = GameObject.Find("SceneManager").GetComponent<AudioSource>();
+        sceneAudiosource = GameObject.FindWithTag("Respawn").GetComponent<AudioSource>();
+        portalName = this.name;
     }
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             gameManager.newGame = null;
+            if(portalName == "GolemPortal") gameManager.portalPosition = 1;
+            else gameManager.portalPosition = 0;
             StartCoroutine(StartLoadingScene());
         }
     }

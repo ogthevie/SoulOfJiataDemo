@@ -679,7 +679,7 @@ Transform:
   m_GameObject: {fileID: 5460080096635064111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 134.77844, y: 1.358, z: 173.93}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7866563575836173625}
@@ -759,7 +759,7 @@ CapsuleCollider:
   m_Radius: 0.53
   m_Height: 2.44
   m_Direction: 1
-  m_Center: {x: -0.2293287, y: 1.22, z: 0.1}
+  m_Center: {x: -0.2293287, y: 1.05, z: 0.1}
 --- !u!82 &7678367289263121751
 AudioSource:
   m_ObjectHideFlags: 0
@@ -906,7 +906,7 @@ MonoBehaviour:
   distanceFromTarget: 0
   agentKossi: {fileID: 0}
   kossiRigibody: {fileID: 0}
-  decal: {x: 0, y: 0.2, z: 0}
+  decal: {x: 0, y: 1.4, z: 0}
   maxDistanceFromTarget: 40
   stoppingDistance: 10
   bulletAttack: 0
@@ -1776,7 +1776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8313358979223920943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.303, y: -0.109, z: 0}
+  m_LocalPosition: {x: -0.303, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1794,7 +1794,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.51
   m_Speed: 12
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 300
   m_StoppingDistance: 1
@@ -1802,7 +1802,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2.11
-  m_BaseOffset: -0.25
+  m_BaseOffset: -0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &8443866490545406071
