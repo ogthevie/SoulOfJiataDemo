@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using SJ;
 
 
-//[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
 {
     GameSaveManager gameSaveManager;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Image loadSlider;
     public int? newGame;
     [SerializeField] bool isControllerConnected, isLoading;
+    [SerializeField] GameObject minimap, minimapBG;
     public int? portalPosition;
     /*
         1 = golem
@@ -73,7 +74,15 @@ public class GameManager : MonoBehaviour
         float activeScene = SceneManager.GetActiveScene().buildIndex;
         PlayerManager player = FindObjectOfType<PlayerManager>();
         
-        if(newGame == 0) gameSaveManager.LoadPlayerPosition();
+        if(newGame == 0) 
+        {
+            gameSaveManager.LoadPlayerPosition();
+            if(activeScene == 2)
+            {
+                minimap.SetActive(false);
+                minimapBG.SetActive(false);               
+            }   
+        }
  
         else if(newGame == 1) 
         {
@@ -85,11 +94,15 @@ public class GameManager : MonoBehaviour
         {
             if(activeScene == 1)
             {
+                minimap.SetActive(true);
+                minimapBG.SetActive(true);
                 if(portalPosition == 0) player.transform.position = new Vector3 (50f, 5f, 307f);
                 else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
             }
             else if(activeScene == 2)
             {
+                minimap.SetActive(false);
+                minimapBG.SetActive(false);
                 if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
                 else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
 
@@ -99,6 +112,8 @@ public class GameManager : MonoBehaviour
                 portalPosition = null;
  
             }
+
+
         }
 
         yield return new WaitForSeconds(1f);
@@ -106,9 +121,7 @@ public class GameManager : MonoBehaviour
         loadingScreen.enabled = false;
         isLoading = false;
         
-        player.isInteracting = false;
-        
-
+        player.isInteracting = false;        
     }
 
     private void CheckForGamePad()

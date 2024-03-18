@@ -17,7 +17,7 @@ MonoBehaviour:
   consumableName: Mangue
   ConsumableDescription: "La mangue de Kabwandu a cette particularite d\u2019avoir
     une couleur verte. Elle est appr\xE9ciee pour son gout sucre et rafraichissant"
-  HealthPoint: 3
+  HealthPoint: 10
   StaminaPoint: 0
   consumablePrefab: {fileID: 5120546334178886231, guid: 8b548d48baa5d094d9c998074a53e545,
     type: 3}

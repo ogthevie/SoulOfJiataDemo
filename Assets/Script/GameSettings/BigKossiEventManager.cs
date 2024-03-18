@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using SJ;
 using UnityEngine;
 
 public class BigKossiEventManager : EventStoryTriggerManager
@@ -9,16 +10,18 @@ public class BigKossiEventManager : EventStoryTriggerManager
 
     void Awake()
     {
+        cameraShake = FindObjectOfType<PlayerLocomotion>().cameraManager.GetComponent<CameraShake>();
         arcLightEventManager = FindObjectOfType<ArcLightEventManager>();
     }
 
     void Start()
     {
-        explosionFx.SetActive(true);
+        //cameraShake.Shake(7, 0.5f);
+        //explosionFx.SetActive(true);
     }
 
     protected override void OnCollisionEnter(Collision other)
     {
-        throw new NotImplementedException();
+
     }
 }

@@ -6,35 +6,19 @@ public class DayNightCycleManager : MonoBehaviour
     /// 1080 c'est le debut de la nuit
     /// 300 - 720 c'est le matin
     /// 720 c'est le jour
-    public float dayTimer;
+    public int dayTimer;
     GameManager gameManager;
 
     void Awake()
     {
         InitialiseDayTimer();
     }
-    
-    void Update()
-    {
-        float delta = Time.deltaTime;
-        HandleDayTimer(delta);
-    }
-
-    void HandleDayTimer(float delta)
-    {
-        if(dayTimer > 1440f)    dayTimer = 0;
-        dayTimer += delta;
-    }
 
     public void InitialiseDayTimer()
     {
         gameManager = GetComponent<GameManager>();
-        if(gameManager.newGame == 1) dayTimer = dayTimer = 350;//Random.Range(360, 1120);//dayTimer = 350;
-        else
-        {
-            //dayTimer = Random.Range(360, 1120);
-            dayTimer = 1122;
-        }       
+        if(gameManager.newGame == 1) dayTimer = 0;
+        else dayTimer = Random.Range(0,5);  
     }
 
 }

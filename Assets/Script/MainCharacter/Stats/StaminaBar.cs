@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace SJ
 {
@@ -20,7 +21,7 @@ namespace SJ
 
         public void SetCurrentStamina(int currentStamina)
         {
-            slider.value = currentStamina;
+            slider.DOValue(currentStamina, 0.1f, false);
         }
     }
 

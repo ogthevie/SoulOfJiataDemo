@@ -1,8 +1,19 @@
 using UnityEngine;
+using TMPro;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using System;
 
 public class StoryManager : MonoBehaviour
 {
     GameSaveManager gameSaveManager;
+    [SerializeField] List <String> storyTitles = new ();
+    [TextArea(1,4)] [SerializeField] List <String> storyBriefings = new ();
+    [SerializeField] List <Sprite> storyScenes = new ();
+
+    [SerializeField] TextMeshProUGUI storyTitle, storyBrief;
+    [SerializeField] Image storyImage;
+
 
     void Start()
     {
@@ -52,7 +63,17 @@ public class StoryManager : MonoBehaviour
             gameSaveManager.SaveAllData();
         }
         
+        UpdateSynopsisPauseMenu();
         return;
+    }
+
+    public void UpdateSynopsisPauseMenu()
+    {
+        if(storyStep < 0) return;
+
+        storyTitle.text = storyTitles[storyStep];
+        storyBrief.text = storyBriefings[storyStep];
+        storyImage.sprite = storyScenes[storyStep];
     }
 
 }

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ab9702589484e468a5752ecb2cdbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableData: {fileID: 11400000, guid: c4a5c2deb498ea94691b650e51cd8af9, type: 2}
+  consumableData: {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
   notificationManager: {fileID: 0}
   inventory: {fileID: 11400000, guid: a6bd976158eb75648bbe421d9a85d0d0, type: 2}
 --- !u!136 &471994317388407181

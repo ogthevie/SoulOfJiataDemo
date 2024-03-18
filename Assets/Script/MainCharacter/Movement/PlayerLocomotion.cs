@@ -6,7 +6,7 @@ namespace SJ
     public class PlayerLocomotion : MonoBehaviour
     {
         #region Variables
-        CameraManager cameraManager;
+        public CameraManager cameraManager;
         InputManager inputManager;
         PlayerManager playerManager;
         PlayerStats playerStats;
@@ -36,6 +36,7 @@ namespace SJ
         Vector3 normalVector;
         Vector3 targetPosition;
         Vector3 checkGroundPosition =  new Vector3 (0, 0.5f, 0);
+        Vector3 interactbox = new (1f, 0.5f, 0.5f);
         public bool jumpFlag;
         
         public float speed;
@@ -151,7 +152,7 @@ namespace SJ
         public void HandleMovementAngle()
         {
             Debug.DrawRay(playerAttacker.interactOriginRay.transform.position + checkGroundPosition, playerAttacker.interactOriginRay.transform.forward * 1.5f, Color.red, 0.5f);
-            if(Physics.Raycast(playerAttacker.interactOriginRay.transform.position + checkGroundPosition, playerAttacker.interactOriginRay.transform.forward, out RaycastHit hit, 1.5f))
+            if(Physics.BoxCast(playerAttacker.interactOriginRay.transform.position + checkGroundPosition, interactbox, playerAttacker.interactOriginRay.transform.forward, out RaycastHit hit, Quaternion.identity, 2.5f))
             {
                 if(hit.collider.gameObject.layer == 9) 
                 {
@@ -309,7 +310,7 @@ namespace SJ
                 rigidbody.velocity = vel * (movementSpeed / 2);
                 playerManager.isInAir = true;
 
-                if(inAirTimer > 0.8f) animatorManager.PlayTargetAnimation("Falling", true);
+                if(inAirTimer > 0.2f) animatorManager.PlayTargetAnimation("Falling", true);
 
 
 

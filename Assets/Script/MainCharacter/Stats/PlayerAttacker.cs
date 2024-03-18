@@ -55,7 +55,7 @@ namespace SJ
         readonly float thunderMaxDistance = 20; //20f
         readonly float magnetiRadius = 2f;
         readonly int magnetiDamage = 5;
-        Vector3 arclightbox = new (1f, 1f, 1f);
+        public Vector3 arclightbox = new (1f, 1f, 1f);
         readonly float thunderRadius = 6; //40f
 
         public bool isHit;

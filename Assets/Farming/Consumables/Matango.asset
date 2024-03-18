@@ -15,11 +15,7 @@ MonoBehaviour:
   consumablesprite: {fileID: 21300000, guid: bdbbf2f110ed7c04fb43ad349675d827, type: 3}
   consumableIcon: {fileID: 21300000, guid: b8c29113c0a3acc45a2b3dc0c671e646, type: 3}
   consumableName: Matango
-  ConsumableDescription: Boisson traditionnelle fabriquee a partir de la seve extraite
-    du palmier a huile. A Kabwandu, cette boisson est tres populaire et largement
-    consommee dans certaines regions, en particulier chez les groupes ethniques de
-    Lituba et Isango.
   HealthPoint: 0
   StaminaPoint: 30
-  consumablePrefab: {fileID: 3851803711023642099, guid: f83bb368c23b20f4da65be9d28ad79b9,
+  consumablePrefab: {fileID: 7708116865294456131, guid: e4fb2d1bae7b1c44b9c40fa3275d33a6,
     type: 3}

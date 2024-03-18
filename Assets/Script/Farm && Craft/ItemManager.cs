@@ -1,21 +1,27 @@
 using UnityEngine;
 using SJ;
+using TMPro;
 
 public class ItemManager : MonoBehaviour
 {
     public ConsumableData consumableData;
     public NotificationManager notificationManager;
     PlayerManager playerManager;
+    PlayerStats playerStats;
     public InventoryData inventory;
     AudioManager audioManager;
+    InventoryManager inventoryManager;
     RaycastHit hit;
     int k;
     float lifeDuration = 60f;
 
+
     void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
+        playerStats = playerManager.GetComponent<PlayerStats>();
         notificationManager = FindObjectOfType<NotificationManager>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
 
@@ -28,7 +34,11 @@ public class ItemManager : MonoBehaviour
     private void HandleLifeDuration(float delta)
     {
         if(lifeDuration <= 0f)
-            Destroy(gameObject);
+        {
+            GetComponent<Collider>().enabled = false;
+            Destroy(gameObject, 1.5f);
+        }
+
 
         if(lifeDuration > 0f && gameObject != null)
         {
@@ -43,91 +53,38 @@ public class ItemManager : MonoBehaviour
         {
             if(hit.collider.gameObject.layer == 3 )
             {
-                if(consumableData.consumableName != "Ikok" && consumableData.consumableName != "Katorro")
-                    audioManager.PickConsomable();
+                if(consumableData.consumableName != "Ikok" && consumableData.consumableName != "Matango")
+                {
+                    if(consumableData.consumableName == "Mangue") k = 3;
+                    else if(consumableData.consumableName == "Prune") k = 4;
+                    else if(consumableData.consumableName == "Nkomo") k = 5;
+                    else if(consumableData.consumableName == "Kola du lion") k = 6;
+                    else if(consumableData.consumableName == "Kola du singe") k = 7;
+                    else if(consumableData.consumableName == "Gesier") k = 8;
+                    else if(consumableData.consumableName == "Mintoumba") k = 9;
+                    else if(consumableData.consumableName == "Kalaba") k = 10;
+                    else if(consumableData.consumableName == "Katorro") k = 11;
+
+                    playerStats.AddHealth(notificationManager.consumableDatas[k].HealthPoint);
+                    playerStats.AddStamina(notificationManager.consumableDatas[k].StaminaPoint);
+                }
+                else
+                {
+                    if(consumableData.consumableName == "Ikok")
+                    {
+                        k = 1;
+                        inventory.ikokQty += 1;
+                        
+                    }
+                    else if(consumableData.consumableName == "Matango")
+                    {
+                        k = 2;
+                        inventory.matangoQty += 1;
+                    }
                     
-                if(consumableData.consumableName == "Nkomo")
-                {
-                    k = 1;
+                    inventoryManager.HandleItemsQty();
                     playerManager.onTutoScreen = true;
-                    inventory.nkomoQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Prune")
-                {
-                    k = 2;
-                    playerManager.onTutoScreen = true;
-                    inventory.pruneQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Mangue")
-                {
-                    k = 3;
-                    playerManager.onTutoScreen = true;
-                    inventory.mangueQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Mintoumba")
-                {
-                    k = 4;
-                    playerManager.onTutoScreen = true;
-                    inventory.mintoumbaQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Matango")
-                {
-                    k = 5;
-                    playerManager.onTutoScreen = true;
-                    inventory.matangoQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Gesier")
-                {
-                    k = 6;
-                    playerManager.onTutoScreen = true;
-                    inventory.gesierQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Kalaba")
-                {
-                    k = 7;
-                    playerManager.onTutoScreen = true;
-                    inventory.kalabaQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Odontol")
-                {
-                    k = 8;
-                    playerManager.onTutoScreen = true;
-                    inventory.odontolQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Kola du singe")
-                {
-                    k = 9;
-                    playerManager.onTutoScreen = true;
-                    inventory.colaSingeQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Kola du lion")
-                {
-                    k = 10;
-                    playerManager.onTutoScreen = true;
-                    inventory.colaLionQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Katorro")
-                {
-                    k = 11;
-                    playerManager.onTutoScreen = true;
-                    inventory.katorroQty += 1;
-                }
-
-                else if(consumableData.consumableName == "Ikok")
-                {
-                    k = 12;
-                    playerManager.onTutoScreen = true;
-                    inventory.ikokQty += 1;
+                    audioManager.PickConsomable();
                 }
 
                 Destroy(gameObject);               

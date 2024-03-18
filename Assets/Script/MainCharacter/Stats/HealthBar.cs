@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 namespace SJ
 {
@@ -41,7 +42,7 @@ namespace SJ
 
         public void SetCurrentHealth(int currentHealth)
         {
-            slider.value = currentHealth;
+            slider.DOValue(currentHealth, 0.2f, false);
         }
 
         public void HandleSlider()

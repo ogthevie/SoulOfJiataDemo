@@ -11,6 +11,7 @@ namespace SJ
         PlayerAttacker playerAttacker;
         PlayerLocomotion playerLocomotion;
         PlayerManager playerManager;
+        PlayerStats playerStats;
         AnimatorManager animatorManager;
         SkillTreeManager skillTreeManager;
         
@@ -25,6 +26,7 @@ namespace SJ
         void Awake()
         {
             inputManager = GetComponent<InputManager>();
+            playerStats = GetComponent<PlayerStats>();
             playerAttacker = GetComponent<PlayerAttacker>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
@@ -40,10 +42,10 @@ namespace SJ
 
         void HandleActivateSlot()
         {
-            if(inventoryData.mangueQty > 4 && inventoryData.colaSingeQty > 2 && playerManager.canSomm) skillTreeManager.westSlot.enabled = true; //Activer le marqueur
+            if(inventoryData.ikokQty > 1 && playerManager.canSomm) skillTreeManager.westSlot.enabled = true; //Activer le marqueur
             else skillTreeManager.westSlot.enabled = false;
 
-            if(inventoryData.nkomoQty > 6 && inventoryData.mintoumbaQty > 4 && playerManager.canBaemb) skillTreeManager.eastSlot.enabled = true;//Activer le marqueur
+            if(inventoryData.matangoQty > 1 & playerManager.canBaemb) skillTreeManager.eastSlot.enabled = true;//Activer le marqueur
             else skillTreeManager.eastSlot.enabled = false;//Desactiver le marqueur
             
         }
@@ -55,8 +57,7 @@ namespace SJ
                 if(jiatabodyRenderer[10].material.shader == jiataShaders[3]) return;
                 sLeft = true;
                 HandleSorceryLeftEffect();
-                inventoryData.mangueQty -= 4;
-                inventoryData.colaSingeQty -= 2;
+                inventoryData.ikokQty -= 2;
                 
             }
 
@@ -65,8 +66,7 @@ namespace SJ
                 if(jiatabodyRenderer[10].material.shader == jiataShaders[2]) return;
                 sRight = true;
                 HandleSorceryRightEffect();
-                inventoryData.nkomoQty -= 6;
-                inventoryData.mintoumbaQty -= 4;
+                inventoryData.matangoQty -= 2;
             }
         }
 

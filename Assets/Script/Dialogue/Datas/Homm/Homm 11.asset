@@ -13,17 +13,12 @@ MonoBehaviour:
   m_Name: Homm 11
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
-  - "Qu\u2019est-ce que tu fais ici ? ne me dis pas que tu veux d\xE9j\xE0 poser
-    ta question \xE0 l\u2019HOMME DANS LA PIERRE ?"
-  - "Tu ne l\u2019as pas d\xE9j\xE0 fait ?"
-  - "Je n\u2019ai pas envie de me pr\xE9cipiter, Je me donne le temps de r\xE9fl\xE9chir\u2026
-    j\u2019ai toute la vie devant moi "
-  - "Ah\u2026 je vois."
-  - Tu comptes lui demander quoi ?
-  - "Poa B\xF4k Bilol m\u2019a conseill\xE9 une question mais j\u2019ai autre chose
-    en t\xEAte."
-  - "Et qu\u2019est-ce que tu vas faire ?"
-  - "\xC7a\u2026 je n\u2019en aucune id\xE9e. Devant lui je vais me d\xE9cider"
-  - "C\u2019est toi qui vois. Fais seulement le bon choix."
+  - "Depuis que j'ai atteint l'\xE2ge de la raison, je n'ai jamais vu la gueule de
+    ce serpent s'ouvrir. D'apr\xE8s les anciens du village, c'\xE9tait un passage
+    direct vers le peuple Pamom. "
+  - "Il a \xE9t\xE9 cr\xE9\xE9 par les chefs respectifs Lituba et Pamom... signe
+    de l'amiti\xE9 de leur peuple."
+  - "Mais apr\xE8s les \xE9v\xE8nements qui ont secou\xE9 le royaume, il a \xE9t\xE9
+    ferm\xE9 sur instructiom de Pom."

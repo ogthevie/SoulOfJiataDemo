@@ -10,7 +10,7 @@ public class VaseContainerManager : MonoBehaviour
     public List<ConsumableData> consumableDatas = new ();
     public GameObject destroyFx;
 
-    public int qtyConsumable, qtyMintoumba, qtyMatango, qtyGesier, qtyKalaba, qtyColaS, qtyColaL, qtyOdon;
+    public int qtyConsumable, qtyMintoumba, qtyMatango, qtyGesier, qtyKalaba, qtyColaS, qtyColaL, qtyIkok;
 
     void Awake()
     {
@@ -81,7 +81,7 @@ public class VaseContainerManager : MonoBehaviour
     {
         bool canProduceColaS = CheckProbabilityConsumables();
         bool canProduceColaL = CheckProbabilityConsumables();
-        bool canProduceOdon = CheckProbabilityConsumables();
+        bool canProduceIkok = CheckProbabilityConsumables();
         
         if(canProduceColaS)
         {
@@ -95,10 +95,10 @@ public class VaseContainerManager : MonoBehaviour
             qtyConsumable = qtyColaS;
             LoadConsumable(5);
         }
-        if(canProduceOdon)
+        if(canProduceIkok)
         {
-            qtyOdon = QuantityProductionConsumable();
-            qtyConsumable = qtyOdon;
+            qtyIkok = QuantityProductionConsumable();
+            qtyConsumable = qtyIkok;
             LoadConsumable(6);
         }
 
@@ -112,7 +112,7 @@ public class VaseContainerManager : MonoBehaviour
 
     static int QuantityProductionConsumable()
     {
-        int quantity = Random.Range(1,4);
+        int quantity = Random.Range(1,3);
         return(quantity);
     }
 

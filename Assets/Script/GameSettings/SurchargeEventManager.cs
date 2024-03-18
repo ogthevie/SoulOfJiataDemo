@@ -23,7 +23,7 @@ public class SurchargeEventManager : EventStoryTriggerManager
             playerManager.haveGauntlet = true;
             playerManager.HandleSurchargeBrassard();
             
-            StartCoroutine(playerUIManager.HandleAchievement("Initiation au Baemb"));
+            StartCoroutine(notificationQuestManager.StartHandleAchievement("Initiation au baemb"));
             grotteKossiManager.enemySpawnOne.SetActive(true);
             
             storyManager.storyStep = 5;

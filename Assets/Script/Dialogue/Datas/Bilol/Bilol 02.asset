@@ -46,9 +46,9 @@ MonoBehaviour:
     chose. Pour aller plus loin m\xEAme, il n\u2019est pas rare que tu puisses acc\xE9der
     aux souvenirs m\xEAme des anciens possesseurs "
   - "C\u2019est vraiment possible ?"
-  - "Par exemple, je t\u2019ai d\xE9j\xE0 vu utiliser Makakashi Kalaman, la vague
-    d\u2019\xE9nergie. Je sais que tu ne l\u2019as appris nulle part car personne
-    ici au village ne ma\xEEtrise ce sortil\xE8ge"
+  - "Par exemple, je t\u2019ai d\xE9j\xE0 vu utiliser KWALLON WUTA. Je sais que tu
+    ne l\u2019as appris nulle part car personne ici au village ne ma\xEEtrise ce
+    sortil\xE8ge"
   - "Tu parles des boules de feu que je projette \xE0 volont\xE9 ? oui\u2026c\u2019est
     moi qui l\u2019ai invent\xE9e"
   - "Ne te m\xE9prends pas, c\u2019est un sortil\xE8ge ancien de ta famille. Instinctivement
@@ -56,7 +56,7 @@ MonoBehaviour:
     tu as su comment le faire. "
   - Tu peux le faire ?
   - "Je ne suis pas de la branche du h\xE9ros, chaque branche \xE0 sa sp\xE9cificit\xE9.
-    Mais gardons \xE7a pour apr\xE8s. Mise \xE0 part le makamashi, tu ne devrais
+    Mais gardons \xE7a pour apr\xE8s. Mise \xE0 part KWALLON WUTA, tu ne devrais
     pas \xEAtre capable de faire autre chose."
   - "Oui c\u2019est le seul sortil\xE8ge que je ma\xEEtrise. Comment mon p\xE8re
     a-t-il pu devenir puissant juste avec ce seul sortil\xE8ge ?"
@@ -71,15 +71,13 @@ MonoBehaviour:
   - "Rien que \xE7a. Mais vous venez de dire que vous n\u2019avez aucune id\xE9e
     de son emplacement. Comment moi, ayant \xE0 peine deux mois pourrais-je mettre
     la main dessus. "
-  - "En p\xE9riph\xE9rie du village, avant d\u2019arriver \xE0 la for\xEAt des Kossi,
-    il y a une sorte de crevasse o\xF9 repose l\u2019HOMME DANS LA PIERRE."
+  - "En p\xE9riph\xE9rie du village, repose l\u2019HOMME DANS LA PIERRE."
   - Qui est-il ?
   - "Personne ne sait d\u2019o\xF9 il vient r\xE9ellement. On sait juste qu\u2019il
     a r\xE9ponse \xE0 pratiquement tout pour celui qui sait comprendre."
   - "Et pourquoi personne ne l\u2019a questionn\xE9 sur l\u2019emplacement de second
     brassard ?"
-  - "Un m\xEAme \xEAtre humain ne peut pas lui poser plus d\u2019une question. Je
-    ne sais pas pourquoi, mais \xE7a a toujours \xE9t\xE9 comme \xE7a."
+  - "Un m\xEAme \xEAtre humain ne peut pas lui poser plus d\u2019une question."
   - "S\u2019il a r\xE9ponse \xE0 tout, je n\u2019ai pas tr\xE8s envie de gaspiller
     mon tour uniquement pour trouver ce brassard."
   - "C\u2019est toi qui vois, tu peux toujours essayer d\u2019\xE9cumer les recoins

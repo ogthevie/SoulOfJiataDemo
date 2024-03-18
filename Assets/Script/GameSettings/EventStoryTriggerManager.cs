@@ -11,8 +11,8 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected GameSaveManager gameSaveManager;
     protected GrotteKossiManager grotteKossiManager;
     protected StoryManager storyManager;
-    protected CameraShake cameraShake;
-    protected PlayerUIManager playerUIManager;
+    [SerializeField]protected CameraShake cameraShake;
+    protected NotificationQuestManager notificationQuestManager;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
         grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
         cameraShake = FindObjectOfType<CameraShake>();
         storyManager = gameSaveManager.GetComponent<StoryManager>();
-        playerUIManager = FindObjectOfType<PlayerUIManager>();
+        notificationQuestManager = FindObjectOfType<NotificationQuestManager>();
         audioManager = playerManager.GetComponent<AudioManager>();
     }
 

@@ -5,6 +5,7 @@ using SJ;
 public class GrotteKossiManager : MonoBehaviour
 {
     public GameObject enemySpawnOne, enemySpawntwo, enemySpawnthree, enemySpawnFour;
+    BaseDoorManager baseDoorManager;
     PlayerManager playerManager;
     GameSaveManager gameSaveManager;
     GameObject midDoorDownGO;
@@ -12,10 +13,10 @@ public class GrotteKossiManager : MonoBehaviour
     
     void Start()
     {
-        FindObjectOfType<PlayerUIManager>().transform.GetChild(4).gameObject.SetActive(false);
         playerManager = FindObjectOfType<PlayerManager>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         midDoorDownGO = FindObjectOfType<MidDoorManager>().gameObject.transform.GetChild(1).gameObject;
+        baseDoorManager = FindObjectOfType<BaseDoorManager>();
 
         gameSaveManager.HandleGrotteKossiDoor();
 
@@ -27,6 +28,9 @@ public class GrotteKossiManager : MonoBehaviour
         }
 
         enemySpawnOne.SetActive(playerManager.haveGauntlet);
+
+        if(enemySpawnOne.activeSelf) baseDoorManager.runeDooBManager.LoadStateBaseRune();
+        
         if(midDoorDownGO.transform.position.y > 59.3f)
         {
             enemySpawntwo.SetActive(true);

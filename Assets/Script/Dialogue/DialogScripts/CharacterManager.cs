@@ -21,6 +21,7 @@ public abstract class CharacterManager : MonoBehaviour
         sibongoManager = FindObjectOfType<SibongoManager>();
         characterAnim = GetComponent<Animator>();
         storyManager = FindObjectOfType<StoryManager>();
+        questCursor.SetActive(false);
     }
 
     protected virtual void Start()
@@ -40,8 +41,8 @@ public abstract class CharacterManager : MonoBehaviour
     {
         if(levelStoryActions.Count > 0)
         {
-            if(levelStoryActions.Contains(storyManager.storyStep)) questCursor.GetComponent<ParticleSystem>().Play();
-            else questCursor.GetComponent<ParticleSystem>().Stop();
+            if(levelStoryActions.Contains(storyManager.storyStep)) questCursor.SetActive(true);
+            else questCursor.SetActive(false);
         }        
     }
 }
