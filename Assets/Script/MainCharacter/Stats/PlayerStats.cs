@@ -9,10 +9,12 @@ namespace SJ
         InputManager inputManager;
         PlayerManager playerManager;
         PlayerLocomotion playerLocomotion;
+        AudioManager audioManager;
         public CameraManager cameraManager;
         public StaminaBar staminaBar;
         public EnduranceBar enduranceBar;
         AnimatorManager animatorManager;
+        [SerializeField] GameObject healthFx, staminaFx;
 
         public float coefRegenStamina = 5f;
 
@@ -22,6 +24,7 @@ namespace SJ
             playerManager = GetComponent<PlayerManager>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
+            audioManager = GetComponent<AudioManager>();
             staminaBar = FindObjectOfType<StaminaBar>();
             healthBar = FindObjectOfType<HealthBar>();
             enduranceBar = FindObjectOfType<EnduranceBar>();
@@ -101,6 +104,9 @@ namespace SJ
         {
             currentStamina += StaminaUnit;
             staminaBar.SetCurrentStamina(currentStamina);
+            audioManager.StatRecoverFx();
+            Vector3 impactPosition = transform.position + new Vector3 (0f, 1f, 0f);
+            Instantiate(staminaFx, impactPosition, Quaternion.identity);
 
             if(currentStamina >= maxStamina)
             {
@@ -112,7 +118,9 @@ namespace SJ
         {
             currentHealth += HealthUnit;
             healthBar.SetCurrentHealth(currentHealth);
-
+            audioManager.StatRecoverFx();
+            Vector3 impactPosition = transform.position + new Vector3 (0f, 1f, 0f);
+            Instantiate(healthFx, impactPosition, Quaternion.identity);
             if(currentHealth >= maxHealth)
             {
                 currentHealth = maxHealth;

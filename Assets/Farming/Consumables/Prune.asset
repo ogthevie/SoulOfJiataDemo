@@ -18,7 +18,7 @@ MonoBehaviour:
   ConsumableDescription: "La prune de Kabwandu est un fruit tropical de couleur vert
     vif a maturite. Elle a une saveur acidulee. Cuite aux cendres de feu de bois,
     elle restaure un peu plus de sant\xE9 que lorsqu\u2019elle est consommee crue."
-  HealthPoint: 2
-  StaminaPoint: 0
+  HealthPoint: 7
+  StaminaPoint: 7
   consumablePrefab: {fileID: 2778101973918818393, guid: d898bdaf51b64e645ba1b2ad8522d24a,
     type: 3}

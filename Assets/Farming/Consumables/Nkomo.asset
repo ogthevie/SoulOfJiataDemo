@@ -18,7 +18,7 @@ MonoBehaviour:
   ConsumableDescription: egalement connue sous le nom de noix de cajou, est le fruit
     de l'arbre Nkomo. On la retrouve dans la partie Sud de Kabwandu et est appreciee
     pour son delicieux gout sucre et sa texture croquante.
-  HealthPoint: 1
+  HealthPoint: 2
   StaminaPoint: 5
   consumablePrefab: {fileID: 6856714408003138068, guid: 7880f44e904d2cf429ae08c825853884,
     type: 3}

@@ -56,7 +56,7 @@ public class DialogTriggerManager : MonoBehaviour
             idDialog = sibongoManager.dayPeriod;
             dialogUI.SetActive(true);
             characterDialogManager.StartDialogue();
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }         
     }
 
@@ -73,6 +73,6 @@ public class DialogTriggerManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogUI.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 }

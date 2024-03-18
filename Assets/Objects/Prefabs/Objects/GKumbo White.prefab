@@ -155,7 +155,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af97d641f5b07364280741153b339145, type: 2}
   - {fileID: 11400000, guid: bbc557d1e6fff924fb260319238865ff, type: 2}
   - {fileID: 11400000, guid: 066052df51730524abd541902ca90788, type: 2}
-  - {fileID: 11400000, guid: c4a5c2deb498ea94691b650e51cd8af9, type: 2}
+  - {fileID: 11400000, guid: f7f3137342dd8fd4f8a72eaff0648508, type: 2}
   destroyFx: {fileID: 8929743241158243535}
   qtyConsumable: 0
   qtyMintoumba: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   qtyKalaba: 0
   qtyColaS: 0
   qtyColaL: 0
-  qtyOdon: 0
+  qtyIkok: 0
 --- !u!1001 &572557080270187697
 PrefabInstance:
   m_ObjectHideFlags: 0

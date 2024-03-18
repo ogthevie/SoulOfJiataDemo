@@ -37,9 +37,6 @@ public class DoorType
 
     public void HandleMidDoor (RuneData runeData, GameObject midDoorDown, GameObject wall, DoorManager doorManager)
     {
-        if(!doorManager.mid_Door)
-        {
-
             if(runeData.mid_DoorH && runeData.mid_DoorB)
             {
                 float velocity = 0.1f;
@@ -53,7 +50,5 @@ public class DoorType
             {
                 doorManager.mid_Door = true;
             }
-
-        }
     }
 }

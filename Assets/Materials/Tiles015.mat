@@ -130,7 +130,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DiffuseStep: 0.26
     - _DitherTexelSize: 1
-    - _DitherThreshold: 0.524
+    - _DitherThreshold: 1
     - _DstBlend: 0
     - _EnabledHairSpec: 0
     - _EnvironmentReflections: 1
@@ -198,7 +198,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.84046817, g: 0.9528302, b: 0.89456475, a: 1}
+    - _BaseColor: {r: 0.3301887, g: 0.13897637, b: 0.06385724, a: 1}
     - _Color: {r: 1, g: 0.06511364, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}

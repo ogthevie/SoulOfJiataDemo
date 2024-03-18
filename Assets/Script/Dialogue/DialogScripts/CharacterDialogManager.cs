@@ -12,7 +12,7 @@ public class CharacterDialogManager : MonoBehaviour
     public DialogTriggerManager dialogTriggerManager;
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
-    public GameObject playerStatsUi;
+    protected PlayerUIManager playerUIManager;
     protected int i = 0;
     
     public bool canDialog;
@@ -21,6 +21,7 @@ public class CharacterDialogManager : MonoBehaviour
     {
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
+        playerUIManager = FindObjectOfType<PlayerUIManager>();
         dialogTriggerManager = GetComponent<DialogTriggerManager>();
         characterAnimator = GetComponent<Animator>();
     }
@@ -32,15 +33,13 @@ public class CharacterDialogManager : MonoBehaviour
         GameObject playerUI = GameObject.Find("Player UI");
         actorName = playerUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         actorSentence = playerUI.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        playerStatsUi = playerUI.transform.GetChild(0).gameObject;
+
     }
-
-
 
     public virtual void StartDialogue()
     {
         canDialog = true;
-        playerStatsUi.SetActive(false);
+        playerUIManager.HiddenUI();
         characterAnimator.SetBool("animState", true);
     }
 
@@ -64,7 +63,7 @@ public class CharacterDialogManager : MonoBehaviour
     public virtual void CloseDialogue()
     {
         dialogTriggerManager.EndDialogue();
-        playerStatsUi.SetActive(true);
+        playerUIManager.ShowUI();
         canDialog = false;
         animatorManager.animationState = true;
         characterAnimator.SetBool("animState", false);
@@ -87,5 +86,4 @@ public class CharacterDialogManager : MonoBehaviour
             }
         }
     }
-
 }

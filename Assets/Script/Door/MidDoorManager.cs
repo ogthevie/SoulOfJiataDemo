@@ -12,10 +12,12 @@ public class MidDoorManager : DoorManager
         doorAudioSource = GetComponent<AudioSource>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
+ 
     }
 
     void Start()
     {
+        if(transform.position.y >= stopPosition.y) mid_Door = true;
         if(grotteKossiManager.enemySpawntwo.activeSelf)
         {
             Destroy(wall);
@@ -25,7 +27,7 @@ public class MidDoorManager : DoorManager
 
     private void LateUpdate() 
     {
-        doorType.HandleMidDoor(runeData, midDoorDown, wall, this);
+        if(!mid_Door) doorType.HandleMidDoor(runeData, midDoorDown, wall, this);
         HandleStopDoorRuneProcess();    
     }
 
@@ -38,7 +40,7 @@ public class MidDoorManager : DoorManager
             mid_Door = false;
             grotteKossiManager.enemySpawntwo.SetActive(true);
             if(wall != null) Destroy(wall);
-            Destroy(this);
+            Destroy(this, 2f);
         }
     }
 }

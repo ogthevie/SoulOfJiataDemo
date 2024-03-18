@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 
 namespace SJ
@@ -40,7 +41,6 @@ namespace SJ
         public bool onPause;
         public bool onTutoScreen;
         public bool canPass;
-        public bool onInventory;
 
 
         private void Awake()
@@ -49,7 +49,7 @@ namespace SJ
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
-            pauseMenu = FindObjectOfType<PauseMenuManager>().gameObject;
+            //pauseMenu = FindObjectOfType<PauseMenuManager>().gameObject;
             dialogUI = FindObjectOfType<PlayerUIManager>().transform.GetChild(2).gameObject;
  
         }
@@ -64,7 +64,7 @@ namespace SJ
             playerStats = GetComponent<PlayerStats>();
             pauseMenu.SetActive(false);
             dialogUI.SetActive(false);
-            onPause = false;
+            //onPause = false;
             
             HandleSurchargeBrassard();
             HandleMask();
@@ -93,7 +93,7 @@ namespace SJ
             playerLocomotion.HandleFootStep();
             playerStats.HandleReloadStamina(delta);
             playerStats.HandleEndurance();
-            HandleInventory();
+            HandlePauseMenu();
             playerAttacker.HandleSorceryPad();
 
 #if UNITY_EDITOR
@@ -181,31 +181,13 @@ namespace SJ
             Destroy(magnetiFXClone, 1.5f);
         }*/
 
-        public void HandleInventory()
+        public void HandlePauseMenu()
         {
-            if(onPause && !isInteracting)
-            {
-                pauseMenu.SetActive(true);
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                pauseMenu.SetActive(false);
-                Time.timeScale = 1f;
-            }
+            if(onPause && !isInteracting) pauseMenu.SetActive(true);
+            else pauseMenu.SetActive(false);
+
         }
 
-        public void HandleTutoScreen()
-        {
-            if(onTutoScreen && !isInteracting)
-            {
-                Time.timeScale = 0f;
-            }
-            else if(!onTutoScreen)
-            {
-                Time.timeScale = 1f;
-            }
-        }
         public void HandleBoolTakeDamage()
         {
             if(takeDamage)

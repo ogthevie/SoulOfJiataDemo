@@ -21,6 +21,12 @@ public class ArcLightEventManager : EventStoryTriggerManager
         stelesGreenOn = stelesYellowOn = false;
         arcLight = transform.GetChild(0).gameObject;
         forceKossi = transform.GetChild(1).gameObject;
+        if(playerManager.canArcLight && playerManager.canBaemb)
+        {
+                for(int k = 0; k < 8; k++) Torche[k].transform.parent.GetChild(1).gameObject.SetActive(true);
+                Destroy(this.gameObject);
+
+        }
         HandleHeartSteleActivationWithIndex();
         HandleBaliseLight();
     }
@@ -195,6 +201,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
     IEnumerator ForceKossiEvent()
     {
         animatorManager.PlayTargetAnimation("PowerUp Baemb", true);
+        StartCoroutine(notificationQuestManager.StartHandleAchievement("Initiation au n'son"));
         playerManager.canBaemb = true;
 
         forceKossi.GetComponent<ParticleSystem>().Stop();
@@ -242,12 +249,11 @@ public class ArcLightEventManager : EventStoryTriggerManager
                 }
                 explosionFx.SetActive(true);
                 this.GetComponent<MeshRenderer>().enabled = false;
-                yield return new WaitForSeconds (0.2f);
+                yield return new WaitForSeconds (0.05f);
                 runeAltar.SetActive(false);
                 bigKossi.SetActive(true);
                 yield return new WaitForSeconds (4f);
                 Destroy(this.gameObject);
-                
                 
             }
         }

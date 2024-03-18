@@ -13,6 +13,7 @@ public class GameSaveManager : MonoBehaviour
     GameManager gameManager;
     [SerializeField] ArcLightEventManager arcLightEventManager;
     [SerializeField] GameObject saveUi;
+    [SerializeField] InventoryData inventoryData;
     public GameObject baseDoor, midDoor, supDoor;
     public Transform baseDoorPosition, midDoorPosition;
     public bool isloaded;
@@ -112,6 +113,8 @@ public class GameSaveManager : MonoBehaviour
             arcLight = playerManager.canArcLight, 
             thunder = playerManager.canThunder,
             canBaemb = playerManager.canBaemb,
+            ikokQty = inventoryData.ikokQty,
+            matangoQty = inventoryData.matangoQty,
         };
         string playerJSon = JsonUtility.ToJson(playerData);
 
@@ -179,12 +182,6 @@ public class GameSaveManager : MonoBehaviour
             // Appliquer la position chargée au GameObject
             baseDoorPosition.position = new Vector3(grotteKossiData.basedoorX, grotteKossiData.basedoorY, grotteKossiData.baseDoorZ);
             midDoorPosition.position = new Vector3(grotteKossiData.midDoorX, grotteKossiData.midDoorY, grotteKossiData.midDoorZ);
-
-            //if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component)) component.LoadStateBaseRune();
-            if(!baseDoor.TryGetComponent<DoorManager>(out DoorManager component)) 
-            {
-                if(baseDoor.transform.GetChild(1).TryGetComponent<RuneManager>(out RuneManager component1)) component1.LoadStateBaseRune();
-            }
         }
         else
         {
@@ -225,6 +222,8 @@ public class GameSaveManager : MonoBehaviour
             playerManager.canArcLight = playerData.arcLight;
             playerManager.canThunder = playerData.thunder;
             playerManager.canBaemb = playerData.canBaemb;
+            inventoryData.ikokQty = playerData.ikokQty;
+            inventoryData.matangoQty = playerData.matangoQty;
             playerManager.HandleSurchargeBrassard();
         }
 
@@ -298,6 +297,8 @@ public class GameSaveManager : MonoBehaviour
         }
 
         isloaded = false;
+
+        inventoryData.ikokQty = inventoryData.matangoQty = 0;
     }
 
     public void HandleGrotteKossiDoor()
@@ -325,7 +326,7 @@ class GrotteKossiData
 
 class PlayerData
 {
-    public int playerPV;
+    public int playerPV, ikokQty, matangoQty;
     public bool gauntlet,mask, arcLight, thunder, canBaemb;
 }
 

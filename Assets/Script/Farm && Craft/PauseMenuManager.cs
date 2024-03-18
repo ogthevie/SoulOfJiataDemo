@@ -1,32 +1,50 @@
 using UnityEngine;
 using TMPro;
 using SJ;
+using System.Collections.Generic;
+using DG.Tweening;
 
 public class PauseMenuManager : MonoBehaviour
 {
     InputManager inputManager;
-    PlayerManager playerManager;
+    StoryManager storyManager;
     AudioManager audioManager;
-    public GameObject inventory, buttonMap, iconInven, iconSorc, selector;
+    public GameObject selector;
+    [SerializeField] List <GameObject> iconNavs = new ();
+    [SerializeField] GameObject windowMenu;
     public TextMeshProUGUI menuName;
     Vector3 selPos;
+    public int pauseMenuPos, indexIconNav;
 
     void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        storyManager = FindObjectOfType<StoryManager>();
         audioManager = FindObjectOfType<AudioManager>();
-        selector.transform.position = iconInven.transform.position;
+        selector.transform.position = iconNavs[0].transform.position;
         selPos = selector.transform.position;
+        Debug.Log(Screen.width);
+        storyManager.checkstoryStep(false);
+        //Time.timeScale = 0f;
+    }
+
+    void OnEnable()
+    {
+        
+        transform.parent.GetComponent<PlayerUIManager>().HiddenUI();
+    }
+
+    void OnDisable()
+    {
+        transform.parent.GetComponent<PlayerUIManager>().ShowUI();
+
     }
 
     void Update()
     {
-        if(!playerManager.onPause)
-            return;
-        PrintMenu();
         HandleNavigationMenu();
-        
+        PrintMenu();
+        Debug.Log(iconNavs.Count);      
     }
 
 
@@ -35,56 +53,48 @@ public class PauseMenuManager : MonoBehaviour
     {
         if(inputManager.left_menu_input)
         {
-            if(selPos == iconInven.transform.position)
+            if(indexIconNav == 0)
             {
-                selPos = iconSorc.transform.position;
-                audioManager.NavigateMenuFx();
+                audioManager.ImpossibleChoiceFx();
             }
-            else if(selPos == iconSorc.transform.position)
+            else
             {
-                selPos = iconInven.transform.position;
+                indexIconNav -= 1;
+                selPos = iconNavs[indexIconNav].transform.position;
+                pauseMenuPos = indexIconNav;
                 audioManager.NavigateMenuFx();
             }
         }
         else if(inputManager.right_menu_input)
         {
-            if(selPos == iconInven.transform.position)
+            if(indexIconNav >= (iconNavs.Count-1)) 
             {
-                selPos = iconSorc.transform.position;
-                audioManager.NavigateMenuFx();
+                audioManager.ImpossibleChoiceFx();
             }
-            else if(selPos == iconSorc.transform.position)
+            else
             {
-                selPos = iconInven.transform.position;
+                indexIconNav += 1;
+                selPos = iconNavs[indexIconNav].transform.position;
+                pauseMenuPos = indexIconNav;
                 audioManager.NavigateMenuFx();
-            }
+            }     
         }
-
-        selector.transform.position = selPos;     
+        selector.transform.position = selPos;
+    
 
     }
 
     private void PrintMenu()
     {
-        if(selPos != iconInven.transform.position && selPos != iconSorc.transform.position)
+        if(selPos == iconNavs[0].transform.position)
         {
-            selPos = iconInven.transform.position;
+            menuName.text = "Histoire";
+            windowMenu.GetComponent<RectTransform>().DOAnchorPosX(0, 0.5f, false);
         }
-        else if(selPos == iconInven.transform.position)
+        else if(selPos == iconNavs[1].transform.position)
         {
-            inventory.SetActive(true);
-            buttonMap.SetActive(false);
-            menuName.text = "Inventaire";
-            playerManager.onInventory = true; 
-            //playerManager.onSorceryTree = false; //activer pour le menu Inventory
-        }
-        else if(selPos == iconSorc.transform.position)
-        {
-            buttonMap.SetActive(true);
-            inventory.SetActive(false);
             menuName.text = "Commandes";
-            //playerManager.onSorceryTree = true; //desactiver pour le menu Inventory
-            playerManager.onInventory = false;
+            windowMenu.GetComponent<RectTransform>().DOAnchorPosX(-1080, 0.5f, false);
         }
     }
 }

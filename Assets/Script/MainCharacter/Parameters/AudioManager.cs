@@ -139,7 +139,7 @@ namespace SJ
             jiataAudioSource.PlayOneShot(pause[0]);
         }
 
-        public void HealthRecoverFx()
+        public void StatRecoverFx()
         {
             cameraAudioSource.volume = attackVolume;
             cameraAudioSource.PlayOneShot(pause[1]);

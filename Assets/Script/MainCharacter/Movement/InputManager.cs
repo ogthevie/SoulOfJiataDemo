@@ -188,6 +188,8 @@ namespace SJ
         }
         private void HandleAttackInput(float delta)
         {
+            if(playerManager.onPause) return;
+            
             //playerControls.PlayerActions.LowAttack.performed += i => lowAttack_input = true;
             //playerControls.PlayerActions.HighAttack.performed += i => highAttack_input = true;
 
@@ -372,7 +374,7 @@ namespace SJ
         {
             if(playerManager.onPause)
             {
-                if(start_input || lowAttack_input) playerManager.onPause = false;
+                if(south_input) playerManager.onPause = false;
             }
         }
     }
