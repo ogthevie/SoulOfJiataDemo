@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using SJ;
 using UnityEngine.AI;
@@ -42,12 +40,11 @@ public class KossiPattern : MonoBehaviour
         maxDistanceFromTarget = 35;
         stoppingDistance = 10;
         agentKossi.enabled = false;
-        currentTarget = playerManager;
         kossiManager.isPreformingAction = false;
         kossiRigibody.isKinematic = false;
     }
 
-    /*public void HandleDetection()
+    public void HandleDetection()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, kossiManager.detectionRadius, detectionLayer);
 
@@ -55,7 +52,7 @@ public class KossiPattern : MonoBehaviour
         {
             PlayerManager playerManager = colliders[i].transform.GetComponentInParent<PlayerManager>();
 
-            if(playerManager != null && !statesJiataData.isHidden)
+            if(playerManager != null)
             {
                 Vector3 targetDirection = playerManager.transform.position - transform.position;
                 viewableAngle = Vector3.Angle(targetDirection, transform.forward);
@@ -68,11 +65,11 @@ public class KossiPattern : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
 
     public void HandleMoveToTarget()
     {
-        if(currentTarget.isDead || statesJiataData.isHidden)
+        if(currentTarget.isDead)
             return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
@@ -119,7 +116,7 @@ public class KossiPattern : MonoBehaviour
 
     void HandleStopChase()
     {
-        if(statesJiataData.isHidden || currentTarget.isDead)/*distanceFromTarget >= maxDistanceFromTarget ||*/
+        if(currentTarget.isDead)/*distanceFromTarget >= maxDistanceFromTarget ||*/
         {
             currentTarget = null;
             kossiAnimatorManager.anim.SetFloat("run", 0);

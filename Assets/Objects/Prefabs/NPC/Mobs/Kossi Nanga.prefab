@@ -658,7 +658,6 @@ GameObject:
   - component: {fileID: 1616200262208229359}
   - component: {fileID: 8604927597201889058}
   - component: {fileID: 8408278971412127189}
-  - component: {fileID: 7678367289263121751}
   - component: {fileID: 4583090968400428997}
   - component: {fileID: 5577364482627414455}
   - component: {fileID: 6368890853377440429}
@@ -679,7 +678,7 @@ Transform:
   m_GameObject: {fileID: 5460080096635064111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 134.77844, y: 1.358, z: 173.93}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7866563575836173625}
@@ -759,103 +758,7 @@ CapsuleCollider:
   m_Radius: 0.53
   m_Height: 2.44
   m_Direction: 1
-  m_Center: {x: -0.2293287, y: 1.05, z: 0.1}
---- !u!82 &7678367289263121751
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5460080096635064111}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.15
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 96
-  DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_Center: {x: -0.2293287, y: 1.26, z: 0.1}
 --- !u!114 &4583090968400428997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,11 +778,13 @@ MonoBehaviour:
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
   skinnedMeshRenderer: {fileID: 1853705125825466395}
+  consumable: {fileID: 6429133030633119555, guid: 9cd46bc2a293c7e4d8631db70c8e73e6,
+    type: 3}
   kossiPattern: {fileID: 0}
   kossiHealthBar: {fileID: 0}
   isPreformingAction: 0
-  maximumDetectionAngle: 60
-  minimumDetectionAngle: -25
+  maximumDetectionAngle: 90
+  minimumDetectionAngle: -90
   kossiHealth: 1
 --- !u!114 &5577364482627414455
 MonoBehaviour:
@@ -993,7 +898,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: d6e6e1feb31bc5b48bb59463aa6fac3c, type: 2}
   - {fileID: 2100000, guid: 5cc53c7931daa554da5c3d9563d10645, type: 2}
   - {fileID: 3032527368782228296, guid: f0a834767e14d1d43b21eb366b9de774, type: 3}
-  - {fileID: 4043614155628016888, guid: f0a834767e14d1d43b21eb366b9de774, type: 3}
+  - {fileID: 2100000, guid: 6c2d123a28899fe4489ba9bb8fdcbd0b, type: 2}
   - {fileID: 2100000, guid: 9ba3caa6b60d1a24c84e781da4b8ee92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1802,7 +1707,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2.11
-  m_BaseOffset: -0.02
+  m_BaseOffset: -0.14
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &8443866490545406071

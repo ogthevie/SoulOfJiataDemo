@@ -9886,7 +9886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823405702632999947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.303, y: -0.109, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9912,7 +9912,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2.11
-  m_BaseOffset: -0.25
+  m_BaseOffset: -0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &2284619902102872634
@@ -10573,7 +10573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6765247055590652848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 183.653, y: 10.565879, z: 91.96704}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10653,7 +10653,7 @@ CapsuleCollider:
   m_Radius: 0.43576568
   m_Height: 2.2758067
   m_Direction: 1
-  m_Center: {x: 0, y: 1.124364, z: 0.19273864}
+  m_Center: {x: 0, y: 1.21, z: 0.19273864}
 --- !u!114 &3377215912304397061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10672,6 +10672,8 @@ MonoBehaviour:
   currentHealth: 0
   enemyExplosion: {fileID: 0}
   skinnedMeshRenderer: {fileID: 4986838049063256807}
+  consumable: {fileID: 7406746066672365145, guid: 009c33f02598cb544a9af0daf2507682,
+    type: 3}
   kossiKazePattern: {fileID: 0}
   isPreformingAction: 0
 --- !u!114 &3589629918764437262
@@ -10696,7 +10698,7 @@ MonoBehaviour:
   KazeExplosion: {fileID: 306867092670272728, guid: 24955495cad345d479da0846cf42fbd9,
     type: 3}
   agentKossiKaze: {fileID: 0}
-  kossiKazeRigibody: {fileID: 0}
+  kossiKazeRigibody: {fileID: 1947394857880152867}
   decal: {x: 0, y: 0.5, z: 0}
   distanceFromTarget: 0
   maxDistanceFromTarget: 20

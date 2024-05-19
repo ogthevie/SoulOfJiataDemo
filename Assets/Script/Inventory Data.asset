@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff0d8be1762284c9bb8474153dd38a, type: 3}
   m_Name: Inventory Data
   m_EditorClassIdentifier: 
-  ikokQty: 3
-  matangoQty: 2
+  ikokQty: 1
+  matangoQty: 1

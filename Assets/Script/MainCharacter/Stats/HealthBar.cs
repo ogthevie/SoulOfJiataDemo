@@ -10,15 +10,13 @@ namespace SJ
     {
         public Slider slider;
         public Volume globalVolume;
-        public Image fillColor;
-        public Color criticalColor;
         public Color maxColor;
         public List <VolumeProfile> volumeProfiles = new ();
 
         void Awake()
         {
             slider = GetComponent<Slider>();
-            globalVolume = FindObjectOfType<Volume>();
+            //globalVolume = FindObjectOfType<Volume>();
             globalVolume = FindObjectOfType<GlobalVolumeManager>().GetComponent<Volume>();
         }
 
@@ -26,7 +24,6 @@ namespace SJ
         {
             globalVolume.profile = volumeProfiles[0];
             globalVolume.weight = 0.5f;
-            fillColor.color = maxColor;
         }
 
         void Update()
@@ -53,7 +50,6 @@ namespace SJ
                 {
                     globalVolume.profile = volumeProfiles[1];
                     globalVolume.weight = 0.6f;
-                    fillColor.color = criticalColor;
                 }
                 else
                 {
@@ -70,7 +66,6 @@ namespace SJ
             {
                 globalVolume.profile = volumeProfiles[0];
                 globalVolume.weight = 0.5f;
-                fillColor.color = maxColor;
             }
             
         }

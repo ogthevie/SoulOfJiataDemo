@@ -17,7 +17,7 @@ public class KossiKazeAnimatorManager : EnemyAnimatorManager
 
     private void OnAnimatorMove() 
     {
-        if(!playerManager.onPause)
+        if(!playerManager.onOption)
         {
             anim.SetFloat("distAttack", kossiKazePattern.distanceFromTarget);
             //anim.SetFloat("timeAttack", tololPattern.timeAttack);

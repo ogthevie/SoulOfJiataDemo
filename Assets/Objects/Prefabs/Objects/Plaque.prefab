@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 851050294180540512}
   - component: {fileID: 3182777140262175914}
   - component: {fileID: 1579245620807129344}
+  - component: {fileID: 8051173813361372564}
   m_Layer: 6
   m_Name: Plaque
   m_TagString: Untagged
@@ -106,3 +107,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29529092, y: 0.042301234, z: 0.020843303}
   m_Center: {x: 0.0052721337, y: -0.0024874366, z: 0.009553652}
+--- !u!114 &8051173813361372564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975414591380268415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0289cff9bb35566448ba91efc415e415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardUi: {fileID: 0}
+  playerUi: {fileID: 0}
+  description: "Chez Petit Dubai - Ferm\xE9, je suis au Nord"

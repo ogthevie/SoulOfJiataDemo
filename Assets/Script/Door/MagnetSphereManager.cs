@@ -26,6 +26,18 @@ public class MagnetSphereManager : MonoBehaviour
     {
         msRigibody.isKinematic = false;
     }
+
+    void OnEnable()
+    {
+        if(!audioSource.enabled)
+        {
+            if(this.transform.GetChild(0).gameObject.activeSelf || this.transform.GetChild(1).gameObject.activeSelf)
+                {
+                    audioSource.enabled = true;  
+                    msRigibody.isKinematic = false;
+                }      
+        }
+    }
     void OnCollisionEnter(Collision other)
     {
 
@@ -72,18 +84,6 @@ public class MagnetSphereManager : MonoBehaviour
             }        
         }
 
-    }
-
-    void LateUpdate()
-    {
-        if(!audioSource.enabled)
-        {
-            if(this.transform.GetChild(0).gameObject.activeSelf || this.transform.GetChild(1).gameObject.activeSelf)
-                {
-                    audioSource.enabled = true;  
-                    msRigibody.isKinematic = false;
-                }      
-        }
     }
 
     public void HandleDestroyMagnetSphere()

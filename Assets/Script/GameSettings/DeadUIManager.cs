@@ -9,13 +9,18 @@ public class DeadUIManager : MonoBehaviour
     PlayerManager playerManager;
     AnimatorManager animatorManager;
     GameSaveManager gameSaveManager;
+    GameManager gameManager;
+    PlayerStats playerStats;
 
     void Awake()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         inputManager = playerManager.GetComponent<InputManager>();
+        playerStats = playerManager.GetComponent<PlayerStats>();
         gameSaveManager = FindObjectOfType<GameSaveManager>();
+        gameManager = gameSaveManager.GetComponent<GameManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
+        
     }
 
     void Update()
@@ -34,11 +39,16 @@ public class DeadUIManager : MonoBehaviour
 
     IEnumerator reloadRoutine()
     {
+        inputManager.skillTreeManager.HandleSkillTreeUI(false);
+        inputManager.GetComponent<AudioManager>().jiataAudioSource.Stop();
+        
         string filePath = Application.persistentDataPath + "/playerData.json";
 
         if(System.IO.File.Exists(filePath))
         {
+            gameManager.newGame = 0;
             gameSaveManager.LoadAllData();
+            playerStats.AddStamina(100);
             playerManager.isDead = playerManager.isInteracting = false;
             float activeScene = SceneManager.GetActiveScene().buildIndex;
             if(activeScene == 2)

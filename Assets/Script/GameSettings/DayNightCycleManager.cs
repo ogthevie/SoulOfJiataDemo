@@ -18,7 +18,7 @@ public class DayNightCycleManager : MonoBehaviour
     {
         gameManager = GetComponent<GameManager>();
         if(gameManager.newGame == 1) dayTimer = 0;
-        else dayTimer = Random.Range(0,5);  
+        else dayTimer = Random.Range(0,4);  //j'ai volontairement retiré la période ou tout le monde dort
     }
 
 }

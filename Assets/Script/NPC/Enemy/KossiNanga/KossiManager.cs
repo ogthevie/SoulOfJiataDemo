@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using SJ;
 
@@ -8,8 +6,7 @@ public class KossiManager : EnemyManager
     public KossiPattern kossiPattern;
     EnemyHealthBar enemyHealthBar;
     public GameObject kossiHealthBar;
-    PlayerAttacker playerAttacker;
-    Vector3 tp;
+    //Vector3 tp;
     public bool isPreformingAction;
     public float maximumDetectionAngle;
     public float minimumDetectionAngle;
@@ -27,10 +24,10 @@ public class KossiManager : EnemyManager
         kossiHealthBar = transform.Find("UI Ennemy").gameObject;
 
         isPreformingAction = true;
-        maximumDetectionAngle = 60;
-        minimumDetectionAngle = -25;
+        maximumDetectionAngle = 90;
+        minimumDetectionAngle = -90;
         detectionRadius = 30f;
-        kossiHealth = 35;
+        kossiHealth = 8;
 
         currentHealth = kossiHealth;
         enemyHealthBar.SetMaxHealth(currentHealth);
@@ -49,11 +46,11 @@ public class KossiManager : EnemyManager
 
     void HandleCurrentAction()
     {
-        /*if(kossiPattern.currentTarget == null)
+        if(kossiPattern.currentTarget == null)
         {
             kossiPattern.HandleDetection();
         }
-        else */
+        else
         kossiPattern.HandleMoveToTarget();
 
     }
@@ -76,6 +73,7 @@ public class KossiManager : EnemyManager
     {
         if(isDead) 
         {
+            LoadConsumable(consumable);
             kossiPattern.bulletAttack = false;
             Destroy(kossiHealthBar);
         }

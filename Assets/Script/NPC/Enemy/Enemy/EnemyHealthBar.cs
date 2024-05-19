@@ -1,14 +1,13 @@
-using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyHealthBar : MonoBehaviour
 {
     public Slider slider;
     public Image fillColor;
 
-    void Awake()
+    protected virtual void Awake()
     {
         slider = GetComponentInChildren<Slider>();
     }
@@ -21,6 +20,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetCurrentHealth(int currentHealth)
     {
-        slider.value = currentHealth;
+        slider.DOValue(currentHealth, 0.4f, false);
     }
 }

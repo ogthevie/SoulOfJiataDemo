@@ -46,6 +46,16 @@ public class KikohaManager : MonoBehaviour
                         kossiKazeManager.isPreformingAction = false;
                     }                             
                 }
+                else if(component is BuffaloManager buffaloManager)
+                {
+                    if(buffaloManager.isArmor) return;
+                    
+                    buffaloManager.TakeDamage(kikohaDamage);
+                    if(buffaloManager.buffaloPattern.currentTarget == null) 
+                    {
+                        buffaloManager.buffaloPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                    }                             
+                }
                 //Destroy(gameObject);
             }
         }

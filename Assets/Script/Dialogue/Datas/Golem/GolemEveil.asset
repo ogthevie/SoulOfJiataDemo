@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: GolemEveil
+  m_EditorClassIdentifier: 
+  characterName: HOMME DANS LA PIERRE
+  mainCharacterName: Ruben
+  firstConversation:
+  - MON ES...PRIT... IL...EST...REVENU...
+  - "(C'\xE9tait donc vrai! un rocher qui parle, j'aurai tout vu dans ce village)"
+  - C'EST TOI QUI  M'AS  REVEILLE ?
+  - "Euh...oui, votre esprit \xE9tait gard\xE9 par une cr\xE9ature du Kao dans la
+    grotte de Bongo. Par chance, j'ai vaincu le mal et j'ai r\xE9cup\xE9r\xE9 votre
+    essence."
+  - IMPRESSIONNANT!! CA  FAIT  UNE  ETERNITE.  LA...TERRE  DE  MES... CREATEURS 
+    A  BIEN...CHANGE
+  - "Je ne sais pas depuis quand exactement vous \xEAtes endormis, mais oui, c'est
+    \xE0 cause du pouvoir de WONDO. Il rend la vie difficile aux derni\xE8res communaut\xE9s
+    de sorciers dans ce royaume. Sibongo n'est plus peupl\xE9 comme avant."
+  - C'EST...CE  QUE...JE  VOIS
+  - "Mais bon, s'ils ont essay\xE9 de vous r\xE9duire au silence, c'est que vous
+    devez \xEAtre sacr\xE9ment puissant !"
+  - JE SUIS LA PIERRE SUR LAQUELLE... LES PREMIERS SORCIERS DE LA FORET ONT BATI...
+    LE PAYS DE LITUBA. JE SUIS PLUS ANCIEN QUE CE ROYAUME. JE VEILLE... SUR LA GRANDE
+    FORET DE LITUBA
+  - "Rien que \xE7a..."
+  - SI TU VEUX CONNAITRE LE POTENTIEL DE TA BRANCHE, JE PEUX T'AIDER... TU M'AS REVEILLE...
+    C'EST LA MOINDRE DES CHOSES QUE JE... PUISSE FAIRE
+  - "C'est vrai qu'\xE0 la base, je voulais vous parler car j'\xE9tais en qu\xEAte
+    de puissance. Mais les choses entre temps. Je pense avoir obtenu ce que je cherchais.
+    Je vais garder cette faveur pour plus tard. Tout ce qui me reste \xE0 faire maintenant
+    c'est de trouver un moyen pour traverser le lac de Lempoy maintenant que le pont
+    est en tomb\xE9 \xE0 l'eau"
+  - ILS ONT DONC DETRUIT MON PONT... SACRES HUMAINS....MAIS NE T'INQUIETE PAS...MAINTENANT
+    QUE JE SUIS REVENU, CE SERA UN JEU D'ENFANT.
+  - "Vous pouvez le r\xE9parer ??"
+  - ADMIRE LA PUISSANCE... DE L'HOMME DANS LA PIERRE !!!

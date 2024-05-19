@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Teg 32
+  m_EditorClassIdentifier: 
+  characterName: TEG
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Wuta Mattutu, le sommeil du cadavre. Un jour, j'ai fait un r\xEAve avec la formule
+    de ce sort. je me suis lev\xE9 et j'ai mis le cap sur le pays des hauts plateaux
+    pour l'\xE9laborer"
+  - "Bizarrement, je n'arrive pas \xE0 me rappeler de celui-ci..."
+  - "C'est normal. Wuta Mattutu est un sortil\xE8ge unique, il ne tire pas directement
+    sa source de l'art Lituba. Il est le fruit de mon imagination et de ma cr\xE9ativit\xE9,
+    combin\xE9es \xE0 un \xE9l\xE9ment issu de notre terre natale, la feuile d'Ikok"
+  - Pourquoi la feuille d'Ikok ?
+  - "Il n'y a pas de raisons sp\xE9cifiques. Lorsque j'\xE9tais face \xE0 l'ancien
+    Doh, dans les hauts plateaux, j'ai ressenti le besoin d'ajouter une essence de
+    Lituba \xE0 ce sortil\xE8ge. La feuille d'Ikok, que j'avais \xE0 port\xE9e de
+    main, s'est av\xE9r\xE9e \xEAtre l'\xE9l\xE9ment parfait."
+  - "Dr\xF4le d'histoire."
+  - "Wuta Mattutu est un sortil\xE8ge puissant. Il te permettra, pendant un court
+    instant, de te projeter dans mon monde, le monde des morts. Les \xEAtres du monde
+    vivant ne pourront pas te voir."
+  - "Cela pourrait \xEAtre tr\xE8s utile dans certaines situations."
+  - "Oui, encore une fois, n'oublie jamais que la puissance de ce sortil\xE8ge r\xE9side
+    dans ton intention. Utilise-le avec sagesse et prudence, car il peut \xE9galement
+    te mettre en danger."
+  - C'est compris

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Teg 31
+  m_EditorClassIdentifier: 
+  characterName: TEG
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Tu as d\xE9j\xE0 trouv\xE9 Wuta Lantarki ! Surprenant."
+  - "Oui, c'est all\xE9 assez vite."
+  - "\xC7a fait dr\xF4le dans le corps, je ne sais pas comment l'expliquer mais j'ai
+    l'impression de savoir l'utiliser."
+  - "C'est tout l'int\xE9r\xEAt de l'apprentissage de l'art Lituba. Il ne s'enseigne
+    pas, il se cultive."
+  - C'est fascinant.
+  - "C'est un sortil\xE8ge tr\xE8s avanc\xE9. Dans ton \xE9tat actuel, tu ne dois
+    pas en abuser sinon tu seras rapidement \xE9puis\xE9. Utilise-le avec parcimonie."
+  - D'accord, je ferai attention.
+  - "Continue ton exploration, tu trouveras bient\xF4t les autres autels."

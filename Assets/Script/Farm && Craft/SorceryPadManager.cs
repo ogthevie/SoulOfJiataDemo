@@ -14,12 +14,13 @@ namespace SJ
         PlayerStats playerStats;
         AnimatorManager animatorManager;
         SkillTreeManager skillTreeManager;
+        InventoryManager inventoryManager;
         
         public InventoryData inventoryData;
         public StatesCharacterData statesJiataData;
         public List <Shader> jiataShaders = new();
         public List <SkinnedMeshRenderer> jiatabodyRenderer = new();
-         public bool preSomm, preBaemb;
+        [SerializeField] GameObject lefButton, rightButton;
         public bool sLeft, sRight;
         readonly int coefBoostBaemb = 2;
 
@@ -32,45 +33,52 @@ namespace SJ
             animatorManager = GetComponent<AnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
+            inventoryManager = FindObjectOfType<InventoryManager>();
+        }
+
+        void Update()
+        {
+            HandleSorcery();
         }
 
         void LateUpdate()
         {
             HandleActivateSlot();
-            HandleSorcery();
         }
 
         void HandleActivateSlot()
         {
-            if(inventoryData.ikokQty > 1 && playerManager.canSomm) skillTreeManager.westSlot.enabled = true; //Activer le marqueur
-            else skillTreeManager.westSlot.enabled = false;
+            if(inventoryData.ikokQty > 6 && playerManager.canSomm) lefButton.SetActive(true); //Activer le marqueur
+            else lefButton.SetActive(false);
 
-            if(inventoryData.matangoQty > 1 & playerManager.canBaemb) skillTreeManager.eastSlot.enabled = true;//Activer le marqueur
-            else skillTreeManager.eastSlot.enabled = false;//Desactiver le marqueur
+            if(inventoryData.selQty > 2 & playerManager.canBaemb) rightButton.SetActive(true);//Activer le marqueur
+            else rightButton.SetActive(false);//Desactiver le marqueur
             
         }
 
         public void HandleSorcery()
         {         
-            if(skillTreeManager.westSlot.enabled && inputManager.left_input)
+            if(playerManager.canSomm && inputManager.left_input && inventoryData.ikokQty >= 7)
             {
                 if(jiatabodyRenderer[10].material.shader == jiataShaders[3]) return;
                 sLeft = true;
-                HandleSorceryLeftEffect();
-                inventoryData.ikokQty -= 2;
-                
+                HandleSorceryWestEffect();
+                inventoryData.ikokQty -= 7;
             }
 
-            else if(skillTreeManager.eastSlot.enabled && inputManager.right_input)
+            else if(playerManager.canBaemb && inputManager.right_input && inventoryData.selQty >= 3)
             {
+                //Debug.Log("yo");
                 if(jiatabodyRenderer[10].material.shader == jiataShaders[2]) return;
                 sRight = true;
-                HandleSorceryRightEffect();
-                inventoryData.matangoQty -= 2;
+                HandleSorceryEastEffect();
+                inventoryData.selQty -= 3;
             }
+
+            inventoryManager.HandleItemsQty();
         }
 
-        void HandleSorceryLeftEffect()
+        void HandleSorceryWestEffect()
         {
             StartCoroutine(effect());
             
@@ -100,7 +108,7 @@ namespace SJ
 
         }
 
-        void HandleSorceryRightEffect()
+        void HandleSorceryEastEffect()
         {
             StartCoroutine(effect());
             

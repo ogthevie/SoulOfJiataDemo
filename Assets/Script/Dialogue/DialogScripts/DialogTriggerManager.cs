@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using SJ;
-using System;
 
 
 public class DialogTriggerManager : MonoBehaviour
@@ -12,8 +9,10 @@ public class DialogTriggerManager : MonoBehaviour
     public DialogData [] partTwo = new DialogData[5];
     public DialogData [] partThree = new DialogData[5];
     public DialogData [] partFour = new DialogData[5];
+    public DialogData [] partsix = new DialogData[5];
+    public DialogData [] partSeven = new DialogData[5];
     
-    public DialogData[][] partsManager = new DialogData[5][];
+    public DialogData[][] partsManager = new DialogData[8][];
     protected CharacterDialogManager characterDialogManager;
     public  StoryManager storyManager;
     CameraManager cameraManager;
@@ -35,7 +34,7 @@ public class DialogTriggerManager : MonoBehaviour
 
     void Start()
     {
-        dialogUI = GameObject.Find("Player UI").transform.GetChild(2).gameObject;
+        dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
         storyManager = FindObjectOfType<StoryManager>();
     }
 
@@ -46,6 +45,9 @@ public class DialogTriggerManager : MonoBehaviour
         partsManager[2] = partTwo;
         partsManager[3] = partThree;
         partsManager[4] = partFour;
+        partsManager[5] = null;
+        partsManager[6] = partsix;
+        partsManager[7] = partSeven;
     }
     public virtual void OnTriggerEnter(Collider other)
     {

@@ -20,12 +20,13 @@ namespace SJ
     public class InputManager : MonoBehaviour
     {
         PlayerControls playerControls;
-        PlayerAttacker playerAttacker;
+        public PlayerAttacker playerAttacker;
         PlayerManager playerManager;
         CameraManager cameraManager;
         PlayerLocomotion playerLocomotion;
         public StatesCharacterData jiatastats;
-        PlayerStats playerStats;
+        public PlayerStats playerStats;
+        public SkillTreeManager skillTreeManager;
 
         #region variables
         public Vector2 movementInput;
@@ -56,6 +57,7 @@ namespace SJ
         public bool right_menu_input;
         public bool left_Stick_input;
         public bool start_input;
+        public bool select_input;
 
         float magicInputTimer;
 
@@ -91,6 +93,7 @@ namespace SJ
             playerManager = GetComponent<PlayerManager>();
             cameraManager = FindObjectOfType<CameraManager>();
             playerStats = GetComponent<PlayerStats>();
+            skillTreeManager = FindObjectOfType<SkillTreeManager>();
             playerManager.haveGauntlet = false;
         }
         
@@ -115,7 +118,9 @@ namespace SJ
                 playerControls.PlayerMovement.InventoryMovementLeft.performed += i => left_input =  true;
                 playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input =  true;
                 playerControls.PlayerMovement.InventoryMovementDown.performed += i => down_input =  true;
-                playerControls.PlayerActions.OnPause.performed += i => start_input = true;
+                //playerControls.PlayerActions.OnPause.performed += i => start_input = true;
+                playerControls.PlayerActions.Option.performed += i => select_input = true;
+
                 playerControls.PlayerMovement.NavigateLeftMenu.performed += i => left_menu_input = true;
                 playerControls.PlayerMovement.NavigateRightMenu.performed += i => right_menu_input = true;
 
@@ -144,8 +149,7 @@ namespace SJ
 
         public void TickInput(float delta)
         {
-            HandleDisablePauseMenu();
-            HandleEnablePauseMenu();
+            HandleEnableOptionMenu();
 
             if(Time.timeScale == 0f)
                 return;
@@ -188,8 +192,7 @@ namespace SJ
         }
         private void HandleAttackInput(float delta)
         {
-            if(playerManager.onPause) return;
-            
+           
             //playerControls.PlayerActions.LowAttack.performed += i => lowAttack_input = true;
             //playerControls.PlayerActions.HighAttack.performed += i => highAttack_input = true;
 
@@ -260,6 +263,7 @@ namespace SJ
                 {
                     cameraManager.currentLockOnTarget = cameraManager.nearestLockOnTarget;
                     lockOnFlag = true;
+                    playerAttacker.PlayEffectLitubaFx();
                 }
             }
             else if(lockOn_input && lockOnFlag)
@@ -268,6 +272,8 @@ namespace SJ
                 lockOnFlag = false;
                 cameraManager.ClearLockOnTargets();
             }
+
+            skillTreeManager.HandleSkillTreeUI(lockOnFlag);
 
             if (lockOnFlag && right_Stick_Left_input)
             {
@@ -365,17 +371,10 @@ namespace SJ
             else InteractFlag = false;
         }
 
-        private void HandleEnablePauseMenu()
+        private void HandleEnableOptionMenu()
         {
-            if(start_input && !playerManager.onPause)
-                playerManager.onPause = true;
-        }
-        private void HandleDisablePauseMenu()
-        {
-            if(playerManager.onPause)
-            {
-                if(south_input) playerManager.onPause = false;
-            }
+            if(select_input && !playerManager.onOption) playerManager.onOption = true;
+            else if(select_input && playerManager.onOption) playerManager.onOption = false;
         }
     }
 }

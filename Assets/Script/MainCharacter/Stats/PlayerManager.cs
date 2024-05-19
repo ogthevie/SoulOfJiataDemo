@@ -12,35 +12,28 @@ namespace SJ
         InputManager inputManager;
         Animator anim;
         AnimatorManager animatorManager;
-        PlayerLocomotion playerLocomotion;
+        public PlayerLocomotion playerLocomotion;
         CameraManager cameraManager;
-        PlayerStats playerStats;
+        public PlayerStats playerStats;
         PlayerAttacker playerAttacker;
         public SkillTreeManager skillTreeManager;
 
         //public GameObject magnetiFX;
-        public GameObject pauseMenu;
+        public GameObject optionMenu;
 
         public GameObject dialogUI;
-        public GameObject brassardG, brassardL, brasG, brasL, mask, maskEye;
+        public GameObject brassardL, brasL, mask, maskEye;
 
         [SerializeField] GameObject deadUI;
         public Transform lockOnTransform;
-        public bool isDead;
-        public bool takeDamage;
-        public bool isInteracting;
+        public bool isDead, takeDamage, isInteracting;
 
         [Header("Player flags")]
-        public bool isSprinting;
-        public bool isInAir;
-        public bool isGrounded;
-        public bool canAttack;
+        public bool isSprinting, isInAir, isGrounded, canAttack;
         public bool haveGauntlet, haveMask, canArcLight, canThunder;
-        public bool canBaemb, canSomm, canDest, canPur;
+        public bool canBaemb, canSomm;
         public bool canDoCombo;
-        public bool onPause;
-        public bool onTutoScreen;
-        public bool canPass;
+        public bool onOption, onTutoScreen, canPass;
 
 
         private void Awake()
@@ -49,9 +42,7 @@ namespace SJ
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
-            //pauseMenu = FindObjectOfType<PauseMenuManager>().gameObject;
-            dialogUI = FindObjectOfType<PlayerUIManager>().transform.GetChild(2).gameObject;
- 
+
         }
 
         public void Start() 
@@ -62,9 +53,8 @@ namespace SJ
             animatorManager = GetComponent<AnimatorManager>();
             isDead = false;
             playerStats = GetComponent<PlayerStats>();
-            pauseMenu.SetActive(false);
+            optionMenu.SetActive(false);
             dialogUI.SetActive(false);
-            //onPause = false;
             
             HandleSurchargeBrassard();
             HandleMask();
@@ -93,15 +83,15 @@ namespace SJ
             playerLocomotion.HandleFootStep();
             playerStats.HandleReloadStamina(delta);
             playerStats.HandleEndurance();
-            HandlePauseMenu();
+            HandleOptionMenu();
             playerAttacker.HandleSorceryPad();
 
 #if UNITY_EDITOR
             developerModeManager.HandleInstantiateVases();
             developerModeManager.HandleInstantiateTolols();
             developerModeManager.HandleStats();
-            //developerModeManager.LoadSave();
-            //developerModeManager.ResetSave();
+            developerModeManager.LoadSave();
+            developerModeManager.ResetSave();
             developerModeManager.HandleInstantiateKossi();
             //developerModeManager.HandleInstantiateKossiKaze();
 #endif
@@ -145,6 +135,7 @@ namespace SJ
             inputManager.down_input = false;
 
             inputManager.start_input = false;
+            inputManager.select_input = false;
             inputManager.left_menu_input = false;
             inputManager.right_menu_input = false;
 
@@ -181,11 +172,18 @@ namespace SJ
             Destroy(magnetiFXClone, 1.5f);
         }*/
 
-        public void HandlePauseMenu()
+        public void HandleOptionMenu()
         {
-            if(onPause && !isInteracting) pauseMenu.SetActive(true);
-            else pauseMenu.SetActive(false);
-
+            if(onOption && !isInteracting)
+            {
+                Time.timeScale = 0;
+                optionMenu.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                optionMenu.SetActive(false);                
+            }           
         }
 
         public void HandleBoolTakeDamage()

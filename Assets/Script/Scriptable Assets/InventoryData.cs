@@ -7,6 +7,6 @@ public class InventoryData : ScriptableObject
 
 {
     public int ikokQty;
-    public int matangoQty;
+    public int selQty;
 
 }

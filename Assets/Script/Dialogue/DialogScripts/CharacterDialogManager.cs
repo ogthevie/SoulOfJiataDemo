@@ -30,9 +30,9 @@ public class CharacterDialogManager : MonoBehaviour
 
     protected void Start()
     {
-        GameObject playerUI = GameObject.Find("Player UI");
-        actorName = playerUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        actorSentence = playerUI.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        GameObject playerUI = GameObject.Find("PlayerUI");
+        actorName = playerUI.transform.GetChild(7).GetChild(0).GetComponent<TextMeshProUGUI>();
+        actorSentence = playerUI.transform.GetChild(7).GetChild(1).GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -63,10 +63,10 @@ public class CharacterDialogManager : MonoBehaviour
     public virtual void CloseDialogue()
     {
         dialogTriggerManager.EndDialogue();
-        playerUIManager.ShowUI();
         canDialog = false;
         animatorManager.animationState = true;
         characterAnimator.SetBool("animState", false);
+        playerUIManager.ShowUI();
     }
 
     public virtual void nextFirstDialogue(int k, DialogData[] characterDialogData)
@@ -79,7 +79,7 @@ public class CharacterDialogManager : MonoBehaviour
             i++;
             if(i >= characterDialogData[k].firstConversation.Count)
             {
-                Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
+                //Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
                 i = 0;
                 CloseDialogue();
                 FindObjectOfType<GameManager>().GlobalFixedCursorPosition();

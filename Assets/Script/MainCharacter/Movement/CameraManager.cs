@@ -32,15 +32,12 @@ namespace SJ
         readonly float minimumPivot = -5f;
         public float maximumPivot = 90;
 
-        public float cameraSphereRadius = 0.2f;
-        public readonly float cameraCollisionOffset = 0.2f; //De combien la camera sera décalé en cas de collision
-        public float minimumCollisionOffset = 0.1f;
+        public readonly float cameraSphereRadius = 0.5f;
+        public readonly float cameraCollisionOffset = 1.5f; //De combien la camera sera décalé en cas de collision
+        public readonly float minimumCollisionOffset = 1.1f;
         public float lockedPivotPosition = 2.25f;
         public float unlockedPivotPosition = 1.65f;
-
-
         public EnemyManager currentLockOnTarget;
-
         public List<EnemyManager>availableTargets = new();
         public float maximumLockOnDistance = 30;
         public EnemyManager nearestLockOnTarget;
@@ -160,7 +157,7 @@ namespace SJ
             float shortesDistanceOfLeftTarget = -Mathf.Infinity;
             float shortesDistanceOfRightTarget = Mathf.Infinity;
 
-            Collider[] colliders = Physics.OverlapSphere(targetTransform.position, 26);
+            Collider[] colliders = Physics.OverlapSphere(targetTransform.position, 40);
 
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -177,7 +174,7 @@ namespace SJ
                     {
                         if(Physics.Linecast(playerManager.lockOnTransform.position, enemy.lockOnTransform.position, out hit))
                         {
-                            Debug.DrawLine(playerManager.lockOnTransform.position, enemy.lockOnTransform.position);
+                            //Debug.DrawLine(playerManager.lockOnTransform.position, enemy.lockOnTransform.position);
 
                             if(hit.transform.gameObject.layer == environmentLayer)
                             {
@@ -227,6 +224,7 @@ namespace SJ
             availableTargets.Clear();
             nearestLockOnTarget = null;
             currentLockOnTarget = null;
+            myTransform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         public void DestroyLockOntargets()
@@ -236,7 +234,8 @@ namespace SJ
                 inputManager.lockOnFlag = false;
                 availableTargets.Clear();
                 nearestLockOnTarget = null;
-                currentLockOnTarget = null;         
+                currentLockOnTarget = null;
+                if(!inputManager.playerStats.stateJiataData.isIndomitable) inputManager.playerAttacker.StopEffectLitubaxFx();         
             }
         }
         public void SetCameraHeight()

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: NLOMGAN 10123
+  m_EditorClassIdentifier: 
+  characterName: NLOMGAN
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Bonjour mon fils, je t'ai cherch\xE9 toute la journ\xE9e"
+  - Bonjour Poa, comment tu vas ?
+  - "Tu sais mon fils, \xE0 mon \xE2ge, ce sont des questions qui ne posent plus,
+    on attend calmement le moment de rejoindre la terre de nos anc\xEAtres."
+  - "Ne parle pas comme \xE7a Poa..."
+  - "Ne t\u2019inqui\xE8te pas, j\u2019ai encore 2, 3 ann\xE9es devant moi, ce n\u2019est
+    pas si mal vu mon \xE2ge. Mais bon, passons, je vois du doute dans tes yeux,
+    c\u2019est par rapport \xE0 la mission dont tu t\u2019es investie."
+  - "J'ai l'impression de ne pas \xEAtre \xE0 la hauteur. Je regarde Isamal et je
+    me sens si faible. Ma ma\xEEtrise de la sorcellerie est si... rudimentaire"
+  - "Ton p\xE8re et moi quand nous \xE9tions plus jeunes, on vous ressemblait un
+    peu. J'\xE9tais un peu \xE0 la ramasse mais tu vois maintenant, je ne suis pas
+    si mauvais que \xE7a."
+  - Si vous le dites.
+  - "Concernant ta ma\xEEtrise, je suis heureux que le d\xE9sir vienne de toi, \xE7a
+    facilitera la compr\xE9hension de ce que je vais te dire maintenant."
+  - "Je suis tout ou\xEFe Poa"
+  - Sur ta main droite, tu sais ce que tu portes ?
+  - "C'est le brassard de mon p\xE8re. Ma m\xE8re me l'a donn\xE9 avant de mourir.
+    Elle m'a dit qu'il \xE9tait important pour notre famille."
+  - Et tu sais ce que cette transmission implique ?
+  - "Je ne me suis jamais pos\xE9 la question mais dans une mythologie nkana , il
+    y a une divinit\xE9 qui poss\xE8de un marteau qui lui permet de canaliser sa
+    magie de la foudre. Je suppose que c\u2019est un peu le m\xEAme fonctionnement
+    pour ce brassard."
+  - "Ce brassard est bien plus qu'un simple objet, Jeune Tam. C'est une m\xE9moire,
+    un lien avec tes anc\xEAtres et leur savoir. Ton p\xE8re y a transmis une partie
+    de sa puissance, et toi, tu as invoqu\xE9 KWALLON WUTA sans m\xEAme t'en rendre
+    compte."
+  - "Comment vous connaissez le nom de ma technique ? Je ne vous ai jamais dit comment
+    elle s\u2019appelle !"
+  - "Tout simplement parce que ton p\xE8re l\u2019a utilis\xE9 \xE0 maintes reprises
+    devant moi, c\u2019est lui qui l\u2019a mise au point puis nomm\xE9e. Toi tu
+    n\u2019as fait que te souvenir sans t\u2019en rendre compte."
+  - Dingue !
+  - "Et je sais que tu n\u2019es pas capable de lancer un autre sortil\xE8ge que
+    celui-l\xE0."
+  - "Oui, mais si c\u2019est juste une affaire de m\xE9moire, pourquoi je n\u2019arrive
+    pas \xE0 me souvenir des autres sortil\xE8ges ?"
+  - "Parce que ta m\xE9moire est incompl\xE8te."
+  - "C\u2019est \xE0 dire ?"
+  - "Tam poss\xE9dait deux brassards, mais apr\xE8s sa mort, nous n\u2019avons pu
+    r\xE9cup\xE9rer qu\u2019un seul. Nous avons longtemps cherch\xE9 le deuxi\xE8me
+    sans jamais le retrouver. Si tu arrives \xE0 mettre la main dessus, soit s\xFBr
+    que tu ne seras jamais plus comme avant."
+  - "Rien que \xE7a... Mais vous venez de dire que vous n\u2019avez aucune id\xE9e
+    de son emplacement. Comment moi, pourrais-je mettre la main dessus ?"
+  - "Pr\xE9sente-toi devant l\u2019HOMME DANS LA PIERRE. Il sait tout sur tout."
+  - "Je suis d\xE9j\xE0 pass\xE9 plusieurs fois devant lui. Je ne savais pas qu\u2019il
+    pouvait parler."
+  - "Et pourtant c\u2019est bel et bien un \xEAtre comme toi et moi."
+  - Comment faire ?
+  - Comme tu fais avec moi maintenant.
+  - Je vais donc essayer.

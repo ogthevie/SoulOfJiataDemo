@@ -403,6 +403,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option"",
+                    ""type"": ""Button"",
+                    ""id"": ""86b57cba-abe8-4837-9a11-5d314eadac90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -502,6 +511,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8301bd5b-4c21-4767-8dd6-ac57ead01de4"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Option"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -681,6 +701,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerActions_UseMagic = m_PlayerActions.FindAction("UseMagic", throwIfNotFound: true);
         m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
         m_PlayerActions_OnPause = m_PlayerActions.FindAction("OnPause", throwIfNotFound: true);
+        m_PlayerActions_Option = m_PlayerActions.FindAction("Option", throwIfNotFound: true);
         // DevMode
         m_DevMode = asset.FindActionMap("DevMode", throwIfNotFound: true);
         m_DevMode_AddVases = m_DevMode.FindAction("AddVases", throwIfNotFound: true);
@@ -878,6 +899,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_UseMagic;
     private readonly InputAction m_PlayerActions_Interact;
     private readonly InputAction m_PlayerActions_OnPause;
+    private readonly InputAction m_PlayerActions_Option;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -891,6 +913,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @UseMagic => m_Wrapper.m_PlayerActions_UseMagic;
         public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
         public InputAction @OnPause => m_Wrapper.m_PlayerActions_OnPause;
+        public InputAction @Option => m_Wrapper.m_PlayerActions_Option;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -927,6 +950,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OnPause.started += instance.OnOnPause;
             @OnPause.performed += instance.OnOnPause;
             @OnPause.canceled += instance.OnOnPause;
+            @Option.started += instance.OnOption;
+            @Option.performed += instance.OnOption;
+            @Option.canceled += instance.OnOption;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -958,6 +984,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OnPause.started -= instance.OnOnPause;
             @OnPause.performed -= instance.OnOnPause;
             @OnPause.canceled -= instance.OnOnPause;
+            @Option.started -= instance.OnOption;
+            @Option.performed -= instance.OnOption;
+            @Option.canceled -= instance.OnOption;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -1093,6 +1122,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnUseMagic(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnOnPause(InputAction.CallbackContext context);
+        void OnOption(InputAction.CallbackContext context);
     }
     public interface IDevModeActions
     {

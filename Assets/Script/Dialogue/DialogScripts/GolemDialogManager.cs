@@ -13,6 +13,7 @@ public class GolemDialogManager : CharacterDialogManager
     {
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = inputManager.GetComponent<AnimatorManager>();
+        playerUIManager = FindObjectOfType<PlayerUIManager>();
         golemTriggerManager = GetComponent<GolemTriggerManager>();
         storyManager = FindObjectOfType<StoryManager>();
         golemEventManager = GetComponent<GolemEventManager>();
@@ -49,14 +50,15 @@ public class GolemDialogManager : CharacterDialogManager
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
+            inputManager.InteractFlag = false;
             i++;
             if(i >= characterDialogData[k].firstConversation.Count)
             {
                 i = 0;
                 CloseDialogue();
-                if(storyManager.storyStep == 2)
+                if(storyManager.storyStep == 6)
                 {
-                    StartCoroutine(golemEventManager.golemAchievement());
+                    StartCoroutine(golemEventManager.BridgeEvent());
                 }
             }
         }

@@ -29,8 +29,8 @@ public class LoadScene : MonoBehaviour
     public IEnumerator StartLoadingScene()
     {     
         gameManager.loadSlider.fillAmount = 0;
-        gameManager.loadingScreen.enabled = true;
         sceneAudiosource.Stop();
+        gameManager.loadingScreen.enabled = true;
         yield return new WaitForSeconds(0.15f);
         gameManager.LoadScene(sceneName);
     }

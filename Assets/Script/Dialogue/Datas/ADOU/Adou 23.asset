@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Adou 23
+  m_EditorClassIdentifier: 
+  characterName: Adou
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Je n'a toujours rien trouv\xE9. C'est plus dur que pr\xE9vu"
+  - Ce serait plus efficace si tu plonges.
+  - "Quand les peuples de la for\xEAt, de la montagne, de l'eau se sont divis\xE9s
+    le royaume de KABWANDU, ils ont pass\xE9 un pacte dans lequel il est dit que
+    tout les cours d'eau du royaume \xE9taient le domaine du peuple de l'eau, ISANGO"
+  - Qu'est ce que cela implique dans notre cas de figure avec Lempoy ?
+  - "Bah on a pas l'autorisation de mettre un pied dans l'eau sans l'autorisation
+    d'isango. D'apr\xE8s ce qu'on dit, si tu transgresses volontairement cette loi,
+    les mami watta vont te d\xE9vorer"
+  - Bizarre...
+  - C'est la tradition mon gars, on fait avec

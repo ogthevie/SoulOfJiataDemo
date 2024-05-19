@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Homm 10
   m_EditorClassIdentifier: 
-  characterName: Isamal
+  characterName: Homm
   mainCharacterName: Ruben
   firstConversation:
-  - "Un jour je regardais la pierre dont le coeur est \xE9teint et je suis s\xFBr
-    que le temps d\u2019une fraction de seconde, une lumi\xE8re violette a \xE9man\xE9
-    des inscriptions. C\u2019est pour \xE7a que je viens r\xE9guli\xE8rement ici
-    car je suis s\xFBr que je n\u2019avais pas r\xEAv\xE9"
+  - "Un jour je regardais Cette pierre dont le coeur est \xE9teint et je suis s\xFBr
+    que le temps d\u2019une fraction de seconde, une lumi\xE8re a \xE9man\xE9 des
+    fissures. C\u2019est pour \xE7a que je viens r\xE9guli\xE8rement ici car je suis
+    s\xFBr que je n\u2019avais pas r\xEAv\xE9"

@@ -5,6 +5,7 @@ public abstract class DoorManager : MonoBehaviour
     public RuneData runeData;
     public AudioSource doorAudioSource;
     protected GameSaveManager gameSaveManager;
+    protected StoryManager storyManager;
     protected DoorType doorType = new DoorType();
     public Vector3 openPosition;
     public Vector3 stopPosition;

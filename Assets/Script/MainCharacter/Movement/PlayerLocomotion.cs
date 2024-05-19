@@ -36,7 +36,7 @@ namespace SJ
         Vector3 normalVector;
         Vector3 targetPosition;
         Vector3 checkGroundPosition =  new Vector3 (0, 0.5f, 0);
-        Vector3 interactbox = new (1f, 0.5f, 0.5f);
+        Vector3 interactbox = new (0.6f, 0.25f, 0.25f);
         public bool jumpFlag;
         
         public float speed;
@@ -46,7 +46,7 @@ namespace SJ
         [SerializeField] float rotationSpeed = 8f;
         [SerializeField] float fallingSpeed = 800f;
         [SerializeField] GameObject originGym;
-        [SerializeField] bool canGym;
+        public bool canGym, isFlipping;
         #endregion
 
         
@@ -71,6 +71,7 @@ namespace SJ
             movementSpeed = 6f;
             walkSpeed = 2f;
             sprintSpeed = 11f;
+            isFlipping = false;
 
             playerManager.isGrounded = true;
             ignoreForGroundCheck = ~(1 << 8 | 1 << 6);
@@ -113,6 +114,7 @@ namespace SJ
             }
             else
             {
+                walkSpeed = 2f;
                 Vector3 targetDir = Vector3.zero;
                 float moveOverride = inputManager.moveAmount;
 
@@ -226,8 +228,14 @@ namespace SJ
                     moveDirection.y = 0;
                     Quaternion flipRotation = Quaternion.LookRotation(moveDirection);
                     myTransform.rotation = flipRotation;
+                    isFlipping = true;
                 }                
             }
+        }
+
+        public void DisableFlip()
+        {
+            isFlipping = false;
         }
         
         public void HandleFalling(float delta, Vector3 moveDirection)
@@ -337,8 +345,10 @@ namespace SJ
 
             if(inputManager.lb_input)
                 return;
+
+            if(!playerManager.onOption) return;
                 
-            if(inputManager.south_input && !playerManager.onPause)
+            if(inputManager.south_input)
             {
                 if(inputManager.moveAmount > 0)
                 {

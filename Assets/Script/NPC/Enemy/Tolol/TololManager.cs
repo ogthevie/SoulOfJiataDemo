@@ -11,7 +11,6 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
     EnemyHealthBar enemyHealthBar;
     public GameObject tololHealthBar;
     public GameObject epeeTolol;
-    PlayerAttacker playerAttacker;
     public bool isPreformingAction;
     public float maximumDetectionAngle = 180;
     public float minimumDetectionAngle = -120;
@@ -86,12 +85,12 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
 
     protected override void HandleDeath()
     {
-
         if(isDead) 
         {
             Destroy(epeeTolol);
             Destroy(tololHealthBar);
             tololAudioManager.ReadDead();
+            LoadConsumable(consumable);
         }
         base.HandleDeath();
     }

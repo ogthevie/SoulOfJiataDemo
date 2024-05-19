@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Kossi 73
+  m_EditorClassIdentifier: 
+  characterName: Isamal
+  mainCharacterName: Ruben
+  firstConversation:
+  - "On dirait que tu as r\xE9ussi Ruben !"
+  - l'HOMME DANS LA PIERRE est vraiment surprenant ! On dirait qu'il a restaurer
+    le pont de Lempoy
+  - "Oui, j'\xE9tais \xE0 c\xF4t\xE9 du lac quand le tremblement s'est fait ressentir.
+    Les blocs de l'ancien pont on refait surface de l'eau et se sont soud\xE9s les
+    uns et aux autres pour former ce nouveau pont."
+  - Fascinant...
+  - "Ah \xE7a... On dirait bien qu'on a plus aucune raison d'entamer notre voyage
+    \xE0 travers le royaume de Kabwandu"
+  - Oui, je suis devenu suffisamment fort pour braver n'importe quelle menace qu'on
+    croisera sur notre chemin
+  - Bien, allons-y !

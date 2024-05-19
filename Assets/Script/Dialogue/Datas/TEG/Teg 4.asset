@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Teg 4
+  m_EditorClassIdentifier: 
+  characterName: TEG
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Tu y es arriv\xE9. Tu as pu te souvenir de Nson"
+  - Quel est cette puissance, j'ai l'impression que je peux faire descendre la foudre
+  - Ce n'est pas une impression, c'est Nson !
+  - "Wouah, c'est aussi vous qui l'avez cr\xE9\xE9 ?"
+  - "Non, tout comme toi, je m'en suis souvenu. Mais la l\xE9gende veut qu'il existait
+    d\xE9j\xE0 bien avant la naissance du premier homme Lituba."
+  - Impressionant
+  - Utilise-le uniquement pour servir de bonnes intentions, sinon il se retournera
+    contre toi
+  - euh...ok
+  - ...
+  - "Un probl\xE8me ?"
+  - "Cet autel \xE9tait cens\xE9 dispara\xEEtre pour laisser appara\xEEtre un portail
+    pour te permettre de sortir d'ici. Mais rien ne se passe. Tu as pourtant rempli
+    ce pourquoi tu es entr\xE9 ici."
+  - Pas vraiment ?
+  - "Que veux-tu dire ? ce n'est pas les brassards qui t'ont fait p\xE9n\xE9trer
+    ici ?"
+  - "Oui...et non. Avant d'entrer ici,  je devais voir une cr\xE9ature magique qu'on
+    appelle l'HOMME DANS LA PIERRE, c'est elle qui devait me guider pour mettre la
+    main sur le second brassard . Mais maintenant que je les ai, il ne me reste plus
+    qu'\xE0 r\xE9cup\xE9rer la relique dont je vous ai parl\xE9 au tout d\xE9but."
+  - "Je crois savoir o\xF9 elle se trouve."
+  - "Ah bon ? o\xF9 \xE7a ?"
+  - "Cet autel. je comprends pourquoi il ne disparait pas. il a autre chose \xE0
+    offrir et c'est probablement la relique que tu cherches."
+  - "Comment suis-je cens\xE9 la faire appara\xEEtre ?"
+  - "je t'ai observ\xE9. A un moment donn\xE9 tu as fait brill\xE9 une pierre d'un
+    \xE9clat orang\xE9. Comme pour l'\xE9clat vert et Nson, je crois que cet autre
+    \xE9clat et la relique sont li\xE9s. J'esp\xE8re que tu as retenu les positions
+    des huit pierres.."
+  - "Si je les fais une fois, rien ne m'emp\xEAche de le refaire."

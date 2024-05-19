@@ -1,11 +1,10 @@
 using UnityEngine;
 using DG.Tweening;
-using SJ;
 
 public class PlayerUIManager : MonoBehaviour
 {
 
-    public GameObject playerStatsUi, radarUI, radarBG;
+    public GameObject playerStatsUi, padUI;
 
     void Awake()
     {
@@ -20,34 +19,22 @@ public class PlayerUIManager : MonoBehaviour
                 }
             }
             DontDestroyOnLoad(this.gameObject);
-    } 
+    }
 
     void Start()
     {
-        playerStatsUi = transform.GetChild(0).gameObject;
-        radarBG = transform.GetChild(5).gameObject;
-        radarUI = transform.GetChild(6).gameObject;
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public void HiddenUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-150, 0.4f, false);
-        
-        if(radarUI.activeSelf)
-        {
-            radarBG.GetComponent<RectTransform>().DOAnchorPosX(90, 0.4f, false);
-            radarUI.GetComponent<RectTransform>().DOAnchorPosX(90, 0.4f, false);
-        }
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-200, 0.4f, false);
+        padUI.GetComponent<RectTransform>().DOAnchorPosX(250f, 0.4f, false);
     }
 
     public void ShowUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(130, 0.4f, false);
-        
-        if(radarUI.activeSelf)
-        {
-            radarBG.GetComponent<RectTransform>().DOAnchorPosX(-90, 0.4f, false);
-            radarUI.GetComponent<RectTransform>().DOAnchorPosX(-90, 0.4f, false);
-        }
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(160, 0.4f, false);
+        padUI.GetComponent<RectTransform>().DOAnchorPosX(-180f, 0.4f, false);
     }
 }
