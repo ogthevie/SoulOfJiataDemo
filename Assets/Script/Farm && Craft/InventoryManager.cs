@@ -7,20 +7,21 @@ namespace SJ
     {
         InputManager inputManager;
         AudioManager audioManager;
-        PlayerManager playerManager;
         PlayerStats playerStats;
-        public ConsumableData ikokData, matangoData;
+        PlayerManager playerManager;
+        public ConsumableData ikokData, selData;
         public InventoryData inventory;
-        public TextMeshProUGUI ikokQty, matangoQty;
+        public TextMeshProUGUI ikokQty, selQty;
 
         void Start()
         {
             inputManager = FindObjectOfType<InputManager>();
             playerStats = inputManager.GetComponent<PlayerStats>();
+            playerManager = inputManager.GetComponent<PlayerManager>();
             audioManager = inputManager.GetComponent<AudioManager>();
             HandleItemsQty();
         }
-
+       
         void LateUpdate()
         {
             HandleImproveQty();
@@ -29,11 +30,13 @@ namespace SJ
         public void HandleItemsQty()
         {
             ikokQty.text = inventory.ikokQty.ToString();
-            matangoQty.text = inventory.matangoQty.ToString();            
+            selQty.text = inventory.selQty.ToString();            
         }
 
         public void HandleImproveQty()
         {
+            if(playerManager.onOption) return;
+
             if(inputManager.up_input) 
             {
                 if(playerStats.currentHealth == playerStats.maxHealth || inventory.ikokQty < 1) audioManager.ImpossibleChoiceFx();
@@ -47,11 +50,11 @@ namespace SJ
             }
             else if(inputManager.down_input)
             {
-                if(playerStats.currentStamina == playerStats.maxStamina || inventory.matangoQty < 1) audioManager.ImpossibleChoiceFx();
+                if(playerStats.currentStamina == playerStats.maxStamina || inventory.selQty < 1) audioManager.ImpossibleChoiceFx();
                 else
                 {
-                    playerStats.AddStamina(matangoData.StaminaPoint);
-                    inventory.matangoQty -= 1;
+                    playerStats.AddStamina(selData.StaminaPoint);
+                    inventory.selQty -= 1;
                     HandleItemsQty(); 
                 }
                

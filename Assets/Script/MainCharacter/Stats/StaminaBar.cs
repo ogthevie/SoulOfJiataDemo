@@ -21,7 +21,7 @@ namespace SJ
 
         public void SetCurrentStamina(int currentStamina)
         {
-            slider.DOValue(currentStamina, 0.1f, false);
+            slider.DOValue(currentStamina, 0.15f, false);
         }
     }
 

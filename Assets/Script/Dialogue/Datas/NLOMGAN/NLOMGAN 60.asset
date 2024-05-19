@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: NLOMGAN 60
+  m_EditorClassIdentifier: 
+  characterName: NLOMGAN
+  mainCharacterName: Ruben
+  firstConversation:
+  - "oooh, Que vois-je ? le second brassard ! Tu es peut-\xEAtre le sorcier v\xE9ritable
+    que tu pensais \xEAtre..."
+  - "J'aurai d\xFB entrer dans cette grotte depuis. Figurez-vous que j'ai crois\xE9
+    un de mes anc\xEAtres \xE0 l'int\xE9rieur."
+  - "Cet anc\xEAtre... est ce qu'il s'appelle TEG ?"
+  - "Comment vous avez devin\xE9 ? c'est bien lui !"
+  - "Et bien, c'est le p\xE8re de ton p\xE8re et moi. ll est aussi le fondateur de
+    ce village. C'\xE9tait un puissant f\xE9ticheur connu dans tout le pays Lituba.
+    Pas surprenant que tu sois ressorti transcend\xE9 de cette grotte."
+  - "C'est quoi un f\xE9ticheur ?"
+  - "Un f\xE9ticheur est cet Homme qui a une connaissance inn\xE9e des arts mystiques,
+    lui permettant ainsi de cr\xE9er des gris-gris, des sorts \xE0 volont\xE9. La
+    diff\xE9rence entre un f\xE9ticheur et un sorcier comme toi et moi est que nous
+    sommes limit\xE9s \xE0 ce que nous avons appris et \xE0 la branche \xE0 laquelle
+    nous appartenons"
+  - "Alors que le f\xE9ticheur est totalement impr\xE9visible, il peut se permettrre
+    de sauter de branche en branche"
+  - C'est exactement cela.
+  - "Comment devient-on f\xE9ticheur ?"
+  - "Malheureusement, c'est un don. Comme je l'ai dit. si tu n'as pas cette connaissance
+    inn\xE9e des arts, tu ne peux pas te d\xE9crire comme f\xE9ticheur."
+  - Je n'ai donc pas d'autre choix de devenir un sorcier encore plus puissant.
+  - "Oui...mais au moins maintenant tu es un sorcier \xE0 part entier \xEAtre. C'est
+    d\xE9j\xE0 \xE7a."

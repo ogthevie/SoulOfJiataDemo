@@ -70,7 +70,7 @@ public class TololPattern : MonoBehaviour
         {
             PlayerManager playerManager = colliders[i].transform.GetComponentInParent<PlayerManager>();
 
-            if(playerManager != null && !statesJiataData.isHidden)
+            if(playerManager != null)
             {
                 Vector3 targetDirection = playerManager.transform.position - transform.position;
                 float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
@@ -136,21 +136,10 @@ public class TololPattern : MonoBehaviour
 
     public void HandleStopChase()
     {
-        if(statesJiataData.isHidden) //distanceFromTarget >= maxDistanceFromTarget ||   -- xa peut etre utile
+        if(currentTarget == null)
         {
-            currentTarget = null;
-            tololAnimatorManager.anim.SetFloat("vertical", 0);
-            tololManager.isPreformingAction = true;
-            agentTolol.enabled = false;
-            collidertolol.enabled = false;
-        }
-        else
-        {
-            if(currentTarget == null)
-            {
-                currentTarget = FindObjectOfType<PlayerManager>();
-                tololManager.isPreformingAction = false;
-            }
+            currentTarget = FindObjectOfType<PlayerManager>();
+            tololManager.isPreformingAction = false;
         }
     }
 
@@ -174,12 +163,14 @@ public class TololPattern : MonoBehaviour
     public void UpdateHitting()
     {
         playerAttacker.isHit = false;
+        CloseHitBox();
     }
 
     public void UpdateState()
     {
         tololAnimatorManager.anim.SetBool("canAttack", true);
         tololAnimatorManager.anim.SetBool("isACHit", false);
+        UpdateHitting();
         playerAttacker.isTargetHit = false;
     }
 

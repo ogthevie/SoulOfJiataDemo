@@ -12,6 +12,8 @@ public abstract class EnemyManager : MonoBehaviour
     public int currentHealth;
     public GameObject enemyExplosion;
     public SkinnedMeshRenderer skinnedMeshRenderer;
+    protected PlayerAttacker playerAttacker;
+    [SerializeField]protected GameObject consumable;
 
 
     public abstract void TakeDamage(int damage);
@@ -25,6 +27,13 @@ public abstract class EnemyManager : MonoBehaviour
             cameraManager.ClearLockOnTargets();
             Destroy(this.gameObject);
         }
+    }
+
+    public virtual void LoadConsumable(GameObject consumable)
+    {
+        {
+            GameObject visuals = Instantiate(consumable, this.gameObject.transform.position, Quaternion.identity);
+        }        
     }
     
 }

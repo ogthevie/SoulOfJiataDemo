@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class BoardManager : MonoBehaviour
+{
+    [SerializeField] GameObject boardUi, playerUi;
+    [SerializeField] string description;
+    PlayerUIManager playerUIManager;
+    
+    void Awake()
+    {
+        playerUi = GameObject.Find("PlayerUI");
+        playerUIManager = FindObjectOfType<PlayerUIManager>();
+        boardUi = playerUi.transform.GetChild(8).gameObject;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 3 && !boardUi.activeSelf)
+        {
+            StartCoroutine(ShowDescription());
+        }        
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.layer == 3 && boardUi.activeSelf)
+        {
+            boardUi.SetActive(false);
+            playerUIManager.ShowUI();
+        }        
+    }
+
+    IEnumerator ShowDescription()
+    {
+        playerUIManager.HiddenUI();
+        boardUi.SetActive(true);
+        boardUi.GetComponentInChildren<TextMeshProUGUI>().text = description;
+        yield return new WaitForSeconds(4f);
+        if(boardUi.activeSelf)
+        {
+            boardUi.SetActive(false);
+            playerUIManager.ShowUI();
+        }
+
+    }
+}

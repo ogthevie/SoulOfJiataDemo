@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Teg 30
+  m_EditorClassIdentifier: 
+  characterName: TEG
+  mainCharacterName: Ruben
+  firstConversation:
+  - Hm...
+  - "C'est moi qui vous ai invoqu\xE9 ?"
+  - "On dirait bien, je vois que tu poss\xE8des les deux brassards et en juger la
+    teinte de tes yeux, tu es un de mes descendants. Dis-moi, comment tu t'appelles
+    ?"
+  - Ruben... Ruben Jiata
+  - "Je m'en doutais bien. jiata c'est un nom de Lituba \xE7a."
+  - Et vous ? quel est votre nom ?
+  - "Oooh moi ? de mon vivant on m'appelait Bomboktan. C'est vrai que je ne porte
+    pas Jiata comme nom de famille mais je suis ton anc\xEAtre."
+  - "Comment vous pouvez-en \xEAtre si s\xFBr. Les yeux verts ne sont pas une marque
+    de fabrique de ma famille. plein de gens en Lituba ont cette teinte."
+  - "Je le sais car tu poss\xE8des mes brassards et tu ressembles trait pour trait
+    \xE0 la derni\xE8re personne qui m'avait invoqu\xE9 la derni\xE8re fois que je
+    suis revenu dans ce monde, il s'appelait Tam Jiata et d'apr\xE8s ce que ses parents
+    lui avaient racont\xE9, je faisais partie du pass\xE9 de sa famille."
+  - "Vous avez dit Tam Jiata ? mais c'est le nom de mon p\xE8re."
+  - "Tu vois donc que je ne racontais pas n'importe quoi. Sinon ton p\xE8re, comment
+    il va ? \xE7a fait une \xE9ternit\xE9 que je ne l'ai pas vu."
+  - il n'est plus de ce monde.
+  - "C'est \xE9trange..."
+  - Pourquoi ?
+  - "Oublie, peut-\xEAtre je m\xE9lange les \xE9poques. Sinon que cherches-tu dans
+    un endroit pareil ?"
+  - "Je cherche une r\xE9lique de la forme d'un cr\xE2ne. Vous savez quelque chose
+    dessus ?"
+  - "Une relique de la forme d'un cr\xE2ne. Non, je ne connais rien de tel. "
+  - Ah...
+  - "Mais quand je regarde mes brassards de plus pr\xE8s, tu n'es pas capble de les
+    utiliser \xE0 leur plein potentiel. La seule incantation que tu as l'air de tconnaitre
+    c'est KWALLON WUTA. Pour ce qui est du reste, je ne vois rien."
+  - "Oui c'est vrai, le gardien des arts Lituba de mon village m'avait fait cette
+    remarque alors que j'avais un seul brassard. Je croyais qu'en trouvant le second
+    brassard, j'allais acc\xE9der \xE0 d'autres sorts mais rien ne s'est pass\xE9."
+  - "C'est vrai que r\xE9unir mes deux brassards est essentiels mais si tu n'arrives
+    pas \xE0 te souvenir de ce que tu sais d\xE9j\xE0, \xE7a ne servira pas \xE0
+    grand chose."
+  - "Encore cette histoire dese \"souvenir\". Comment je suis cens\xE9 me rappeler
+    de quelque chose que je ne sais pas ?"
+  - "Tu es jeune, ne t'arr\xEAte pas au sens premier des mots que j'utilise. Essaie
+    de comprendre la chose sur un autre aspect."
+  - Je ne vous suis vraiment pas.
+  - "Tu peux me tutoyer, on est de la m\xEAme famille apr\xE8 tout"
+  - Oui c'est vrai,
+  - "Il y a plusieurs trois autres autels construits dans ces galeries. Chaque autel
+    contient un fragment de m\xE9moire qui t'aidera \xE0 te souvenir de ce que tu
+    sais d\xE9j\xE0"
+  - "A quoi ressemblent ils ? parce que moi je suis plut\xF4t tomb\xE9 sur une pierre
+    avec une autre pierre blanche encastr\xE9e \xE0 l'int\xE9rieur "
+  - "Tu ne les manqueras pas. Par contre, si tu tombes encore si une pierre blanche.
+    Assure-toi de ne pas la laisser blanche et toutes celles que tu trouveras apr\xE8s
+    devront rayonner du m\xEAme \xE9clat"
+  - "Une fois de plus, c'est tr\xE8s vague"
+  - tu devras t'en contenter, tu sais tout maintenant, Vas...

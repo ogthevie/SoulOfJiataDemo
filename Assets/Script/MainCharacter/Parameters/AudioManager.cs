@@ -15,7 +15,7 @@ namespace SJ
         public List<AudioClip> jumpSfx = new ();
         public List<AudioClip> fightSfx = new ();
         public List<AudioClip> pause = new ();
-        readonly float attackVolume = 0.15f, footStepVolume = 0.035f, jumpVolume = 0.05f, ThunderVolume= 0.3f;
+        readonly float attackVolume = 0.1f, footStepVolume = 0.05f, jumpVolume = 0.05f, ThunderVolume= 0.3f;
         
         void Awake()
         {
@@ -76,17 +76,17 @@ namespace SJ
 
         public void ReadFightAttackFx()
         {
-            jiataAudioSource.volume = attackVolume;
+            cameraAudioSource.volume = attackVolume;
 
             if(playerAttacker.lastAttack == "HighAttack1")
             {
-                jiataAudioSource.PlayOneShot(fightSfx[4]);
+                cameraAudioSource.PlayOneShot(fightSfx[4]);
             }
             else if(playerAttacker.lastAttack == "HighAttack2")
-                jiataAudioSource.PlayOneShot(fightSfx[5]);
+                cameraAudioSource.PlayOneShot(fightSfx[5]);
 
             else if(playerAttacker.lastAttack == "HighAttack3")
-                jiataAudioSource.PlayOneShot(fightSfx[6]); //l'espace 6 est vide
+                cameraAudioSource.PlayOneShot(fightSfx[6]); //l'espace 6 est vide
 
         }
 
@@ -191,6 +191,17 @@ namespace SJ
         {
             interactionAudioSource.volume = 0.4f;
             interactionAudioSource.PlayOneShot(fightSfx[15]);            
+        }
+
+        public void Funeral()
+        {
+            jiataAudioSource.volume = 1.5f;
+            jiataAudioSource.PlayOneShot(fightSfx[16]);             
+        }
+
+        public void TurtleDomain()
+        {
+            interactionAudioSource.PlayOneShot(fightSfx[17]);
         }
 
 

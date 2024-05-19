@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using SJ;
+using TMPro;
 
 
 [DefaultExecutionOrder(-1)]
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Image loadSlider;
     public int? newGame;
     [SerializeField] bool isControllerConnected, isLoading;
-    [SerializeField] GameObject minimap, minimapBG;
+    [SerializeField] GameObject zoneName, questNotif;
     public int? portalPosition;
     /*
         1 = golem
@@ -76,33 +77,28 @@ public class GameManager : MonoBehaviour
         
         if(newGame == 0) 
         {
-            gameSaveManager.LoadPlayerPosition();
-            if(activeScene == 2)
-            {
-                minimap.SetActive(false);
-                minimapBG.SetActive(false);               
-            }   
+            gameSaveManager.LoadPlayerPosition(); 
         }
  
         else if(newGame == 1) 
         {
-            player.transform.position = new Vector3 (128.04f, 4.99f, 337.64f); //position de ruben en tout debut de partie
+            player.transform.position = new Vector3 (132.10f, 3.50f, 355.91f); //position de ruben en tout debut de partie
             player.transform.rotation = Quaternion.Euler(0, -10.22f, 0f);
-            player.GetComponent<AnimatorManager>().PlayTargetAnimation("Praying", true);
+            player.GetComponent<AnimatorManager>().PlayTargetAnimation("Start", true);
         }
         else
         {
             if(activeScene == 1)
             {
-                minimap.SetActive(true);
-                minimapBG.SetActive(true);
-                if(portalPosition == 0) player.transform.position = new Vector3 (50f, 5f, 307f);
+                if(portalPosition == 0)
+                {
+                    player.transform.position = new Vector3 (50f, 10f, 307f);
+                    GlobalFixedCursorPosition();
+                } 
                 else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
             }
             else if(activeScene == 2)
             {
-                minimap.SetActive(false);
-                minimapBG.SetActive(false);
                 if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
                 else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
 
@@ -120,8 +116,18 @@ public class GameManager : MonoBehaviour
 
         loadingScreen.enabled = false;
         isLoading = false;
+
+        yield return new WaitForSeconds(2f);
+
+        if(activeScene == 1)
+        {
+            if(newGame == 1) StartCoroutine(ZoneEntry("...CASE DE LA TORTUE..."));
+            else if(newGame == 0 || newGame == null)StartCoroutine(ZoneEntry("...SIBONGO..."));
+        }
+        else if(activeScene == 2) StartCoroutine(ZoneEntry("...GROTTE BONGO..."));
         
-        player.isInteracting = false;        
+        player.isInteracting = false;
+        Debug.Log("index est " + newGame);        
     }
 
     private void CheckForGamePad()
@@ -162,11 +168,28 @@ public class GameManager : MonoBehaviour
 
     public void GlobalFixedCursorPosition()
     {
-        CharacterManager [] characterManagers = new CharacterManager [6];
+        CharacterManager [] characterManagers = new CharacterManager [7];
         characterManagers = FindObjectsOfType<CharacterManager>();
         foreach (var elt in characterManagers)
         {
             elt.FixedCursorPosition();
         }
+    }
+
+    public IEnumerator ZoneEntry(string nameZone)
+    {
+        zoneName.SetActive(true);
+        zoneName.GetComponent<TextMeshProUGUI>().text = nameZone;
+        yield return new WaitForSeconds(7.2f);
+        zoneName.SetActive(false);
+    }
+
+    public IEnumerator StartHandleAchievement(string questName)
+    {
+        yield return new WaitForSeconds(2f);
+        questNotif.SetActive(true);
+        questNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = questName;
+        yield return new WaitForSeconds(0.1f);
+        FindObjectOfType<AudioManager>().PowerUp();
     }
 }

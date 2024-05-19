@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: BILOL 60
+  m_EditorClassIdentifier: 
+  characterName: Poa Bok Bilol
+  mainCharacterName: Ruben
+  firstConversation:
+  - "On dirait que tu as finalement trouv\xE9 ta voix. D'o\xF9 te vient toute cette
+    \xE9nergie ?"
+  - "On va dire que j'ai re\xE7u un enseignement sp\xE9cial."
+  - "HA HA HAAAA. Il y a donc meilleur professeur que mois dans ce royaume, \xE7a
+    je ne l'aurai jamais cru."

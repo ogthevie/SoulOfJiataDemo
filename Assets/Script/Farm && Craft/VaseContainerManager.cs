@@ -10,7 +10,7 @@ public class VaseContainerManager : MonoBehaviour
     public List<ConsumableData> consumableDatas = new ();
     public GameObject destroyFx;
 
-    public int qtyConsumable, qtyMintoumba, qtyMatango, qtyGesier, qtyKalaba, qtyColaS, qtyColaL, qtyIkok;
+    public int qtyConsumable, qtyMintoumba, qtySel, qtyColaS, qtyColaL, qtyIkok;
 
     void Awake()
     {
@@ -44,9 +44,7 @@ public class VaseContainerManager : MonoBehaviour
     private void RandomiseConsumablePKumbo()
     {
             bool canProductMintoumba = CheckProbabilityConsumables();
-            bool canProductMatango = CheckProbabilityConsumables();
-            bool canProductGesier = CheckProbabilityConsumables();
-            bool canProductKalaba = CheckProbabilityConsumables();
+            bool canProductSel = CheckProbabilityConsumables();
 
             if(canProductMintoumba)
             {
@@ -55,25 +53,11 @@ public class VaseContainerManager : MonoBehaviour
                 LoadConsumable(0);
             }
 
-            if(canProductMatango)
+            if(canProductSel)
             {
-                qtyMatango = QuantityProductionConsumable();
-                qtyConsumable = qtyMatango;
+                qtySel = QuantityProductionConsumable();
+                qtyConsumable = qtySel;
                 LoadConsumable(1);
-            }
-
-            if(canProductGesier)
-            {
-                qtyGesier = QuantityProductionConsumable();
-                qtyConsumable = qtyGesier;
-                LoadConsumable(2);
-            }
-
-            if(canProductKalaba)
-            {
-                qtyKalaba = QuantityProductionConsumable();
-                qtyConsumable = qtyGesier;
-                LoadConsumable(3);
             }
     }
 
@@ -87,19 +71,19 @@ public class VaseContainerManager : MonoBehaviour
         {
             qtyColaS = QuantityProductionConsumable();
             qtyConsumable = qtyColaS;
-            LoadConsumable(4);
+            LoadConsumable(2);
         }
         if(canProduceColaL)
         {
             qtyColaL = QuantityProductionConsumable();
-            qtyConsumable = qtyColaS;
-            LoadConsumable(5);
+            qtyConsumable = qtyColaL;
+            LoadConsumable(3);
         }
         if(canProduceIkok)
         {
             qtyIkok = QuantityProductionConsumable();
             qtyConsumable = qtyIkok;
-            LoadConsumable(6);
+            LoadConsumable(4);
         }
 
     }

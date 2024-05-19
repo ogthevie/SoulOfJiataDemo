@@ -21,7 +21,7 @@ public abstract class CharacterManager : MonoBehaviour
         sibongoManager = FindObjectOfType<SibongoManager>();
         characterAnim = GetComponent<Animator>();
         storyManager = FindObjectOfType<StoryManager>();
-        questCursor.SetActive(false);
+        if(questCursor != null) questCursor.SetActive(false);
     }
 
     protected virtual void Start()
@@ -39,7 +39,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     public void FixedCursorPosition()
     {
-        if(levelStoryActions.Count > 0)
+        if(levelStoryActions.Count > 0 && questCursor != null)
         {
             if(levelStoryActions.Contains(storyManager.storyStep)) questCursor.SetActive(true);
             else questCursor.SetActive(false);

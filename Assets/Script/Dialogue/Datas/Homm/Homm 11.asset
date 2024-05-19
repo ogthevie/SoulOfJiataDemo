@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Homm 11
   m_EditorClassIdentifier: 
-  characterName: Isamal
+  characterName: Homm
   mainCharacterName: Isamal
   firstConversation:
-  - "Depuis que j'ai atteint l'\xE2ge de la raison, je n'ai jamais vu la gueule de
-    ce serpent s'ouvrir. D'apr\xE8s les anciens du village, c'\xE9tait un passage
-    direct vers le peuple Pamom. "
+  - "Tu vois la t\xEAte de serpent hors du village l\xE0, d'apr\xE8s les anciens
+    du village, c'\xE9tait un passage direct vers le peuple Pamom. "
   - "Il a \xE9t\xE9 cr\xE9\xE9 par les chefs respectifs Lituba et Pamom... signe
     de l'amiti\xE9 de leur peuple."
   - "Mais apr\xE8s les \xE9v\xE8nements qui ont secou\xE9 le royaume, il a \xE9t\xE9

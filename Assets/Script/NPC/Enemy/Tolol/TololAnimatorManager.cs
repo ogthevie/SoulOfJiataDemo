@@ -19,7 +19,7 @@ public class TololAnimatorManager : EnemyAnimatorManager
 
     private void OnAnimatorMove()
     {
-        if(!playerManager.onPause)
+        if(!playerManager.onOption)
         {
             anim.SetFloat("distAttack", tololPattern.distanceFromTarget);
             anim.SetFloat("timeAttack", tololPattern.timeAttack);

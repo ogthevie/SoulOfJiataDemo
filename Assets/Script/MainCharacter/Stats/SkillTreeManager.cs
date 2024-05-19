@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace SJ
 {
@@ -28,6 +29,14 @@ namespace SJ
         {
             northSlot.enabled = playerManager.canThunder && staminaBar.slider.value >= playerAttacker.thunderDrain;
             southSlot.enabled = playerManager.canArcLight && staminaBar.slider.value >= playerAttacker.arcLightningDrain;
+            westSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.magnetiDrain;
+            eastSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.magnetiDrain;
+        }
+
+        public void HandleSkillTreeUI(bool lockOnFlag)
+        {
+            if(lockOnFlag) this.GetComponent<RectTransform>().DOAnchorPosX(200, 0.4f, false);
+            else this.GetComponent<RectTransform>().DOAnchorPosX(-250, 0.4f, false);
         }
     }
 }

@@ -11,7 +11,9 @@ public class SibongoManager : MonoBehaviour
     public int dayPeriod;
     public GameObject fireFly, sun, tBilol, tLibum, tNgoMaa, tNgonda;
     [SerializeField] GameObject lightPortal;
+    public  GameObject KossiPortal;
     AudioSource sibongoAudiosource;
+    [SerializeField] AudioSource umAudioSource;
     public AudioClip [] sibongoAmbiances = new AudioClip[3];
 
 
@@ -25,6 +27,12 @@ public class SibongoManager : MonoBehaviour
     
     void Start()
     {
+        StoryManager storyManager;
+        storyManager = FindObjectOfType<StoryManager>();
+
+        if(storyManager.storyStep > 1 && storyManager.storyStep < 5) KossiPortal.SetActive(true);
+        else KossiPortal.SetActive(false);
+
         if(sibongoManager.dayPeriod > 2)
         {
             RenderSettings.skybox = dayPeriodSkyboxes[2];
@@ -32,6 +40,7 @@ public class SibongoManager : MonoBehaviour
             fireFly.SetActive(true);
             sun.SetActive(false);
             lightPortal.SetActive(true);
+            umAudioSource.enabled = false;
         }
         else
         {

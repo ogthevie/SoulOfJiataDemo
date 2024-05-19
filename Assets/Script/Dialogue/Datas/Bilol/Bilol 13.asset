@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
-  m_Name: Bilol 13
+  m_Name: BILOL 13
   m_EditorClassIdentifier: 
-  characterName: "B\xF4k Bilol"
+  characterName: Poa Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
-  - "La nuit est tomb\xE9e, fais attention aux cr\xE9atures de la nuit. Surtout aux
-    cr\xE9atures Kao\u2026"
+  - "Tu n\u2019es toujours pas all\xE9 chez l\u2019HOMME DANS LA PIERRE ? tu ferais
+    mieux d\u2019attendre le matin car \xE0 la nuit tomb\xE9e, des cr\xE9atures bizarres
+    r\xF4dent autour du village."

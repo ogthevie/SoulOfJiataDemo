@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Adou 11
+  m_EditorClassIdentifier: 
+  characterName: Adou
+  mainCharacterName: Ruben
+  firstConversation:
+  - 60...61...62...
+  - "Dis Adou, l'HOMME DANS LA PIERRE ? Tu l'as d\xE9j\xE0 rencontr\xE9 ?"
+  - "Non, je n'ai pas encore trouv\xE9 la question que je vais lui poser. Mais je
+    ne suis pas press\xE9, j'ai toute la vie devant moi."
+  - "Tu as d\xE9j\xE0 vu quelqu'un lui parler."
+  - "Dans mes souvenirs non. Bon c'est vrai que je suis tr\xE8s jeune et tout les
+    anciens disent qu'ils l'ont d\xE9j\xE0 fait donc c'est forc\xE9ment possible."

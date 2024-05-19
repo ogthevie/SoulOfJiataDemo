@@ -10,35 +10,42 @@ public class BomboktanTriggerManager : MonoBehaviour
     protected StoryManager storyManager;
     CameraManager cameraManager;
     public GameObject dialogUI;
-    protected int idDialog;
+    public int idDialog;
 
     void Awake()
     {
         cameraManager = FindObjectOfType<CameraManager>();
         bomboktanDialogManager = GetComponent<BomboktanDialogManager>();
         storyManager = FindObjectOfType<StoryManager>();
+        HandleBomboktanPosition();
     }
 
 
     void Start()
     {
-        dialogUI = GameObject.Find("Player UI").transform.GetChild(2).gameObject;
+        dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
         storyManager = FindObjectOfType<StoryManager>();
     }
 
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        if(storyManager.storyStep == 5) idDialog = 0;
-        else if(storyManager.storyStep == 53) idDialog = 1;
-        else if(storyManager.storyStep == 6) idDialog = 2;
+        HandleBomboktanPosition();
 
         if(other.gameObject.layer == 3)
         {
             dialogUI.SetActive(true);
             bomboktanDialogManager.StartDialogue();
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }         
+    }
+
+    public void HandleBomboktanPosition()
+    {
+        if(storyManager.storyStep == 3) idDialog = 0;
+        else if(storyManager.storyStep == 31) idDialog = 1;
+        else if(storyManager.storyStep == 32) idDialog = 2;
+        else if(storyManager.storyStep == 4) idDialog = 3;
     }
 
     void OnTriggerStay(Collider other)

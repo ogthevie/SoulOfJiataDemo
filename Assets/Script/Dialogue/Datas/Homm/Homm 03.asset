@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Homm 03
   m_EditorClassIdentifier: 
-  characterName: Isamal
+  characterName: Homm
   mainCharacterName: Ruben
   firstConversation:
   - "En soir\xE9e, on se r\xE9unit tous pour remercier les anc\xEAtres et partager

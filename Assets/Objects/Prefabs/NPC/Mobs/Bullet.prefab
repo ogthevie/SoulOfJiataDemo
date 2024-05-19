@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletImpact: {fileID: 9012979639492377740, guid: dc270fa8884779045964989b89a07390,
     type: 3}
-  bulletDamage: 8
+  bulletDamage: 35
 --- !u!114 &6125668931689003074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,17 +198,17 @@ PrefabInstance:
     - target: {fileID: 6930510193063315073, guid: ac1eb58333177014ca6f8c95cc1a7273,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.65660244
+      value: 0.019414902
       objectReference: {fileID: 0}
     - target: {fileID: 6930510193063315073, guid: ac1eb58333177014ca6f8c95cc1a7273,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.16620687
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6930510193063315073, guid: ac1eb58333177014ca6f8c95cc1a7273,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.7830189
+      value: 0.9811321
       objectReference: {fileID: 0}
     - target: {fileID: 6930510193063315078, guid: ac1eb58333177014ca6f8c95cc1a7273,
         type: 3}

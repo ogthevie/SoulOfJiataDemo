@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Homm 02
   m_EditorClassIdentifier: 
-  characterName: Isamal
+  characterName: Homm
   mainCharacterName: Ruben
   firstConversation:
   - Assieds-toi et apprends comment on joue au jeu des sages. Plus tard ce sera notre
     tour.
-  - "Plus tard, je suis venu voir Poa Bok Bilol\u2026"
+  - "Plus tard, je suis venu voir ton vieux, Poa Nlomgan\u2026"
   - "M\xEAme s\u2019il peut parler en jouant, tu ferais mieux d\u2019attendre qu\u2019il
     soit libre. Parfois dans leur jeu d\xE9passe souvent ce qu\u2019on voit."
   - "Qu\u2019est-ce que je dois comprendre ?"

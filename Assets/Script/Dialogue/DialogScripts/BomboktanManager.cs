@@ -1,11 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using SJ;
 using UnityEngine;
 
 public class BomboktanManager : CharacterManager
 {
     GameObject thunderBomboktan;
+    SkinnedMeshRenderer bombSkinnedMeshRenderer;
+    GameObject bExplosionFx, auraGround;
     //Faire pop up le bomboktan à des zones précises, à des moments précis.
             /// evenement surcharge
             /// evenement sommeil
@@ -17,13 +18,22 @@ public class BomboktanManager : CharacterManager
 
     protected override void Awake()
     {
+        bombSkinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         characterAnim = GetComponent<Animator>();
         playerManager = FindObjectOfType<PlayerManager>();
+        storyManager = FindObjectOfType<StoryManager>();
         characterAudioSource = GetComponent<AudioSource>();
-        thunderBomboktan = transform.GetChild(2).gameObject;   
+        thunderBomboktan = transform.GetChild(2).gameObject;
+        bExplosionFx = transform.GetChild(4).gameObject;
+        auraGround = transform.GetChild(3).gameObject;
     }
 
-    protected override void Start(){}
+    protected override void Start()
+    {
+        if(storyManager.storyStep < 3) return;
+        int id = GetComponent<BomboktanTriggerManager>().idDialog;
+        DayJob(characterpositions[id], characterRotation[id]);
+    }
 
 
     public void Spawn(int idStoryB)
@@ -41,6 +51,22 @@ public class BomboktanManager : CharacterManager
         yield return new WaitForSeconds(1.5f);
         thunderBomboktan.SetActive(false);
 
+    }
+
+    public void DisappearBomboktanSkinnedMeshRenderer()
+    {
+        StartCoroutine(DestroyBomboktan());
+    }
+
+    IEnumerator DestroyBomboktan()
+    {
+        bombSkinnedMeshRenderer.enabled = false;
+        auraGround.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
+        yield return new WaitForSeconds (0.5f);
+        bExplosionFx.SetActive(true);
+        yield return new WaitForSeconds (4.8f);
+        Destroy(this.gameObject, 0.2f);
     }
 
 

@@ -21,31 +21,44 @@ public class GolemTriggerManager : MonoBehaviour
 
     void Start()
     {
-        dialogUI = GameObject.Find("Player UI").transform.GetChild(2).gameObject;
+        dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
         storyManager = FindObjectOfType<StoryManager>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(storyManager.storyStep == 2) idDialog = 0;
-        else if(storyManager.storyStep == 3) idDialog = 1;
-
-        if(other.gameObject.layer == 3)
+        if(storyManager.storyStep == 1 || storyManager.storyStep == 6 || storyManager.storyStep == 7)
         {
-            dialogUI.SetActive(true);
-            golemDialogManager.StartDialogue();
-            Time.timeScale = 0f;
-        }         
+            if(storyManager.storyStep == 1) idDialog = 0;
+            else if(storyManager.storyStep == 6) idDialog = 1;
+            else idDialog = 2;
+
+            if(other.gameObject.layer == 3)
+            {
+                dialogUI.SetActive(true);
+                golemDialogManager.StartDialogue();
+                Time.timeScale = 0f;
+            } 
+        }
+
+        
     }
 
     void OnTriggerStay(Collider other)
     {
-        golemDialogManager.HandleDialogue(idDialog);
+        if(storyManager.storyStep == 1 || storyManager.storyStep == 6 || storyManager.storyStep == 7)
+        {
+            golemDialogManager.HandleDialogue(idDialog);
+        }
+        
     }
 
     void OnTriggerExit(Collider other)
     {
-        golemDialogManager.CloseDialogue();
+        if(storyManager.storyStep == 1 || storyManager.storyStep == 6 || storyManager.storyStep == 7)
+        {
+            golemDialogManager.CloseDialogue();
+        }
     }
 
     public void EndDialogue()

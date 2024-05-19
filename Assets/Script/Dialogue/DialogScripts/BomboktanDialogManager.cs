@@ -6,11 +6,14 @@ using SJ;
 public class BomboktanDialogManager : CharacterDialogManager
 {
     BomboktanTriggerManager bomboktanTriggerManager;
+    GameSaveManager gameSaveManager;
     protected override void Awake()
     {
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
+        playerUIManager = FindObjectOfType<PlayerUIManager>();
         bomboktanTriggerManager = GetComponent<BomboktanTriggerManager>();
+        gameSaveManager = FindObjectOfType<GameSaveManager>();
     }
 
     public override void StartDialogue()
@@ -38,8 +41,10 @@ public class BomboktanDialogManager : CharacterDialogManager
     public override void CloseDialogue()
     {
         bomboktanTriggerManager.EndDialogue();
+        canDialog = false;
+        
         playerUIManager.ShowUI();
-        canDialog = false;        
+     
     }
 
     public override void nextFirstDialogue(int k, DialogData[] characterDialogData)

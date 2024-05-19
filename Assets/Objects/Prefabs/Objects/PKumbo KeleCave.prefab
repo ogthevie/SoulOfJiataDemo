@@ -151,17 +151,15 @@ MonoBehaviour:
   consumableDatas:
   - {fileID: 11400000, guid: d8efcb13d5572df4db1d3614cc4ceaee, type: 2}
   - {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
-  - {fileID: 11400000, guid: b8bec308e73ad87448281b86926fcfd1, type: 2}
-  - {fileID: 11400000, guid: af97d641f5b07364280741153b339145, type: 2}
   destroyFx: {fileID: 3506811186554965280}
   qtyConsumable: 0
   qtyMintoumba: 0
-  qtyMatango: 0
+  qtySel: 0
   qtyGesier: 0
   qtyKalaba: 0
   qtyColaS: 0
   qtyColaL: 0
-  qtyOdon: 0
+  qtyIkok: 0
 --- !u!1001 &5527114912955143518
 PrefabInstance:
   m_ObjectHideFlags: 0

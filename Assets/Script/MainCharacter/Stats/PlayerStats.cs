@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SJ
 {
@@ -14,7 +15,7 @@ namespace SJ
         public StaminaBar staminaBar;
         public EnduranceBar enduranceBar;
         AnimatorManager animatorManager;
-        [SerializeField] GameObject healthFx, staminaFx;
+        [SerializeField] GameObject healthFx, staminaFx, impactSommFx;
 
         public float coefRegenStamina = 5f;
 
@@ -67,32 +68,50 @@ namespace SJ
 
         public void TakeDamage(int damage, int levelDamage)
         {
-            if(stateJiataData.isIndomitable)
-                return;
+            if(playerManager.isDead) return;
 
-            currentHealth -= damage;
-
-            healthBar.SetCurrentHealth(currentHealth);
-
-            if(currentHealth > 0 && !playerManager.isInAir) 
+            if(stateJiataData.isHidden)
             {
-                if(levelDamage == 0) animatorManager.PlayTargetAnimation("Low Damage", true);
-                else animatorManager.PlayTargetAnimation("Middle Damage", true);
+                if(cameraManager.currentLockOnTarget != null)
+                {
+                    Instantiate(impactSommFx, cameraManager.currentLockOnTarget.lockOnTransform);
+                    cameraManager.currentLockOnTarget.TakeDamage(damage*2);
+                }
+            }
+            else
+            {
+                currentHealth -= damage;
+
+                healthBar.SetCurrentHealth(currentHealth);
+
+                if(currentHealth > 0 && !playerManager.isInAir) 
+                {
+                    if(levelDamage == 0) animatorManager.PlayTargetAnimation("Low Damage", true);
+                    else animatorManager.PlayTargetAnimation("Middle Damage", true);
+                }
+
+                else if(currentHealth <= 0)
+                {
+                    currentHealth = 0;
+                    //playerLocomotion.moveDirection = Vector3.zero;
+                    animatorManager.PlayTargetAnimation ("Dead", true);
+                    cameraManager.ClearLockOnTargets();
+                    playerManager.isDead = true;
+                    stateJiataData.isHidden = true;
+                    if(SceneManager.GetActiveScene().buildIndex == 2) GameObject.Find("KaoPortal").GetComponent<AudioSource>().Stop();
+                    else if(SceneManager.GetActiveScene().buildIndex == 1)
+                    {
+                        GameObject.Find("SibongoManager").GetComponent<AudioSource>().Stop();
+                        GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>().Stop();
+                    } 
+                }
             }
 
-            else if(currentHealth <= 0)
-            {
-                currentHealth = 0;
-                //playerLocomotion.moveDirection = Vector3.zero;
-                animatorManager.PlayTargetAnimation ("Dead", true);
-                playerManager.isDead = true;
-                stateJiataData.isHidden = true;
-            }
 
         }
         public void TakeStaminaDamage(int staminaDamage)
         {
-            if(stateJiataData.isIndomitable) return;
+            if(stateJiataData.isHidden) return;
 
             currentStamina -= staminaDamage;
             staminaBar.SetCurrentStamina(currentStamina);
@@ -102,6 +121,8 @@ namespace SJ
         }
         public void AddStamina(int StaminaUnit)
         {
+            if(playerManager.isDead) return;
+
             currentStamina += StaminaUnit;
             staminaBar.SetCurrentStamina(currentStamina);
             audioManager.StatRecoverFx();
@@ -116,6 +137,8 @@ namespace SJ
 
         public void AddHealth(int HealthUnit)
         {
+            if(playerManager.isDead) return;
+            
             currentHealth += HealthUnit;
             healthBar.SetCurrentHealth(currentHealth);
             audioManager.StatRecoverFx();
@@ -133,7 +156,7 @@ namespace SJ
 
             if(playerLocomotion.speed == playerLocomotion.sprintSpeed && currentEndurance > 0 && !stateJiataData.isIndomitable)
             {
-                enduranceBar.slider.value -= 1f * Time.deltaTime;
+                enduranceBar.slider.value -= 0.5f * Time.deltaTime;
                 currentEndurance = enduranceBar.slider.value;       
             }
             else if(!inputManager.sprintFlag && currentEndurance < maxEndurance)

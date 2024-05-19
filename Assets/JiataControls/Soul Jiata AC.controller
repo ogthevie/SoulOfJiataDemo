@@ -119,8 +119,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Praying
-  m_Speed: 0.9
+  m_Name: Start
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7796361036853969822}
@@ -133,7 +133,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fa188691335238e4986a2959f20c9e41, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3d88334ae9802a046be1ae6359d03898, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -669,7 +669,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LookAround
-  m_Speed: 0.8
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 709294730544989799}

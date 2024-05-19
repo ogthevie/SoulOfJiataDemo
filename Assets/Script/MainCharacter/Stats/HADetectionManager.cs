@@ -35,7 +35,9 @@ namespace SJ
             {
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
-                    Instantiate(impactFx, component.transform.position, Quaternion.identity);
+                    Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
+
+                    Instantiate(impactFx, impactPosition, Quaternion.identity);
                     if(component is TololManager tololManager)
                     {
                         tololManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
@@ -49,6 +51,13 @@ namespace SJ
                     {
                         kossiKazeManager.kossiKazePattern.HandleExplosion();
                     }
+                    else if(component is BuffaloManager buffaloManager)
+                        {
+                            if(buffaloManager.isArmor) return;
+
+                            float distance = buffaloManager.buffaloPattern.distanceFromTarget;
+                            buffaloManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack * 2); 
+                        }
 
                 }
 

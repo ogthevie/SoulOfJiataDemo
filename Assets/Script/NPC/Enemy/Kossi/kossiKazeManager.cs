@@ -6,7 +6,6 @@ using SJ;
 public class kossiKazeManager : EnemyManager
 {
     public kossiKazePattern kossiKazePattern;
-    PlayerAttacker playerAttacker;
     PlayerStats playerStats;
     public bool isPreformingAction;
     public readonly float maximumDetectionAngle =  180;
@@ -55,19 +54,22 @@ public class kossiKazeManager : EnemyManager
 
             foreach(var elt in colliders)
             {
-                if(elt.gameObject.layer == 3)
+                if(elt.gameObject.layer == 3) playerStats.TakeDamage(kamikazeDamage, 0);
+
+                else if(elt.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager vaseContainerManager)) vaseContainerManager.HandleVaseConatinerProcess();
+
+                else if(elt.gameObject.TryGetComponent<TreeContainerManager>(out TreeContainerManager treeContainerManager)) treeContainerManager.HandleTreeContainerProcess();
+
+                else if(elt.gameObject.TryGetComponent<BuffaloManager>(out BuffaloManager buffaloManager))
                 {
-                    playerStats.TakeDamage(kamikazeDamage, 0);
-                }
-                else if(elt.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager vaseContainerManager))
-                {
-                    vaseContainerManager.HandleVaseConatinerProcess();
-                }
-                else if(elt.gameObject.TryGetComponent<TreeContainerManager>(out TreeContainerManager treeContainerManager))
-                {
-                    treeContainerManager.HandleTreeContainerProcess();
-                }
+                    buffaloManager.iStun = true;
+                    buffaloManager.TakeDamage(50);
+                } 
+
+                else if(elt.gameObject.TryGetComponent<kossiKazePattern>(out kossiKazePattern kossipattern)) kossipattern.HandleExplosion();
             }
+            
+            LoadConsumable(consumable);
             cameraManager.ClearLockOnTargets();
             Destroy(this.gameObject);
         }

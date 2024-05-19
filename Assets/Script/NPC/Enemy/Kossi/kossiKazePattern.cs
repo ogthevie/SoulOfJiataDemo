@@ -32,7 +32,6 @@ public class kossiKazePattern : MonoBehaviour
         kossiKazeManager = GetComponent<kossiKazeManager>();
         kazeAudioManager = GetComponent<KazeAudioManager>();
         kossiKazeAnimatorManager = GetComponent<KossiKazeAnimatorManager>();
-        kossiKazeRigibody = GetComponent<Rigidbody>();
         agentKossiKaze = GetComponentInChildren<NavMeshAgent>();
         agentKossiKaze.enabled = false;
         kossiKazeRigibody.isKinematic = false;
@@ -65,7 +64,7 @@ public class kossiKazePattern : MonoBehaviour
 
     public void HandleMoveToTarget()
     {
-        if(currentTarget.isDead || statesJiataData.isHidden)
+        if(currentTarget.isDead)
             return;
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
@@ -118,7 +117,7 @@ public class kossiKazePattern : MonoBehaviour
 
     void HandleStopChase()
     {
-        if(statesJiataData.isHidden || currentTarget.isDead) //distanceFromTarget >= maxDistanceFromTarget
+        if(currentTarget.isDead) //distanceFromTarget >= maxDistanceFromTarget
         {
             currentTarget = null;
             kossiKazeAnimatorManager.anim.SetFloat("run", 0);

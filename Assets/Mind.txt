@@ -1,0 +1,44 @@
+Kossi Boss
+
+//pensez à charger Wuta Mattutu, ça va directement impacter ta barre de magie. et ça vide rapidement
+//BigKossi qui va donner yellow à Jiata. creer une classe enfant à characterDialogManager
+
+Pouvoir à tester -> Magneti / Surcharge
+                 -> Wuta Lantarki
+                 -> Wuta Kwallon
+                 -> Nson
+                 -> Wuta Mattutu
+                 -> esquive
+
+-> Wuta Kwallon peut être tester en permettant d'infliger des dégâts simplement
+-> Magneti et Surcharge seront testés quand Kossi essaiera de creer des kossisphere. Si tu exploses ça avant, ça va lui faire baisser sa garder.
+-> Nson sera plus compliqué à placer car il se mettra hors de portée. Donc faudra attendre qu'il soit étourdi
+-> Wuta Mattutu pour esquiver attaque de zone
+-> Wuta Lantarki c'est pour infliger plus de dégâts.
+-> esquive
+
+
+-< AuramagnetSphere - compression puis expansion, attaque de zone
+-< Coups d'estoque - esquive
+-< coup simple pour repousser
+---------------------------Phase 1 : Jaugeage ---------------------------------------------------------------
+
+
+-------------------------------------------Avant compilation---------------------------------------------------
+
+1 - prewarm shader dans le gameManager
+2 - effacer les sauvegardes
+3 - desactiver le mode développeur
+
+
+
+// configurer Isamal de telle sorte de que Jiata sorte, il est dans la case de la tortue
+//configurer le curseur de telle sorte que dès que :
+    le curseur s'active lorsque storyStep = 6
+    lorqu'il trigger in dans le curseur, l'animation power up se joue, le golem change de couleur
+    activation de son boxcollider de dialogue
+    quand il finit de parler, tremblement de terre qui permet de reconstruire le pont de dragon Kao.
+
+
+205.0716 9.756 116.7949
+24.827 -159.069 5.475

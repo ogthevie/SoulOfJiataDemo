@@ -16,7 +16,7 @@ public class ItemManager : MonoBehaviour
     float lifeDuration = 60f;
 
 
-    void Start()
+    void Awake()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         playerStats = playerManager.GetComponent<PlayerStats>();
@@ -53,40 +53,37 @@ public class ItemManager : MonoBehaviour
         {
             if(hit.collider.gameObject.layer == 3 )
             {
-                if(consumableData.consumableName != "Ikok" && consumableData.consumableName != "Matango")
+                if(consumableData.consumableName != "Ikok" && consumableData.consumableName != "Sel de lempoy")
                 {
                     if(consumableData.consumableName == "Mangue") k = 3;
                     else if(consumableData.consumableName == "Prune") k = 4;
                     else if(consumableData.consumableName == "Nkomo") k = 5;
                     else if(consumableData.consumableName == "Kola du lion") k = 6;
                     else if(consumableData.consumableName == "Kola du singe") k = 7;
-                    else if(consumableData.consumableName == "Gesier") k = 8;
-                    else if(consumableData.consumableName == "Mintoumba") k = 9;
-                    else if(consumableData.consumableName == "Kalaba") k = 10;
-                    else if(consumableData.consumableName == "Katorro") k = 11;
+                    else if(consumableData.consumableName == "Mintoumba") k = 8;
 
                     playerStats.AddHealth(notificationManager.consumableDatas[k].HealthPoint);
                     playerStats.AddStamina(notificationManager.consumableDatas[k].StaminaPoint);
                 }
                 else
                 {
-                    if(consumableData.consumableName == "Ikok")
+                    if(consumableData.consumableName == "Ikok" && inventory.ikokQty < 10)
                     {
                         k = 1;
                         inventory.ikokQty += 1;
                         
                     }
-                    else if(consumableData.consumableName == "Matango")
+                    else if(consumableData.consumableName == "Sel de lempoy" && inventory.selQty < 10)
                     {
                         k = 2;
-                        inventory.matangoQty += 1;
+                        inventory.selQty += 1;
                     }
-                    
-                    inventoryManager.HandleItemsQty();
-                    playerManager.onTutoScreen = true;
-                    audioManager.PickConsomable();
-                }
 
+                    audioManager.PickConsomable();
+                    inventoryManager.HandleItemsQty();
+                }
+                
+                playerManager.onTutoScreen = true;
                 Destroy(gameObject);               
             }
         }
@@ -108,7 +105,7 @@ public class ItemManager : MonoBehaviour
     void OnCollisionStay(Collision other)
     {
         HandleItemsByplayer();
-        notificationManager.StartTuto(k);    
+        notificationManager.StartTuto(k);   
     }
 
 }

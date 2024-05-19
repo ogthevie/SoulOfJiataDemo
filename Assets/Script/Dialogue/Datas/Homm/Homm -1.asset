@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Homm -1
   m_EditorClassIdentifier: 
-  characterName: Isamal
+  characterName: Homm
   mainCharacterName: Ruben
   firstConversation:
   - Jiata...
   - "Hein ? d\u2019o\xF9 tu connais mon nom ?"
-  - "C\u2019est moi, Isamal, le fils de Poa Bok Bilol."
-  - "Isamal ? C\u2019est bien toi ?"
-  - "Oui c\u2019est bien moi. Souviens-toi, quand on \xE9tait petit, on avait pour
-    habitude de grimper sur le prunier du vieux Tam\u2026 Jusqu\u2019\xE0 il nous
-    accusait de finir ses prunes.\t"
+  - "C\u2019est moi, Homm, le fils de Baba Nlomgan."
+  - "Homm ? C\u2019est bien toi ?"
+  - "Oui c\u2019est bien moi. Souviens-toi, quand on \xE9tait petit, toi, moi et
+    mon fr\xE8re Isamal,  on avait pour habitude de grimper sur le prunier de ton
+    vieux... Jusqu\u2019\xE0 il nous accusait de finir ses prunes.\t"
   - "Aaaaahn oui, je me souviens ! mais \xE7a fait une semaine que je suis ici, tu
     \xE9tais parti o\xF9 ?"
   - "J\u2019avais une course \xE0 faire \xE0 POUMA pour le vieux. On a fait du chass\xE9-crois\xE9."
@@ -32,14 +32,15 @@ MonoBehaviour:
     tourner en mbeng. \xC0 c\xF4t\xE9 de \xE7a, il y a l'envie de conna\xEEtre la
     v\xE9ritable histoire au sujet de mon p\xE8re, les circonstances de sa mort."
   - "J'avais appris pour ta m\xE8re. Assia.... Elle ne t'a jamais racont\xE9 pour
-    papa Mban"
+    baba TAM ?"
   - "Tout ce que je sais d'elle par rapport \xE0 cette histoire, c'est que c'est
-    \xE0 cause de sa mort que nous avons quitt\xE9 Kabwandu. Juste \xE7a ..."
-  - Je vois un peu
-  - "Actuellement je vis dans la maison de Poa Libum, il m\u2019a racont\xE9 ce qu\u2019il
-    savait mais \xE7a n\u2019a pas r\xE9pondu \xE0 toutes mes questions"
+    \xE0 cause de sa mort que nous avons quitt\xE9 Kabwandu. Juste \xE7a."
+  - Je vois...
+  - "Actuellement je vis dans la maison de Poa Bok Bilol, il m\u2019a racont\xE9
+    ce qu\u2019il savait mais \xE7a n\u2019a pas r\xE9pondu \xE0 toutes mes questions"
   - "Tu n\u2019as pas encore rencontr\xE9 mon vieux ?"
   - "Si, mais je n\u2019ai jamais abord\xE9 le sujet avec lui, je me suis dit qu\u2019il
-    \xE9tait s\xFBrement au m\xEAme niveau d\u2019information que Poa Libum."
-  - "Non\u2026 mon vieux \xE9tait tr\xE8s proche du tien, je pense qu\u2019il pourra
-    t\u2019en dire plus."
+    \xE9tait s\xFBrement au m\xEAme niveau d\u2019information que Poa Bok Bilol."
+  - "C'est vrai que les trois venaient du m\xEAme ventre, mais mon vieux et le tien
+    \xE9tait comme le porc et la salet\xE9. je pense qu\u2019il pourra t\u2019en
+    dire plus."
