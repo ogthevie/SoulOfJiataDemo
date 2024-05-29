@@ -6,10 +6,14 @@ public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField] EnemyManager enemyManagers;
 
-    void OnTriggerStay(Collider other)
+    void Start()
     {
-        if(other.gameObject.layer == 3)
-            CheckisEnemy();
+        LoadEnemy();
+    }
+
+    void LateUpdate()
+    {
+        CheckPoint();
     }
 
     private void LoadEnemy()
@@ -17,14 +21,12 @@ public class EnemySpawnManager : MonoBehaviour
         GameObject visuals = Instantiate(enemyManagers.gameObject);
         visuals.transform.SetParent(transform);
         visuals.transform.localPosition = Vector3.zero;
-        visuals.transform.rotation = Quaternion.identity;
+        visuals.transform.rotation = transform.rotation;
         Debug.Log("New kossikaze");
     }
-    
-    public void CheckisEnemy()
+
+    void CheckPoint()
     {
-        if(transform.childCount == 0)
-            LoadEnemy();
-            //canProduce = true;
+        if(transform.childCount == 0) Destroy(this.gameObject);
     }
 }

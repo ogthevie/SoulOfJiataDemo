@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7031327610877182562}
   - component: {fileID: 5075764023151818408}
   - component: {fileID: 1796062061543442529}
-  - component: {fileID: 5007621867400705410}
   - component: {fileID: 6477911372373153655}
   m_Layer: 0
   m_Name: RuneB
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
 --- !u!33 &7031327610877182562
 MeshFilter:
@@ -107,21 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06059496, y: 0.060594957, z: 0.01555443}
   m_Center: {x: -0.00039551992, y: -0.00055957725, z: 0.007231852}
---- !u!114 &5007621867400705410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732951866373855101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d889be1a703cf548a82a7f9028083e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runeData: {fileID: 11400000, guid: 3f3b899738cef384d8b15da4b0d8acfd, type: 2}
-  onRuneH: {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
-  onRuneB: {fileID: 2100000, guid: 82bd10e787bafa448b8444efc28ae6f5, type: 2}
 --- !u!82 &6477911372373153655
 AudioSource:
   m_ObjectHideFlags: 0

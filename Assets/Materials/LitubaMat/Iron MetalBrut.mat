@@ -10,7 +10,7 @@ Material:
   m_Name: Iron MetalBrut
   m_Shader: {fileID: -6465566751694194690, guid: 2c3c6a46626419c4f8bbdeab2ec2afbd,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: f263f7ea48bc4884f96bb102e303cd52, type: 2}
+  m_Parent: {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_ModifiedSerializedProperties: 24
   m_ValidKeywords:
   - _HAFTONESHAPES_DOT
@@ -25,8 +25,7 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:

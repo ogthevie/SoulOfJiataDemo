@@ -27,14 +27,12 @@ namespace SJ
         public GameObject targetarcLightning;
         public GameObject targetThunder;
         public GameObject preThunder;
-        public Collider hittable360Attack, hittableCrossAttack, hittableFallAttack;
-
         ParticleSystem soul_Lituba_Fx, /*soul_Isango_Fx ,soul_Sokoto_Fx,*/ soul_Pefussep_Fx;
 
         [SerializeField] GameObject leffectLitubaFx, reffectLitubaFx;
         ParticleSystem.MainModule lMain;
         ParticleSystem.MainModule rMain;
-        ParticleSystem fxLA, fxHAOne, fxHATwo, fxHAThree;
+        ParticleSystem fxLA;
         public ParticleSystem magnetiFX, surchargeFX, powerupFX, powerupBaembFX, smokeRecul;
         ParticleSystem auraFx;
         Color lekbaRuben = new(0.87f, 0.25f, 0.87f);
@@ -62,6 +60,8 @@ namespace SJ
         public RaycastHit targetHit;
         public RaycastHit [] targetsThunderHits;
         public Material [] lightingMaterials;
+        Transform fxHAOne, fxHATwo, fxHAThree;
+        [SerializeField] GameObject haOne, haTwo, haThree;
 
         string[] lowAttackArray = new string[] { "LowAttack1", "LowAttack2"};
 
@@ -96,9 +96,9 @@ namespace SJ
 
             Transform brassard = transform.GetChild(19);
 
-            fxHAThree = brassard.GetChild(0).GetComponent<ParticleSystem>();
-            fxHAOne = brassard.GetChild(3).GetComponent<ParticleSystem>();
-            fxHATwo = brassard.GetChild(1).GetComponent<ParticleSystem>();
+            fxHAThree = brassard.GetChild(0);
+            fxHAOne = brassard.GetChild(3);
+            fxHATwo = brassard.GetChild(1);
             fxLA = brassard.GetChild(2).GetComponent<ParticleSystem>();           
 
             //magnetiFX = magicRayOrigin.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
@@ -115,14 +115,9 @@ namespace SJ
             if(!thunderFx.activeSelf)
                 thunderFx.SetActive(false);
 
-            hittable360Attack.enabled = false;
-            hittableCrossAttack.enabled = false;
-            hittableFallAttack.enabled = false;
-
-
             statesJiataData.d_LowAttack = 5;
             statesJiataData.d_HighAttack = 10;
-            statesJiataData.d_ArcLight = 46;
+            statesJiataData.d_ArcLight = 45;
             statesJiataData.d_Thunder = 160;
             statesJiataData.isIndomitable = false;
             statesJiataData.isHidden = false;
@@ -223,9 +218,9 @@ namespace SJ
 
         public void FxHighAttack()
         {
-            if(lastAttack == "HighAttack1") fxHAOne.Play();
-            else if (lastAttack == "HighAttack2") fxHATwo.Play();
-            else if (lastAttack == "HighAttack3") fxHAThree.Play();
+            if(lastAttack == "HighAttack1") Instantiate(haOne, fxHAOne.transform.position, fxHAOne.transform.rotation);
+            else if (lastAttack == "HighAttack2") Instantiate(haTwo, fxHATwo.transform.position, fxHATwo.transform.rotation);
+            else if (lastAttack == "HighAttack3") Instantiate(haThree, fxHAThree.transform.position, fxHAThree.transform.rotation);
 
             playerStats.TakeStaminaDamage(highAttackDrain);
 
@@ -300,20 +295,7 @@ namespace SJ
                 animatorManager.PlayTargetAnimation("Thunder", true);
             }
         }
-        public void OpenDetectionHighAttack()
-        {
-            if(lastAttack == "HighAttack1") hittable360Attack.enabled = true;
-
-            else if(lastAttack == "HighAttack2") hittableCrossAttack.enabled = true;
-
-            else if(lastAttack == "HighAttack3") hittableFallAttack.enabled = true;
-        }
         
-        public void CloseDetectionHighAttack()
-        {
-            hittable360Attack.enabled = hittableCrossAttack.enabled = hittableFallAttack.enabled = false;
-        }
-
         public void MagnetiRay()
         {
             float a = -1.5f;
@@ -368,6 +350,7 @@ namespace SJ
                 {
                     hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[1];
                     hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
+                    FindObjectOfType<GameSaveManager>().SaveAllData();
                 }   
 
             }
@@ -467,6 +450,26 @@ namespace SJ
 
                     }
 
+                    else if(component is KeliperManager keliperManager)
+                    {
+                        arcLightningFx.SetActive(true);
+                        smokeRecul.Play();
+                        targetarcLightning.transform.position = keliperManager.lockOnTransform.position;
+                        float distance = keliperManager.keliperPattern.distanceFromTarget;
+
+                        if(keliperManager.keliperPattern.currentTarget == null) 
+                        {
+                            keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                            keliperManager.isPreformingAction = false;
+                        }
+                        if(distance <= arcLightMaxDistance)
+                        {
+                            keliperManager.TakeDamage(statesJiataData.d_ArcLight);
+                            keliperManager.keliperPattern.stunt = true;
+                        }
+                        else keliperManager.TakeDamage(statesJiataData.d_ArcLight/2);
+                    }
+
                     else if(component is kossiKazeManager kossiKazeManager)
                     {
                             arcLightningFx.SetActive(true);
@@ -497,13 +500,11 @@ namespace SJ
 
             else if(Physics.BoxCast(magicRayOrigin.transform.position, arclightbox * 5f, magicRayOrigin.transform.forward, out targetHit, Quaternion.identity, arcLightMaxDistance))//(Physics.SphereCast(magicRayOrigin.transform.position, arcLightRadius, magicRayOrigin.transform.forward, out hit, arcLightMaxDistance))
             {
-                if(targetHit.collider.gameObject.layer == 8)
+                /*if(targetHit.collider.gameObject.layer == 8)
                 {
-                    //arcLightningFx = GameObject.Find("ArcLightningFx");
                     StartCoroutine(HandleArcLightningEffect());
-
-                }
-                else if(targetHit.collider.gameObject.layer == 10)
+                }*/
+                if(targetHit.collider.gameObject.layer == 10)
                 {
                     arcLightningFx.SetActive(true);
                     smokeRecul.Play();
@@ -560,6 +561,28 @@ namespace SJ
                             else kossiManager.TakeDamage(statesJiataData.d_ArcLight/2);
                           
                         }
+
+                        else if(component is KeliperManager keliperManager)
+                        {
+                            float distance = keliperManager.keliperPattern.distanceFromTarget;
+
+                            arcLightningFx.SetActive(true);
+                            smokeRecul.Play();
+                            targetarcLightning.transform.position = keliperManager.lockOnTransform.position;
+
+                            if(keliperManager.keliperPattern.currentTarget == null) 
+                            {
+                                keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                                keliperManager.isPreformingAction = false;
+                            }
+                            if(distance <= arcLightMaxDistance)
+                            {
+                                keliperManager.TakeDamage(statesJiataData.d_ArcLight);
+                                keliperManager.keliperPattern.stunt = true;
+                            }
+                            else keliperManager.TakeDamage(statesJiataData.d_ArcLight/2);
+                        }
+
                         else if(component is kossiKazeManager kossiKazeManager)
                         {
                             float distance = kossiKazeManager.kossiKazePattern.distanceFromTarget;
@@ -626,11 +649,6 @@ namespace SJ
 
             foreach (RaycastHit hit in targetsThunderHits)
             {
-                if(hit.collider.gameObject.layer == 8)
-                {
-                    StartCoroutine(HandleThunderEffect(hit.transform.position));
-                    hit.collider.gameObject.GetComponent<MagnetSphereManager>().HandleDestroyMagnetSphere();
-                }
 
                 if(hit.collider.gameObject.layer == 12)
                 {
@@ -656,6 +674,19 @@ namespace SJ
                             StartCoroutine(HandleThunderEffect(hit.transform.position));
                             kossiKazeManager.isDead = true;
                         }
+
+                        else if(component is KeliperManager keliperManager)
+                        {
+                            StartCoroutine(HandleThunderEffect(hit.transform.position));
+                            keliperManager.TakeDamage(statesJiataData.d_Thunder);
+                            keliperManager.keliperPattern.stunt = true;
+                            if(keliperManager.keliperPattern.currentTarget == null) 
+                            {
+                                keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                                keliperManager.isPreformingAction = false;
+                            }
+                        }
+
                         if(component is BuffaloManager buffaloManager)
                         {
                             StartCoroutine(HandleThunderEffect(buffaloManager.lockOnTransform.position));

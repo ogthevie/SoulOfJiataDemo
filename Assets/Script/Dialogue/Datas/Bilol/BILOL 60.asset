@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: BILOL 60
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
   - "On dirait que tu as finalement trouv\xE9 ta voix. D'o\xF9 te vient toute cette
     \xE9nergie ?"
   - "On va dire que j'ai re\xE7u un enseignement sp\xE9cial."
-  - "HA HA HAAAA. Il y a donc meilleur professeur que mois dans ce royaume, \xE7a
+  - "HA HA HAAAA. Il y a donc meilleur professeur que moi dans ce royaume, \xE7a
     je ne l'aurai jamais cru."

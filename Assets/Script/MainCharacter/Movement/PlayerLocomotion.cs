@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SJ
 {
@@ -47,6 +48,7 @@ namespace SJ
         [SerializeField] float fallingSpeed = 800f;
         [SerializeField] GameObject originGym;
         public bool canGym, isFlipping;
+        [SerializeField] Canvas loadingScreen;
         #endregion
 
         
@@ -240,8 +242,7 @@ namespace SJ
         
         public void HandleFalling(float delta, Vector3 moveDirection)
         {
-            //if(jumpFlag)
-                //return;
+            if(loadingScreen.enabled) return;
             playerManager.isGrounded = false;
             RaycastHit hit;
             RaycastHit hitGym;
@@ -352,6 +353,7 @@ namespace SJ
             {
                 if(inputManager.moveAmount > 0)
                 {
+                    if(Time.timeScale == 0) return;
                     jumpFlag = true;
                     moveDirection = cameraObject.forward * inputManager.vertical;
                     moveDirection += cameraObject.right * inputManager.horizontal;

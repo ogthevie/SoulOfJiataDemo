@@ -51,6 +51,15 @@ namespace SJ
                     {
                         kossiKazeManager.kossiKazePattern.HandleExplosion();
                     }
+                    else if(component is KeliperManager keliperManager)
+                    {
+                        keliperManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
+                        if(keliperManager.keliperPattern.currentTarget == null) 
+                        {
+                            keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                            keliperManager.isPreformingAction = false;
+                        }
+                    }
                     else if(component is BuffaloManager buffaloManager)
                         {
                             if(buffaloManager.isArmor) return;

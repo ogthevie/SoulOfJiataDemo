@@ -373,6 +373,7 @@ namespace SJ
 
         private void HandleEnableOptionMenu()
         {
+            if(playerManager.isInteracting) return;
             if(select_input && !playerManager.onOption) playerManager.onOption = true;
             else if(select_input && playerManager.onOption) playerManager.onOption = false;
         }

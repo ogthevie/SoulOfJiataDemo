@@ -17,44 +17,47 @@ MonoBehaviour:
   firstConversation:
   - "Bonjour mon fils, je t'ai cherch\xE9 toute la journ\xE9e"
   - Bonjour Poa, comment tu vas ?
-  - "Tu sais mon fils, \xE0 mon \xE2ge, ce sont des questions qui ne posent plus,
-    on attend calmement le moment de rejoindre la terre de nos anc\xEAtres."
+  - "Tu sais mon fils, \xE0 mon \xE2ge, ce sont des questions qui ne se posent plus,
+    on attend calmement le moment de rejoindre la terre de ses anc\xEAtres."
   - "Ne parle pas comme \xE7a Poa..."
-  - "Ne t\u2019inqui\xE8te pas, j\u2019ai encore 2, 3 ann\xE9es devant moi, ce n\u2019est
+  - "Ne t\u2019inqui\xE8tes pas, j\u2019ai encore 2, 3 ann\xE9es devant moi, ce n\u2019est
     pas si mal vu mon \xE2ge. Mais bon, passons, je vois du doute dans tes yeux,
-    c\u2019est par rapport \xE0 la mission dont tu t\u2019es investie."
-  - "J'ai l'impression de ne pas \xEAtre \xE0 la hauteur. Je regarde Isamal et je
-    me sens si faible. Ma ma\xEEtrise de la sorcellerie est si... rudimentaire"
+    dis-moi, qu'est ce qu'il y a ?"
+  - "J'ai l'impression de ne pas \xEAtre \xE0 la hauteur. C'est vrai que j'ai suivi
+    l'entra\xEEnement de Poa Bok Bilol, mais je me sens si faible. Je n'ai plus l'impression
+    de pouvoir \xE9voluer. Je risque d'\xEAtre un poids pour Isamal."
   - "Ton p\xE8re et moi quand nous \xE9tions plus jeunes, on vous ressemblait un
     peu. J'\xE9tais un peu \xE0 la ramasse mais tu vois maintenant, je ne suis pas
     si mauvais que \xE7a."
-  - Si vous le dites.
-  - "Concernant ta ma\xEEtrise, je suis heureux que le d\xE9sir vienne de toi, \xE7a
-    facilitera la compr\xE9hension de ce que je vais te dire maintenant."
-  - "Je suis tout ou\xEFe Poa"
+  - "Je ne pense pas que ce soit la m\xEAme chose. Vous avez pass\xE9 toute votre
+    vie \xE0 Lituba, vous avez appris aupr\xE8s des meilleurs ma\xEEtres. Alors que
+    moi, je n'ai pas grandi ici et il n'y a plus suffisamment de ma\xEEtre en vie...Du
+    moins dans ce village."
+  - "C'est pour \xE7a que vous devez quitter ce village. Je suis heureux que tu aies
+    fait ce constat toi-m\xEAme, \xE7a facilitera la compr\xE9hension de ce que je
+    veux te dire."
+  - "Je suis tout ou\xEFe Poa."
   - Sur ta main droite, tu sais ce que tu portes ?
   - "C'est le brassard de mon p\xE8re. Ma m\xE8re me l'a donn\xE9 avant de mourir.
     Elle m'a dit qu'il \xE9tait important pour notre famille."
   - Et tu sais ce que cette transmission implique ?
   - "Je ne me suis jamais pos\xE9 la question mais dans une mythologie nkana , il
-    y a une divinit\xE9 qui poss\xE8de un marteau qui lui permet de canaliser sa
-    magie de la foudre. Je suppose que c\u2019est un peu le m\xEAme fonctionnement
-    pour ce brassard."
-  - "Ce brassard est bien plus qu'un simple objet, Jeune Tam. C'est une m\xE9moire,
+    y a une sorte de dieu qui manie un marteau qui lui conf\xE8re la magie du tonnerre.
+    Je suppose que c\u2019est un peu le m\xEAme fonctionnement pour mon brassard."
+  - "C'est \xE0 peu pr\xE8s cela. Mais pour \xEAtre plus pr\xE9cis, c'est une m\xE9moire,
     un lien avec tes anc\xEAtres et leur savoir. Ton p\xE8re y a transmis une partie
-    de sa puissance, et toi, tu as invoqu\xE9 KWALLON WUTA sans m\xEAme t'en rendre
-    compte."
+    de sa puissance, et toi, tu l'utilises sans m\xEAme t'en rendre compte. le sort
+    de feu, KWALLON WUTA est un bon exemple."
   - "Comment vous connaissez le nom de ma technique ? Je ne vous ai jamais dit comment
     elle s\u2019appelle !"
   - "Tout simplement parce que ton p\xE8re l\u2019a utilis\xE9 \xE0 maintes reprises
     devant moi, c\u2019est lui qui l\u2019a mise au point puis nomm\xE9e. Toi tu
     n\u2019as fait que te souvenir sans t\u2019en rendre compte."
   - Dingue !
-  - "Et je sais que tu n\u2019es pas capable de lancer un autre sortil\xE8ge que
-    celui-l\xE0."
-  - "Oui, mais si c\u2019est juste une affaire de m\xE9moire, pourquoi je n\u2019arrive
-    pas \xE0 me souvenir des autres sortil\xE8ges ?"
-  - "Parce que ta m\xE9moire est incompl\xE8te."
+  - "Et je sais que tu n\u2019es pas capable de lancer un autre sort que celui-l\xE0."
+  - "Oui, mais si c\u2019est juste une histoire de m\xE9moire, pourquoi je n\u2019arrive
+    pas \xE0 me souvenir des autres sorts ?"
+  - "Parce que la m\xE9moire est incompl\xE8te."
   - "C\u2019est \xE0 dire ?"
   - "Tam poss\xE9dait deux brassards, mais apr\xE8s sa mort, nous n\u2019avons pu
     r\xE9cup\xE9rer qu\u2019un seul. Nous avons longtemps cherch\xE9 le deuxi\xE8me

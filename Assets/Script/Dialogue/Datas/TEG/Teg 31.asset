@@ -15,14 +15,11 @@ MonoBehaviour:
   characterName: TEG
   mainCharacterName: Ruben
   firstConversation:
-  - "Tu as d\xE9j\xE0 trouv\xE9 Wuta Lantarki ! Surprenant."
-  - "Oui, c'est all\xE9 assez vite."
-  - "\xC7a fait dr\xF4le dans le corps, je ne sais pas comment l'expliquer mais j'ai
-    l'impression de savoir l'utiliser."
-  - "C'est tout l'int\xE9r\xEAt de l'apprentissage de l'art Lituba. Il ne s'enseigne
-    pas, il se cultive."
-  - C'est fascinant.
-  - "C'est un sortil\xE8ge tr\xE8s avanc\xE9. Dans ton \xE9tat actuel, tu ne dois
-    pas en abuser sinon tu seras rapidement \xE9puis\xE9. Utilise-le avec parcimonie."
-  - D'accord, je ferai attention.
-  - "Continue ton exploration, tu trouveras bient\xF4t les autres autels."
+  - "Je vois que tu as mis la main sur WUTA LANTARKI...int\xE9ressant."
+  - C'est quoi.ce WUTA machin truc ?
+  - "WUTA LANTARKI, c'est un sortil\xE8ge qui permet de faire monter ses vibrations
+    \xE0 une fr\xE9quence si elev\xE9e qu'elles deviennent tangibles et ainsi tu
+    peux les propulser o\xF9 tu le souhaites."
+  - "Que se passe t-il si je projette cette \xE9nergie sur quelque chose de vivant
+    ?"
+  - "Fais en toi-m\xEAme l'exp\xE9rience."

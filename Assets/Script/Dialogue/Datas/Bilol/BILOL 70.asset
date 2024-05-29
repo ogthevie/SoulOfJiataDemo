@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: BILOL 70
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
   - "La terre a trembl\xE9... Quelque chose de grand se pr\xE9pare. Tu ressens \xE7a

@@ -1476,6 +1476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603001307046642144}
   - component: {fileID: 3400386689094169794}
+  - component: {fileID: 2262523900725185187}
   m_Layer: 0
   m_Name: Corps
   m_TagString: Untagged
@@ -1581,6 +1582,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.028792769, y: 0.040860295, z: -0.0040096417}
     m_Extent: {x: 0.35783157, y: 0.3282773, z: 0.17141452}
   m_DirtyAABB: 0
+--- !u!136 &2262523900725185187
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799868430272372901}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.039851654
+  m_Height: 0.14182161
+  m_Direction: 1
+  m_Center: {x: -0.0034891164, y: 0.049428806, z: 0.011368765}
 --- !u!1 &9029487161351891958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1728,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a516db1e6f7b2241a103097bce4c848, type: 2}
   partThree: []
   partFour: []
+  partsix:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  partSeven:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   storyManager: {fileID: 0}
   dialogUI: {fileID: 0}
   idDialog: 0
@@ -1742,8 +1778,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.670143, y: 0.58980745, z: 0.49172455}
-  m_Center: {x: -0.033925246, y: 0.28456157, z: 0.075376675}
+  m_Size: {x: 0.7330233, y: 0.75205564, z: 0.49172455}
+  m_Center: {x: -0.0024847693, y: 0.3656857, z: 0.07537665}
 --- !u!1 &9118460996593485997
 GameObject:
   m_ObjectHideFlags: 0

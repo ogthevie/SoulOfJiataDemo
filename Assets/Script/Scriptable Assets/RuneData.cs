@@ -6,6 +6,4 @@ using UnityEngine;
 public class RuneData : ScriptableObject
 {
     public bool base_DoorB;
-    public bool mid_DoorH, mid_DoorB;
-    public bool sup_DoorH, sup_DoorG, sup_DoorB;
 }

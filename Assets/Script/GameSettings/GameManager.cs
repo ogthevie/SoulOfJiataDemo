@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         loadingScreen.enabled = false;
         needGamepad.enabled = false;
         isLoading = false; // a true de base
-        //Shader.WarmupAllShaders();
+        Shader.WarmupAllShaders();
     }
 
     public void ActiveOnDestroy()
@@ -70,9 +70,7 @@ public class GameManager : MonoBehaviour
                 loadSlider.fillAmount = operations[i].progress;
                 yield return null;
             }
-        }
-
-        float activeScene = SceneManager.GetActiveScene().buildIndex;
+        } 
         PlayerManager player = FindObjectOfType<PlayerManager>();
         
         if(newGame == 0) 
@@ -82,30 +80,32 @@ public class GameManager : MonoBehaviour
  
         else if(newGame == 1) 
         {
-            player.transform.position = new Vector3 (132.10f, 3.50f, 355.91f); //position de ruben en tout debut de partie
+            player.transform.position = new Vector3 (132.10f, 1.5f, 355.91f); //position de ruben en tout debut de partie
             player.transform.rotation = Quaternion.Euler(0, -10.22f, 0f);
             player.GetComponent<AnimatorManager>().PlayTargetAnimation("Start", true);
         }
         else
         {
+            float activeScene = SceneManager.GetActiveScene().buildIndex;
             if(activeScene == 1)
             {
                 if(portalPosition == 0)
                 {
-                    player.transform.position = new Vector3 (50f, 10f, 307f);
+                    player.transform.position = new Vector3 (48, 5, 307f);
                     GlobalFixedCursorPosition();
                 } 
-                else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
+                //else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
             }
             else if(activeScene == 2)
             {
-                if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.3f, -179.057f);
-                else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
-
-                gameSaveManager.LoadGrotteData();
+                if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.15f, -179.057f);
+                //else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
+                
                 gameSaveManager.LoadTorcheGrotteData();
 
                 portalPosition = null;
+
+                gameSaveManager.SaveAllData();
  
             }
 
@@ -119,12 +119,19 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        if(activeScene == 1)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if(newGame == 1) StartCoroutine(ZoneEntry("...CASE DE LA TORTUE..."));
-            else if(newGame == 0 || newGame == null)StartCoroutine(ZoneEntry("...SIBONGO..."));
+            if(newGame == 1) StartCoroutine(ZoneEntry("...CASE DE LA TORTUE...", "Matinée"));
+            else if(newGame == 0 || newGame == null)
+            {
+                var sibongoManager = FindObjectOfType<SibongoManager>();
+                if(sibongoManager.dayPeriod == 0) StartCoroutine(ZoneEntry("...SIBONGO...", "Matinée"));
+                else if (sibongoManager.dayPeriod == 1) StartCoroutine(ZoneEntry("...SIBONGO...", "Midi"));
+                else if (sibongoManager.dayPeriod == 2) StartCoroutine(ZoneEntry("...SIBONGO...", "Après-midi"));
+                else if (sibongoManager.dayPeriod == 3) StartCoroutine(ZoneEntry("...SIBONGO...", "Nuit"));
+            }
         }
-        else if(activeScene == 2) StartCoroutine(ZoneEntry("...GROTTE BONGO..."));
+        else if(SceneManager.GetActiveScene().buildIndex == 2) StartCoroutine(ZoneEntry("...GROTTE BONGO...", " "));
         
         player.isInteracting = false;
         Debug.Log("index est " + newGame);        
@@ -176,10 +183,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ZoneEntry(string nameZone)
+    public IEnumerator ZoneEntry(string nameZone,string timeDay)
     {
         zoneName.SetActive(true);
         zoneName.GetComponent<TextMeshProUGUI>().text = nameZone;
+        zoneName.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = timeDay;
         yield return new WaitForSeconds(7.2f);
         zoneName.SetActive(false);
     }

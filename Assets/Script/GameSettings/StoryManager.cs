@@ -28,7 +28,7 @@ public class StoryManager : MonoBehaviour
         32 = sommeil du cadavre + discussion avec Bomboktan
         4 = nson + discussion avec Bomboktan
         5 = apparition Kossi
-        6 = crane kossi
+        6 = esprit de la pierre
     */
 
     public void checkstoryStep(bool canNextStep)

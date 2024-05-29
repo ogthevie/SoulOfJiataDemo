@@ -28,13 +28,13 @@ public class PlayerUIManager : MonoBehaviour
 
     public void HiddenUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-200, 0.4f, false);
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-400, 0.4f, false);
         padUI.GetComponent<RectTransform>().DOAnchorPosX(250f, 0.4f, false);
     }
 
     public void ShowUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(160, 0.4f, false);
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(320, 0.4f, false);
         padUI.GetComponent<RectTransform>().DOAnchorPosX(-180f, 0.4f, false);
     }
 }

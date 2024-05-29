@@ -10,37 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
-  m_Name: BILOL 03
+  m_Name: Bilol 03
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
-  - "Jeune Jiata\u2026 J\u2019esp\xE8re que tu te plais ici \xE0 Sibongo. Tu es chez
-    toi plus que n\u2019importe o\xF9 tu as d\xE9j\xE0 mis pied"
-  - "Merci Poa Bok Bilol, m\xEAme si c\u2019est compliqu\xE9 de communiquer avec
-    certains car je ne parle pas bien Lituba."
-  - "\xC7a viendra avec le temps\u2026Vu que tu n\u2019es pas du coin je vais te
-    donner quelques d\xE9tails sur notre fonctionnement ici."
-  - "\xC7a va beaucoup m\u2019aider !"
-  - "Il y a pas mal d\u2019arbre fruitiers ici, tu peux te servir \xE0 ta guise,
-    c\u2019est la Terre qui donne et c\u2019est la Terre qui reprendra. Le cr\xE2ne
-    de chat que je t\u2019ai donn\xE9 te permet de stocker tout genre d\u2019objets
-    que tu pourras trouver dans la nature."
-  - "C\u2019est not\xE9 !"
-  - "Et aussi, \xE9vite de tra\xEEner hors du village \xE0 une certaine heure de
-    la nuit, les cr\xE9atures du Kao r\xF4dent beaucoup et ils sont redoutables,
-    surtout pour un apprenti sorcier. "
-  - "Et dans la journ\xE9e ?"
-  - "C\u2019est plut\xF4t calme, m\xEAme si dans la for\xEAt, tu peux tomber sur
-    quelques Kossi, mais tu n\u2019auras pas de mal avec eux. Si un jour tu vois
-    un cr\xE9ature Kao, fuis sans te retourner."
-  - "Ils sont si forts que \xE7a ?"
-  - "Ces cr\xE9atures dans leur forme primitive ne valent pas deux clous. Mais une
-    fois qu\u2019ils ont infect\xE9 le cadavre d\u2019un homme qui de son vivant
-    \xE9tait une v\xE9ritable force de la nature, ils le deviennent aussi. Et dans
-    la for\xEAt de Lituba, un grand nombre de grands h\xE9ros ont p\xE9ri et leurs
-    cadavres sont rest\xE9s sur le champ de bataille."
-  - "Ce qui fait qu\u2019il y a une probabilit\xE9 de super Kao dans le coin. Je
-    comprends un peu."
-  - "Super Kao ? dr\xF4le de terme mais oui je comprends l\u2019id\xE9e et c\u2019est
-    exactement \xE7a. Ouvre l\u2019\u0153il"
+  - Un jour, je te parlerai de mes aventures en pays Pefussep.

@@ -24,7 +24,6 @@ public class SurchargeEventManager : EventStoryTriggerManager
             playerManager.HandleSurchargeBrassard();
             
             StartCoroutine(gameManager.StartHandleAchievement("--Le second brassard--"));
-            grotteKossiManager.enemySpawnOne.SetActive(true);
             
             storyManager.storyStep = 3;
             bomboktanManager.Spawn(0);

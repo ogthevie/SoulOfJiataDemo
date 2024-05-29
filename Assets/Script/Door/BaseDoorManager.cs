@@ -1,40 +1,75 @@
 using UnityEngine;
+using SJ;
 
-public class BaseDoorManager : DoorManager
+public class BaseDoorManager : MonoBehaviour 
 {
-    public RuneManager runeDooBManager;
+    StoryManager storyManager;
+    [SerializeField] GameObject baseWallOne, baseWallTwo, player,spk1, spk2;
+    [SerializeField] Animation animation;
+    bool baseDoorIsActive, isFight;
+    float distance;
 
     void Awake()
     {
-        openPosition = this.transform.position + new Vector3 (0, 5.3f, 0);
-        stopPosition = openPosition - Vector3.up*2;
-        doorAudioSource = GetComponent<AudioSource>();
-        gameSaveManager = FindObjectOfType<GameSaveManager>();
-
+        storyManager = FindObjectOfType<StoryManager>();
     }
 
     void Start()
     {
-        if(transform.position.y >= stopPosition.y)
+        baseWallOne.SetActive(false);
+        baseWallTwo.SetActive(false);
+
+        if(storyManager.storyStep >2)
         {
-            base_Door = true;
-            runeDooBManager.LoadStateBaseRune();
+            transform.position = new Vector3 (transform.position.x, 3.4f, transform.position.z);
+            baseDoorIsActive = true;
+            Destroy(spk1);
+            Destroy(spk2);
+            Destroy(this);
+        }
+        else
+        {
+            player = FindObjectOfType<PlayerManager>().gameObject;
+            animation = GetComponent<Animation>();
         }
 
     }
 
-    private void LateUpdate() 
+    void LateUpdate()
     {
-        doorType.HandleBaseDoor(runeData, this);
-        HandleStopDoorRuneProcess();    
+        CheckDistance();
+        ActivateBaseDoorwall();
+        DesactivateBaseDoorWall();
     }
 
-    protected override void HandleStopDoorRuneProcess()
+    void CheckDistance()
     {
-        if(base_Door)
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        
+    }
+
+    void ActivateBaseDoorwall()
+    {
+        if(distance <= 30 && !isFight)
         {
-            gameSaveManager.SaveDoorData();
-            Destroy(this, 2f);
+            baseWallOne.SetActive(true);
+            baseWallTwo.SetActive(true);
+            spk1.SetActive(true);
+            spk2.SetActive(true);
+            isFight = true;
         }
-    }  
+    }
+
+    void DesactivateBaseDoorWall()
+    {
+        if(spk1 == null && spk2 == null)
+        {
+            baseWallOne.SetActive(false);
+            baseWallTwo.SetActive(false);
+            animation.Play();
+            Destroy(this);            
+        }
+    }
+    
 }
+
