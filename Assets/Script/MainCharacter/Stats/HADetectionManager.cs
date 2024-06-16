@@ -6,6 +6,7 @@ namespace SJ
     {
         PlayerAttacker playerAttacker;
         public ParticleSystem impactFx;
+        [SerializeField] GameObject wishShoke;
 
 
         void Awake()
@@ -29,6 +30,16 @@ namespace SJ
             {
                     TreeContainerManager treeContainerManager = other.GetComponent<TreeContainerManager>();
                     treeContainerManager.HandleTreeContainerProcess();
+            }
+
+            if(other.gameObject.layer == 13)
+            {
+                if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
+                {
+                    Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
+                    Instantiate (wishShoke, impactPosition, Quaternion.identity);
+                    Destroy(component.gameObject);
+                }
             }
 
             if(other.gameObject.layer == 12)

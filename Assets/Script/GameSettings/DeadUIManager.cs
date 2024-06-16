@@ -11,6 +11,7 @@ public class DeadUIManager : MonoBehaviour
     GameSaveManager gameSaveManager;
     GameManager gameManager;
     PlayerStats playerStats;
+    TutoManager tutoManager;
 
     void Awake()
     {
@@ -20,7 +21,7 @@ public class DeadUIManager : MonoBehaviour
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         gameManager = gameSaveManager.GetComponent<GameManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
-        
+        tutoManager = FindObjectOfType<TutoManager>();
     }
 
     void Update()
@@ -39,6 +40,7 @@ public class DeadUIManager : MonoBehaviour
 
     IEnumerator reloadRoutine()
     {
+        tutoManager.HiddenUI();
         inputManager.skillTreeManager.HandleSkillTreeUI(false);
         inputManager.GetComponent<AudioManager>().jiataAudioSource.Stop();
         

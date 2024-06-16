@@ -114,7 +114,7 @@ namespace SJ
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
 
             //playerAttacker.HandleInteractTree();
-            playerLocomotion.HandleMovementAngle();
+            playerLocomotion.HandleMovementAngle();           
             
         }
 

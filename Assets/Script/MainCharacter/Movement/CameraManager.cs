@@ -29,8 +29,8 @@ namespace SJ
         private float defautlPosition; //la position par défaut de la camera en Y
         private float lookAngle;
         private float pivotAngle;
-        readonly float minimumPivot = -5f;
-        public float maximumPivot = 90;
+        readonly float minimumPivot = -60f;
+        readonly float maximumPivot = 60;
 
         public readonly float cameraSphereRadius = 0.5f;
         public readonly float cameraCollisionOffset = 1.5f; //De combien la camera sera décalé en cas de collision

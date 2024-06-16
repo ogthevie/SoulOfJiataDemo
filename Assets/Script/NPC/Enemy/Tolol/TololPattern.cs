@@ -30,7 +30,8 @@ public class TololPattern : MonoBehaviour
 
     void OnEnable()
     {
-        tololRigibody = GetComponent<Rigidbody>();        
+        tololRigibody = GetComponent<Rigidbody>();
+        tololManager = GetComponent<TololManager>();        
     }
     
     void Start()
@@ -38,14 +39,12 @@ public class TololPattern : MonoBehaviour
         playerAttacker = FindObjectOfType<PlayerAttacker>();
         playerManager = FindObjectOfType<PlayerManager>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
-        tololManager = GetComponent<TololManager>();
-        agentTolol = GetComponentInChildren<NavMeshAgent>();
         handleDamageTolol = GetComponentInChildren<HandleDamageTolol>();
-        agentTolol.enabled = false;
         tololRigibody.isKinematic = false;
         collidertolol.enabled = false;
         currentTarget = playerManager;
         tololManager.isPreformingAction = false;
+        tololManager.isbreak = false;
     }
 
     void LateUpdate()
@@ -185,5 +184,20 @@ public class TololPattern : MonoBehaviour
         timeAttack += delta;
 
         if(timeAttack > 0.8f) timeAttack = 0f;
+    }
+
+    public void BreakPoint()
+    {
+        if(tololManager.isbreak)
+        {
+            agentTolol.speed = 0;
+            tololRigibody.isKinematic = true;
+                     
+        }
+        else
+        {
+            agentTolol.speed = 3.5f;
+            tololRigibody.isKinematic = false;  
+        }
     }
 }

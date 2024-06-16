@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7641312929399470450}
   - component: {fileID: -4477937700440471750}
   - component: {fileID: 6515408250075792993}
+  - component: {fileID: 5936056203288185056}
   m_Layer: 14
   m_Name: Cola Singe
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7406746066672365145}
   serializedVersion: 4
-  m_Mass: 1.2
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -151,3 +152,16 @@ CapsuleCollider:
   m_Height: 0.04148002
   m_Direction: 2
   m_Center: {x: 0.0035227092, y: -0.007, z: 0.0018834143}
+--- !u!114 &5936056203288185056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7406746066672365145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57da4ddf94b7c79428bb5ace72555361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timetoDestroy: 30

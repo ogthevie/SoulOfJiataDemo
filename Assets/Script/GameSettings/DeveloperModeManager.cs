@@ -13,7 +13,7 @@ namespace SJ
         public StatesCharacterData jiataCharacterData;
         public List <GameObject> vases = new ();
         public List <GameObject> tolols = new ();
-        public GameObject kossi, kossiKaze;
+        public GameObject kossi, kossiKaze, keliper;
 
 
         void Awake()
@@ -50,18 +50,6 @@ namespace SJ
            #endif
         }
 
-        public void HandleInstantiateKossiKaze()
-        {
-            #if UNITY_EDITOR
-           if(Input.GetKeyDown(KeyCode.K))
-           {
-                Debug.Log("un kossiKaze est apparu");
-                Vector3 kossiKazePosition = transform.position + new Vector3 (-10f, 0f, 20f);
-                Instantiate(kossiKaze, kossiKazePosition, Quaternion.identity);
-           }
-           #endif
-        }
-
         public void HandleInstantiateTolols()
         {
             #if UNITY_EDITOR
@@ -72,6 +60,20 @@ namespace SJ
                 Vector3 tololPosition = transform.position + new Vector3 (10f, 0f, -10f);
                 Instantiate(tolols[i], tololPosition, Quaternion.identity);
             }
+
+           if(Input.GetKeyDown(KeyCode.K))
+           {
+                Debug.Log("un kossiKaze est apparu");
+                Vector3 kossiKazePosition = transform.position + new Vector3 (-10f, 0f, 20f);
+                Instantiate(kossiKaze, kossiKazePosition, Quaternion.identity);
+           }
+
+           if(Input.GetKeyDown(KeyCode.P))
+           {
+                Debug.Log("un keliper est apparu");
+                Vector3 keliperPosition = transform.position + new Vector3 (10f, 2f, 20f);
+                Instantiate(keliper, keliperPosition, Quaternion.identity);
+           }
             #endif
         }
 

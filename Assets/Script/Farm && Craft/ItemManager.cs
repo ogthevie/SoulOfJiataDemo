@@ -13,7 +13,6 @@ public class ItemManager : MonoBehaviour
     InventoryManager inventoryManager;
     RaycastHit hit;
     int k;
-    float lifeDuration = 60f;
 
 
     void Awake()
@@ -24,26 +23,9 @@ public class ItemManager : MonoBehaviour
         inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
-
-    private void FixedUpdate()
+    private void Start()
     {
-        float delta = Time.deltaTime;
-        HandleLifeDuration(delta);
-    }
-    
-    private void HandleLifeDuration(float delta)
-    {
-        if(lifeDuration <= 0f)
-        {
-            GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, 1.5f);
-        }
-
-
-        if(lifeDuration > 0f && gameObject != null)
-        {
-            lifeDuration -= delta;
-        }
+        this.GetComponent<Rigidbody>().AddForce(transform.up * 15f, ForceMode.Impulse);    
     }
 
     private void HandleItemsByplayer()

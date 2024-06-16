@@ -9,6 +9,7 @@ public class HandleDamageTolol : MonoBehaviour
     PlayerStats playerStats;
     PlayerManager playerManager;
     PlayerAttacker playerAttacker;
+    [SerializeField] GameObject bulletImpact;
     int damage;
 
     void Awake()
@@ -28,8 +29,11 @@ public class HandleDamageTolol : MonoBehaviour
     {
         if(other.gameObject.layer == 3)
         {
+            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0f, 1f, 0f);
+            Instantiate(bulletImpact, impactPosition, Quaternion.identity);
             playerStats.TakeDamage(damage, 0);
             playerManager.takeDamage = true;
+            
         }
     }
 }

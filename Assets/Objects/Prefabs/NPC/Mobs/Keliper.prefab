@@ -385,7 +385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 0
   isDead: 0
-  lockOnTransform: {fileID: 6500772770148543855}
+  isbreak: 0
+  lockOnTransform: {fileID: 5758139875317368209}
   currentHealth: 0
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
@@ -396,8 +397,6 @@ MonoBehaviour:
   keliperHealthBar: {fileID: 0}
   awakeFx: {fileID: 3103991395893648434}
   isPreformingAction: 0
-  maximumDetectionAngle: 90
-  minimumDetectionAngle: -90
   keliperHealth: 0
 --- !u!114 &8086870833656961931
 MonoBehaviour:
@@ -425,9 +424,9 @@ MonoBehaviour:
   keliperRigibody: {fileID: 0}
   spawnPoint: {fileID: 4031439700566497405}
   decal: {x: 0, y: 0.5, z: 0}
-  maxDistanceFromTarget: 40
   stoppingDistance: 10
   bulletAttack: 0
+  stunt: 0
   viewableAngle: 0
 --- !u!114 &2583150556244060883
 MonoBehaviour:
@@ -691,7 +690,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744645705736621120}
-  - component: {fileID: 2750438412235863960}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
@@ -716,29 +714,6 @@ Transform:
   m_Father: {fileID: 8309757486737860474}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2750438412235863960
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3162706952035733583}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2896001
-  m_Height: 2.996054
-  m_Direction: 1
-  m_Center: {x: -0.00000003054989, y: -0.71366143, z: 0.038001876}
 --- !u!1 &3470816549654443138
 GameObject:
   m_ObjectHideFlags: 0

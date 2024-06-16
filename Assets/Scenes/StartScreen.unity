@@ -1322,6 +1322,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1820608545184818386, guid: c281e7d7a2c44b143b865691554b85fa,
         type: 3}
+    - target: {fileID: 4422433116296044218, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: keliper
+      value: 
+      objectReference: {fileID: 1820608545184818386, guid: c281e7d7a2c44b143b865691554b85fa,
+        type: 3}
     - target: {fileID: 6149044110347630036, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: simulationSpeed
@@ -1334,14 +1340,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: magnetiFX
+      value: 
+      objectReference: {fileID: 3179431915004824482, guid: d9abca2d207a83d49b8be86fd6ecd5c5,
+        type: 3}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: paralyzeFx
+      value: 
+      objectReference: {fileID: 1024760363127348886, guid: 798eb82b6762ef843a8cc85f7ff7505b,
+        type: 3}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: slashYellow
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: surchargeFX
+      value: 
+      objectReference: {fileID: 3179431915004824482, guid: 7ae245f092c700c48a34fc3df1fad526,
+        type: 3}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: hittable360Attack
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: paralyzeBrassardFX
+      value: 
+      objectReference: {fileID: 1024760363127348886, guid: cfea8de73f6aa444282c2f5ea3d2fd38,
+        type: 3}
     - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: deadUI
@@ -1359,9 +1389,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: canThunder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: optionMenu
       value: 
       objectReference: {fileID: 1889787006}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: canArcLight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542974, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: fightSfx.Array.data[4]
@@ -2663,7 +2703,7 @@ PrefabInstance:
     - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
       propertyPath: m_Antialiasing
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}

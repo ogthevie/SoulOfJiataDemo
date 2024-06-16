@@ -7,7 +7,7 @@ public abstract class EnemyManager : MonoBehaviour
 {
     protected CameraManager cameraManager;
     public float detectionRadius;
-    public bool isDead;
+    public bool isDead, isbreak;
     public Transform lockOnTransform;
     public int currentHealth;
     public GameObject enemyExplosion;
@@ -31,9 +31,6 @@ public abstract class EnemyManager : MonoBehaviour
 
     public virtual void LoadConsumable(GameObject consumable)
     {
-        {
-            GameObject visuals = Instantiate(consumable, this.gameObject.transform.position, Quaternion.identity);
-        }        
+        GameObject visuals = Instantiate(consumable, this.gameObject.transform.position, Quaternion.identity);   
     }
-    
 }

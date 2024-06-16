@@ -10,7 +10,7 @@ public class KikohaManager : MonoBehaviour
     {
         Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
 
-        if(other.gameObject.layer == 8)
+        if(other.gameObject.layer == 13)
         {
             if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
             {

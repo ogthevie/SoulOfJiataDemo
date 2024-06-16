@@ -14754,6 +14754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactFx: {fileID: 5936128276327622916, guid: 752c0515a4055904282f1fdc8dc4a258,
     type: 3}
+  wishShoke: {fileID: 5634767591545691478, guid: 4fe3d627a7a52dc43a1d4348faea0f04,
+    type: 3}
 --- !u!1 &5614263212058888914
 GameObject:
   m_ObjectHideFlags: 0

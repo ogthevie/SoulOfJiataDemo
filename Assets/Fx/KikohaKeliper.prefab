@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3766195225782257659}
   - component: {fileID: 2095571710306639491}
   - component: {fileID: 1700933204537836783}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Flames Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 6885342727081727607}
   - component: {fileID: 2614660533077410969}
   - component: {fileID: 8745559120775547364}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9685,7 +9685,7 @@ GameObject:
   - component: {fileID: 4173222811173514799}
   - component: {fileID: 4686950946586444303}
   - component: {fileID: 6494632758865527630}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Ashes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14522,7 +14522,7 @@ GameObject:
   - component: {fileID: 1615504460967662152}
   - component: {fileID: 8182548606393666490}
   - component: {fileID: 8408189145177320379}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19359,7 +19359,7 @@ GameObject:
   - component: {fileID: 570120189747335286}
   - component: {fileID: 656199987977134595}
   - component: {fileID: 6634148046338537771}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19482,7 +19482,7 @@ GameObject:
   - component: {fileID: 8985957618840116812}
   - component: {fileID: 8636221301148667884}
   - component: {fileID: -3296698916181912107}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: KikohaKeliper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24421,7 +24421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57da4ddf94b7c79428bb5ace72555361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timetoDestroy: 2
+  timetoDestroy: 2.2
 --- !u!135 &8985957618840116812
 SphereCollider:
   m_ObjectHideFlags: 0

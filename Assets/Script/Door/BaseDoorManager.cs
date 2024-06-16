@@ -5,8 +5,8 @@ public class BaseDoorManager : MonoBehaviour
 {
     StoryManager storyManager;
     [SerializeField] GameObject baseWallOne, baseWallTwo, player,spk1, spk2;
-    [SerializeField] Animation animation;
-    bool baseDoorIsActive, isFight;
+    [SerializeField] Animation anim;
+    bool isFight;
     float distance;
 
     void Awake()
@@ -22,7 +22,6 @@ public class BaseDoorManager : MonoBehaviour
         if(storyManager.storyStep >2)
         {
             transform.position = new Vector3 (transform.position.x, 3.4f, transform.position.z);
-            baseDoorIsActive = true;
             Destroy(spk1);
             Destroy(spk2);
             Destroy(this);
@@ -30,7 +29,7 @@ public class BaseDoorManager : MonoBehaviour
         else
         {
             player = FindObjectOfType<PlayerManager>().gameObject;
-            animation = GetComponent<Animation>();
+            anim = GetComponent<Animation>();
         }
 
     }
@@ -66,7 +65,7 @@ public class BaseDoorManager : MonoBehaviour
         {
             baseWallOne.SetActive(false);
             baseWallTwo.SetActive(false);
-            animation.Play();
+            anim.Play();
             Destroy(this);            
         }
     }

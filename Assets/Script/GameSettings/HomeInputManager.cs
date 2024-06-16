@@ -65,7 +65,7 @@ public class HomeInputManager : MonoBehaviour
         up_input = false;
         down_input = false;
         south_input = false;
-        pause_input =  false;
+        skip_input =  false;
     }
 
     void MoveSelector()
@@ -106,7 +106,6 @@ public class HomeInputManager : MonoBehaviour
             else if(selectorY == newGameY) 
             {
                 gameSaveManager.ClearAllSaves();
-                gameManager.newGame = 1;
                 introPlane.SetActive(true);
                 wind.SetActive(false);
                 titleGame.enabled = false;
@@ -137,30 +136,16 @@ public class HomeInputManager : MonoBehaviour
 
     void HandlePauseAndSkip()
     {
-        if(introPlane.activeSelf)
+        if(skip_input)
         {
-            if(pause_input)
-            {
-                if(isPlaying) 
-                {
-                    introPlane.GetComponent<VideoPlayer>().Pause();
-                }
-                else 
-                {
-                    introPlane.GetComponent<VideoPlayer>().Play();
-                }
-            }
-            else if(skip_input)
-            {
-                LoadFirstScene();
-                skip_input = false;
-                introPlane.GetComponent<VideoPlayer>().Pause();
-            }
+            LoadFirstScene();
+            Destroy(introPlane, 0.5f);
         }
     } 
     void LoadFirstScene()
     {
         gameManager.ActiveOnDestroy();
+        gameManager.newGame = 1;
         StartCoroutine(StartLoadingScene("Sibongo"));  
     }
 }
