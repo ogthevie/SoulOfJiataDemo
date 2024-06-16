@@ -3,19 +3,28 @@ using UnityEngine;
 
 public class KikohaManager : MonoBehaviour
 {
-    [SerializeField] GameObject kikohaImpact;
+    [SerializeField] GameObject kikohaImpact, wishShoke;
     int kikohaDamage = 5;
 
     void OnTriggerEnter(Collider other)
     {
         Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
 
+        if(other.gameObject.layer == 13)
+        {
+            if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
+            {
+                Instantiate (wishShoke, impactPosition, Quaternion.identity);
+                Destroy(component.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
         if(other.gameObject.layer == 12)
-        {     
+        {
+            Instantiate (kikohaImpact, impactPosition, Quaternion.identity);
+
             if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component))
             {
-                Instantiate (kikohaImpact, impactPosition, Quaternion.identity);
-                
                 PlayerAttacker playerAttacker = FindObjectOfType<PlayerAttacker>();
                 if(component is TololManager tololManager)
                 {
@@ -35,6 +44,15 @@ public class KikohaManager : MonoBehaviour
                     {
                         kossiManager.kossiPattern.currentTarget = FindObjectOfType<PlayerManager>();
                         kossiManager.isPreformingAction = false;
+                    }
+                }
+                else if(component is KeliperManager keliperManager)
+                {
+                    keliperManager.TakeDamage(kikohaDamage);
+                    if(keliperManager.keliperPattern.currentTarget == null) 
+                    {
+                        keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        keliperManager.isPreformingAction = false;
                     }
                 }
                 else if(component is kossiKazeManager kossiKazeManager)

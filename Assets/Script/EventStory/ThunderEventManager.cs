@@ -34,6 +34,7 @@ public class ThunderEventManager : EventStoryTriggerManager
                 storyManager.storyStep = 6;
                 limitBoss.SetActive(false);
                 murBoss.SetActive(false);
+                fakeForceKossi.SetActive(false);
                 Destroy(this);
 
         }
@@ -110,7 +111,11 @@ public class ThunderEventManager : EventStoryTriggerManager
             else if(stelesYellowOn)
             {
                 GetComponent<Renderer>().material = altarYellowmat;
-                if(!playerManager.canBaemb && fakeForceKossi != null)fakeForceKossi.SetActive(true);
+                if(!playerManager.canBaemb && fakeForceKossi != null)
+                {
+                    fakeForceKossi.SetActive(true);
+                    Save();
+                }
             }
             else if(!stelesGreenOn)
             {

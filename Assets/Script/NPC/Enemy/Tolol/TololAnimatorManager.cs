@@ -24,14 +24,14 @@ public class TololAnimatorManager : EnemyAnimatorManager
             anim.SetFloat("distAttack", tololPattern.distanceFromTarget);
             anim.SetFloat("timeAttack", tololPattern.timeAttack);
             anim.SetBool("attackMode", !tololManager.isPreformingAction);
+            anim.SetBool("breakpoint", tololManager.isbreak);
             float delta = Time.deltaTime;
             tololPattern.tololRigibody.drag = 0;
             Vector3 deltaPosition = anim.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            if(delta > 0f) tololPattern.tololRigibody.velocity = velocity;
+            if(delta > 0f && !tololPattern.tololRigibody.isKinematic ) tololPattern.tololRigibody.velocity = velocity;
         }
-        else return;
 
     }
 }

@@ -23,14 +23,14 @@ public class OptionMenuManager : MonoBehaviour
     void Awake()
     {
         baseMenu = transform.GetChild(0).gameObject;
-        buttonMap = transform.GetChild(1).gameObject;
+        buttonMap = transform.GetChild(2).gameObject;
         buttonMap.SetActive(false);
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         gameManager = gameSaveManager.GetComponent<GameManager>();
         inputManager = FindObjectOfType<InputManager>();
         playerManager = inputManager.GetComponent<PlayerManager>();
 
-        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
         Transform choice = transform.GetChild(0);
         
         continueY = choice.GetChild(0).GetComponent<RectTransform>().anchoredPosition.y;
@@ -38,6 +38,11 @@ public class OptionMenuManager : MonoBehaviour
         commandesY = choice.GetChild(2).GetComponent<RectTransform>().anchoredPosition.y;
         quitY = choice.GetChild(3).GetComponent<RectTransform>().anchoredPosition.y;
         selector = choice.GetChild(4).GetComponent<RectTransform>();
+    }
+
+    void OnEnable()
+    {
+        gameManager.GetComponent<StoryManager>().UpdateSynopsisPauseMenu();    
     }
 
     void OnDisable()
@@ -92,8 +97,9 @@ public class OptionMenuManager : MonoBehaviour
                 }
                 else if(selectorY == quitY) Application.Quit();
             }
+            else if(inputManager.lowAttack_input) playerManager.onOption = false;
         }
-        else if(buttonMap.activeSelf && inputManager.south_input)
+        else if(buttonMap.activeSelf && inputManager.lowAttack_input)  
         {
             buttonMap.SetActive(false);
             baseMenu.SetActive(true);
@@ -115,11 +121,8 @@ public class OptionMenuManager : MonoBehaviour
             gameManager.newGame = 0;
             gameSaveManager.LoadAllData();
             float activeScene = SceneManager.GetActiveScene().buildIndex;
-            if(activeScene == 2)
-            {
-                gameSaveManager.LoadGrotteData();
-                gameSaveManager.LoadTorcheGrotteData();
-            }
+            if(activeScene == 2) gameSaveManager.LoadTorcheGrotteData();
+            
             yield return new WaitForSeconds (0.5f);
             playerManager.onOption = false;
             this.gameObject.SetActive(false);

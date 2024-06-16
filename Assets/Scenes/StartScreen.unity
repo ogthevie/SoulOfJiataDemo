@@ -518,6 +518,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7541470204632277064}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &494907278 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5489805008033019380, guid: 67e49977a65c0e54092d48fbe7544cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 558438712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &521155730
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,48 +705,34 @@ PrefabInstance:
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[0]
-      value: "Homm retrouve notre h\xE9ros. Il lui annonce que son p\xE8re le recherche,
-        avide de lui parler. Intrigu\xE9, notre h\xE9ros doit se rendre au c\xF4t\xE9
-        de l\u2019ancien, Nlomgan, o\xF9 l'atmosph\xE8re est lourde de secrets.\r\nLe
-        vieux coq s'appr\xEAte \xE0 lui faire des r\xE9v\xE9lations qui bouleverseront
-        sa vie \xE0 jamais, remettant en question tout ce qu'il croyait savoir sur
-        lui-m\xEAme et son r\xF4le sur la terre de ces anc\xEAtres. Le destin du
-        royaume pourrait bien d\xE9pendre de l'issue de cette conversation cruciale.\r"
+      value: "Homm croise notre h\xE9ros. Il lui annonce que son p\xE8re, Nlomgan
+        veut lui parler. Intrigu\xE9, notre h\xE9ros doit se rendre au c\xF4t\xE9
+        de l\u2019ancien, Nlomgan, o\xF9 l'atmosph\xE8re est lourde de secrets.\r\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[1]
-      value: "Jiata, jeune sorcier aux ambitions ardentes, est troubl\xE9 par sa
-        faible ma\xEEtrise de la magie. Nlomgan, sage du village, lui r\xE9v\xE8le
-        que son brassard est un r\xE9ceptacle de puissance : il contient une partie
-        de la force de son p\xE8re, dispers\xE9e dans un second brassard perdu. Pour
-        retrouver ce fragment et lib\xE9rer son plein potentiel, Ruben doit entreprendre
-        une qu\xEAte p\xE9rilleuse vers l'Homme de Pierre, une entit\xE9 omnisciente.\r\nJiata
-        saura-t-il convaincre la pierre et devenir le sorcier qu'il est destin\xE9
-        \xE0 \xEAtre ?\r"
+      value: "Ruben va \xE0 la rencontre du vieux Nlomgan, l'esprit troubl\xE9 par
+        sa faible ma\xEEtrise de la magie. l'ancien lui r\xE9v\xE8le que son brassard
+        est un r\xE9ceptacle de magie : il contient une partie de la force de son
+        p\xE8re, dispers\xE9e dans un second brassard qui est maintenant perdu. Pour
+        lib\xE9rer son plein potentiel, il doit retrouver le second brassard et pour
+        \xE7a, il a besoin de l'aide de l'HOMME DANS LA PIERRE dans la case de la
+        tortue.\r\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[2]
-      value: "Jiata, apprenti sorcier de Lituba, est en route vers l'Homme de Pierre
-        pour retrouver son \xE2me et lib\xE9rer son plein potentiel. En chemin, il
-        rencontre son ami Isamal, transform\xE9 en Kossi par un mauvais sort. Isamal
-        lui r\xE9v\xE8le que l'Homme de Pierre est endormi depuis des ann\xE9es et
-        que son \xE2me se trouve dans la grotte de Bongo.\n\nJiata d\xE9cide de se
-        rendre \xE0 la grotte pour r\xE9cup\xE9rer l'\xE2me de l'Homme de Pierre,
-        malgr\xE9 les dangers et les sacrifices que cela implique. Isamal le met
-        en garde contre les fluctuations de la r\xE9alit\xE9 dans la grotte et le
-        conseille de faire attention.\nJiata est d\xE9termin\xE9 \xE0 accomplir sa
-        mission et \xE0 devenir le sorcier qu'il est destin\xE9 \xE0 \xEAtre."
+      value: "Isamal r\xE9v\xE8le \xE0 Ruben que l'HOMME DANS LA PIERRE est endormi
+        depuis des ann\xE9es et pour le r\xE9veiller, il faut r\xE9cup\xE9rer son
+        esprit qui se trouve dans la grotte de Bongo."
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[3]
-      value: "Ruben a trouv\xE9 le second brassard. Guid\xE9 par Teg, il devra maintenant
-        trouver les fragments de pouvoir dans la grotte : Wuta Lantarki, Wuta Mattutu,
-        Nson. Ces fragments sont la cl\xE9 pour lib\xE9rer le plein potentiel des
-        brassards.\r\nMais une \xE9nergie obscure plane sur la grotte, le p\xE9riple
-        de Jiata s'intensifie.\r\n"
+      value: "Ruben a trouv\xE9 le second brassard. TEG l'a mis en garde sur le fait
+        de faire ce pourquoi il est entr\xE9 dans la grotte : Retrouver l'esprit
+        de l\"HOMME DANS LA PIERRE.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -750,15 +742,8 @@ PrefabInstance:
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[6]
-      value: "Le combat final avait \xE9t\xE9 d'une violence inou\xEFe. Ruben, face
-        au monstrueux Kao BAFFA, gardien de l'esprit de l'HOMME DANS LA PIERRE. Chaque
-        coup port\xE9 \xE9tait une ode \xE0 son courage, chaque parade une victoire
-        sur la peur et le doute.\r\nEnfin, apr\xE8s une lutte titanesque, notre jeune
-        h\xE9ros porta le coup fatal, terrassant le Kao Buffalo dans un rugissement
-        de triomphe. L'esprit de l'HOMME DANS LA PIERRE \xE9tait lib\xE9r\xE9, pr\xEAt
-        \xE0 retrouver sa place dans le monde. Epuis\xE9 mais victorieux, Ruben savait
-        que sa mission n'\xE9tait pas encore achev\xE9e. Il devait retourner au village,
-        porteur de l'espoir et de la promesse d'un nouveau jour.\r\n"
+      value: "Apr\xE8s une lutte titanesque, Ruben finit par terrasser le Kao BAFFA.
+        L'esprit de l'HOMME DANS LA PIERRE est lib\xE9r\xE9."
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -767,11 +752,7 @@ PrefabInstance:
         d'un jeune h\xE9ros, le colosse, autrefois inerte, rugit \xE0 nouveau de
         vie. En guise de gratitude, il offre \xE0 son sauveur un cadeau inestimable
         : un chemin reconstruit, taill\xE9 \xE0 m\xEAme la roche, menant hors des
-        confins de Sibongo.\r\nC'est ainsi que s'ouvre le premier chapitre d'une
-        aventure titanesque. Devant eux s'\xE9tend l'horizon infini du royaume de
-        Kabwandu, un territoire baign\xE9 de myst\xE8res et de dangers. Guid\xE9s
-        par l'espoir et l'audace, nos h\xE9ros s'engageront sur ce sentier pav\xE9
-        de promesses, pr\xEAts \xE0 affronter les \xE9preuves qui les attendent.\r\n"
+        confins de Sibongo.\r\r"
       objectReference: {fileID: 0}
     - target: {fileID: 3507536891822074531, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -1335,6 +1316,18 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 4422433116296044218, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: kossi
+      value: 
+      objectReference: {fileID: 1820608545184818386, guid: c281e7d7a2c44b143b865691554b85fa,
+        type: 3}
+    - target: {fileID: 4422433116296044218, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: keliper
+      value: 
+      objectReference: {fileID: 1820608545184818386, guid: c281e7d7a2c44b143b865691554b85fa,
+        type: 3}
     - target: {fileID: 6149044110347630036, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: simulationSpeed
@@ -1347,14 +1340,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: magnetiFX
+      value: 
+      objectReference: {fileID: 3179431915004824482, guid: d9abca2d207a83d49b8be86fd6ecd5c5,
+        type: 3}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: paralyzeFx
+      value: 
+      objectReference: {fileID: 1024760363127348886, guid: 798eb82b6762ef843a8cc85f7ff7505b,
+        type: 3}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: slashYellow
       value: 
-      objectReference: {fileID: 2062492911}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: surchargeFX
+      value: 
+      objectReference: {fileID: 3179431915004824482, guid: 7ae245f092c700c48a34fc3df1fad526,
+        type: 3}
     - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: hittable360Attack
       value: 
-      objectReference: {fileID: 2062492913}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149044110681542968, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: paralyzeBrassardFX
+      value: 
+      objectReference: {fileID: 1024760363127348886, guid: cfea8de73f6aa444282c2f5ea3d2fd38,
+        type: 3}
     - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: deadUI
@@ -1372,9 +1389,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: canThunder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: optionMenu
       value: 
       objectReference: {fileID: 1889787006}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: canArcLight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542974, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: fightSfx.Array.data[4]
@@ -1440,6 +1467,11 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1930683834}
+    - target: {fileID: 6149044110681542982, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 494907278}
     - target: {fileID: 6149044111210912008, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: simulationSpeed
@@ -1570,15 +1602,7 @@ PrefabInstance:
     - {fileID: 3358478708857205884, guid: de65f568a8f080e47bcf8ed749de7b22, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6276175956549238946, guid: de65f568a8f080e47bcf8ed749de7b22,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2062492913}
-    - targetCorrespondingSourceObject: {fileID: 6276175956549238946, guid: de65f568a8f080e47bcf8ed749de7b22,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2062492912}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de65f568a8f080e47bcf8ed749de7b22, type: 3}
 --- !u!1 &847460681
 GameObject:
@@ -2679,7 +2703,7 @@ PrefabInstance:
     - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
       propertyPath: m_Antialiasing
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
@@ -3382,53 +3406,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028564577}
   m_CullTransparentMesh: 1
---- !u!1 &2062492908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6276175956549238946, guid: de65f568a8f080e47bcf8ed749de7b22,
-    type: 3}
-  m_PrefabInstance: {fileID: 719471921}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2062492911 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6187114380620023770, guid: de65f568a8f080e47bcf8ed749de7b22,
-    type: 3}
-  m_PrefabInstance: {fileID: 719471921}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2062492912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062492908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5323aabff44620c4587e463813ec54fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactFx: {fileID: 5936128276327622916, guid: 752c0515a4055904282f1fdc8dc4a258,
-    type: 3}
---- !u!135 &2062492913
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062492908}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.5
-  m_Center: {x: -0.010389931, y: 0.07272842, z: -0.08311833}
 --- !u!1 &2097261874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5667960316228943531, guid: e59ee00089ea8ba46b80ad8a6112451d,

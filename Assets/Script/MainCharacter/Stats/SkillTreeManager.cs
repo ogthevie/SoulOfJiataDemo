@@ -30,7 +30,7 @@ namespace SJ
             northSlot.enabled = playerManager.canThunder && staminaBar.slider.value >= playerAttacker.thunderDrain;
             southSlot.enabled = playerManager.canArcLight && staminaBar.slider.value >= playerAttacker.arcLightningDrain;
             westSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.magnetiDrain;
-            eastSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.magnetiDrain;
+            eastSlot.enabled = staminaBar.slider.value >= playerAttacker.magnetiDrain;
         }
 
         public void HandleSkillTreeUI(bool lockOnFlag)

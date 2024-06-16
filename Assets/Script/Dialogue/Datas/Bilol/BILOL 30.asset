@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: BILOL 30
   m_EditorClassIdentifier: 
-  characterName: POA BOK BILOL
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
   - "Il parait que tu vas p\xE9n\xE9trer dans la grotte Kossi. Personnellement je

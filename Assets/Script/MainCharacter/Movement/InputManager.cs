@@ -1,6 +1,6 @@
 using UnityEngine;
 /* ------------------------      BUTTON MAPPING          ----------------------------------
-    L1 -> Attraction +square -> Magneti ||  +triangle -> ThunderDrop ||  +cross -> arcLightning || +circle -> surcharge
+    L1 -> Attraction +square -> parlayze ||  +triangle -> ThunderDrop ||  +cross -> arcLightning || +circle -> surcharge
     L2 -> Cancel
     R1 -> Recharge(à retirer)
     R2 -> Course, rouler, stepback
@@ -72,7 +72,7 @@ namespace SJ
         public bool specialAttackFlag;
         public bool magicFlag;
         public bool magicAttackFlag;
-        public bool magnetiFlag;
+        public bool paralyzeFlag;
         public bool surchargeFlag;
         public bool arcLightFlag;
         public bool thunderFlag;
@@ -160,7 +160,7 @@ namespace SJ
             HandleLockOnInput();
             HandleFlipInput(delta);
             HandleMagicInput(delta);
-            HandleMagnetiInput();
+            HandleParalyzeInput();
             HandleSurchargeInput();
             HandleArcLighInput();
             HandleThunderInput();
@@ -192,10 +192,6 @@ namespace SJ
         }
         private void HandleAttackInput(float delta)
         {
-           
-            //playerControls.PlayerActions.LowAttack.performed += i => lowAttack_input = true;
-            //playerControls.PlayerActions.HighAttack.performed += i => highAttack_input = true;
-
             if(lowAttack_input)
             {
                 circle = true;
@@ -331,21 +327,19 @@ namespace SJ
             playerAttacker.HandleMagicSkill();
         }
 
-        private void HandleMagnetiInput()
-        {
-            if(!playerManager.haveGauntlet)
-                return;
-            if(magicAttackFlag && west_input) magnetiFlag = true;    
-            else magnetiFlag = false;
-        }
-
         private void HandleSurchargeInput()
         {
+            if(magicAttackFlag && circle ) surchargeFlag = true;    
+            else surchargeFlag = false;
+        }
+
+        private void HandleParalyzeInput()
+        {
             if(!playerManager.haveGauntlet)
                 return;
 
-            if(magicAttackFlag && circle) surchargeFlag = true;
-            else surchargeFlag = false;
+            if(magicAttackFlag && west_input) paralyzeFlag = true;
+            else paralyzeFlag = false;
         }
 
         private void HandleArcLighInput()
@@ -373,6 +367,7 @@ namespace SJ
 
         private void HandleEnableOptionMenu()
         {
+            if(playerManager.isInteracting) return;
             if(select_input && !playerManager.onOption) playerManager.onOption = true;
             else if(select_input && playerManager.onOption) playerManager.onOption = false;
         }

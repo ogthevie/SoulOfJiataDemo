@@ -16,8 +16,8 @@ MonoBehaviour:
   mainCharacterName: Ruben
   firstConversation:
   - "On dirait que tu as r\xE9ussi Ruben !"
-  - l'HOMME DANS LA PIERRE est vraiment surprenant ! On dirait qu'il a restaurer
-    le pont de Lempoy
+  - "l'HOMME DANS LA PIERRE est vraiment surprenant ! On dirait qu'il a restaur\xE9
+    le pont de Lempoy"
   - "Oui, j'\xE9tais \xE0 c\xF4t\xE9 du lac quand le tremblement s'est fait ressentir.
     Les blocs de l'ancien pont on refait surface de l'eau et se sont soud\xE9s les
     uns et aux autres pour former ce nouveau pont."

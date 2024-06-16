@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3766195225782257659}
   - component: {fileID: 2095571710306639491}
   - component: {fileID: 1700933204537836783}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Flames Secondary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770054111651357018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 6885342727081727607}
   - component: {fileID: 2614660533077410969}
   - component: {fileID: 8745559120775547364}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4863,7 +4863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3764923201890437525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9685,7 +9685,7 @@ GameObject:
   - component: {fileID: 4173222811173514799}
   - component: {fileID: 4686950946586444303}
   - component: {fileID: 6494632758865527630}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Ashes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9700,7 +9700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4683489049388089463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14522,7 +14522,7 @@ GameObject:
   - component: {fileID: 1615504460967662152}
   - component: {fileID: 8182548606393666490}
   - component: {fileID: 8408189145177320379}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14537,7 +14537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5359669676760651605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -19359,7 +19359,7 @@ GameObject:
   - component: {fileID: 570120189747335286}
   - component: {fileID: 656199987977134595}
   - component: {fileID: 6634148046338537771}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19482,7 +19482,7 @@ GameObject:
   - component: {fileID: 8985957618840116812}
   - component: {fileID: 458524606077057865}
   - component: {fileID: 8636221301148667884}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Kikoha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19497,7 +19497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6820550086284806227}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.15794852, z: 0.323373}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -24442,7 +24442,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5450153, z: -6.3970723e-16}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &458524606077057865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24456,6 +24456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kikohaImpact: {fileID: 7179411335879178766, guid: 935c0bbff7778c648ab90db11034de60,
+    type: 3}
+  wishShoke: {fileID: 5634767591545691478, guid: 4fe3d627a7a52dc43a1d4348faea0f04,
     type: 3}
 --- !u!54 &8636221301148667884
 Rigidbody:

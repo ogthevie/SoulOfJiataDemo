@@ -11,9 +11,7 @@ namespace SJ
         PlayerAttacker playerAttacker;
         PlayerLocomotion playerLocomotion;
         PlayerManager playerManager;
-        PlayerStats playerStats;
         AnimatorManager animatorManager;
-        SkillTreeManager skillTreeManager;
         InventoryManager inventoryManager;
         
         public InventoryData inventoryData;
@@ -27,12 +25,10 @@ namespace SJ
         void Awake()
         {
             inputManager = GetComponent<InputManager>();
-            playerStats = GetComponent<PlayerStats>();
             playerAttacker = GetComponent<PlayerAttacker>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
-            skillTreeManager = FindObjectOfType<SkillTreeManager>();
             inventoryManager = FindObjectOfType<InventoryManager>();
         }
 

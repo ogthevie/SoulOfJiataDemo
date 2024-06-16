@@ -22,7 +22,6 @@ public class ArcLightEventManager : EventStoryTriggerManager
             playerManager.canArcLight = true;
             
             StartCoroutine(gameManager.StartHandleAchievement("--Wuta Lantarki--"));
-            grotteKossiManager.enemySpawntwo.SetActive(true);
             
             storyManager.storyStep = 31;
             bomboktanManager.Spawn(1);

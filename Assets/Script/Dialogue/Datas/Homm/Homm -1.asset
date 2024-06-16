@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Homm
   mainCharacterName: Ruben
   firstConversation:
-  - Jiata...
+  - Tam Ruben?
   - "Hein ? d\u2019o\xF9 tu connais mon nom ?"
   - "C\u2019est moi, Homm, le fils de Baba Nlomgan."
   - "Homm ? C\u2019est bien toi ?"
@@ -42,5 +42,5 @@ MonoBehaviour:
   - "Si, mais je n\u2019ai jamais abord\xE9 le sujet avec lui, je me suis dit qu\u2019il
     \xE9tait s\xFBrement au m\xEAme niveau d\u2019information que Poa Bok Bilol."
   - "C'est vrai que les trois venaient du m\xEAme ventre, mais mon vieux et le tien
-    \xE9tait comme le porc et la salet\xE9. je pense qu\u2019il pourra t\u2019en
+    \xE9taient comme le porc et la salet\xE9. je pense qu\u2019il pourra t\u2019en
     dire plus."

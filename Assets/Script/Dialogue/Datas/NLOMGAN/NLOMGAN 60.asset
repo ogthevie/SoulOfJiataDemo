@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - "oooh, Que vois-je ? le second brassard ! Tu es peut-\xEAtre le sorcier v\xE9ritable
-    que tu pensais \xEAtre..."
+  - "oooh, Que vois-je ? le second brassard ! Je croyais que tu allais faire plus
+    de temps \xE0 l'int\xE9rieur"
   - "J'aurai d\xFB entrer dans cette grotte depuis. Figurez-vous que j'ai crois\xE9
     un de mes anc\xEAtres \xE0 l'int\xE9rieur."
   - "Cet anc\xEAtre... est ce qu'il s'appelle TEG ?"

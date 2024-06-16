@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
-  - component: {fileID: 5930332986491314361}
   m_Layer: 0
   m_Name: RuneH
   m_TagString: RuneH
@@ -85,18 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5930332986491314361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d889be1a703cf548a82a7f9028083e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runeData: {fileID: 11400000, guid: 3f3b899738cef384d8b15da4b0d8acfd, type: 2}
-  onRuneH: {fileID: 0}
-  onRuneB: {fileID: 0}

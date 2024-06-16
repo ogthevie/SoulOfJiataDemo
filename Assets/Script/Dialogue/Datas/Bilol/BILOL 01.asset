@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: BILOL 01
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
-  - "Jeune Jiata, n\u2019oublie pas de t\u2019entrainer r\xE9guli\xE8rement. Plus
-    tu pratiques, plus tu deviens efficace."
+  - "Jeune Tam, n\u2019oublie pas de t\u2019entrainer r\xE9guli\xE8rement. Plus tu
+    pratiques, plus tu deviens efficace."

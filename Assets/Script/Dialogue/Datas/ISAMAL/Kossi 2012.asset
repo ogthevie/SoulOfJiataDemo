@@ -45,8 +45,8 @@ MonoBehaviour:
     m\u2019aider \xE0 la retrouver car apparemment, il sait tout sur tout. Je suis
     donc all\xE9 devant cette cr\xE9ature mais c\u2019est juste un vulgaire caillou
     que tout le monde dans ce village semble respecter et nourrir le mythe qui l\u2019entoure."
-  - Ce n'est pas un mythe
-  - "Ne me dis pas que toi aussi tu lui as d\xE9j\xE0 parl\xE9"
+  - Ce n'est pas un mythe.
+  - "Ne me dis pas que toi aussi tu lui as d\xE9j\xE0 parl\xE9."
   - "Je ne l\u2019ai jamais fait."
   - "Ah ! Enfin quelqu\u2019un qui n\u2019essaie pas de m\u2019entuber compl\xE8tement
     ! Comment tu sais que ce n\u2019est pas un mythe ?"
@@ -55,7 +55,7 @@ MonoBehaviour:
     ici je ressens l\u2019aura de l\u2019HOMME DANS LA PIERRE."
   - "Et pourquoi tu ne lui as jamais parl\xE9 ?"
   - "Parce qu\u2019il lui manque son esprit."
-  - Je ne te suis pas
+  - Je ne te suis pas.
   - "Mon vieux ne t\u2019a pas racont\xE9 ce qui s\u2019est pass\xE9 apr\xE8s la
     r\xE9bellion ?"
   - "Si mais sans entrer dans les d\xE9tails, il m\u2019a dit que le pouvoir central
@@ -65,8 +65,8 @@ MonoBehaviour:
   - "Ils lui ont retir\xE9 son \xE2me et l\u2019ont cach\xE9 \xE0 l\u2019int\xE9rieur
     de Bongo."
   - C'est qui "ils" ?
-  - Le pouvoir de POM
-  - "Vous n\u2019avez jamais essay\xE9 d\u2019aller la r\xE9cup\xE9rer"
+  - Le pouvoir de POM.
+  - "Vous n\u2019avez jamais essay\xE9 d\u2019aller la r\xE9cup\xE9rer ?"
   - "Mon grand fr\xE8re Iaa, il y a deux ans, c\u2019\xE9tait donn\xE9 pour mission
     de r\xE9veiller la cr\xE9ature, il s\u2019est donc aventur\xE9 dans la grotte
     de Bongo. Il n\u2019est jamais revenu."
@@ -79,16 +79,15 @@ MonoBehaviour:
   - "Exactement, et mon vieux nous a interdit de faire son deuil tant qu\u2019on
     ne l\u2019a pas retrouv\xE9. Donc pour nous il reviendra."
   - ...
-  - "Tu comprends maintenant l\u2019attitude des autres par rapport \xE0 ce probl\xE8me
-    que tu leur posais."
+  - "Tu comprends maintenant l\u2019attitude des autres."
   - "Oui, les gens ne voulaient pas \xEAtre m\xEAl\xE9s dans cette qu\xEAte en sachant
     tout ceci."
-  - "Voil\xE0"
-  - Mais moi je vais y aller
+  - "Touch\xE9 !"
+  - Mais moi je vais y aller.
   - "Pourquoi \xE7a ne me surprend pas ?"
   - "Parce que tu me connais et si tu ne voulais pas que j\u2019y aille, tu ne m\u2019aurais
     pas racont\xE9 tout \xE7a. "
-  - "Tu vois que tu me connais aussi par c\u0153ur. Fais juste gaffe \xE0 toi et
-    reviens en un seul morceau."
-  - "Je ne serai pas long, demain premi\xE8re heure j\u2019irai."
-  - Comme tu voudras
+  - "Tu vois que tu me connais aussi par Coeur. Fais juste gaffe \xE0 toi et reviens
+    en un seul morceau."
+  - Je ne serai pas long, je fonce
+  - "Courage \xE0 toi mon fr\xE8re."

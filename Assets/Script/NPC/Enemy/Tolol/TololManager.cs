@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using SJ;
 
@@ -9,7 +7,7 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
     public TololPattern tololPattern;
     TololAudioManager tololAudioManager;
     EnemyHealthBar enemyHealthBar;
-    public GameObject tololHealthBar;
+    public GameObject tololHealthBar, awakeFx;
     public GameObject epeeTolol;
     public bool isPreformingAction;
     public float maximumDetectionAngle = 180;
@@ -26,10 +24,12 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
         tololHealthBar = transform.Find("UI Ennemy").gameObject;
 
         isPreformingAction = true;
+        isbreak = false;
 
         detectionRadius = 22f;
         currentHealth = tololPattern.tololData.mobHealth;
         enemyHealthBar.SetMaxHealth(currentHealth);
+        awakeFx.SetActive(true);
     }
     private void Update() 
     {
@@ -39,12 +39,13 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
 
     private void LateUpdate()
     {
-
+        tololPattern.BreakPoint();
         HandleHealthRenderer();
     }
 
     private void HandleCurrentAction()
     {
+        if(isbreak) return;
         if(tololPattern.currentTarget == null)
         {
             tololPattern.HandleDetection();

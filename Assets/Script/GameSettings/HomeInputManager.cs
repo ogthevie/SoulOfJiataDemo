@@ -12,10 +12,9 @@ public class HomeInputManager : MonoBehaviour
     GameSaveManager gameSaveManager;
     GameManager gameManager;
     RectTransform selector;
-    bool isLoaded;
     [SerializeField] AudioClip [] selectorSfx = new AudioClip [2];
     float continueY, newGameY, quitY;
-    bool up_input, down_input, south_input, skip_input;
+    bool up_input, down_input, south_input, pause_input, skip_input;
     bool isPlaying;
     string filePath;
 
@@ -32,10 +31,16 @@ public class HomeInputManager : MonoBehaviour
             playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input =  true;
             playerControls.PlayerMovement.InventoryMovementDown.performed += i => down_input =  true;
             playerControls.PlayerActions.Jump.performed += i => south_input = true;
-            playerControls.PlayerActions.OnPause.performed += i => skip_input = true;            
+            playerControls.PlayerActions.OnPause.performed += i => pause_input = true;
+            playerControls.PlayerActions.Option.performed += i => skip_input = true;            
         }
         playerControls.Enable();
         
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     void Awake()
@@ -50,24 +55,17 @@ public class HomeInputManager : MonoBehaviour
         quitY = parentGameobject.GetChild(2).GetComponent<RectTransform>().anchoredPosition.y;
         selector = GetComponent<RectTransform>();
         filePath = Application.persistentDataPath + "/playerPosition.json";
-        isLoaded = false;
-    }
-
-    private void OnDisable()
-    {
-        playerControls.Disable();
     }
 
     void LateUpdate()
     {
         MoveSelector();
         ApplyChoice(selector.anchoredPosition.y);
-        HandlePause();
+        HandlePauseAndSkip();
         up_input = false;
         down_input = false;
         south_input = false;
         skip_input =  false;
-        LoadFirstScene();
     }
 
     void MoveSelector()
@@ -90,7 +88,7 @@ public class HomeInputManager : MonoBehaviour
 
     void ApplyChoice(float selectorY)
     {
-        if(south_input || skip_input) 
+        if(south_input || pause_input) 
         {
             if(selectorY == quitY) Application.Quit();
             else if(selectorY == continueY) 
@@ -107,14 +105,11 @@ public class HomeInputManager : MonoBehaviour
             }
             else if(selectorY == newGameY) 
             {
+                gameSaveManager.ClearAllSaves();
                 introPlane.SetActive(true);
                 wind.SetActive(false);
                 titleGame.enabled = false;
                 sceneAudioSource.Stop();
-                //gameManager.ActiveOnDestroy();
-                //gameSaveManager.ClearAllSaves();
-                //gameManager.newGame = 1;
-                //StartCoroutine(StartLoadingScene("Sibongo"));
             }
         }
 
@@ -135,48 +130,23 @@ public class HomeInputManager : MonoBehaviour
     {     
         gameManager.loadSlider.fillAmount = 0;
         gameManager.loadingScreen.enabled = true;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.05f);
         gameManager.LoadScene(sceneName);
     }
 
-    void HandlePause()
+    void HandlePauseAndSkip()
     {
-        if(introPlane.activeSelf)
+        if(skip_input)
         {
-            if(skip_input)
-            {
-                if(isPlaying) 
-                {
-                    isLoaded = true;
-                    introPlane.GetComponent<VideoPlayer>().Pause();
-                }
-                else 
-                {
-                    introPlane.GetComponent<VideoPlayer>().Play();
-                    isLoaded = false;
-                }
-            }
+            LoadFirstScene();
+            Destroy(introPlane, 0.5f);
         }
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            if(isPlaying) introPlane.GetComponent<VideoPlayer>().Pause();
-        }
-    }
-
+    } 
     void LoadFirstScene()
     {
-        if(introPlane.activeSelf)
-        {
-           isPlaying = introPlane.GetComponent<VideoPlayer>().isPlaying;
-           if(!isPlaying && !isLoaded)
-           {
-                isLoaded = true;
-                gameManager.ActiveOnDestroy();
-                gameSaveManager.ClearAllSaves();
-                gameManager.newGame = 1;
-                StartCoroutine(StartLoadingScene("Sibongo"));  
-           }
-        }
+        gameManager.ActiveOnDestroy();
+        gameManager.newGame = 1;
+        StartCoroutine(StartLoadingScene("Sibongo"));  
     }
 }
 

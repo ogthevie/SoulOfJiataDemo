@@ -6,6 +6,7 @@ namespace SJ
     {
         PlayerAttacker playerAttacker;
         public ParticleSystem impactFx;
+        [SerializeField] GameObject wishShoke;
 
 
         void Awake()
@@ -31,6 +32,16 @@ namespace SJ
                     treeContainerManager.HandleTreeContainerProcess();
             }
 
+            if(other.gameObject.layer == 13)
+            {
+                if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
+                {
+                    Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
+                    Instantiate (wishShoke, impactPosition, Quaternion.identity);
+                    Destroy(component.gameObject);
+                }
+            }
+
             if(other.gameObject.layer == 12)
             {
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
@@ -50,6 +61,15 @@ namespace SJ
                     else if(component is kossiKazeManager kossiKazeManager)
                     {
                         kossiKazeManager.kossiKazePattern.HandleExplosion();
+                    }
+                    else if(component is KeliperManager keliperManager)
+                    {
+                        keliperManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
+                        if(keliperManager.keliperPattern.currentTarget == null) 
+                        {
+                            keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                            keliperManager.isPreformingAction = false;
+                        }
                     }
                     else if(component is BuffaloManager buffaloManager)
                         {

@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
-  m_Name: BILOL 10
+  m_Name: Bilol 10
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
   - "Il para\xEEt que tu te rends chez L\u2019HOMME DANS LA PIERRE "
   - "Oui\u2026 Poa Nlomgan m\u2019a dit qu\u2019il saura me guider sur la voie du
     sorcier de Lituba."
+  - "La derni\xE8re fois que je lui ai demand\xE9 le chemin de ma vie, il m'a annonc\xE9
+    que j'aurai une fille comme h\xE9riti\xE8re"
+  - "Et finalement ? \xE7a s'est pass\xE9 comment"
+  - "Ma femme est morte et je crois que tu as d\xE9j\xE0 crois\xE9 ma fille Ngonda"

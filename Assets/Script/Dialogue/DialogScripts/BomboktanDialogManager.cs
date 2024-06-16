@@ -42,7 +42,7 @@ public class BomboktanDialogManager : CharacterDialogManager
     {
         bomboktanTriggerManager.EndDialogue();
         canDialog = false;
-        
+        animatorManager.animationState = true;
         playerUIManager.ShowUI();
      
     }
@@ -51,6 +51,8 @@ public class BomboktanDialogManager : CharacterDialogManager
     {
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
+            inputManager.InteractFlag = false;
+            animatorManager.animationState = false;
             i++;
             if(i >= characterDialogData[k].firstConversation.Count)
             {

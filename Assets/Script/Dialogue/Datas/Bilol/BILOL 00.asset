@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: BILOL 00
   m_EditorClassIdentifier: 
-  characterName: Poa Bok Bilol
+  characterName: Bok Bilol
   mainCharacterName: Ruben
   firstConversation:
-  - "Jeune Jiata, j\u2019esp\xE8re que tu te plais ici \xE0 Sibongo. Tu es chez toi
+  - "Jeune Tam, j\u2019esp\xE8re que tu te plais ici \xE0 Sibongo. Tu es chez toi
     plus que n\u2019importe o\xF9 tu as d\xE9j\xE0 mis pied."
   - " Merci Poa Bok Bilol, m\xEAme si c\u2019est compliqu\xE9 de communiquer avec
     certains car je ne parle pas bien Lituba."
@@ -23,26 +23,14 @@ MonoBehaviour:
     donner quelques d\xE9tails sur notre fonctionnement ici."
   - "\xC7a va beaucoup m\u2019aider !"
   - " Il y a pas mal d\u2019arbres fruitiers ici, tu peux te servir \xE0 ta guise.
-    C\u2019est la Terre qui donne, c\u2019est la Terre qui reprend. Le cr\xE2ne de
-    chat que je t\u2019avais donn\xE9 \xE0 ton arriv\xE9e te permet de stocker tout
-    genre d\u2019objets que tu pourras trouver dans la nature."
-  - "Je l\u2019ai en permanence sur moi, regardez."
-  - "Parfait ! Et aussi, \xE9vite de tra\xEEner hors du village \xE0 une certaine
-    heure de la nuit. Les cr\xE9atures Kao r\xF4dent beaucoup et ils sont redoutables,
-    surtout pour un apprenti sorcier."
-  - "Et dans la journ\xE9e ?"
-  - "C\u2019est plut\xF4t calme, m\xEAme si dans la for\xEAt, tu peux tomber sur
-    quelques Kossi par ci par l\xE0, mais tu n\u2019auras pas de mal avec eux. Si
-    un jour tu vois une cr\xE9ature Kao, fuis sans te retourner."
-  - "Ils sont si forts que \xE7a ?"
-  - "Ces cr\xE9atures dans leur forme primitive ne valent pas deux clous. Mais une
-    fois qu\u2019ils ont infect\xE9 le cadavre d\u2019un homme qui de son vivant
-    \xE9tait une v\xE9ritable force de la nature, ils le deviennent aussi. Et dans
-    la for\xEAt de Lituba, un grand nombre de grands h\xE9ros ont p\xE9ri et leurs
-    cadavres sont rest\xE9s sur le champ de bataille."
-  - "Ce qui fait qu\u2019il y a une probabilit\xE9 de SUPER KAO dans le coin. Je
-    comprends un peu."
-  - "SUPER KAO ? Dr\xF4le de terme mais oui je comprends l\u2019id\xE9e et c\u2019est
-    exactement \xE7a. Ouvre l\u2019\u0153il."
-  - Merci pour ces conseils Poa Bok Bilol. Je serai prudent.
-  - "N\u2019h\xE9site pas \xE0 venir me voir si tu as besoin de quoi que ce soit."
+    C\u2019est la Terre qui donne, c\u2019est la Terre qui reprend. Certains aliments
+    comme la FEUILLE D'IKOK et les grains de SEL DE LEMPOY peuvent \xEAtre stock\xE9s
+    de fa\xE7on durable. Tu ferais mieux d'en avoir sur le c\xF4t\xE9 r\xE9guli\xE8rement."
+  - "C'est not\xE9!"
+  - "Parfait ! Et aussi si tu as envie de te d\xE9gourdir les jambes, je te conseille
+    d'aller \xE0 la RIVE SACREE, plus pr\xE9cis\xE9ment au puit des \xE2mes publi\xE9es."
+  - "Le puit des \xE2mes ?"
+  - "Il n'est pas rare que certaines \xE2mes revienent dans notre monde. Pour emp\xEAcher
+    qu'il ne fasse n'importe quoi, on a ce puit. Ils ne peuvent pas s'y \xE9chapper.
+    Mais si jamais tu as envie de tabasser du mort, tu peux yb aller. Je pense que
+    tu es assez fort pour ne pas mourir l\xE0-bas."

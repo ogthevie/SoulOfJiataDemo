@@ -36,7 +36,7 @@ public class GolemManager : CharacterManager
         if(other.gameObject.layer == 3 && storyManager.storyStep >= 6)
         {
             var materials = GetComponent<Renderer>().materials;
-            materials[1] = originalMaterial;
+            materials[1] = activatematerial;
             GetComponent<Renderer>().materials = materials;            
         }
     }

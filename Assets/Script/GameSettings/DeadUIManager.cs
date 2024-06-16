@@ -11,6 +11,7 @@ public class DeadUIManager : MonoBehaviour
     GameSaveManager gameSaveManager;
     GameManager gameManager;
     PlayerStats playerStats;
+    TutoManager tutoManager;
 
     void Awake()
     {
@@ -20,7 +21,7 @@ public class DeadUIManager : MonoBehaviour
         gameSaveManager = FindObjectOfType<GameSaveManager>();
         gameManager = gameSaveManager.GetComponent<GameManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
-        
+        tutoManager = FindObjectOfType<TutoManager>();
     }
 
     void Update()
@@ -39,6 +40,7 @@ public class DeadUIManager : MonoBehaviour
 
     IEnumerator reloadRoutine()
     {
+        tutoManager.HiddenUI();
         inputManager.skillTreeManager.HandleSkillTreeUI(false);
         inputManager.GetComponent<AudioManager>().jiataAudioSource.Stop();
         
@@ -49,13 +51,11 @@ public class DeadUIManager : MonoBehaviour
             gameManager.newGame = 0;
             gameSaveManager.LoadAllData();
             playerStats.AddStamina(100);
-            playerManager.isDead = playerManager.isInteracting = false;
+            playerManager.isDead = false;
+            animatorManager.PlayTargetAnimation("Wake", true);
             float activeScene = SceneManager.GetActiveScene().buildIndex;
-            if(activeScene == 2)
-            {
-                gameSaveManager.LoadGrotteData();
-                gameSaveManager.LoadTorcheGrotteData();
-            }
+            if(activeScene == 2) gameSaveManager.LoadTorcheGrotteData();
+            
             yield return new WaitForSeconds (0.5f);
             this.gameObject.SetActive(false);
         }
