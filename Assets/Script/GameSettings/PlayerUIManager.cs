@@ -35,6 +35,6 @@ public class PlayerUIManager : MonoBehaviour
     public void ShowUI()
     {
         playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(320, 0.4f, false);
-        padUI.GetComponent<RectTransform>().DOAnchorPosX(-180f, 0.4f, false);
+        padUI.GetComponent<RectTransform>().DOAnchorPosX(-145, 0.4f, false);
     }
 }

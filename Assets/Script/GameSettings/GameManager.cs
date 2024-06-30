@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using SJ;
 using TMPro;
+using System;
 
 
 [DefaultExecutionOrder(-1)]
@@ -16,13 +17,8 @@ public class GameManager : MonoBehaviour
     public Canvas loadingScreen, needGamepad;
     public Image loadSlider;
     public int? newGame;
-    [SerializeField] bool isControllerConnected, isLoading;
-    [SerializeField] GameObject zoneName, questNotif;
-    public int? portalPosition;
-    /*
-        1 = golem
-        0 = kossi
-    */
+    public bool isControllerConnected, isLoading;
+    [SerializeField] GameObject zoneName, questNotif, completeNotif;
 
     private void Awake()
     {
@@ -31,6 +27,8 @@ public class GameManager : MonoBehaviour
         needGamepad.enabled = false;
         isLoading = false; // a true de base
         Shader.WarmupAllShaders();
+        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ActiveOnDestroy()
@@ -52,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        if(isLoading) return;
         List<AsyncOperation> operations = new List<AsyncOperation>();
         operations.Add(SceneManager.LoadSceneAsync(scene));
         StartCoroutine(Loading(operations));
@@ -89,24 +88,17 @@ public class GameManager : MonoBehaviour
             float activeScene = SceneManager.GetActiveScene().buildIndex;
             if(activeScene == 1)
             {
-                if(portalPosition == 0)
-                {
-                    player.transform.position = new Vector3 (48, 5, 307f);
-                    GlobalFixedCursorPosition();
-                } 
-                //else player.transform.position = new Vector3 (328.76f,40.09f,-179.47f);
+  
+                player.transform.position = new Vector3 (132.10f, 1.5f, 355.91f);
+                GlobalFixedCursorPosition();
             }
             else if(activeScene == 2)
             {
-                if(portalPosition == 0) player.transform.position = new Vector3 (-124.38f, 46.15f, -179.057f);
-                //else player.transform.position = new Vector3 (-13.40f, 0.79f, 49.71f);
+
+                player.transform.position = new Vector3 (-124.38f, 46.15f, -179.057f);
                 
                 gameSaveManager.LoadTorcheGrotteData();
-
-                portalPosition = null;
-
                 gameSaveManager.SaveAllData();
- 
             }
 
 
@@ -119,19 +111,22 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        StoryManager storyManager = FindObjectOfType<StoryManager>();
+
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if(newGame == 1) StartCoroutine(ZoneEntry("...CASE DE LA TORTUE...", "Matinée"));
-            else if(newGame == 0 || newGame == null)
-            {
-                var sibongoManager = FindObjectOfType<SibongoManager>();
-                if(sibongoManager.dayPeriod == 0) StartCoroutine(ZoneEntry("...SIBONGO...", "Matinée"));
-                else if (sibongoManager.dayPeriod == 1) StartCoroutine(ZoneEntry("...SIBONGO...", "Midi"));
-                else if (sibongoManager.dayPeriod == 2) StartCoroutine(ZoneEntry("...SIBONGO...", "Après-midi"));
-                else if (sibongoManager.dayPeriod == 3) StartCoroutine(ZoneEntry("...SIBONGO...", "Nuit"));
-            }
+            StartCoroutine(ZoneEntry("...SIBONGO...", "Lituba"));
+            if(storyManager.storyStep == 2) StartCoroutine(StartHandleToDo("Cap sur Bongo"));
+            else StartCoroutine(StartHandleToDo("Explorez le village"));
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 2) StartCoroutine(ZoneEntry("...GROTTE BONGO...", " "));
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            
+
+            StartCoroutine(ZoneEntry("...Gorge Sombre...", "Bongo"));
+            if(storyManager.storyStep == 2) StartCoroutine(StartHandleToDo("Trouvez le second brassard"));
+            else StartCoroutine(StartHandleToDo("Trouvez l'esprit de la pierre"));
+        } 
         
         player.isInteracting = false;
         Debug.Log("index est " + newGame);        
@@ -146,8 +141,8 @@ public class GameManager : MonoBehaviour
         if(joystickNames.Length == 0)
         {
             //Debug.Log("Manette déconnectée");
-            needGamepad.enabled = true;
-            Time.timeScale = 0;
+            //needGamepad.enabled = true;
+            //Time.timeScale = 0;
             isControllerConnected = false;            
         }
 
@@ -156,8 +151,8 @@ public class GameManager : MonoBehaviour
             if (!isControllerConnected)
             {
                 //Debug.Log("Manette connectée : " + joystickNames[0]);
-                needGamepad.enabled = false;
-                Time.timeScale = 1;
+                //needGamepad.enabled = false;
+                //Time.timeScale = 1;
                 isControllerConnected = true;
             }
         }
@@ -166,8 +161,8 @@ public class GameManager : MonoBehaviour
             if (isControllerConnected)
             {
                 //Debug.Log("Manette déconnectée");
-                needGamepad.enabled = true;
-                Time.timeScale = 0;
+                //needGamepad.enabled = true;
+                //Time.timeScale = 0;
                 isControllerConnected = false;
             }
         }
@@ -192,12 +187,21 @@ public class GameManager : MonoBehaviour
         zoneName.SetActive(false);
     }
 
-    public IEnumerator StartHandleAchievement(string questName)
+    public IEnumerator StartHandleAchievement(string completeName)
+    {
+        yield return new WaitForSeconds(2f);
+        completeNotif.SetActive(true);
+        completeNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = completeName;
+        yield return new WaitForSeconds (8.5f);
+        completeNotif.SetActive(false);
+    }
+
+    public IEnumerator StartHandleToDo(string questName)
     {
         yield return new WaitForSeconds(2f);
         questNotif.SetActive(true);
         questNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = questName;
-        yield return new WaitForSeconds(0.1f);
-        FindObjectOfType<AudioManager>().PowerUp();
+        yield return new WaitForSeconds (8.5f);
+        questNotif.SetActive(false);
     }
 }

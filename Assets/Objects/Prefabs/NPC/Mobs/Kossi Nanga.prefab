@@ -773,7 +773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 0
   isDead: 0
-  lockOnTransform: {fileID: 4651595300541912469}
+  isbreak: 0
+  lockOnTransform: {fileID: 2119794154041568876}
   currentHealth: 0
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}

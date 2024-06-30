@@ -13,7 +13,7 @@ public class ArcLightEventManager : EventStoryTriggerManager
 
         bomboktanManager = FindObjectOfType<BomboktanManager>();
     }
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
 
         if(other.gameObject.layer == 3 && !playerManager.canArcLight)

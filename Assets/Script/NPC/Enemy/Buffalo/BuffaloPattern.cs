@@ -9,6 +9,7 @@ public class BuffaloPattern : MonoBehaviour
 {
     public BuffaloAnimatorManager buffaloAnimatorManager;
     public BuffaloAudioManager buffaloAudioManager;
+    [SerializeField] HandleDamageTolol handleDamageTolol;
     public PlayerManager currentTarget, playerManager;
     BuffaloManager buffaloManager;
     public StatesCharacterData statesJiataData;
@@ -26,11 +27,11 @@ public class BuffaloPattern : MonoBehaviour
     [SerializeField] Vector3 decal= new Vector3 (0, 0.5f, 0);
     public bool bulletAttack;
     public GameObject spawnRage_one, spawnRage_two, stele;
-    [SerializeField] EnemyManager enemyManager;
+    [SerializeField] EnemyManager[] enemyManagers;
     public bool canAttack;
     [SerializeField] ParticleSystem hellSword;
-    Vector3 swordBox = new (3f, 4f, 2f);
     public RaycastHit targetHit;
+    [SerializeField] BoxCollider swordBox;
     void Awake()
     {
         buffaloManager = GetComponent<BuffaloManager>();
@@ -39,6 +40,7 @@ public class BuffaloPattern : MonoBehaviour
         buffaloAnimatorManager = GetComponent<BuffaloAnimatorManager>();
         buffaloRigidbody = GetComponent<Rigidbody>();
         agentBuffalo = GetComponentInChildren<NavMeshAgent>();
+        swordBox.enabled = false;
     }
     void Start()
     {
@@ -46,6 +48,7 @@ public class BuffaloPattern : MonoBehaviour
         stoppingDistance = 5;
         //currentTarget = playerManager;
         buffaloRigidbody.isKinematic = false;
+        handleDamageTolol.FixDamage(40);
     }
 
     public void HandleDetection()
@@ -132,7 +135,7 @@ public class BuffaloPattern : MonoBehaviour
     public void CheckDistance()
     {
         if (distanceFromTarget < 10) indexDistance = 1;
-        else if(distanceFromTarget < 45) indexDistance = 2;
+        else if(distanceFromTarget < 37) indexDistance = 2;
         else indexDistance = 3;
 
         indexAttack = Random.Range(1, 3);
@@ -163,7 +166,11 @@ public class BuffaloPattern : MonoBehaviour
         if(buffaloManager.iStun) 
         {
             stunDelay += delta;
-            if(stunDelay > 6) buffaloManager.iStun = false;
+            if(stunDelay > 6)
+            {
+                stunDelay = 0;
+                buffaloManager.iStun = false;
+            }
         }
     }
 
@@ -211,11 +218,9 @@ public class BuffaloPattern : MonoBehaviour
        
        IEnumerator CheckSwordDamage()
        {
-        Debug.DrawRay(transform.position, transform.forward * 45, Color.yellow, 2); 
-
-        yield return new WaitForSeconds(0.55f);
-
-        if(Physics.BoxCast(transform.position, swordBox, transform.forward, out targetHit, Quaternion.identity, 50)) if(targetHit.collider.gameObject.layer == 3) playerManager.playerStats.TakeDamage(30, 1);     
+            swordBox.enabled = true;
+            yield return new WaitForSeconds (0.8f);
+            swordBox.enabled = false;
        }
 
     }
@@ -261,15 +266,25 @@ public class BuffaloPattern : MonoBehaviour
             visualTwo.transform.rotation = Quaternion.identity;
 
             yield return new WaitForSeconds(0.2f);
+
+            if(buffaloManager.currentHealth < 180)
+            {
+                LoadEnemy(spawnRage_one.transform, Random.Range(0,3), stele.transform);
+                LoadEnemy(spawnRage_two.transform, Random.Range(0,3), stele.transform);    
+            }
+            else
+            {
+                LoadEnemy(spawnRage_one.transform, Random.Range(0,2), stele.transform);
+                LoadEnemy(spawnRage_two.transform, Random.Range(0,2), stele.transform); 
+            }
             
-            LoadEnemy(spawnRage_one.transform, stele.transform);
-            LoadEnemy(spawnRage_two.transform, stele.transform);       
+      
         }
     }
 
-    private void LoadEnemy(Transform tp, Transform balise)
+    private void LoadEnemy(Transform tp, int i, Transform balise)
     {
-        GameObject visuals = Instantiate(enemyManager.gameObject);
+        GameObject visuals = Instantiate(enemyManagers[i].gameObject);
         visuals.transform.SetParent(tp);
         visuals.transform.localPosition = Vector3.zero;
         visuals.transform.rotation = Quaternion.identity;
@@ -280,5 +295,4 @@ public class BuffaloPattern : MonoBehaviour
     {
         buffaloManager.summonKossiFx.Play();
     }
-
 }

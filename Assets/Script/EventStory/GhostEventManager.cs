@@ -15,7 +15,7 @@ public class GhostEventManager : EventStoryTriggerManager
         }
     }
 
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3 && !playerManager.canSomm)
         {
@@ -28,7 +28,6 @@ public class GhostEventManager : EventStoryTriggerManager
 
             
             //Tutoscreen
-            grotteKossiManager.enemySpawnFour.SetActive(true);
 
             storyManager.storyStep = 32;
             bomboktanManager.Spawn(2);

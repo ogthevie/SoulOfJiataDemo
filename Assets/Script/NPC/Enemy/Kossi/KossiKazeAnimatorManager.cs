@@ -1,26 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SJ;
 
 public class KossiKazeAnimatorManager : EnemyAnimatorManager
 {
-    PlayerManager playerManager;
     kossiKazePattern kossiKazePattern;
 
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
         kossiKazePattern = GetComponent<kossiKazePattern>();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     private void OnAnimatorMove() 
     {
-        if(!playerManager.onOption)
+        if(!playerManager.onOption && kossiKazePattern != null)
         {
             anim.SetFloat("distAttack", kossiKazePattern.distanceFromTarget);
-            //anim.SetFloat("timeAttack", tololPattern.timeAttack);
             anim.SetBool("canExplose", kossiKazePattern.canExplose);
             float delta = Time.deltaTime;
             kossiKazePattern.kossiKazeRigibody.drag = 0;

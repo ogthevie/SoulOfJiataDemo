@@ -128015,15 +128015,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.81666666
-    functionName: HandleHellCollider
+  - time: 0.8333333
+    functionName: PlayHellSword
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8333333
-    functionName: PlayHellSword
+  - time: 1.2666667
+    functionName: HandleHellCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

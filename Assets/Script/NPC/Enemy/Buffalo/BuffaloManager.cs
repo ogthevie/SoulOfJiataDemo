@@ -10,9 +10,9 @@ public class BuffaloManager : EnemyManager
     BossHealthBar bossHealthBar;
 
     public int buffaloHealth;
-    public bool iStun, isTiming, isArmor, isHellbow;
-    public ParticleSystem plotArmorFx, summonKossiFx;
-    public Collider plotCollider;
+    public bool iStun, isTiming, isArmor, isHellbow, isReady;
+    public ParticleSystem plotArmorFx, summonKossiFx, spawnKaoFx;
+    public Collider plotCollider, kaoPortalCollider;
     //public ParticleSystem ragePS, breastPS, chargePS;
     
     private void Awake() 
@@ -31,9 +31,28 @@ public class BuffaloManager : EnemyManager
         //chargePS = chargeFx.GetComponent<ParticleSystem>();     
     }
 
+    private void OnEnable() 
+    {
+        StartCoroutine(StartLifeKao());    
+    }
+    
+    private void OnDisable()
+    {
+        isReady = false;   
+    }
+
+    IEnumerator StartLifeKao()
+    {
+        skinnedMeshRenderer.enabled = false;
+        yield return new WaitForSeconds(5.05f);
+        skinnedMeshRenderer.enabled = true;
+        yield return new WaitForSeconds(3f);
+        isReady = true;
+    }
+
     private void Update() 
     {
-        if(isDead) return;
+        if(isDead || !isReady) return;
 
         float delta = Time.deltaTime;
         buffaloPattern.HandleTimerAttack(delta);
@@ -82,10 +101,12 @@ public class BuffaloManager : EnemyManager
         IEnumerator OnDeath()
         {
             buffaloPattern.DisablePlotArmor();
+            kaoPortalCollider.enabled = false;
             Destroy(buffaloPattern);
             yield return new WaitForSeconds(1.5f);
             bossHealthBar.bossHUD.SetActive(false);
             isHellbow = isArmor = false;
+            FindObjectOfType<GrotteKossiManager>().GetComponent<AudioSource>().Play();
             Destroy(this, 3f);
         }
     }

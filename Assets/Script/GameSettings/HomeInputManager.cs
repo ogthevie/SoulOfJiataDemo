@@ -93,6 +93,7 @@ public class HomeInputManager : MonoBehaviour
             if(selectorY == quitY) Application.Quit();
             else if(selectorY == continueY) 
             {
+                if(gameManager.isLoading) return;
                 if(System.IO.File.Exists(filePath))
                 {
                     sceneAudioSource.Stop();
@@ -105,6 +106,7 @@ public class HomeInputManager : MonoBehaviour
             }
             else if(selectorY == newGameY) 
             {
+                if(gameManager.isLoading) return;
                 gameSaveManager.ClearAllSaves();
                 introPlane.SetActive(true);
                 wind.SetActive(false);
@@ -138,6 +140,7 @@ public class HomeInputManager : MonoBehaviour
     {
         if(skip_input)
         {
+            if(gameManager.isLoading) return;
             LoadFirstScene();
             Destroy(introPlane, 0.5f);
         }

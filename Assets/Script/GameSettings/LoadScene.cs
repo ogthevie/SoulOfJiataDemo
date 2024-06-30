@@ -20,8 +20,6 @@ public class LoadScene : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             gameManager.newGame = null;
-            if(portalName == "GolemPortal") gameManager.portalPosition = 1;
-            else gameManager.portalPosition = 0;
             StartCoroutine(StartLoadingScene());
         }
     }

@@ -8,7 +8,7 @@ public class BigKossiEventManager : EventStoryTriggerManager
     ThunderEventManager thunderEventManager;
     [SerializeField] GameObject explosionFx;
 
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
 
     }

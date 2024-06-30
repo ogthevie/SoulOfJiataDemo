@@ -15,7 +15,7 @@ public class SurchargeEventManager : EventStoryTriggerManager
         }
     }
     
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3 && !playerManager.haveGauntlet)
         {

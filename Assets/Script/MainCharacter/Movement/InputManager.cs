@@ -47,6 +47,8 @@ namespace SJ
         //public bool rb_input;
         public bool lb_input;
         public bool lt_input;
+        public bool right_Stick_input;
+        public bool mouseWheel_input;
         public bool north_input;
         public bool west_input;
         public bool right_input;
@@ -63,7 +65,7 @@ namespace SJ
 
         public bool upFlag, downFlag, leftFlag, rightFlag;
         public bool flipFlag;
-        public bool sprintFlag;
+        public bool sprintFlag, resetCameraFlag, moveCameraFlag;
 
         public bool circle;
         public bool triangle;
@@ -156,6 +158,8 @@ namespace SJ
 
             HandleMoveInput(delta);
             HandleSprintInput();
+            HandleRightStickInput();
+            HandleMouseWheelCamera();
             HandleAttackInput(delta);
             HandleLockOnInput();
             HandleFlipInput(delta);
@@ -190,6 +194,23 @@ namespace SJ
             if(lt_input) sprintFlag = true;
             else sprintFlag = false;
         }
+
+        private void HandleRightStickInput()
+        {
+            right_Stick_input = playerControls.PlayerActions.ResetCamera.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+
+            if(right_Stick_input) resetCameraFlag = true;
+            else resetCameraFlag = false;
+        }
+
+        private void HandleMouseWheelCamera()
+        {
+            mouseWheel_input = playerControls.PlayerActions.ControlCamera.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+
+            if(mouseWheel_input) moveCameraFlag = true;
+            else moveCameraFlag = false;
+        }
+
         private void HandleAttackInput(float delta)
         {
             if(lowAttack_input)

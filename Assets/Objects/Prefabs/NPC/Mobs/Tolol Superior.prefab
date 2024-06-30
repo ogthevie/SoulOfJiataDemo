@@ -5895,6 +5895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  playerManager: {fileID: 0}
 --- !u!114 &-7274103787417465464
 MonoBehaviour:
   m_ObjectHideFlags: 0

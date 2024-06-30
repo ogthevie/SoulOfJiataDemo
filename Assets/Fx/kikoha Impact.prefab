@@ -5028,7 +5028,6 @@ GameObject:
   - component: {fileID: 6220688820694962370}
   - component: {fileID: 1145875310096787029}
   - component: {fileID: 4328002014856201456}
-  - component: {fileID: 256723607827457057}
   m_Layer: 0
   m_Name: kikoha Impact
   m_TagString: Untagged
@@ -10063,16 +10062,3 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 1
   fadeOutReference: {fileID: 6220688820694962370}
---- !u!114 &256723607827457057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7179411335879178766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57da4ddf94b7c79428bb5ace72555361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timetoDestroy: 2

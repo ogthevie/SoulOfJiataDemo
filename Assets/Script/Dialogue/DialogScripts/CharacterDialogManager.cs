@@ -4,8 +4,9 @@ using SJ;
 
 public class CharacterDialogManager : MonoBehaviour
 {
-
+    protected GameManager gameManager;
     protected InputManager inputManager;
+    protected StoryManager storyManager;
     protected AnimatorManager animatorManager;
 
     protected Animator characterAnimator;
@@ -19,6 +20,8 @@ public class CharacterDialogManager : MonoBehaviour
 
     protected virtual void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        storyManager = gameManager.GetComponent<StoryManager>();
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
         playerUIManager = FindObjectOfType<PlayerUIManager>();
@@ -82,6 +85,10 @@ public class CharacterDialogManager : MonoBehaviour
                 //Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
                 i = 0;
                 CloseDialogue();
+                if(this.gameObject.name == "Isamal" && storyManager.storyStep == 2)
+                {
+                    StartCoroutine(gameManager.StartHandleToDo("Cap sur Bongo"));
+                }
                 FindObjectOfType<GameManager>().GlobalFixedCursorPosition();
             }
         }

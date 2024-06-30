@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using SJ;
 
 public class GolemDialogManager : CharacterDialogManager
 {
     GolemTriggerManager golemTriggerManager;
-    StoryManager storyManager;
     GolemEventManager golemEventManager;
 
     protected override void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        storyManager = gameManager.GetComponent<StoryManager>();
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = inputManager.GetComponent<AnimatorManager>();
         playerUIManager = FindObjectOfType<PlayerUIManager>();
         golemTriggerManager = GetComponent<GolemTriggerManager>();
-        storyManager = FindObjectOfType<StoryManager>();
         golemEventManager = GetComponent<GolemEventManager>();
     }
 
@@ -62,6 +59,5 @@ public class GolemDialogManager : CharacterDialogManager
                 }
             }
         }
-
     }
 }

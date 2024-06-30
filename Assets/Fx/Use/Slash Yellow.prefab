@@ -19630,7 +19630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57da4ddf94b7c79428bb5ace72555361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timetoDestroy: 0.8
+  timetoDestroy: 0.55
 --- !u!135 &179462607965033187
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19650,7 +19650,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.9
+  m_Radius: 2.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6288033933789455850
 MonoBehaviour:

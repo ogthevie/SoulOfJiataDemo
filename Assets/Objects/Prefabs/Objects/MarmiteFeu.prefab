@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6117000968639047465}
   - component: {fileID: 7155138358824167564}
   - component: {fileID: 4947449538230918214}
+  - component: {fileID: 404473358081311772}
   - component: {fileID: 1251266292694183164}
   - component: {fileID: 3892636964716648821}
   m_Layer: 6
@@ -89,6 +90,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &404473358081311772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892798074863959443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.056872178, y: 0.058226563, z: 0.31543368}
+  m_Center: {x: 0.000019778783, y: -0.0006765092, z: 0.1833056}
 --- !u!65 &1251266292694183164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -104,12 +126,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06151782, y: 0.06866118, z: 0.23565407}
-  m_Center: {x: -0.0007093854, y: -0.005893597, z: 0.11893178}
+  m_Size: {x: 0.072974764, y: 0.072085746, z: 0.36395293}
+  m_Center: {x: -0.0001884288, y: -0.0054896288, z: 0.18308109}
 --- !u!114 &3892636964716648821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f73ee9f05ac04e468f9223d2e73776e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake: {fileID: 0}
 --- !u!1001 &93997598590888114
 PrefabInstance:
   m_ObjectHideFlags: 0

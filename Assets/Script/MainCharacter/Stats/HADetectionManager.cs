@@ -5,7 +5,6 @@ namespace SJ
     public class HADetectionManager : MonoBehaviour
     {
         PlayerAttacker playerAttacker;
-        public ParticleSystem impactFx;
         [SerializeField] GameObject wishShoke;
 
 
@@ -47,8 +46,6 @@ namespace SJ
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
                     Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
-
-                    Instantiate(impactFx, impactPosition, Quaternion.identity);
                     if(component is TololManager tololManager)
                     {
                         tololManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
@@ -64,6 +61,7 @@ namespace SJ
                     }
                     else if(component is KeliperManager keliperManager)
                     {
+                        keliperManager.keliperPattern.keliperAnimatorManager.anim.SetBool("isHit", true);
                         keliperManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
                         if(keliperManager.keliperPattern.currentTarget == null) 
                         {

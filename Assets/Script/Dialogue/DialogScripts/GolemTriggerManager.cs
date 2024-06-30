@@ -8,13 +8,11 @@ public class GolemTriggerManager : MonoBehaviour
     public DialogData [] dialogDatas = new DialogData [2];
     protected GolemDialogManager golemDialogManager;
     protected StoryManager storyManager;
-    CameraManager cameraManager;
     public GameObject dialogUI;
     protected int idDialog;
 
     void Awake()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
         golemDialogManager = GetComponent<GolemDialogManager>();
         storyManager = FindObjectOfType<StoryManager>();
     }

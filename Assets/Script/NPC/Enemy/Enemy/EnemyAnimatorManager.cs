@@ -1,10 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using SJ;
 
 public class EnemyAnimatorManager : MonoBehaviour
 {
     public Animator anim;
+    protected PlayerAttacker playerAttacker;
+    public PlayerManager playerManager;
+
+    protected void Awake()
+    {
+        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
 
     public void PlayTargetAnimation(string targetAnim, bool isInteracting)
     {

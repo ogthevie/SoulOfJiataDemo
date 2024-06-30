@@ -10,7 +10,6 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected AudioManager audioManager;
     protected GameSaveManager gameSaveManager;
     protected GameManager gameManager;
-    protected GrotteKossiManager grotteKossiManager;
     protected StoryManager storyManager;
     [SerializeField]protected CameraShake cameraShake;
 
@@ -21,7 +20,6 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         inputManager = playerManager.GetComponent<InputManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
-        grotteKossiManager = FindObjectOfType<GrotteKossiManager>();
         cameraShake = FindObjectOfType<CameraShake>();
         storyManager = gameSaveManager.GetComponent<StoryManager>();
         audioManager = playerManager.GetComponent<AudioManager>();
@@ -32,5 +30,5 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
         gameSaveManager.SaveAllData();
     }
 
-    protected abstract void OnCollisionEnter(Collision other);
+    protected abstract void OnTriggerEnter(Collider other);
 }
