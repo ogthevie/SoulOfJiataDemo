@@ -9,10 +9,8 @@ public class GolemEventManager : EventStoryTriggerManager
 
     void Start()
     {
-        /*if(storyManager.storyStep < 6)
-        {
-            golemCollider.enabled = false;
-        }*/
+        if(storyManager.storyStep < 6) golemCollider.enabled = false;
+
         if(storyManager.storyStep > 6)
         {
             bridgeCollider.enabled = true;
@@ -36,12 +34,12 @@ public class GolemEventManager : EventStoryTriggerManager
         }
         bridgeCollider.enabled = true;
         yield return new WaitForSeconds(5f);
-        StartCoroutine(gameManager.StartHandleAchievement("--L'HOMME DANS LA PIERRE--"));
+        StartCoroutine(gameManager.StartHandleAchievement("--L'EVEIL DE L'HOMME DANS LA PIERRE--"));
         yield return new WaitForSeconds(3.5f);
         //gameSaveManager.SaveAllData();
     }
 
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
 
     }

@@ -98,7 +98,7 @@ namespace SJ
                     cameraManager.ClearLockOnTargets();
                     playerManager.isDead = true;
                     stateJiataData.isHidden = true;
-                    if(SceneManager.GetActiveScene().buildIndex == 2) GameObject.Find("KaoPortal").GetComponent<AudioSource>().Stop();
+                    if(SceneManager.GetActiveScene().buildIndex == 2) GameObject.Find("PortalKao").transform.GetChild(0).GetComponent<AudioSource>().Stop();
                     else if(SceneManager.GetActiveScene().buildIndex == 1)
                     {
                         GameObject.Find("SibongoManager").GetComponent<AudioSource>().Stop();

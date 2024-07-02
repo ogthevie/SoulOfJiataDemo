@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SJ;
 
 public class KossiAnimatorManager : EnemyAnimatorManager
 {
-    PlayerManager playerManager;
     KossiPattern kossiPattern;
 
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
         kossiPattern = GetComponent<KossiPattern>();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     private void OnAnimatorMove() 

@@ -53,20 +53,20 @@ public class BomboktanManager : CharacterManager
 
     }
 
-    public void DisappearBomboktanSkinnedMeshRenderer()
+    public void DisappearBomboktan()
     {
-        StartCoroutine(DestroyBomboktan());
+        StartCoroutine(DisableBomboktan());
     }
 
-    IEnumerator DestroyBomboktan()
+    IEnumerator DisableBomboktan()
     {
+        bExplosionFx.SetActive(true);
+        yield return new WaitForSeconds (0.1f);
         bombSkinnedMeshRenderer.enabled = false;
         auraGround.SetActive(false);
         GetComponent<BoxCollider>().enabled = false;
-        yield return new WaitForSeconds (0.5f);
-        bExplosionFx.SetActive(true);
         yield return new WaitForSeconds (4.8f);
-        Destroy(this.gameObject, 0.2f);
+        this.gameObject.SetActive(false);
     }
 
 

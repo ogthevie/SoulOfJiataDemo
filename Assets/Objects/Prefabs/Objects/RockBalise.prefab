@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 3023326878356759317}
   - component: {fileID: 1487860038422377755}
   - component: {fileID: 8390571265463589185}
+  - component: {fileID: 2609443825353122719}
+  - component: {fileID: 8842653501411709564}
   m_Layer: 6
   m_Name: RockBalise
   m_TagString: Stele
@@ -235,6 +237,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2609443825353122719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503670901710010799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0289cff9bb35566448ba91efc415e415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardUi: {fileID: 0}
+  playerUi: {fileID: 0}
+  description: "L'\xE9meraude vous promet une force capable de changer le destin,
+    l'ambre vous murmure des secrets oubli\xE9s"
+--- !u!65 &8842653501411709564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503670901710010799}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1468904, y: 4.6063557, z: 3.0889592}
+  m_Center: {x: -0.2729429, y: 1.9760904, z: -0.14514661}
 --- !u!1 &8599271853007135747
 GameObject:
   m_ObjectHideFlags: 0

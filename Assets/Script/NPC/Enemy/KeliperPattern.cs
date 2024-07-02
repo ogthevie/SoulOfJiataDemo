@@ -19,7 +19,7 @@ public class KeliperPattern : MonoBehaviour
     [SerializeField] Vector3 decal= new Vector3 (0, 0.5f, 0);
     public float stoppingDistance;
     float rotationSpeed = 150f;
-    public bool bulletAttack, stunt;
+    public bool bulletAttack, stunt, isHit;
     public float viewableAngle;
 
 
@@ -135,9 +135,10 @@ public class KeliperPattern : MonoBehaviour
         }
     }
 
-    public void DisableStunt()
+    public void DisableStuntAndHit()
     {
         stunt = false;
+        isHit = false;
     }
 
     public void BreakPoint()

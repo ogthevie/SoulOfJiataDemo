@@ -315,7 +315,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Surcharge
-  m_Speed: 1.75
+  m_Speed: 1.85
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7859084078377030761}
@@ -1473,7 +1473,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Low Damage
-  m_Speed: 1.6
+  m_Speed: 1.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 757684925025774837}
@@ -1740,7 +1740,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Paralyze
-  m_Speed: 1.75
+  m_Speed: 1.85
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8740788458359507137}

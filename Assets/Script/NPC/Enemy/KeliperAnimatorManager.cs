@@ -1,20 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SJ;
+
 
 public class KeliperAnimatorManager : EnemyAnimatorManager
 {
-    PlayerManager playerManager;
-    KeliperPattern keliperPattern;
-    KeliperManager keliperManager;
+    [SerializeField] KeliperPattern keliperPattern;
 
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
-        keliperPattern = GetComponent<KeliperPattern>();
-        keliperManager = GetComponent<KeliperManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     private void OnAnimatorMove() 
@@ -25,7 +18,7 @@ public class KeliperAnimatorManager : EnemyAnimatorManager
             //anim.SetFloat("timeAttack", tololPattern.timeAttack);
             anim.SetBool("bulletAttack", keliperPattern.bulletAttack);
             anim.SetBool("stunt", keliperPattern.stunt);
-            anim.SetBool("breakPoint", keliperManager.isbreak);
+            anim.SetBool("isHit", keliperPattern.isHit);
             float delta = Time.deltaTime;
             keliperPattern.keliperRigibody.drag = 0;
             Vector3 deltaPosition = anim.deltaPosition;

@@ -9,6 +9,8 @@ public class BomboktanDialogManager : CharacterDialogManager
     GameSaveManager gameSaveManager;
     protected override void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        storyManager = gameManager.GetComponent<StoryManager>();
         inputManager = FindObjectOfType<InputManager>();
         animatorManager = FindObjectOfType<AnimatorManager>();
         playerUIManager = FindObjectOfType<PlayerUIManager>();
@@ -58,6 +60,7 @@ public class BomboktanDialogManager : CharacterDialogManager
             {
                 i = 0;
                 CloseDialogue();
+                if(storyManager.storyStep == 3) StartCoroutine(gameManager.StartHandleToDo("Trouvez l'esprit de la pierre"));
             }
         }
 

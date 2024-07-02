@@ -120,7 +120,7 @@ public class GameSaveManager : MonoBehaviour
         thunderEventManager = FindObjectOfType<ThunderEventManager>();
         for(int i = 0; i < 8; i++)
         {
-            torcheData.HeartStelesState[i] = thunderEventManager.IndexHeartSteles[i];
+            if(thunderEventManager != null) torcheData.HeartStelesState[i] = thunderEventManager.IndexHeartSteles[i];
         }
 
         string torcheJson = JsonUtility.ToJson(torcheData);
@@ -159,7 +159,7 @@ public class GameSaveManager : MonoBehaviour
 
             for(int i = 0; i < 8; i++)
             {
-                thunderEventManager.IndexHeartSteles[i] = torcheData.HeartStelesState[i];
+                if(thunderEventManager != null) thunderEventManager.IndexHeartSteles[i] = torcheData.HeartStelesState[i];
             }
         }
     }

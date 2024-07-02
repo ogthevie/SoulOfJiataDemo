@@ -427,6 +427,7 @@ MonoBehaviour:
   stoppingDistance: 10
   bulletAttack: 0
   stunt: 0
+  isHit: 0
   viewableAngle: 0
 --- !u!114 &2583150556244060883
 MonoBehaviour:
@@ -441,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  playerManager: {fileID: 0}
+  keliperPattern: {fileID: 8086870833656961931}
 --- !u!1 &1909650066829330313
 GameObject:
   m_ObjectHideFlags: 0

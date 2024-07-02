@@ -10668,7 +10668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 0
   isDead: 0
-  lockOnTransform: {fileID: 6244571797502337290}
+  isbreak: 0
+  lockOnTransform: {fileID: 815116607754410739}
   currentHealth: 0
   enemyExplosion: {fileID: 0}
   skinnedMeshRenderer: {fileID: 4986838049063256807}

@@ -1,30 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SJ;
 
 public class TololAnimatorManager : EnemyAnimatorManager
 {
-    PlayerManager playerManager;
     TololPattern tololPattern;
     TololManager tololManager;
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
         tololPattern = GetComponent<TololPattern>();
         tololManager = GetComponent<TololManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
 
 
     private void OnAnimatorMove()
     {
-        if(!playerManager.onOption)
+        if(!playerManager.onOption && tololPattern != null)
         {
             anim.SetFloat("distAttack", tololPattern.distanceFromTarget);
             anim.SetFloat("timeAttack", tololPattern.timeAttack);
             anim.SetBool("attackMode", !tololManager.isPreformingAction);
-            anim.SetBool("breakpoint", tololManager.isbreak);
+            anim.SetBool("isHit", playerAttacker.isHit);
             float delta = Time.deltaTime;
             tololPattern.tololRigibody.drag = 0;
             Vector3 deltaPosition = anim.deltaPosition;

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using SJ;
 
 public class TrainingManager : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class TrainingManager : MonoBehaviour
     [SerializeField] GameObject tolol, spawnTolol;
     [SerializeField] TutoManager tutoManager;
     [SerializeField] AudioSource umNyobeSource;
+    [SerializeField] GameManager gameManager;
 
     private void Awake() 
     {
+        gameManager = FindObjectOfType<GameManager>();
         tutoManager = GameObject.Find("Tuto").GetComponent<TutoManager>();
         umNyobeSource = GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>(); 
     }
@@ -44,6 +47,7 @@ public class TrainingManager : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             tutoManager.HiddenUI();
+            FindObjectOfType<PlayerStats>().AddHealth(1000);
             if(FindObjectOfType<DayNightCycleManager>().dayTimer < 3) umNyobeSource.enabled = true;
             isTraining = false;
         }
@@ -51,6 +55,7 @@ public class TrainingManager : MonoBehaviour
 
     IEnumerator EnableTraining(GameObject player)
     {
+        StartCoroutine(gameManager.ZoneEntry("Cercle des Prodiges", "Lituba"));
         yield return new WaitForSeconds(1.5f);
         tutoManager.ShowUI();
         yield return new WaitForSeconds(1f);
@@ -64,6 +69,4 @@ public class TrainingManager : MonoBehaviour
         var visual = Instantiate(spawnTolol, tololPosition, Quaternion.identity);
         tolol = visual;
     }
-
-
 }

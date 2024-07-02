@@ -13,7 +13,7 @@ namespace SJ
         public StatesCharacterData jiataCharacterData;
         public List <GameObject> vases = new ();
         public List <GameObject> tolols = new ();
-        public GameObject kossi, kossiKaze, keliper;
+        public GameObject kossi, kossiKaze, keliper, kossiNanga;
 
 
         void Awake()
@@ -38,22 +38,10 @@ namespace SJ
             #endif
         }
 
-        public void HandleInstantiateKossi()
+        public void HandleInstantiateMobs()
         {
             #if UNITY_EDITOR
-           if(Input.GetKeyDown(KeyCode.N))
-           {
-                Debug.Log("un kossi est apparu");
-                Vector3 kossiKazePosition = transform.position + new Vector3 (10f, 0f, -20f);
-                Instantiate(kossi, kossiKazePosition, Quaternion.identity);
-           }
-           #endif
-        }
-
-        public void HandleInstantiateTolols()
-        {
-            #if UNITY_EDITOR
-            if(inputManager.two_input)
+            if(Input.GetKeyDown(KeyCode.T))
             {
                 Debug.Log("un Tolol est apparu");
                 int i = CheckTypesOfTolols();
@@ -68,11 +56,17 @@ namespace SJ
                 Instantiate(kossiKaze, kossiKazePosition, Quaternion.identity);
            }
 
-           if(Input.GetKeyDown(KeyCode.P))
+           if(Input.GetKeyDown(KeyCode.L))
            {
                 Debug.Log("un keliper est apparu");
-                Vector3 keliperPosition = transform.position + new Vector3 (10f, 2f, 20f);
+                Vector3 keliperPosition = transform.position + new Vector3 (10f, 0f, 20f);
                 Instantiate(keliper, keliperPosition, Quaternion.identity);
+           }
+           if(Input.GetKeyDown(KeyCode.N))
+           {
+                Debug.Log("un KossiNanga est apparu");
+                Vector3 KossiNangaPosition = transform.position + new Vector3 (-10f, 0f, 10f);
+                Instantiate(kossiNanga, KossiNangaPosition, Quaternion.identity);
            }
             #endif
         }

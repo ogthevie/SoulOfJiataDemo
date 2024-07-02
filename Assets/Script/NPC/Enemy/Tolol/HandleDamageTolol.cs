@@ -8,7 +8,6 @@ public class HandleDamageTolol : MonoBehaviour
 
     PlayerStats playerStats;
     PlayerManager playerManager;
-    PlayerAttacker playerAttacker;
     [SerializeField] GameObject bulletImpact;
     int damage;
 
@@ -16,7 +15,6 @@ public class HandleDamageTolol : MonoBehaviour
     {
         playerStats = FindObjectOfType<PlayerStats>();
         playerManager = FindObjectOfType<PlayerManager>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
     }
 
 
@@ -32,8 +30,8 @@ public class HandleDamageTolol : MonoBehaviour
             Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0f, 1f, 0f);
             Instantiate(bulletImpact, impactPosition, Quaternion.identity);
             playerStats.TakeDamage(damage, 0);
-            playerManager.takeDamage = true;
-            
+            playerManager.takeDamage = true;  
         }
+        else if(other.gameObject.layer == 10) if(other.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager component))component.HandleVaseConatinerProcess();
     }
 }

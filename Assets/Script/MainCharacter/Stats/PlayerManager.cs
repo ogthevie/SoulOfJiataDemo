@@ -88,11 +88,10 @@ namespace SJ
 
 #if UNITY_EDITOR
             developerModeManager.HandleInstantiateVases();
-            developerModeManager.HandleInstantiateTolols();
+            developerModeManager.HandleInstantiateMobs();
             developerModeManager.HandleStats();
             developerModeManager.LoadSave();
             developerModeManager.ResetSave();
-            developerModeManager.HandleInstantiateKossi();
             //developerModeManager.HandleInstantiateKossiKaze();
 #endif
 

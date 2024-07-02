@@ -3,16 +3,14 @@ using SJ;
 
 public class BuffaloAnimatorManager : EnemyAnimatorManager
 {
-    PlayerManager playerManager;
     BuffaloPattern buffaloPattern;
     BuffaloManager buffaloManager;
 
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
         buffaloPattern = GetComponent<BuffaloPattern>();
         buffaloManager = GetComponent<BuffaloManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     void OnAnimatorMove()

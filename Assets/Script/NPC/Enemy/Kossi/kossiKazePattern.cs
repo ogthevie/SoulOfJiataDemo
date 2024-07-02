@@ -36,7 +36,8 @@ public class kossiKazePattern : MonoBehaviour
         agentKossiKaze.enabled = false;
         kossiKazeRigibody.isKinematic = false;
         currentTarget = playerManager;
-        kossiKazeManager.isPreformingAction = false;     
+        kossiKazeManager.isPreformingAction = false;
+        distanceFromTarget = Vector3.Distance(playerManager.transform.position, transform.position);     
     }
 
     /*public void HandleDetection()

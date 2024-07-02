@@ -8,15 +8,16 @@ public class ThunderEventManager : EventStoryTriggerManager
     BomboktanManager bomboktanManager;
     BuffaloManager buffaloManager;
     public Material altarOriginMat, altarGreenMat, altarYellowmat, refGreenMaterial, refYellowmaterial, materialHeart;
+    [SerializeField] Material kaoPortalMaterial;
     public AudioSource bossThemeAudioSource;
     public GameObject [] HeartSteles = new GameObject [8];
     public GameObject [] Torche = new GameObject [8];
     public int [] IndexHeartSteles = new int [8];
-    bool stelesGreenOn, stelesYellowOn;
-    public GameObject thunder, forceKossi, limitBoss, murBoss, fakeForceKossi;
+    [SerializeField] bool stelesGreenOn, stelesYellowOn;
+    public GameObject thunder, forceKossi, limitBoss, fakeForceKossi;
     public bool inSecteurFour;
-
-    public GameObject kaoBoss, explosionFx, runeAltar;
+    [SerializeField] Collider kaoPortalCollider;
+    public GameObject kaoBoss, explosionFx, kaoPortalFx;
 
     void Start()
     {
@@ -33,8 +34,9 @@ public class ThunderEventManager : EventStoryTriggerManager
                 for(int k = 0; k < 8; k++) Torche[k].transform.parent.GetChild(1).gameObject.SetActive(true);
                 storyManager.storyStep = 6;
                 limitBoss.SetActive(false);
-                murBoss.SetActive(false);
                 fakeForceKossi.SetActive(false);
+                kaoPortalCollider.enabled = false;
+                kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
                 Destroy(this);
 
         }
@@ -99,6 +101,7 @@ public class ThunderEventManager : EventStoryTriggerManager
             }
 
             stelesGreenOn = true && Torche.All(t => t.activeSelf);
+            //stelesYellowOn = false;
 
             if(stelesGreenOn && !thunder.activeSelf)
             {
@@ -106,15 +109,17 @@ public class ThunderEventManager : EventStoryTriggerManager
                 thunder.SetActive(true);
                 if(fakeForceKossi != null) fakeForceKossi.SetActive(false);
                 forceKossi.SetActive(false);
-                GetComponent<AudioSource>().enabled = true;
             }
             else if(stelesYellowOn)
             {
+                thunder.SetActive(false);
                 GetComponent<Renderer>().material = altarYellowmat;
                 if(!playerManager.canBaemb && fakeForceKossi != null)
                 {
+                    if(fakeForceKossi.activeSelf) return;
                     fakeForceKossi.SetActive(true);
                     Save();
+                    Debug.Log("je sauvegarde");
                 }
             }
             else if(!stelesGreenOn)
@@ -122,7 +127,6 @@ public class ThunderEventManager : EventStoryTriggerManager
                 thunder.SetActive(false);
                 if(fakeForceKossi != null) fakeForceKossi.SetActive(false);
                 GetComponent<Renderer>().material = altarOriginMat;
-                GetComponent<AudioSource>().enabled = false;
             } else if(stelesGreenOn && playerManager.canThunder && fakeForceKossi != null) fakeForceKossi.SetActive(false);
         }
 
@@ -174,7 +178,6 @@ public class ThunderEventManager : EventStoryTriggerManager
         if(playerManager.canThunder) 
         {
             thunder.SetActive(false);
-            GetComponent<AudioSource>().Stop();
         }
         if(playerManager.canBaemb) kaoBoss.SetActive(false);
 
@@ -183,7 +186,7 @@ public class ThunderEventManager : EventStoryTriggerManager
 
     ///////////////////////////////////////////////        FIN A RETIRER    ////////////////////////////////////////////////////////////////////////////
 
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3 && stelesGreenOn)
         {
@@ -210,15 +213,13 @@ public class ThunderEventManager : EventStoryTriggerManager
     IEnumerator arcLightEvent()
     {
         animatorManager.PlayTargetAnimation("PowerUp", true);
-        StartCoroutine(gameManager.StartHandleAchievement("--Initiation au Nson--"));
+        StartCoroutine(gameManager.StartHandleAchievement("LE CRI DU CIEL"));
         playerManager.canThunder = true;
 
         thunder.GetComponent<ParticleSystem>().Stop();
 
         thunder.SetActive(false);
-        yield return new WaitForSeconds(3f);
-        GetComponent<AudioSource>().enabled = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4.5f);
         storyManager.storyStep = 4;
         bomboktanManager.Spawn(3);
         Invoke("Save", 5f);
@@ -233,9 +234,10 @@ public class ThunderEventManager : EventStoryTriggerManager
         forceKossi.SetActive(false);
 
         yield return new WaitForSeconds(6f);
-        GetComponent<AudioSource>().enabled = false;
+        kaoPortalFx.SetActive(true);
+        kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
+        kaoPortalCollider.enabled = false;
         storyManager.storyStep = 6;
-        murBoss.SetActive(false);
         //Pensez à faire spawn Bomboktan
         Invoke("Save", 5f);   
     }
@@ -245,21 +247,23 @@ public class ThunderEventManager : EventStoryTriggerManager
         CameraManager cameraManager = FindObjectOfType<CameraManager>();
         cameraManager.ClearLockOnTargets();
         kaoBoss.SetActive(true);
+        GameObject bomboktan = GameObject.Find("Mbombock");
+        float distance = Vector3.Distance(bomboktan.transform.position, this.transform.position);
+        if(distance < 60) bomboktan.GetComponent<BomboktanManager>().DisappearBomboktan();
         buffaloManager = kaoBoss.GetComponent<BuffaloManager>();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         cameraManager.availableTargets.Add(kaoBoss.GetComponent<BuffaloManager>());
         cameraManager.nearestLockOnTarget = cameraManager.availableTargets[0];
         cameraManager.currentLockOnTarget = cameraManager.nearestLockOnTarget;
         FindObjectOfType<InputManager>().lockOnFlag = true;
         limitBoss.SetActive(true);
+        StartCoroutine(gameManager.StartHandleToDo("ELIMINEZ BAFFA"));
         yield return new WaitForSeconds(0.25f);
-
-        GetComponent<AudioSource>().enabled = false;
-        cameraShake.Shake(6, 0.5f);
+        FindObjectOfType<GrotteKossiManager>().GetComponent<AudioSource>().Stop();
+        cameraShake.Shake(4, 0.25f);
         yield return new WaitForSeconds(1f);
         bossThemeAudioSource.Play();
-        murBoss.SetActive(true);
 
         yield return new WaitForSeconds(5.5f);
         kaoBoss.GetComponent<BossHealthBar>().bossHUD.SetActive(true);

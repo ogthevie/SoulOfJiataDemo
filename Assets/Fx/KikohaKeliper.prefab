@@ -24482,6 +24482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9801b1ea76040499d112191ae7e5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletImpact: {fileID: 9012979639492377740, guid: dc270fa8884779045964989b89a07390,
+  bulletImpact: {fileID: 7179411335879178766, guid: b0d9ed41c8381014ebc6d8495e788748,
     type: 3}
   bulletDamage: 10

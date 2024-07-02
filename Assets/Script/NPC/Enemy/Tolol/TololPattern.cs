@@ -10,7 +10,7 @@ public class TololPattern : MonoBehaviour
     PlayerAttacker playerAttacker;
     PlayerManager playerManager;
     public StatesCharacterData statesJiataData;
-    public TololAnimatorManager tololAnimatorManager;
+    [SerializeField] TololAnimatorManager tololAnimatorManager;
     TololManager tololManager;
     HandleDamageTolol handleDamageTolol;
     public MobData tololData;
@@ -46,13 +46,7 @@ public class TololPattern : MonoBehaviour
         tololManager.isPreformingAction = false;
         tololManager.isbreak = false;
     }
-
-    void LateUpdate()
-    {
-        tololAnimatorManager.anim.SetBool("isHit", playerAttacker.isHit);
-        //tololAnimatorManager.anim.SetBool("canAttack", false);
-    }
-
+    
     void Update()
     {
         float delta = Time.deltaTime;
