@@ -199,7 +199,11 @@ namespace SJ
         {
             right_Stick_input = playerControls.PlayerActions.ResetCamera.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
 
-            if(right_Stick_input) resetCameraFlag = true;
+            if(right_Stick_input) 
+            {
+                resetCameraFlag = true;
+                cameraInput.x = cameraInput.y = 0f;
+            }
             else resetCameraFlag = false;
         }
 

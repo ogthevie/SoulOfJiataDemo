@@ -14,6 +14,7 @@ public class DialogTriggerManager : MonoBehaviour
     
     public DialogData[][] partsManager = new DialogData[8][];
     protected CharacterDialogManager characterDialogManager;
+    protected AudioSource audioSource;
     public  StoryManager storyManager;
     CameraManager cameraManager;
     SibongoManager sibongoManager;
@@ -26,6 +27,7 @@ public class DialogTriggerManager : MonoBehaviour
         characterDialogManager = GetComponent<CharacterDialogManager>();
         storyManager = FindObjectOfType<StoryManager>();
         sibongoManager = FindObjectOfType<SibongoManager>();
+        audioSource = GetComponent<AudioSource>();
     }
     void OnEnable()
     {
@@ -58,6 +60,7 @@ public class DialogTriggerManager : MonoBehaviour
             idDialog = sibongoManager.dayPeriod;
             dialogUI.SetActive(true);
             characterDialogManager.StartDialogue();
+            audioSource.Play();
             //Time.timeScale = 0f;
         }         
     }

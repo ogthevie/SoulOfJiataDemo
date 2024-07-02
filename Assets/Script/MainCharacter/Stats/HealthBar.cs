@@ -23,7 +23,7 @@ namespace SJ
         private void Start()
         {
             globalVolume.profile = volumeProfiles[0];
-            globalVolume.weight = 0.55f;
+            globalVolume.weight = 0.5f;
         }
 
         void Update()

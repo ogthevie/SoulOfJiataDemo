@@ -87,7 +87,7 @@ public class CharacterDialogManager : MonoBehaviour
                 CloseDialogue();
                 if(this.gameObject.name == "Isamal" && storyManager.storyStep == 2)
                 {
-                    StartCoroutine(gameManager.StartHandleToDo("Cap sur Bongo"));
+                    StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep));
                 }
                 FindObjectOfType<GameManager>().GlobalFixedCursorPosition();
             }

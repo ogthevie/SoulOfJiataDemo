@@ -35,6 +35,7 @@ public class ThunderEventManager : EventStoryTriggerManager
                 storyManager.storyStep = 6;
                 limitBoss.SetActive(false);
                 fakeForceKossi.SetActive(false);
+                thunder.SetActive(false);
                 kaoPortalCollider.enabled = false;
                 kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
                 Destroy(this);
@@ -198,7 +199,11 @@ public class ThunderEventManager : EventStoryTriggerManager
         {
             if(playerManager.canBaemb) return;
 
-            else if(!playerManager.canBaemb && !kaoBoss.activeSelf)StartCoroutine(KaoBossEvent());
+            else if(!playerManager.canBaemb && !kaoBoss.activeSelf)
+            {
+                FindObjectOfType<BomboktanManager>().DisappearBomboktan();
+                StartCoroutine(KaoBossEvent());
+            }
             
             else if(kaoBoss.activeSelf)
             {
@@ -247,9 +252,6 @@ public class ThunderEventManager : EventStoryTriggerManager
         CameraManager cameraManager = FindObjectOfType<CameraManager>();
         cameraManager.ClearLockOnTargets();
         kaoBoss.SetActive(true);
-        GameObject bomboktan = GameObject.Find("Mbombock");
-        float distance = Vector3.Distance(bomboktan.transform.position, this.transform.position);
-        if(distance < 60) bomboktan.GetComponent<BomboktanManager>().DisappearBomboktan();
         buffaloManager = kaoBoss.GetComponent<BuffaloManager>();
         yield return new WaitForSeconds(0.2f);
 
@@ -258,7 +260,8 @@ public class ThunderEventManager : EventStoryTriggerManager
         cameraManager.currentLockOnTarget = cameraManager.nearestLockOnTarget;
         FindObjectOfType<InputManager>().lockOnFlag = true;
         limitBoss.SetActive(true);
-        StartCoroutine(gameManager.StartHandleToDo("ELIMINEZ BAFFA"));
+        int i = FindObjectOfType<StoryManager>().storyStep;
+        if(storyManager.storyStep < 7)StartCoroutine(gameManager.StartHandleToDo(i));
         yield return new WaitForSeconds(0.25f);
         FindObjectOfType<GrotteKossiManager>().GetComponent<AudioSource>().Stop();
         cameraShake.Shake(4, 0.25f);
@@ -306,6 +309,7 @@ public class ThunderEventManager : EventStoryTriggerManager
                 //this.GetComponent<MeshRenderer>().enabled = false;
                 yield return new WaitForSeconds (0.05f);
                 forceKossi.SetActive(true);
+                limitBoss.SetActive(false);
                 //yield return new WaitForSeconds (4f);
                 //Destroy(this.gameObject);
                 

@@ -31,50 +31,18 @@ Pouvoir à tester -> paralyze / Surcharge
 3 - desactiver le mode développeur
 
 
-
-// configurer Isamal de telle sorte de que Jiata sorte, il est dans la case de la tortue
-//configurer le curseur de telle sorte que dès que :
-    le curseur s'active lorsque storyStep = 6
-    lorqu'il trigger in dans le curseur, l'animation power up se joue, le golem change de couleur
-    activation de son boxcollider de dialogue
-    quand il finit de parler, tremblement de terre qui permet de reconstruire le pont de dragon Kao.
-
-
-18/06
-//Changer la position du portail - ok
-//fermer cette zone - ok
 //établir le nouveau système de sauvegarde - nok
-//Revoir les positions de tp -- ok
-// revoir les portails de Kao buffalo -- ok
-
-19/06
-//changer la position du dialogue avec l'homme dans la pierre -- ok
-//animation de dégats pour Keliper -- ok
-//commencer à travailler sur la menace fantome
-//travailler le dialogue de Teg à 6
-//regarder l'erreur mort dans la grotte -- ok
-
-20/06 - 22/06
-//corriger le bug de kossi -- ok
 //commencer à travailler sur la menace fantome
 //travailler le dialogue de Teg à 6
 //Reflechir sur les quetes dans la grotte et le meilleur agencement possible -- ok
-//config clavier
 
-Après la zone zéro
-Implémenter des lasers dans le grand hall (horizontaux et verticaux)
 bloquer la porte si on a pas la clé
-mettre un message qui permet d'allumer la torche
 cacher la clé de la grotte
 
-
-Zone zéro
-Cirque laser
 Zone psy (pour le spawn Kossicoloss) - zone avec la pierre
 Travaux sur la clé
-Ajouter la clé dans un coin : elle sera gardée par le fantôme Kossi
 
-le fantôme Kossi est un fantôme qui aparait et qui disparait pour te frapper. l'intervalle de frappe oscillera entre deux valeurs (soit 20sec ou 4min)
-il arrive, il frappe, il repart.
 
-Si tu arrives à le tuer, tu obtiendras le masque des morts qui permet de te tp .
+ajouter la voix du golem - ok
+corriger le bug de thunderevent - ok
+corriger le bug du tremblement de terre - ok
