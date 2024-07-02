@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2660567136304885756}
   - component: {fileID: 218649978566286134}
   - component: {fileID: 1497826614763602631}
+  - component: {fileID: 2675538087591544326}
   - component: {fileID: -2232525524643264475}
-  - component: {fileID: 362021305350946896}
   - component: {fileID: -896672811840158432}
   m_Layer: 14
   m_Name: Cola Lion
@@ -29,10 +29,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731687447600347875}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -114,6 +114,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &2675538087591544326
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731687447600347875}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.011
+  m_Center: {x: 0, y: 0.0012226601, z: -0.00127104}
 --- !u!114 &-2232525524643264475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,29 +150,6 @@ MonoBehaviour:
   consumableData: {fileID: 11400000, guid: 066052df51730524abd541902ca90788, type: 2}
   notificationManager: {fileID: 0}
   inventory: {fileID: 11400000, guid: a6bd976158eb75648bbe421d9a85d0d0, type: 2}
---- !u!136 &362021305350946896
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731687447600347875}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 65527
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.009999999
-  m_Height: 0.016271006
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0012226598, z: -0.0012710397}
 --- !u!114 &-896672811840158432
 MonoBehaviour:
   m_ObjectHideFlags: 0

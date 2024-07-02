@@ -31,7 +31,6 @@ public class TrainingManager : MonoBehaviour
 
         if(other.gameObject.layer == 3)
         {
-            tutoManager.childIndex = 0;
             StartCoroutine(EnableTraining(other.gameObject));
             umNyobeSource.enabled = false;
         } 

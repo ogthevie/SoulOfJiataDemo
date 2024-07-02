@@ -180,7 +180,7 @@ namespace SJ
                 targetPosition = -minimumCollisionOffset;
             }
 
-            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 0.2f);
+            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 1f);
             cameraTransform.localPosition = cameraTransformPosition;
         }
 

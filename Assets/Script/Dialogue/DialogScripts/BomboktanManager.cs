@@ -48,6 +48,7 @@ public class BomboktanManager : CharacterManager
         characterAudioSource.Play();
         yield return new WaitForSeconds(0.2f);
         DayJob(characterpositions[id], characterRotation[id]);
+        bombSkinnedMeshRenderer.enabled = true;
         yield return new WaitForSeconds(1.5f);
         thunderBomboktan.SetActive(false);
 
@@ -66,7 +67,7 @@ public class BomboktanManager : CharacterManager
         auraGround.SetActive(false);
         GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds (4.8f);
-        this.gameObject.SetActive(false);
+        this.transform.position = new Vector3 (0, -100, 0f);
     }
 
 

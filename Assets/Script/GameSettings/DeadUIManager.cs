@@ -32,11 +32,7 @@ public class DeadUIManager : MonoBehaviour
     void ApplyChoice()
     {
         if(inputManager.lowAttack_input) Application.Quit();
-        else if(inputManager.south_input) 
-        {
-            if(gameManager.isLoading) return;
-            StartCoroutine (reloadRoutine());
-        }
+        else if(inputManager.south_input && !gameManager.loadingScreen.enabled) StartCoroutine (reloadRoutine());
     }
 
     IEnumerator reloadRoutine()

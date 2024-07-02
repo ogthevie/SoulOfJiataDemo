@@ -3,7 +3,6 @@ using UnityEditor;
 #endif
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class HomeInputManager : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class HomeInputManager : MonoBehaviour
     bool isPlaying;
     string filePath;
 
-    [SerializeField] GameObject introPlane, wind;
+    [SerializeField] GameObject introPlane, wind, buttonIcon, keyboardIcon;
     [SerializeField] Canvas titleGame;
 
 
@@ -66,6 +65,16 @@ public class HomeInputManager : MonoBehaviour
         down_input = false;
         south_input = false;
         skip_input =  false;
+        if(gameManager.isControllerConnected)
+        {
+            buttonIcon.SetActive(true);
+            keyboardIcon.SetActive(false);
+        }
+        else
+        {
+            buttonIcon.SetActive(false);
+            keyboardIcon.SetActive(true);
+        }
     }
 
     void MoveSelector()

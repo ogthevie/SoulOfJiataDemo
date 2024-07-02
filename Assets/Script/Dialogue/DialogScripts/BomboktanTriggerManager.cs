@@ -8,15 +8,15 @@ public class BomboktanTriggerManager : MonoBehaviour
     public DialogData [] dialogDatas = new DialogData [2];
     protected BomboktanDialogManager bomboktanDialogManager;
     protected StoryManager storyManager;
-    CameraManager cameraManager;
+    protected AudioSource audioSource;
     public GameObject dialogUI;
     public int idDialog;
 
     void Awake()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
         bomboktanDialogManager = GetComponent<BomboktanDialogManager>();
         storyManager = FindObjectOfType<StoryManager>();
+        audioSource = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         HandleBomboktanPosition();
     }
 
@@ -36,6 +36,7 @@ public class BomboktanTriggerManager : MonoBehaviour
         {
             dialogUI.SetActive(true);
             bomboktanDialogManager.StartDialogue();
+            audioSource.Play();
             //Time.timeScale = 0f;
         }         
     }

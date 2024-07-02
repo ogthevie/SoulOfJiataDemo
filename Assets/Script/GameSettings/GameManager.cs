@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using SJ;
 using TMPro;
 using System;
+using System.Linq;
 
 
 [DefaultExecutionOrder(-1)]
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public int? newGame;
     public bool isControllerConnected, isLoading;
     [SerializeField] GameObject zoneName, questNotif, completeNotif;
+    [SerializeField] List <GameObject> buttonIcons = new List<GameObject>();
+    [SerializeField] List <GameObject> keyBoardIcons = new List<GameObject>();
+    String [] questNames = new string [10];
 
     private void Awake()
     {
@@ -27,8 +31,9 @@ public class GameManager : MonoBehaviour
         needGamepad.enabled = false;
         isLoading = false; // a true de base
         Shader.WarmupAllShaders();
+        InitializeQuestName();
         //Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ActiveOnDestroy()
@@ -41,6 +46,17 @@ public class GameManager : MonoBehaviour
                 objPrefab.SetActive(true);
             }
         }
+    }
+
+    void InitializeQuestName()
+    {
+        questNames[0] = "Explorez le village";
+        questNames[1] = "Explorez le village";
+        questNames[2] = "L'entrée de BONGO";
+        questNames[3] = "Le second brassard";
+        questNames[4] = "L'esprit de la roche";
+        questNames[6] = "L'eveil de l'HOMME";
+        questNames[7] = "Cap sur WONDO";
     }
 
     void LateUpdate()
@@ -116,17 +132,13 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
             StartCoroutine(ZoneEntry("...SIBONGO...", "Lituba"));
-            if(storyManager.storyStep == 2) StartCoroutine(StartHandleToDo("Cap sur Bongo"));
-            else StartCoroutine(StartHandleToDo("Explorez le village"));
         }
         else if(SceneManager.GetActiveScene().buildIndex == 2)
         {
-            
+            StartCoroutine(ZoneEntry("...BONGO...", "Lituba"));
+        }
 
-            StartCoroutine(ZoneEntry("...Gorge Sombre...", "Bongo"));
-            if(storyManager.storyStep == 2) StartCoroutine(StartHandleToDo("Trouvez le second brassard"));
-            else StartCoroutine(StartHandleToDo("Trouvez l'esprit de la pierre"));
-        } 
+        if(storyManager.storyStep < questNames.Count() && storyManager.storyStep >= 0)StartCoroutine(StartHandleToDo(storyManager.storyStep));
         
         player.isInteracting = false;
         Debug.Log("index est " + newGame);        
@@ -154,6 +166,14 @@ public class GameManager : MonoBehaviour
                 //needGamepad.enabled = false;
                 //Time.timeScale = 1;
                 isControllerConnected = true;
+                foreach (var buttonIcon in buttonIcons)
+                {
+                    if(buttonIcon != null) buttonIcon.SetActive(true);
+                }
+                foreach (var keyBoardIcon in keyBoardIcons)
+                {
+                    if(keyBoardIcon != null) keyBoardIcon.SetActive(false);
+                }  
             }
         }
         else
@@ -164,6 +184,14 @@ public class GameManager : MonoBehaviour
                 //needGamepad.enabled = true;
                 //Time.timeScale = 0;
                 isControllerConnected = false;
+                foreach (var buttonIcon in buttonIcons)
+                {
+                    buttonIcon.SetActive(false);
+                }
+                foreach (var keyBoardIcon in keyBoardIcons)
+                {
+                    keyBoardIcon.SetActive(true);
+                }  
             }
         }
     }
@@ -180,9 +208,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ZoneEntry(string nameZone,string timeDay)
     {
-        zoneName.SetActive(true);
         zoneName.GetComponent<TextMeshProUGUI>().text = nameZone;
         zoneName.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = timeDay;
+        zoneName.SetActive(true);
         yield return new WaitForSeconds(7.2f);
         zoneName.SetActive(false);
     }
@@ -196,11 +224,11 @@ public class GameManager : MonoBehaviour
         completeNotif.SetActive(false);
     }
 
-    public IEnumerator StartHandleToDo(string questName)
+    public IEnumerator StartHandleToDo(int i)
     {
         yield return new WaitForSeconds(2f);
         questNotif.SetActive(true);
-        questNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = questName;
+        questNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = questNames[i];
         yield return new WaitForSeconds (8.5f);
         questNotif.SetActive(false);
     }

@@ -5,6 +5,7 @@ public class MbuuTriggerManager : MonoBehaviour
     public DialogData dialogData;
     protected MbuuDialogManager mbuuDialogManager;
     public GameObject dialogUI;
+    [SerializeField] AudioSource audioSource;
     Animator mbuuAnim;
     protected int idDialog;
 
@@ -12,6 +13,7 @@ public class MbuuTriggerManager : MonoBehaviour
     {
         mbuuDialogManager = GetComponent<MbuuDialogManager>();
         mbuuAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start() 
@@ -26,6 +28,7 @@ public class MbuuTriggerManager : MonoBehaviour
             dialogUI.SetActive(true);
             mbuuAnim.SetBool("isTalk", true);
             mbuuDialogManager.StartDialogue();
+            audioSource.Play();
             Time.timeScale = 0f;
         }
     }

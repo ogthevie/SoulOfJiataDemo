@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SJ;
 
 public class GolemTriggerManager : MonoBehaviour
 {
     public DialogData [] dialogDatas = new DialogData [2];
     protected GolemDialogManager golemDialogManager;
     protected StoryManager storyManager;
+    protected AudioSource audioSource;
     public GameObject dialogUI;
     protected int idDialog;
 
@@ -15,6 +13,7 @@ public class GolemTriggerManager : MonoBehaviour
     {
         golemDialogManager = GetComponent<GolemDialogManager>();
         storyManager = FindObjectOfType<StoryManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -36,6 +35,7 @@ public class GolemTriggerManager : MonoBehaviour
                 dialogUI.SetActive(true);
                 golemDialogManager.StartDialogue();
                 Time.timeScale = 0f;
+                audioSource.Play();
             } 
         }
 
