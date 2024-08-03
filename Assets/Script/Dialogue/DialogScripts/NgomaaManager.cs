@@ -3,9 +3,9 @@ using UnityEngine;
 public class NgomaaManager : CharacterManager
 {
     [SerializeField] GameObject fireCook, smokeCook;
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
         if(dayPeriod > 1) 
         {

@@ -2,22 +2,16 @@ using UnityEngine;
 
 public class GolemManager : CharacterManager
 {
-    public Material originalMaterial, activatematerial, speakMaterial;
-    protected override void Start()
+    [SerializeField] Material originalMaterial, activatematerial, speakMaterial;
+    protected override void OnEnable()
     {
         if(storyManager.storyStep > 5)
         {
             var materials = GetComponent<Renderer>().materials;
             materials[1] = activatematerial;
-            GetComponent<Renderer>().materials = materials;              
-        }
-        else
-        {
-            var materials = GetComponent<Renderer>().materials;
-            materials[1] = originalMaterial;
-            GetComponent<Renderer>().materials = materials;           
-        }
- 
+            GetComponent<Renderer>().materials = materials;
+            transform.GetChild(0).gameObject.GetComponent<Renderer>().material = activatematerial;            
+        } 
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,6 +22,7 @@ public class GolemManager : CharacterManager
             var materials = GetComponent<Renderer>().materials;
             materials[1] = speakMaterial;
             GetComponent<Renderer>().materials = materials;
+            transform.GetChild(0).GetComponent<Renderer>().material = speakMaterial;
         }    
     }
 
@@ -37,7 +32,8 @@ public class GolemManager : CharacterManager
         {
             var materials = GetComponent<Renderer>().materials;
             materials[1] = activatematerial;
-            GetComponent<Renderer>().materials = materials;            
+            GetComponent<Renderer>().materials = materials;
+            transform.GetChild(0).GetComponent<Renderer>().material = activatematerial;         
         }
     }
 }

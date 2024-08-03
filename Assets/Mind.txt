@@ -1,34 +1,11 @@
 Kossi Boss
 
-//pensez à charger Wuta Mattutu, ça va directement impacter ta barre de magie. et ça vide rapidement
-//BigKossi qui va donner yellow à Jiata. creer une classe enfant à characterDialogManager
-
-Pouvoir à tester -> paralyze / Surcharge
-                 -> Wuta Lantarki
-                 -> Wuta Kwallon
-                 -> Nson
-                 -> Wuta Mattutu
-                 -> esquive
-
--> Wuta Kwallon peut être tester en permettant d'infliger des dégâts simplement
--> paralyze et Surcharge seront testés quand Kossi essaiera de creer des kossisphere. Si tu exploses ça avant, ça va lui faire baisser sa garder.
--> Nson sera plus compliqué à placer car il se mettra hors de portée. Donc faudra attendre qu'il soit étourdi
--> Wuta Mattutu pour esquiver attaque de zone
--> Wuta Lantarki c'est pour infliger plus de dégâts.
--> esquive
-
-
--< AuramagnetSphere - compression puis expansion, attaque de zone
--< Coups d'estoque - esquive
--< coup simple pour repousser
----------------------------Phase 1 : Jaugeage ---------------------------------------------------------------
-
-
 -------------------------------------------Avant compilation---------------------------------------------------
 
 1 - prewarm shader dans le gameManager
 2 - effacer les sauvegardes
 3 - desactiver le mode développeur
+4 - Supprimer les types de sauvegardes inutiles (save all data)
 
 
 //établir le nouveau système de sauvegarde - nok
@@ -46,3 +23,6 @@ Travaux sur la clé
 ajouter la voix du golem - ok
 corriger le bug de thunderevent - ok
 corriger le bug du tremblement de terre - ok
+
+156.7635 1.80283 196.0732
+-176.819

@@ -26,12 +26,6 @@ namespace SJ
                 }                
             }
 
-            else if(other.gameObject.layer == 11)
-            {
-                    TreeContainerManager treeContainerManager = other.GetComponent<TreeContainerManager>();
-                    treeContainerManager.HandleTreeContainerProcess();
-            }
-
             else if(other.gameObject.layer == 12)
             {
                 playerAttacker.FxLowAttack();

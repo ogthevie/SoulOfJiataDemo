@@ -17,7 +17,7 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.794448, g: 0.8773585, b: 0.7490655, a: 1}
-  m_FogMode: 2
+  m_FogMode: 1
   m_FogDensity: 0.02
   m_LinearFogStart: 20
   m_LinearFogEnd: 500
@@ -608,12 +608,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7541470204632277064}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &308860540 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8054991313031437121, guid: e59ee00089ea8ba46b80ad8a6112451d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7541470204632277064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &494907278 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5489805008033019380, guid: 67e49977a65c0e54092d48fbe7544cbc,
@@ -766,12 +760,12 @@ PrefabInstance:
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyTitles.Array.data[1]
-      value: l'Homme dans la pierre
+      value: Le sommeil de la roche
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyTitles.Array.data[2]
-      value: "Tr\xE9sor de Bongo"
+      value: Le temple de BONGO
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -781,7 +775,7 @@ PrefabInstance:
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyTitles.Array.data[4]
-      value: 
+      value: L'esprit de la roche
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -791,19 +785,19 @@ PrefabInstance:
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyTitles.Array.data[6]
-      value: Esprit de la roche
+      value: L'eveil de l'HOMME
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyTitles.Array.data[7]
-      value: "Vers l'inconnu et au-del\xE0"
+      value: Cap sur WONDO
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[0]
       value: "Homm croise notre h\xE9ros. Il lui annonce que son p\xE8re, Nlomgan
         veut lui parler. Intrigu\xE9, notre h\xE9ros doit se rendre au c\xF4t\xE9
-        de l\u2019ancien, Nlomgan, o\xF9 l'atmosph\xE8re est lourde de secrets.\r\r"
+        de l\u2019ancien, Nlomgan, o\xF9 l'atmosph\xE8re est lourde de r\xE9v\xE9lations.\r\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -813,27 +807,27 @@ PrefabInstance:
         est un r\xE9ceptacle de magie : il contient une partie de la force de son
         p\xE8re, dispers\xE9e dans un second brassard qui est maintenant perdu. Pour
         lib\xE9rer son plein potentiel, il doit retrouver le second brassard et pour
-        \xE7a, il a besoin de l'aide de l'HOMME DANS LA PIERRE dans la case de la
-        tortue.\r\r"
+        \xE7a, il a besoin de l'aide de l'HOMME DANS LA PIERRE.\r\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[2]
       value: "Isamal r\xE9v\xE8le \xE0 Ruben que l'HOMME DANS LA PIERRE est endormi
         depuis des ann\xE9es et pour le r\xE9veiller, il faut r\xE9cup\xE9rer son
-        esprit qui se trouve dans la grotte de Bongo."
+        esprit qui se trouve dans le temple de BONGO."
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[3]
       value: "Ruben a trouv\xE9 le second brassard. TEG l'a mis en garde sur le fait
         de faire ce pourquoi il est entr\xE9 dans la grotte : Retrouver l'esprit
-        de l\"HOMME DANS LA PIERRE.\r"
+        de l'HOMME DANS LA PIERRE.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: storyBriefings.Array.data[4]
-      value: 
+      value: "Ruben a d\xE9couvert une \xE9trange salle dans le temple de BONGO.
+        Peut-\xEAtre l'esprit de l'homme s'y trouve... Qui sait ?"
       objectReference: {fileID: 0}
     - target: {fileID: 1785640259211883205, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
@@ -1027,27 +1021,27 @@ PrefabInstance:
         type: 3}
       propertyPath: buttonIcons.Array.data[1]
       value: 
-      objectReference: {fileID: 308860540}
+      objectReference: {fileID: 1499003430}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: buttonIcons.Array.data[2]
       value: 
-      objectReference: {fileID: 1499003430}
+      objectReference: {fileID: 863088020}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: buttonIcons.Array.data[3]
       value: 
-      objectReference: {fileID: 863088020}
+      objectReference: {fileID: 7541470204632277069}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: buttonIcons.Array.data[4]
       value: 
-      objectReference: {fileID: 7541470204632277069}
+      objectReference: {fileID: 978373844}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: buttonIcons.Array.data[5]
       value: 
-      objectReference: {fileID: 978373844}
+      objectReference: {fileID: 698805734}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: buttonIcons.Array.data[6]
@@ -1057,7 +1051,12 @@ PrefabInstance:
         type: 3}
       propertyPath: buttonIcons.Array.data[7]
       value: 
-      objectReference: {fileID: 1155822880}
+      objectReference: {fileID: 1357771472}
+    - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
+        type: 3}
+      propertyPath: buttonIcons.Array.data[8]
+      value: 
+      objectReference: {fileID: 1357771472}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: goDontDestroy.Array.data[0]
@@ -1092,27 +1091,27 @@ PrefabInstance:
         type: 3}
       propertyPath: keyBoardIcons.Array.data[1]
       value: 
-      objectReference: {fileID: 7541470204632277073}
+      objectReference: {fileID: 7541470204632277072}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: keyBoardIcons.Array.data[2]
       value: 
-      objectReference: {fileID: 7541470204632277072}
+      objectReference: {fileID: 7541470204632277071}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: keyBoardIcons.Array.data[3]
       value: 
-      objectReference: {fileID: 7541470204632277071}
+      objectReference: {fileID: 7541470204632277070}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: keyBoardIcons.Array.data[4]
       value: 
-      objectReference: {fileID: 7541470204632277070}
+      objectReference: {fileID: 7541470204632277068}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: keyBoardIcons.Array.data[5]
       value: 
-      objectReference: {fileID: 7541470204632277068}
+      objectReference: {fileID: 698805735}
     - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: keyBoardIcons.Array.data[6]
@@ -1122,7 +1121,12 @@ PrefabInstance:
         type: 3}
       propertyPath: keyBoardIcons.Array.data[7]
       value: 
-      objectReference: {fileID: 40856684}
+      objectReference: {fileID: 7541470204632277067}
+    - target: {fileID: 7178145121342473730, guid: 67e49977a65c0e54092d48fbe7544cbc,
+        type: 3}
+      propertyPath: keyBoardIcons.Array.data[8]
+      value: 
+      objectReference: {fileID: 7541470204632277067}
     - target: {fileID: 8342488782012579138, guid: 67e49977a65c0e54092d48fbe7544cbc,
         type: 3}
       propertyPath: m_IsActive
@@ -1462,6 +1466,18 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &698805734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1017904697011874096, guid: e59ee00089ea8ba46b80ad8a6112451d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7541470204632277064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &698805735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4027541476090844724, guid: e59ee00089ea8ba46b80ad8a6112451d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7541470204632277064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698990881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5713130580208001965, guid: 263b7b35432e7524288a189b15ef39e9,
@@ -1494,6 +1510,11 @@ PrefabInstance:
       objectReference: {fileID: 2097261874}
     - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1930683838}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
       propertyPath: deadUI
       value: 
       objectReference: {fileID: 23978282}
@@ -1507,6 +1528,16 @@ PrefabInstance:
       propertyPath: optionMenu
       value: 
       objectReference: {fileID: 1889787006}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: interactionUI
+      value: 
+      objectReference: {fileID: 1172450806}
+    - target: {fileID: 6149044110681542970, guid: de65f568a8f080e47bcf8ed749de7b22,
+        type: 3}
+      propertyPath: transitionScreen
+      value: 
+      objectReference: {fileID: 1473146504}
     - target: {fileID: 6149044110681542978, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
       propertyPath: m_RootOrder
@@ -1561,16 +1592,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149044110681542980, guid: de65f568a8f080e47bcf8ed749de7b22,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149044110681542980, guid: de65f568a8f080e47bcf8ed749de7b22,
-        type: 3}
-      propertyPath: m_ImplicitCom
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6149044110681542982, guid: de65f568a8f080e47bcf8ed749de7b22,
         type: 3}
@@ -1770,10 +1791,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rosemark Games - ogthevie - Demo - 2024
+  m_text: Rosemark Games . ogthevie . Demo . 2024
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f18c313d0b478ef49867dfeeeba85c2a, type: 2}
-  m_sharedMaterial: {fileID: -8138829442592705686, guid: f18c313d0b478ef49867dfeeeba85c2a,
+  m_fontAsset: {fileID: 11400000, guid: 01ec684e5acc6a849abfa35b81bb8eb6, type: 2}
+  m_sharedMaterial: {fileID: -6421879301961013122, guid: 01ec684e5acc6a849abfa35b81bb8eb6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1798,8 +1819,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1808,8 +1829,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 30
-  m_wordSpacing: 0
+  m_characterSpacing: 35
+  m_wordSpacing: 25
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -2145,7 +2166,7 @@ PrefabInstance:
     - target: {fileID: 534280288324573049, guid: 263b7b35432e7524288a189b15ef39e9,
         type: 3}
       propertyPath: weight
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 534280288324573049, guid: 263b7b35432e7524288a189b15ef39e9,
         type: 3}
@@ -2293,6 +2314,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155822880}
   m_CullTransparentMesh: 1
+--- !u!224 &1172450806 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1342650248807984392, guid: e59ee00089ea8ba46b80ad8a6112451d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7541470204632277064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211892889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,6 +2726,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383694037}
   m_CullTransparentMesh: 1
+--- !u!1 &1473146504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2766520696682069298, guid: e59ee00089ea8ba46b80ad8a6112451d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7541470204632277064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1499003430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7299603559477285322, guid: e59ee00089ea8ba46b80ad8a6112451d,
@@ -2713,51 +2746,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9033572076768253195, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077103459988, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 65531
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_Antialiasing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_RenderShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077103460010, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_TaaSettings.quality
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 9033572077197514608, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
       propertyPath: m_Name
       value: Camera Holder
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077197514608, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033572077197514608, guid: 4441175d666684b49867f25a9e9812ed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033572077373476051, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
       propertyPath: targetTransformSecond
       value: 
       objectReference: {fileID: 719471922}
+    - target: {fileID: 9033572077373476051, guid: 4441175d666684b49867f25a9e9812ed,
+        type: 3}
+      propertyPath: ignoreLayersMask.m_Bits
+      value: 118774
+      objectReference: {fileID: 0}
     - target: {fileID: 9033572077373476060, guid: 4441175d666684b49867f25a9e9812ed,
         type: 3}
       propertyPath: m_RootOrder
@@ -3351,6 +3354,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1507354718}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1930683838 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9033572077103459988, guid: 4441175d666684b49867f25a9e9812ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 1507354718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2006268475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8908741206809738336, guid: e59ee00089ea8ba46b80ad8a6112451d,
@@ -3449,6 +3458,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2809020568667249029, guid: e59ee00089ea8ba46b80ad8a6112451d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809020568667249029, guid: e59ee00089ea8ba46b80ad8a6112451d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4435737307329136872, guid: e59ee00089ea8ba46b80ad8a6112451d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3465,16 +3484,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5750699309935072738, guid: e59ee00089ea8ba46b80ad8a6112451d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930853848321873851, guid: e59ee00089ea8ba46b80ad8a6112451d,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930853848321873851, guid: e59ee00089ea8ba46b80ad8a6112451d,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3488,16 +3497,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572481284713550588, guid: e59ee00089ea8ba46b80ad8a6112451d,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572481284713550588, guid: e59ee00089ea8ba46b80ad8a6112451d,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8224896754197518277, guid: e59ee00089ea8ba46b80ad8a6112451d,
         type: 3}
@@ -3654,12 +3653,6 @@ GameObject:
 --- !u!1 &7541470204632277072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8211729351019757679, guid: e59ee00089ea8ba46b80ad8a6112451d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7541470204632277064}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7541470204632277073 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7050012180370999854, guid: e59ee00089ea8ba46b80ad8a6112451d,
     type: 3}
   m_PrefabInstance: {fileID: 7541470204632277064}
   m_PrefabAsset: {fileID: 0}

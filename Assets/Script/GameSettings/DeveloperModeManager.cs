@@ -9,6 +9,7 @@ namespace SJ
         PlayerStats playerStats;
         GameSaveManager gameSaveManager;
         PlayerUIManager playerUIManager;
+        AnimatorManager animatorManager;
 
         public StatesCharacterData jiataCharacterData;
         public List <GameObject> vases = new ();
@@ -22,6 +23,7 @@ namespace SJ
             inputManager = GetComponent<InputManager>();
             playerStats = GetComponent<PlayerStats>();
             playerUIManager = FindObjectOfType<PlayerUIManager>();
+            animatorManager = GetComponent<AnimatorManager>();
         }
 
         public void HandleInstantiateVases()
@@ -115,6 +117,14 @@ namespace SJ
         {
             int tololIndex = Random.Range(0,1);
             return (tololIndex);
+        }
+
+        public void DancePlayer()
+        {
+            if(Input.GetKeyDown(KeyCode.Keypad1)) animatorManager.PlayTargetAnimation("dance 1", true);
+            else if(Input.GetKeyDown(KeyCode.Keypad2)) animatorManager.PlayTargetAnimation("dance 2", true);
+            else if(Input.GetKeyDown(KeyCode.Keypad3)) animatorManager.PlayTargetAnimation("dance 3", true);
+            else if(Input.GetKeyDown(KeyCode.Keypad4)) animatorManager.PlayTargetAnimation("dance 4", true);
         }
     }
 }

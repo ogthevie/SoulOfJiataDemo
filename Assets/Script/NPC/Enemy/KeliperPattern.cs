@@ -35,7 +35,7 @@ public class KeliperPattern : MonoBehaviour
     void Start()
     {
         stoppingDistance = 5;
-        agentKeliper.enabled = false;
+        agentKeliper.enabled = true;
         keliperManager.isPreformingAction = false;
         keliperRigibody.isKinematic = false;
     }
@@ -78,6 +78,7 @@ public class KeliperPattern : MonoBehaviour
             if (distanceFromTarget > stoppingDistance)
             {
                 keliperAnimatorManager.anim.SetFloat("run", 1);
+                agentKeliper.enabled = true;
                 bulletAttack = true;
             }
             else if (distanceFromTarget <= stoppingDistance)
@@ -107,7 +108,7 @@ public class KeliperPattern : MonoBehaviour
             currentTarget = null;
             keliperAnimatorManager.anim.SetFloat("run", 0);
             keliperManager.isPreformingAction = true;
-            agentKeliper.enabled = false;
+            //agentKeliper.enabled = false;
             bulletAttack = false;
         }
         else

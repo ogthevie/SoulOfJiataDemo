@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StorySkipManager : MonoBehaviour
@@ -16,7 +14,7 @@ public class StorySkipManager : MonoBehaviour
     {
         if(other.gameObject.layer == 3) if(storyManager.storyStep == -1 ) storyManager.checkstoryStep(true);
         GameManager gameManager = storyManager.GetComponent<GameManager>();
-        StartCoroutine(gameManager.StartHandleToDo(0));
+        StartCoroutine(gameManager.ZoneEntry("...Sibongo...", "Lituba"));
         Destroy(this.gameObject, 4.8f);
     }
 }

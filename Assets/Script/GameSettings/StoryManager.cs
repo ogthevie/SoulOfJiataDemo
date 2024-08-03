@@ -6,7 +6,7 @@ using System;
 
 public class StoryManager : MonoBehaviour
 {
-    GameSaveManager gameSaveManager;
+    GameManager gameManager;
     [SerializeField] List <String> storyTitles = new ();
     [TextArea(1,4)] [SerializeField] List <String> storyBriefings = new ();
     [SerializeField] TextMeshProUGUI storyTitle, storyBrief;
@@ -16,7 +16,7 @@ public class StoryManager : MonoBehaviour
 
     void Start()
     {
-        gameSaveManager = GetComponent<GameSaveManager>();
+        gameManager = GetComponent<GameManager>();
     }
     /*
     le numero definit la mission dans laquelle nous sommes actu
@@ -33,23 +33,13 @@ public class StoryManager : MonoBehaviour
 
     public void checkstoryStep(bool canNextStep)
     {
-        if(storyStep == -1 && canNextStep) 
+        if(canNextStep) 
         {
-            storyStep = 0;
-            gameSaveManager.SaveAllData();
+            storyStep += 1;
+            gameManager.canNotif = true;
+            if(storyStep == 2) FindObjectOfType<SibongoManager>().KossiPortal.SetActive(true);
+            GetComponent<GameSaveManager>().SaveAllData();
         }
-        else if(storyStep == 0 && canNextStep)
-        {
-            storyStep = 1;
-            gameSaveManager.SaveAllData();
-        }
-        else if(storyStep == 1 && canNextStep)
-        {
-            storyStep = 2;
-            FindObjectOfType<SibongoManager>().KossiPortal.SetActive(true);
-            gameSaveManager.SaveAllData();
-        }
-        
         
         UpdateSynopsisPauseMenu();
         return;
@@ -59,7 +49,7 @@ public class StoryManager : MonoBehaviour
     {
         if(storyStep < 0) return;
 
-        if(storyStep == 0 || storyStep == 1 || storyStep == 2 || storyStep == 3 || storyStep == 6 || storyStep == 7)
+        if(storyStep == 0 || storyStep == 1 || storyStep == 2 || storyStep == 3 || storyStep == 4 || storyStep == 6 || storyStep == 7)
         {
             storyTitle.text = storyTitles[storyStep];
             storyBrief.text = storyBriefings[storyStep];

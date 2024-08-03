@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 448686}
   - component: {fileID: 3399442}
   - component: {fileID: 2322584}
-  - component: {fileID: 5980881759922864170}
   - component: {fileID: 2018177823750989595}
   m_Layer: 11
   m_Name: ArbrePrune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 18
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &448686
 Transform:
@@ -27,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138344}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5.5, y: 5.5, z: 5.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7038562499255474227}
@@ -86,22 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5980881759922864170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6c0cb84491b494c9f9cc1df1daba18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  treeContainerData: {fileID: 11400000, guid: e16c7435e63ea274dbe61ab4c6c8f824, type: 2}
-  canProduceTimer: 0
-  canProduct: 0
-  quantityConsumable: 0
 --- !u!136 &2018177823750989595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -141,17 +124,17 @@ PrefabInstance:
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.114
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.636
+      value: 4.88
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.182
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
@@ -198,11 +181,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 5768348921944325335, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
-        type: 3}
-      propertyPath: treeContainerManager
-      value: 
-      objectReference: {fileID: 5980881759922864170}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

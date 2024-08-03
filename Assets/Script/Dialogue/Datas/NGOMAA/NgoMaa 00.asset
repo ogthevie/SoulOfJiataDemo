@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NgoMaa 00
   m_EditorClassIdentifier: 
-  characterName: Ngo Ma'a
+  characterName: Ngo Maa
   mainCharacterName: Ruben
   firstConversation:
   - "\xC0 l\u2019heure ci, d\u2019habitude je suis d\xE9j\xE0 au champ."

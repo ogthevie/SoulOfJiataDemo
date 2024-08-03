@@ -45,6 +45,7 @@ namespace SJ
         public EnemyManager nearestLockOnTarget;
         public EnemyManager leftLockTarget;
         public EnemyManager rightLockTarget;
+        [SerializeField] LayerMask ignoreLayersMask;
 
         #endregion
 
@@ -66,14 +67,13 @@ namespace SJ
             singleton = this;
             myTransform = transform;
             defautlPosition = cameraTransform.localPosition.z;
-            ignoreLayers = ~(1 << 8 | 1 << 9 | 1 << 10);
             /*targetTransform = FindObjectOfType<PlayerManager>().transform;
             inputManager = FindObjectOfType<InputManager>();
             playerManager = FindObjectOfType<PlayerManager>();*/
             enemyManager = FindObjectOfType<EnemyManager>();
         }
         private void Start() 
-        {
+        {          
             targetTransform = FindObjectOfType<PlayerManager>().transform;
             inputManager = FindObjectOfType<InputManager>();
             playerManager = FindObjectOfType<PlayerManager>();
@@ -169,7 +169,7 @@ namespace SJ
             Vector3 direction = cameraTransform.position - cameraPivotTransform.position;
             direction.Normalize();
 
-            if(Physics.SphereCast(cameraPivotTransform.position, cameraSphereRadius, direction, out hit, Mathf.Abs(targetPosition)/*, ignoreLayers*/))
+            if(Physics.SphereCast(cameraPivotTransform.position, cameraSphereRadius, direction, out hit, Mathf.Abs(targetPosition), ignoreLayersMask))
             {
                 float dis = Vector3.Distance(cameraPivotTransform.position, hit.point);
                 targetPosition = -(dis - cameraCollisionOffset);
@@ -180,7 +180,7 @@ namespace SJ
                 targetPosition = -minimumCollisionOffset;
             }
 
-            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 1f);
+            cameraTransformPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 0.6f);
             cameraTransform.localPosition = cameraTransformPosition;
         }
 

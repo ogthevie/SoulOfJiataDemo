@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151190}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeContainerData: {fileID: 11400000, guid: 83f9a8db2e114c140ac5921dc8ab8688, type: 2}
+  playerUIManager: {fileID: 0}
   canProduceTimer: 0
   canProduct: 0
   quantityConsumable: 0
@@ -161,17 +162,17 @@ PrefabInstance:
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.657
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.172
+      value: 4.43
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.258
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}

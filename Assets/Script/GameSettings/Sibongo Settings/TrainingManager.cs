@@ -8,14 +8,15 @@ public class TrainingManager : MonoBehaviour
     bool isTraining;
     [SerializeField] GameObject tolol, spawnTolol;
     [SerializeField] TutoManager tutoManager;
-    [SerializeField] AudioSource umNyobeSource;
+    [SerializeField] AudioSource umNyobeSource, trainingSource;
     [SerializeField] GameManager gameManager;
 
     private void Awake() 
     {
         gameManager = FindObjectOfType<GameManager>();
         tutoManager = GameObject.Find("Tuto").GetComponent<TutoManager>();
-        umNyobeSource = GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>(); 
+        umNyobeSource = GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>();
+        trainingSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,6 +34,7 @@ public class TrainingManager : MonoBehaviour
         {
             StartCoroutine(EnableTraining(other.gameObject));
             umNyobeSource.enabled = false;
+            trainingSource.enabled = true;
         } 
     }
 
@@ -41,22 +43,24 @@ public class TrainingManager : MonoBehaviour
         if(other.gameObject.TryGetComponent<TololManager>(out TololManager component))
         {
             float distanceTololRuneDome = Vector3.Distance(transform.position, other.transform.position);
-            if(distanceTololRuneDome > 20) component.TakeDamage(1000);
+            component.TakeDamage(1000);
         }
         if(other.gameObject.layer == 3)
         {
             tutoManager.HiddenUI();
-            FindObjectOfType<PlayerStats>().AddHealth(1000);
+            tutoManager.trainingUI.SetActive(false);
             if(FindObjectOfType<DayNightCycleManager>().dayTimer < 3) umNyobeSource.enabled = true;
             isTraining = false;
+            trainingSource.enabled = false;
         }
     }
 
     IEnumerator EnableTraining(GameObject player)
     {
         StartCoroutine(gameManager.ZoneEntry("Cercle des Prodiges", "Lituba"));
-        yield return new WaitForSeconds(1.5f);
         tutoManager.ShowUI();
+        tutoManager.trainingUI.SetActive(true);
+        tutoManager.tipsUI.SetActive(false);
         yield return new WaitForSeconds(1f);
         LoadEnemy(player);
         isTraining = true;

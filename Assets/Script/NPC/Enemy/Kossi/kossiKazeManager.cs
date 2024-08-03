@@ -57,14 +57,6 @@ public class kossiKazeManager : EnemyManager
                 if(elt.gameObject.layer == 3) playerStats.TakeDamage(kamikazeDamage, 0);
 
                 else if(elt.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager vaseContainerManager)) vaseContainerManager.HandleVaseConatinerProcess();
-
-                else if(elt.gameObject.TryGetComponent<BuffaloManager>(out BuffaloManager buffaloManager))
-                {
-                    buffaloManager.iStun = true;
-                    buffaloManager.TakeDamage(50);
-                } 
-
-                else if(elt.gameObject.TryGetComponent<kossiKazePattern>(out kossiKazePattern kossipattern)) kossipattern.HandleExplosion();
                 else if(elt.gameObject.TryGetComponent<TololManager>(out TololManager tololManager)) tololManager.TakeDamage(45);
             }
             

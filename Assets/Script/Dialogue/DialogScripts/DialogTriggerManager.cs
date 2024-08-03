@@ -78,6 +78,5 @@ public class DialogTriggerManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogUI.SetActive(false);
-        //Time.timeScale = 1f;
     }
 }

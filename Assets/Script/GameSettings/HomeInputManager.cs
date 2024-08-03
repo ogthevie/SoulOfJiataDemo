@@ -58,8 +58,13 @@ public class HomeInputManager : MonoBehaviour
 
     void LateUpdate()
     {
-        MoveSelector();
-        ApplyChoice(selector.anchoredPosition.y);
+        if(introPlane == null) return;
+        if(!introPlane.activeSelf)
+        {
+            MoveSelector();
+            ApplyChoice(selector.anchoredPosition.y);
+        }
+
         HandlePauseAndSkip();
         up_input = false;
         down_input = false;

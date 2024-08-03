@@ -1,9 +1,13 @@
+using System;
+using UnityEngine;
+
 public class BilolManager : CharacterManager
 {
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
+        Debug.Log(dayPeriod);
     }
 
 }

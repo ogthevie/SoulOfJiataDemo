@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NgoMaa 01
   m_EditorClassIdentifier: 
-  characterName: Ngo Ma'a
+  characterName: Ngo Maa
   mainCharacterName: Ruben
   firstConversation:
   - "Qu\u2019est-ce que tu fais ici, les hommes n\u2019ont pas le droit d\u2019\xEAtre

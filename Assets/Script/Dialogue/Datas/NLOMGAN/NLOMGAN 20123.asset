@@ -15,9 +15,9 @@ MonoBehaviour:
   characterName: NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - "Isamal m'a tout racont\xE9...C'est vrai que j'avais oubli\xE9 ce d\xE9tail sur
-    l'esprit de cette cr\xE9ature. Mais bon tu es un Jiata tu pourras le retrouver,
-    je ne me fais pas trop de soucis pour \xE7a."
-  - "Et votre fils ain\xE9 Iaa ?"
-  - "Oooh lui ? Je ne suis pas inquiet. C'est un grand gar\xE7on, il finira bien
-    par revenir."
+  - Tu as pu voir Isamal ?
+  - "Oui, il m'a racont\xE9 ce que tu as fait. Tu es si fort que \xE7a ??"
+  - "HAHAHAHA... je suis s\xFBr que votre g\xE9n\xE9ration nous surpassera rapidement.
+    Quand tu auras mom \xE2ge, tu seras capable de bien plus."
+  - "J'ai d\xFB mal \xE0 imaginer cela."
+  - "Laisse le temps faire. Allez, file... tu as une m\xE9moire \xE0 retrouver."

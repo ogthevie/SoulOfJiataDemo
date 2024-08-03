@@ -6,6 +6,7 @@ public class BoardManager : MonoBehaviour
 {
     [SerializeField] GameObject boardUi, playerUi;
     [SerializeField] string description;
+    [SerializeField] Color titleColor;
     PlayerUIManager playerUIManager;
     
     void Awake()
@@ -36,7 +37,9 @@ public class BoardManager : MonoBehaviour
     {
         playerUIManager.HiddenUI();
         boardUi.SetActive(true);
-        boardUi.GetComponentInChildren<TextMeshProUGUI>().text = description;
+        TextMeshProUGUI textMeshProUGUI =  boardUi.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshProUGUI.color = titleColor;
+        textMeshProUGUI.text = description;
         yield return new WaitForSeconds(4f);
         if(boardUi.activeSelf)
         {

@@ -129,6 +129,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4896636869531635625}
+  - component: {fileID: 4960797092038069548}
+  - component: {fileID: 6585932893124590268}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -153,6 +155,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -6.364, y: 180, z: -0.336}
+--- !u!65 &4960797092038069548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242060114503128339}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.4367833, y: 9.142581, z: 1.924121}
+  m_Center: {x: -0.101421684, y: 5.9012156, z: 4.05349}
+--- !u!114 &6585932893124590268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242060114503128339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0289cff9bb35566448ba91efc415e415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardUi: {fileID: 0}
+  playerUi: {fileID: 0}
+  description: "Grotte des Kossi - Entr\xE9e"
+  titleColor: {r: 0.353874, g: 0.8962264, b: 0.33397114, a: 0}
 --- !u!1 &8471124952709945223
 GameObject:
   m_ObjectHideFlags: 0

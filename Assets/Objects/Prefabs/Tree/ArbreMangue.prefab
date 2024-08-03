@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 446924}
   - component: {fileID: 3375478}
   - component: {fileID: 2348238}
-  - component: {fileID: -8951033488695246000}
   - component: {fileID: 2177014889639757646}
   - component: {fileID: 7880736740845544282}
   m_Layer: 11
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176282}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
@@ -87,22 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8951033488695246000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6c0cb84491b494c9f9cc1df1daba18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  treeContainerData: {fileID: 11400000, guid: 7e6132dd2d37fa8449064f06eaa7cb91, type: 2}
-  canProduceTimer: 0
-  canProduct: 0
-  quantityConsumable: 0
 --- !u!136 &2177014889639757646
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -166,12 +149,12 @@ PrefabInstance:
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.172
+      value: 4.568
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.39
+      value: -1.145
       objectReference: {fileID: 0}
     - target: {fileID: 1122232512171466877, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
@@ -216,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 2284222385587809410, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5768348921944325335, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
         type: 3}
@@ -224,11 +207,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 14aea1684fe61a748b876503e8de094c,
         type: 2}
-    - target: {fileID: 5768348921944325335, guid: 335f2f17b2dd2ce409f4d7cddea65c47,
-        type: 3}
-      propertyPath: treeContainerManager
-      value: 
-      objectReference: {fileID: -8951033488695246000}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

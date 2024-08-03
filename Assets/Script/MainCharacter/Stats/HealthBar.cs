@@ -23,12 +23,7 @@ namespace SJ
         private void Start()
         {
             globalVolume.profile = volumeProfiles[0];
-            globalVolume.weight = 0.5f;
-        }
-
-        void Update()
-        {
-            HandleSlider();
+            globalVolume.weight = 0.55f;
         }
         
         public void SetMaxHealth(int maxHealth)
@@ -39,33 +34,21 @@ namespace SJ
 
         public void SetCurrentHealth(int currentHealth)
         {
-            slider.DOValue(currentHealth, 0.2f, false);
+            slider.value = currentHealth;
+            HandleSlider();
         }
 
         public void HandleSlider()
         {
-            if(slider.value < (slider.maxValue * 0.5f))
+            if(slider.value < (slider.maxValue * 0.7f))
             {
-                if(globalVolume.profile != volumeProfiles[1])
-                {
-                    globalVolume.profile = volumeProfiles[1];
-                    globalVolume.weight = 0.6f;
-                }
-                else
-                {
-                    if(slider.value > (slider.maxValue * 0.3))
-                        globalVolume.weight = 0.8f;
-                    else if(slider.value >= (slider.maxValue * 0.2) && slider.value <= (slider.maxValue * 0.3))
-                        globalVolume.weight = 0.9f;
-                    else
-                        globalVolume.weight = 1f;
-                }
-
+                globalVolume.profile = volumeProfiles[1];
+                globalVolume.weight = (float)(-0.0128 * (float)slider.value + 1f);
             }
-            else if(slider.value >= (slider.maxValue * 0.5f) && globalVolume.profile == volumeProfiles[1])
+            else if(slider.value >= (slider.maxValue * 0.7f) && globalVolume.profile == volumeProfiles[1])
             {
                 globalVolume.profile = volumeProfiles[0];
-                globalVolume.weight = 0.5f;
+                globalVolume.weight = 0.55f;
             }
             
         }

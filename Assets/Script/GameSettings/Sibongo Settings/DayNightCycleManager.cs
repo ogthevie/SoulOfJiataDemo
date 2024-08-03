@@ -9,11 +9,6 @@ public class DayNightCycleManager : MonoBehaviour
     public int dayTimer;
     GameManager gameManager;
 
-    void Awake()
-    {
-        InitialiseDayTimer();
-    }
-
     public void InitialiseDayTimer()
     {
         gameManager = GetComponent<GameManager>();

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
+  m_Name: Bilol 1012
+  m_EditorClassIdentifier: 
+  characterName: Bok Bilol
+  mainCharacterName: Ruben
+  firstConversation:
+  - "Il para\xEEt que tu te rends dans la grotte des Kossi"
+  - "Oui, Poa Nlomgan m\u2019a dit que j'y trouverai mon h\xE9ritage."
+  - "La derni\xE8re fois que j'y suis all\xE9, un de mes anc\xEAtres m'a annonc\xE9
+    que j'aurai une fille comme h\xE9riti\xE8re."
+  - "Et finalement ? \xE7a s'est pass\xE9 comment."
+  - "Tu as probablement d\xE9j\xE0 crois\xE9 Ngonda."
+  - Maintenant que tu le dis, c'est vrai qu'il y a un air de famille

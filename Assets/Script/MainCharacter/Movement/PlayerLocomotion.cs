@@ -14,6 +14,7 @@ namespace SJ
         AnimatorManager animatorManager;
         AudioManager audioManager;
         PlayerAttacker playerAttacker;
+        PlayerUIManager playerUIManager;
         public Transform cameraObject;
         [HideInInspector] public Vector3 moveDirection;
 
@@ -63,6 +64,7 @@ namespace SJ
             playerStats = GetComponent<PlayerStats>();
             playerAttacker = GetComponent<PlayerAttacker>();
             audioManager = GetComponent<AudioManager>();
+            playerUIManager = FindObjectOfType<PlayerUIManager>();
         }
         void Start()
         {
@@ -76,7 +78,7 @@ namespace SJ
             isFlipping = false;
 
             playerManager.isGrounded = true;
-            ignoreForGroundCheck = ~(1 << 8 | 1 << 6);
+            ignoreForGroundCheck = ~(1 << 8);
         }
 
         private void HandleRotation (float delta)
@@ -163,7 +165,18 @@ namespace SJ
                     animatorManager.PlayTargetAnimation("DodgeBack", true);
                     rigidbody.AddForce(- playerAttacker.interactOriginRay.transform.forward * 10f, ForceMode.Impulse);
                 }
+                else if(hit.collider.gameObject.layer == 16)
+                {
+                    playerUIManager.ShowInteractionUI("Méditer");
+                    if(inputManager.InteractFlag)
+                    {
+                        animatorManager.PlayTargetAnimation("Save", true);
+                        playerStats.TakeStaminaDamage(100);
+                    } 
+                }
+                
             }
+            else playerUIManager.HiddenInteractionUI();
         }
 
         public void HandleMovement(float delta)

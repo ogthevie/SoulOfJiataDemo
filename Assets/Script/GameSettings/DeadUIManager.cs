@@ -37,24 +37,36 @@ public class DeadUIManager : MonoBehaviour
 
     IEnumerator reloadRoutine()
     {
-        tutoManager.HiddenUI();
+        GetComponentInParent<PlayerUIManager>().HiddenInteractionUI();
         inputManager.skillTreeManager.HandleSkillTreeUI(false);
         inputManager.GetComponent<AudioManager>().jiataAudioSource.Stop();
-        
+        CharacterManager [] characterManagers = FindObjectsOfType<CharacterManager>();
+        foreach (var elt in characterManagers)
+        {
+            elt.gameObject.SetActive(false);
+        }
+
+        yield return new WaitForSeconds (1f);
+
+        foreach (var elt in characterManagers)
+        {
+            elt.gameObject.SetActive(true);
+        } 
+
         string filePath = Application.persistentDataPath + "/playerData.json";
 
         if(System.IO.File.Exists(filePath))
         {
             gameManager.newGame = 0;
             gameSaveManager.LoadAllData();
-            playerStats.AddStamina(100);
             playerManager.isDead = false;
             animatorManager.PlayTargetAnimation("Wake", true);
             float activeScene = SceneManager.GetActiveScene().buildIndex;
             if(activeScene == 2) gameSaveManager.LoadTorcheGrotteData();
-            
             yield return new WaitForSeconds (0.5f);
             this.gameObject.SetActive(false);
         }
+        FindObjectOfType<DialogTriggerManager>().EndDialogue();
+        tutoManager.HiddenUI();
     }
 }

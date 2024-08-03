@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Homm 11
   m_EditorClassIdentifier: 
   characterName: Homm
-  mainCharacterName: Isamal
+  mainCharacterName: Ruben
   firstConversation:
-  - "Tu vois la t\xEAte de serpent hors du village l\xE0, d'apr\xE8s les anciens
-    du village, c'\xE9tait un passage direct vers le peuple Pamom. "
-  - Il est toujours actif ?
-  - "Non, apr\xE8s les \xE9v\xE8nements qui ont secou\xE9 le royaume, il a \xE9t\xE9
-    ferm\xE9 sur instructiom de Pom."
+  - "Tu vois ce cr\xE2ne de serpent taill\xE9 dans la roche... et bien d'apr\xE8s
+    baba Nlomgan, c'\xE9tait un passage direct vers les terres des Pamom. "
+  - Il y a un rapport avec la grotte des Kossi ?
+  - "Aucune id\xE9e. la seule chose que je sais c'est que lorsqu'elles sont actives,
+    des rayonnements sont visibles au travers des fissures de certaines sculptures
+    dans la roche"
