@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed67b81fb4b64d498a58bbb1c32d63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDistance: 60
+  drawDistance: 200
   m_CellSize: 10
   m_MinimumCPUCullingTime: 0.1
-  cullingComputeShader: {fileID: 7200000, guid: 4ff257ce2a1c37546a9b544e669e976b, type: 3}
+  cullingComputeShader: {fileID: 7200000, guid: 4ff257ce2a1c37546a9b544e669e976b,
+    type: 3}
   m_GrassCollectionsByOwners: []

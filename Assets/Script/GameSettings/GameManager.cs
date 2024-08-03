@@ -18,11 +18,12 @@ public class GameManager : MonoBehaviour
     public Canvas loadingScreen, needGamepad;
     public Image loadSlider;
     public int? newGame;
-    public bool isControllerConnected, isLoading;
+    public bool isControllerConnected, isLoading, canNotif;
     [SerializeField] GameObject zoneName, questNotif, completeNotif;
     [SerializeField] List <GameObject> buttonIcons = new List<GameObject>();
     [SerializeField] List <GameObject> keyBoardIcons = new List<GameObject>();
     String [] questNames = new string [10];
+    String [] questDescriptons = new string [10];
 
     private void Awake()
     {
@@ -32,7 +33,8 @@ public class GameManager : MonoBehaviour
         isLoading = false; // a true de base
         Shader.WarmupAllShaders();
         InitializeQuestName();
-        //Cursor.visible = false;
+        InitializeQuestDescription();
+        Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -50,13 +52,24 @@ public class GameManager : MonoBehaviour
 
     void InitializeQuestName()
     {
-        questNames[0] = "Explorez le village";
-        questNames[1] = "Explorez le village";
-        questNames[2] = "L'entrée de BONGO";
+        questNames[0] = "le chant du vieux coq";
+        questNames[1] = "le sommeil de la roche";
+        questNames[2] = "Le temple de BONGO";
         questNames[3] = "Le second brassard";
         questNames[4] = "L'esprit de la roche";
         questNames[6] = "L'eveil de l'HOMME";
         questNames[7] = "Cap sur WONDO";
+    }
+
+    void InitializeQuestDescription()
+    {
+        questDescriptons[0] = "Parlez à Baba Nlomgan";
+        questDescriptons[1] = "Récoltez des informations sur l'Homme dans la pierre";
+        questDescriptons[2] = "Fouillez la grotte des kossi";
+        questDescriptons[3] = "Retrouvez les autres fragments du second brassard";
+        questDescriptons[4] = "Libérez l'esprit de la roche";
+        questDescriptons[6] = "Parlez à l'Homme dans la pierre";
+        questDescriptons[7] = "Le début du périple";
     }
 
     void LateUpdate()
@@ -75,7 +88,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Loading(List<AsyncOperation> operations)
     {
         isLoading = true;
-
+        
         GetComponent<DayNightCycleManager>().InitialiseDayTimer();
 
         for (int i = 0; i < operations.Count; i++)
@@ -96,7 +109,7 @@ public class GameManager : MonoBehaviour
         else if(newGame == 1) 
         {
             player.transform.position = new Vector3 (132.10f, 1.5f, 355.91f); //position de ruben en tout debut de partie
-            player.transform.rotation = Quaternion.Euler(0, -10.22f, 0f);
+            //player.transform.rotation = Quaternion.Euler(0, -10.22f, 0f);
             player.GetComponent<AnimatorManager>().PlayTargetAnimation("Start", true);
         }
         else
@@ -135,13 +148,17 @@ public class GameManager : MonoBehaviour
         }
         else if(SceneManager.GetActiveScene().buildIndex == 2)
         {
-            StartCoroutine(ZoneEntry("...BONGO...", "Lituba"));
+            StartCoroutine(ZoneEntry("...Grotte des Kossi...", "Bongo"));
         }
 
-        if(storyManager.storyStep < questNames.Count() && storyManager.storyStep >= 0)StartCoroutine(StartHandleToDo(storyManager.storyStep));
-        
+        if(newGame != 1)
+        {
+            canNotif = true;
+            StartCoroutine(StartHandleToDo(storyManager.storyStep));
+        } 
         player.isInteracting = false;
-        Debug.Log("index est " + newGame);        
+        Debug.Log("index est " + newGame);
+               
     }
 
     private void CheckForGamePad()
@@ -226,10 +243,15 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartHandleToDo(int i)
     {
-        yield return new WaitForSeconds(2f);
-        questNotif.SetActive(true);
-        questNotif.transform.GetComponentInChildren<TextMeshProUGUI>().text = questNames[i];
-        yield return new WaitForSeconds (8.5f);
+        yield return new WaitForSeconds(1f);
+        if(i >= 0 && i < questNames.Count() && canNotif)
+        {
+            questNotif.SetActive(true);
+            questNotif.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = questNames[i];
+            questNotif.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = questDescriptons[i];
+        }
+        yield return new WaitForSeconds (13f);
         questNotif.SetActive(false);
+        canNotif = false;
     }
 }

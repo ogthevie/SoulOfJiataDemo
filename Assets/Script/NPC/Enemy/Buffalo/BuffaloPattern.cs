@@ -128,6 +128,7 @@ public class BuffaloPattern : MonoBehaviour
         else 
         {
             timer = 0;
+            buffaloManager.isTiming = false;
             CheckDistance();
         }
     }
@@ -245,10 +246,14 @@ public class BuffaloPattern : MonoBehaviour
 
     private void HandleRageSpawn()
     {
-        if(stele.transform.childCount > 5) return;
-        
-        if(distanceFromTarget >= 10  || statesJiataData.isHidden) StartCoroutine(Spawnkossikaze());
-        else playerManager.playerStats.TakeDamage(15, 1);
+        if(stele.transform.childCount > 3)
+        {}
+        else
+        {
+            if(distanceFromTarget >= 10  || statesJiataData.isHidden) StartCoroutine(Spawnkossikaze());
+            else playerManager.playerStats.TakeDamage(15, 1);
+        }
+
 
         IEnumerator Spawnkossikaze()
         {

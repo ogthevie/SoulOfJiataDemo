@@ -15,9 +15,5 @@ MonoBehaviour:
   characterName: Adou
   mainCharacterName: Ruben
   firstConversation:
-  - "Regarde, je cherchais le DJALA et tout \xE0 coup, ce pont est sorti de l'eau."
-  - C'est l'HOMME DANS LA PIERRE, j'ai pu raviver son coeur et il a pu rebatir ce
-    pont.
-  - Wooah !! On peut maintenant sortir du village. C'est super !!
-  - "Tu pourras faire tes recherches de plus pr\xEAt dor\xE9navant."
-  - "Et comment ? il n'a qu'\xE0 bien se tenir !!"
+  - "l'HOMME DANS LA PIERRE s'est r\xE9veill\xE9 puis la terre a trembl\xE9. C'est
+    toi qui as fait \xE7a ??"

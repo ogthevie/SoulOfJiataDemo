@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NgoMaa 02
   m_EditorClassIdentifier: 
-  characterName: Ngo Ma'a
+  characterName: Ngo Maa
   mainCharacterName: Ruben
   firstConversation:
   - "Pourquoi tu es toujours l\xE0 o\xF9 les femmes restent ? ne me dis pas que tu

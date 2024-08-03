@@ -1,9 +1,11 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
+using SJ;
 
 public class TreeContainerManager : MonoBehaviour
 {
     public TreeContainerData treeContainerData;
+    [SerializeField] PlayerUIManager playerUIManager;
     
     public float canProduceTimer;
     public bool canProduct;
@@ -17,14 +19,15 @@ public class TreeContainerManager : MonoBehaviour
         canProduct = true;
         canProduceTimer = 0;
         quantityConsumable = 0;
+        playerUIManager = FindObjectOfType<PlayerUIManager>();
     }
 
     void FixedUpdate()
     {
         float delta = Time.deltaTime;
-        HandleProductionCycle(delta);
-        
+        HandleProductionCycle(delta);       
     }
+
     public void HandleTreeContainerProcess()
     {
         if(!canProduct)
@@ -63,24 +66,6 @@ public class TreeContainerManager : MonoBehaviour
             }
         }
     }
-
-    /*static bool CheckProbabilityNkomo()
-    {
-        int probability = Random.Range(1,11);
-        return (probability <= 7)? true:false;
-    }*/
-
-    /*static bool CheckProbabilityPrune()
-    {
-        int probability = Random.Range(1,11);
-        return (probability <= 5)? true:false;
-    }*/
-
-    /*static bool CheckProbabilityMangue()
-    {
-        int probability = Random.Range(1,11);
-        return (probability <= 6)? true:false;
-    }   */
 
     static int QuantityProductionNkomo()
     {

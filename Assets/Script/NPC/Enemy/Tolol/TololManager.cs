@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using SJ;
 
 public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RETROUVER SUR LES PLATEFORMES ELEVEES

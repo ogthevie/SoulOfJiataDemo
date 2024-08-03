@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4759949379137998818}
   - component: {fileID: 7343765655307189032}
   - component: {fileID: 7789660082904260760}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Piquet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 8476577287440101014}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -32.99}
 --- !u!33 &4759949379137998818
 MeshFilter:

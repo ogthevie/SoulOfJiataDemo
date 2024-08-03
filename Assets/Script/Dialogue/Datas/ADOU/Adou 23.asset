@@ -15,14 +15,4 @@ MonoBehaviour:
   characterName: Adou
   mainCharacterName: Ruben
   firstConversation:
-  - "Je n'a toujours rien trouv\xE9. C'est plus dur que pr\xE9vu."
-  - Ce serait plus efficace si tu plonges.
-  - "Quand les peuples de la for\xEAt, de la montagne, de l'eau se sont divis\xE9s
-    le royaume de KABWANDU, ils ont pass\xE9 un pacte dans lequel il est dit que
-    tout les cours d'eau du royaume \xE9taient le domaine du peuple de l'eau, ISANGO."
-  - Qu'est ce que cela implique dans notre cas de figure avec Lempoy ?
-  - "Bah on a pas l'autorisation de mettre un pied dans l'eau sans l'autorisation
-    d'ISANGO. D'apr\xE8s ce qu'on dit, si tu transgresses volontairement cette loi,
-    les mami watta vont te d\xE9vorer."
-  - Bizarre...
-  - C'est la tradition mon gars, on fait avec.
+  - Je surveille le camp comme mon ami Massamo

@@ -15,12 +15,10 @@ MonoBehaviour:
   characterName: Ngonda
   mainCharacterName: Ruben
   firstConversation:
-  - "La rumeur de ton passage prochain devant l\u2019HOMME DANS LA PIERRE circule
-    au village"
+  - "La rumeur de ton entr\xE9e dans la grotte des Kossi circule au village"
   - Mince, toute le monde est au courant ?
   - Sibongo est petit, les nouvelles se propagent plus vite que la malchance ici.
-  - "Et toi, ta question, tu l\u2019as d\xE9j\xE0 pos\xE9 ?"
-  - "Noho, je n\u2019ai rien d\u2019important \xE0 connaitre maintenant. Le moment
-    venu je vais aller le voir."
+  - "Et toi, tu sais ce qu'il y a \xE0 l'int\xE9rieur ?"
+  - "Noho, je pars faire quoi l\xE0-bas ?."
   - "Tu penses que je me pr\xE9cipite ?"
   - "je n'en sais rien, toi seul peut r\xE9pondre \xE0 \xE7a."

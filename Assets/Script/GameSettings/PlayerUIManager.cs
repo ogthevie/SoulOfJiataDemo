@@ -1,10 +1,11 @@
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class PlayerUIManager : MonoBehaviour
 {
 
-    public GameObject playerStatsUi, padUI;
+    public GameObject playerStatsUi, padUI, interactionUI;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerUIManager : MonoBehaviour
     void Start()
     {
         transform.GetChild(1).gameObject.SetActive(false);
+        interactionUI.SetActive(false);
     }
 
     public void HiddenUI()
@@ -34,7 +36,18 @@ public class PlayerUIManager : MonoBehaviour
 
     public void ShowUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(320, 0.4f, false);
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(480, 0.4f, false);
         padUI.GetComponent<RectTransform>().DOAnchorPosX(-145, 0.4f, false);
+    }
+
+    public void ShowInteractionUI(string action)
+    {
+        interactionUI.SetActive(true);
+        interactionUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = action;
+    }
+
+    public void HiddenInteractionUI()
+    {
+        interactionUI.SetActive(false);
     }
 }

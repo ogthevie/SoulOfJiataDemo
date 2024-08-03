@@ -14,6 +14,7 @@ public class CharacterDialogManager : MonoBehaviour
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
     protected PlayerUIManager playerUIManager;
+    protected TutoManager tutoManager;
     protected int i = 0;
     
     public bool canDialog;
@@ -27,6 +28,7 @@ public class CharacterDialogManager : MonoBehaviour
         playerUIManager = FindObjectOfType<PlayerUIManager>();
         dialogTriggerManager = GetComponent<DialogTriggerManager>();
         characterAnimator = GetComponent<Animator>();
+        tutoManager = playerUIManager.GetComponentInChildren<TutoManager>();
     }
 
 
@@ -43,6 +45,7 @@ public class CharacterDialogManager : MonoBehaviour
     {
         canDialog = true;
         playerUIManager.HiddenUI();
+        playerUIManager.ShowInteractionUI("Parler");
         characterAnimator.SetBool("animState", true);
     }
 
@@ -70,6 +73,12 @@ public class CharacterDialogManager : MonoBehaviour
         animatorManager.animationState = true;
         characterAnimator.SetBool("animState", false);
         playerUIManager.ShowUI();
+        if(!tutoManager.dialogTuto)
+        {
+            StartCoroutine(tutoManager.HandleToggleTipsUI("N'hésitez pas à discuter avec les habitants du village, ils savent plus de choses que vous pouvez croire"));
+            tutoManager.dialogTuto = true;
+        }
+        playerUIManager.HiddenInteractionUI();
     }
 
     public virtual void nextFirstDialogue(int k, DialogData[] characterDialogData)
@@ -85,10 +94,6 @@ public class CharacterDialogManager : MonoBehaviour
                 //Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
                 i = 0;
                 CloseDialogue();
-                if(this.gameObject.name == "Isamal" && storyManager.storyStep == 2)
-                {
-                    StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep));
-                }
                 FindObjectOfType<GameManager>().GlobalFixedCursorPosition();
             }
         }

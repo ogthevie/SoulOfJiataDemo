@@ -25,7 +25,7 @@ public class KikohaManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        if(other.gameObject.layer == 8)
+       else if(other.gameObject.layer == 8)
         {
             Instantiate(kikohaImpact, impactPosition, Quaternion.identity);
             if(!other.transform.GetChild(1).gameObject.activeSelf) 

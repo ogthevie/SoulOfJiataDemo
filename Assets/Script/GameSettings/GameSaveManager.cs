@@ -50,7 +50,8 @@ public class GameSaveManager : MonoBehaviour
         SavePlayerData();
         SavePlayerPosition();
         SaveStoryData();
-        //Debug.Log("sauvegarde effectuée");
+        SaveTutoData();
+        Debug.Log("sauvegarde effectuée");
         StartCoroutine (HandleSaveUI());
     }
 
@@ -129,6 +130,27 @@ public class GameSaveManager : MonoBehaviour
 
     }
 
+    void SaveTutoData()
+    {
+        TutoManager tutoManager = FindObjectOfType<TutoManager>();
+        TutoData tutoData = new TutoData
+        {
+            vaseT = tutoManager.vasetuto,
+            steleT = tutoManager.steleTuto,
+            saveT = tutoManager.saveTuto,
+            dialogT = tutoManager.dialogTuto,
+            paralyzeT = tutoManager.paralyzeTuto,
+            arcLightT = tutoManager.arcLightTuto,
+            thunderT = tutoManager.thunderTuto
+        };
+
+        string tutoDataJson = JsonUtility.ToJson(tutoData);
+
+        string filePath = Application.persistentDataPath + "/TutoData.json";
+        System.IO.File.WriteAllText(filePath, tutoDataJson);
+
+    }
+
 
     #endregion
     
@@ -139,11 +161,11 @@ public class GameSaveManager : MonoBehaviour
         //int i = SceneManager.GetActiveScene().buildIndex;
         LoadStoryData();
         LoadPlayerData();
+        LoadTutoData();
         playerManager.isDead = false;
         playerStats.stateJiataData.isHidden = false;
         Debug.Log("Données chargées");
         isloaded = true;
-        
     }
 
     public void LoadTorcheGrotteData()
@@ -230,6 +252,28 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
+    void LoadTutoData()
+    {
+        string filepath = Application.persistentDataPath + "/TutoData.json";
+        if(System.IO.File.Exists(filepath))
+        {
+            string tutoDataJson = System.IO.File.ReadAllText(filepath);
+            TutoData tutoData = JsonUtility.FromJson<TutoData>(tutoDataJson);
+
+            TutoManager tutoManager = FindObjectOfType<TutoManager>();
+
+            tutoManager.vasetuto = tutoData.vaseT;
+            tutoManager.steleTuto = tutoData.steleT;
+            tutoManager.saveTuto = tutoData.saveT;
+            tutoManager.dialogTuto = tutoData.dialogT;
+            tutoManager.paralyzeTuto = tutoData.paralyzeT;
+            tutoManager.arcLightTuto = tutoData.arcLightT;
+            tutoManager.thunderTuto = tutoData.thunderT;
+        }
+
+        Debug.Log("Tutoriel chargée");
+    }
+
     #endregion
     
     public void ClearAllSaves()
@@ -284,6 +328,11 @@ class StoryData
 {
     public int storyStep;
     public string activeScene;
+}
+
+class TutoData
+{
+    public bool vaseT, steleT, saveT, dialogT, paralyzeT, arcLightT, thunderT;
 }
 
 

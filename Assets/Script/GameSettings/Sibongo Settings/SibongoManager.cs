@@ -1,17 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
+
+[DefaultExecutionOrder(-1)]
 
 public class SibongoManager : MonoBehaviour
 {
     DayNightCycleManager dayNightCycleManager;
-    SibongoManager sibongoManager;
     public ParticleSystem [] fireLights;
     //public Light [] pointLights;
     public Material[] dayPeriodSkyboxes;
+    [SerializeField] Material activatematerial;
     public int dayPeriod;
-    public GameObject fireFly, sun, tBilol, tLibum, tNgoMaa, tNgonda;
+    public GameObject sun, tBilol, tLibum, tNgoMaa, tNgonda, fireKokoa;
     [SerializeField] GameObject lightPortal;
     public  GameObject KossiPortal;
+    [SerializeField] GameObject house05, house09, house07, house04, house03, nyooCrane, sibongoGate;
     AudioSource sibongoAudiosource;
     [SerializeField] AudioSource umAudioSource;
     public AudioClip [] sibongoAmbiances = new AudioClip[3];
@@ -20,67 +22,76 @@ public class SibongoManager : MonoBehaviour
     void OnEnable()
     {
         dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
-        sibongoManager = FindObjectOfType<SibongoManager>();
+
         sibongoAudiosource = GetComponent<AudioSource>();
-        dayPeriod = dayNightCycleManager.dayTimer; 
+        HandleDayPeriod();
+        HandleLightConstruction();
     }
-    
-    void Start()
+
+    public void HandleDayPeriod()
     {
+        dayPeriod = dayNightCycleManager.dayTimer;
+        
         StoryManager storyManager;
         storyManager = FindObjectOfType<StoryManager>();
 
         if(storyManager.storyStep > 1 && storyManager.storyStep < 5) KossiPortal.SetActive(true);
         else KossiPortal.SetActive(false);
 
-        if(sibongoManager.dayPeriod > 2)
+        if(dayPeriod > 2)
         {
             RenderSettings.skybox = dayPeriodSkyboxes[2];
             foreach(var elt in fireLights) elt.Play();
-            fireFly.SetActive(true);
             sun.SetActive(false);
             lightPortal.SetActive(true);
             umAudioSource.enabled = false;
+            fireKokoa.SetActive(true);
         }
         else
         {
+            fireKokoa.SetActive(false);
             foreach (var elt in fireLights) 
             {
                 elt.Stop();
             }
-            fireFly.SetActive(false);
             lightPortal.SetActive(false);
             
-            if(sibongoManager.dayPeriod == 0) 
+            if(!umAudioSource.enabled)
+            {
+                umAudioSource.enabled = true;
+                umAudioSource.Play();
+            }
+
+            if(dayPeriod == 0) 
             {
                 RenderSettings.skybox = dayPeriodSkyboxes[0];
-                float _xAxis = Random.Range(0,30);
-                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
+                Quaternion rotation = Quaternion.Euler(15f, 0f, 0f);
                 sun.transform.rotation = rotation;  
             }
-            else if(sibongoManager.dayPeriod == 1)
+            else if(dayPeriod == 1)
             {
-                float _xAxis = Random.Range(30,110);
-                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
+                Quaternion rotation = Quaternion.Euler(70f, 0f, 0f);
                 sun.transform.rotation = rotation; 
                 RenderSettings.skybox = dayPeriodSkyboxes[1];
             }
-            else if(sibongoManager.dayPeriod == 2)
+            else if(dayPeriod == 2)
             {
-                float _xAxis = Random.Range(110,160);
-                Quaternion rotation = Quaternion.Euler(_xAxis, 0f, 0f);
+                Quaternion rotation = Quaternion.Euler(125, 0f, 0f);
                 sun.transform.rotation = rotation; 
                 RenderSettings.skybox = dayPeriodSkyboxes[1];
             }
         }
-        HandleAmbiance();         
-    }
-
-    void HandleAmbiance()
-    {
-        if(sibongoManager.dayPeriod <= 1) sibongoAudiosource.clip = sibongoAmbiances[0];
-        else if(sibongoManager.dayPeriod == 2) sibongoAudiosource.clip = sibongoAmbiances[1];
-        else if(sibongoManager.dayPeriod >= 3) 
+        
+        if(dayPeriod < 3)
+        {
+            tBilol.SetActive(false);
+            tLibum.SetActive(false);
+            tNgonda.SetActive(false);
+            tNgoMaa.SetActive(false);
+            if(dayPeriod <= 1) sibongoAudiosource.clip = sibongoAmbiances[0];     
+            else if(dayPeriod == 2) sibongoAudiosource.clip = sibongoAmbiances[1];       
+        }
+        else if(dayPeriod >= 3) 
         {
             tBilol.SetActive(true);
             tLibum.SetActive(true);
@@ -89,7 +100,35 @@ public class SibongoManager : MonoBehaviour
             sibongoAudiosource.clip = sibongoAmbiances[2];
         }
 
-        sibongoAudiosource.Play();
+        sibongoAudiosource.Play();    
     }
 
+    public void HandleLightConstruction()
+    {
+        StoryManager storyManager = dayNightCycleManager.GetComponent<StoryManager>();
+
+        if(storyManager.storyStep >= 6)
+        {
+            house05.transform.GetChild(0).gameObject.SetActive(true);
+
+            var hNineMat = house09.GetComponent<Renderer>().materials;
+            var hSevenMat = house07.GetComponent<Renderer>().materials;
+            var hFourMat = house04.GetComponent<Renderer>().materials;
+            var hThreeMat = house03.GetComponent<Renderer>().materials;
+            var nyooMat = nyooCrane.GetComponent<Renderer>().materials;
+            var sibGateMat = sibongoGate.GetComponent<Renderer>().materials;
+
+            hNineMat[3] = hSevenMat[2] =  hFourMat[1] = hThreeMat[1] = nyooMat[1] = sibGateMat[2] = activatematerial;
+
+
+            house09.GetComponent<Renderer>().materials = hNineMat;
+            house07.GetComponent<Renderer>().materials = hSevenMat;
+            house04.GetComponent<Renderer>().materials = hFourMat;
+            house03.GetComponent<Renderer>().materials = hThreeMat;
+            nyooCrane.GetComponent<Renderer>().materials = nyooMat;
+            sibongoGate.GetComponent<Renderer>().materials = sibGateMat;
+        }
+
+
+    }
 }

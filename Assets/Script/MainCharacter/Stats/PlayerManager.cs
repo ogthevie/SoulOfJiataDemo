@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 
 namespace SJ
 {
     public class PlayerManager : MonoBehaviour
     {
+        public TutoManager tutoManager;
         DeveloperModeManager developerModeManager;
-        
         InputManager inputManager;
         Animator anim;
         AnimatorManager animatorManager;
@@ -22,10 +22,10 @@ namespace SJ
         public GameObject optionMenu;
 
         public GameObject dialogUI;
-        public GameObject brassardL, brasL, mask, maskEye;
+        public GameObject brassardL, brasL, mask, maskEye, transitionScreen;
 
         [SerializeField] GameObject deadUI;
-        public Transform lockOnTransform;
+        public Transform lockOnTransform, interactionUI;
         public bool isDead, takeDamage, isInteracting;
 
         [Header("Player flags")]
@@ -34,6 +34,7 @@ namespace SJ
         public bool canBaemb, canSomm;
         public bool canDoCombo;
         public bool onOption, onTutoScreen, canPass;
+        [SerializeField] Camera cam;
 
 
         private void Awake()
@@ -42,6 +43,7 @@ namespace SJ
             cameraManager = FindObjectOfType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
+            tutoManager = FindObjectOfType<TutoManager>();
 
         }
 
@@ -92,6 +94,7 @@ namespace SJ
             developerModeManager.HandleStats();
             developerModeManager.LoadSave();
             developerModeManager.ResetSave();
+            developerModeManager.DancePlayer();
             //developerModeManager.HandleInstantiateKossiKaze();
 #endif
 
@@ -113,7 +116,8 @@ namespace SJ
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
 
             //playerAttacker.HandleInteractTree();
-            playerLocomotion.HandleMovementAngle();           
+            playerLocomotion.HandleMovementAngle();                 
+            //HandleCanvasRuben();
             
         }
 
@@ -262,6 +266,36 @@ namespace SJ
             yield return new WaitForSeconds (1.5f);
             deadUI.SetActive(true);
         }
-      
+
+        IEnumerator HandleSaveByPlayer()
+        {
+            transitionScreen.GetComponent<Animation>().Play();
+            yield return new WaitForSeconds(0.8f);
+            if(SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                FindObjectOfType<DayNightCycleManager>().dayTimer = Random.Range(0,4);
+                SibongoManager sibongoManager = FindObjectOfType<SibongoManager>();
+                sibongoManager.HandleDayPeriod();
+            }
+
+            CharacterManager [] characterManagers = FindObjectsOfType<CharacterManager>();
+            foreach (var elt in characterManagers)
+            {
+                elt.gameObject.SetActive(false);
+            }
+
+            yield return new WaitForSeconds (1f);
+
+            foreach (var elt in characterManagers)
+            {
+                elt.gameObject.SetActive(true);
+            }
+            FindObjectOfType<GameSaveManager>().SaveAllData();
+            if(!tutoManager.saveTuto)
+            {
+                StartCoroutine(tutoManager.HandleToggleTipsUI("La méditation sauvegarde votre progression. Elle vous rapportera aussi un peu de vie"));
+                tutoManager.saveTuto = true;
+            }            
+        }  
     }
 }

@@ -6,6 +6,7 @@ using SJ;
 public class VaseContainerManager : MonoBehaviour
 {
     public VaseContainerData vaseContainerData;
+    TutoManager tutoManager;
     AudioManager audioManager;
     public List<ConsumableData> consumableDatas = new ();
     public GameObject destroyFx;
@@ -14,12 +15,18 @@ public class VaseContainerManager : MonoBehaviour
 
     void Awake()
     {
+        tutoManager = FindObjectOfType<TutoManager>();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void HandleVaseConatinerProcess()
     {
         StartCoroutine(HandleVaseContainer());
+        if(!tutoManager.vasetuto)
+        {
+            StartCoroutine(tutoManager.HandleToggleTipsUI("Les vases contiennent des denrées qui vous feront gagner soit en vitalité soit en énergie, ou les deux"));
+            tutoManager.vasetuto = true;
+        }
     }
 
     IEnumerator HandleVaseContainer()

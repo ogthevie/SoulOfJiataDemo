@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9033572076768253194}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Camera Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 65531
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
+    quality: 2
     frameInfluence: 0.1
     jitterScale: 1
     mipBias: 0
@@ -277,13 +277,13 @@ GameObject:
   - component: {fileID: 9033572077373476060}
   - component: {fileID: 9033572077373476051}
   - component: {fileID: 5483254341396647786}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9033572077373476060
 Transform:
   m_ObjectHideFlags: 0
@@ -291,14 +291,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9033572077197514608}
-  m_LocalRotation: {x: 0.084849015, y: -0.001954403, z: -0.011808988, w: 0.996322}
+  m_LocalRotation: {x: 0.084846474, y: -0.0019556535, z: -0.011806055, w: 0.99632215}
   m_LocalPosition: {x: 120.37, y: 15.15, z: 165.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9033572076768253194}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 9.731, y: -0.343, z: -1.387}
 --- !u!114 &9033572077373476051
 MonoBehaviour:
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+  targetTransformSecond: {fileID: 0}
   cameraTransform: {fileID: 9033572077103460008}
   cameraPivotTransform: {fileID: 9033572076768253194}
   myTransform: {fileID: 0}
@@ -325,9 +326,6 @@ MonoBehaviour:
   lookSpeed: 0.03
   followSpeed: 0.08
   pivotSpeed: 0.02
-  maximumPivot: 90
-  cameraSphereRadius: 0.2
-  minimumCollisionOffset: 0.2
   lockedPivotPosition: 2.25
   unlockedPivotPosition: 1.65
   currentLockOnTarget: {fileID: 0}
@@ -336,6 +334,9 @@ MonoBehaviour:
   nearestLockOnTarget: {fileID: 0}
   leftLockTarget: {fileID: 0}
   rightLockTarget: {fileID: 0}
+  ignoreLayersMask:
+    serializedVersion: 2
+    m_Bits: 130998
 --- !u!114 &5483254341396647786
 MonoBehaviour:
   m_ObjectHideFlags: 0

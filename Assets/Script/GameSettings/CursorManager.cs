@@ -18,12 +18,6 @@ public class CursorManager : MonoBehaviour
             {
                 if(characterManager.levelStoryActions.Contains(storyManager.storyStep))storyManager.checkstoryStep(true);
             }
-            
-            /*if(transform.parent.TryGetComponent<GolemEventManager>(out GolemEventManager component) && storyManager.storyStep == 2) 
-            {
-                component.ActivateGolemBoxCollider();
-            }
-            this.gameObject.SetActive(false);*/
         }
         
     }

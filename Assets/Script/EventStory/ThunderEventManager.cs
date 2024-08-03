@@ -14,7 +14,7 @@ public class ThunderEventManager : EventStoryTriggerManager
     public GameObject [] Torche = new GameObject [8];
     public int [] IndexHeartSteles = new int [8];
     [SerializeField] bool stelesGreenOn, stelesYellowOn;
-    public GameObject thunder, forceKossi, limitBoss, fakeForceKossi;
+    public GameObject thunder, forceKossi, limitBoss, fakeForceKossi, runeFx;
     public bool inSecteurFour;
     [SerializeField] Collider kaoPortalCollider;
     public GameObject kaoBoss, explosionFx, kaoPortalFx;
@@ -35,9 +35,13 @@ public class ThunderEventManager : EventStoryTriggerManager
                 storyManager.storyStep = 6;
                 limitBoss.SetActive(false);
                 fakeForceKossi.SetActive(false);
+                runeFx.SetActive(false);
                 thunder.SetActive(false);
                 kaoPortalCollider.enabled = false;
                 kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
+                var materials = kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials;
+                materials[1] = kaoPortalMaterial;
+                kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials = materials;
                 Destroy(this);
 
         }
@@ -108,7 +112,11 @@ public class ThunderEventManager : EventStoryTriggerManager
             {
                 GetComponent<Renderer>().material = altarGreenMat;
                 thunder.SetActive(true);
-                if(fakeForceKossi != null) fakeForceKossi.SetActive(false);
+                if(fakeForceKossi != null)
+                {
+                    fakeForceKossi.SetActive(false);
+                    runeFx.SetActive(false);
+                } 
                 forceKossi.SetActive(false);
             }
             else if(stelesYellowOn)
@@ -119,6 +127,7 @@ public class ThunderEventManager : EventStoryTriggerManager
                 {
                     if(fakeForceKossi.activeSelf) return;
                     fakeForceKossi.SetActive(true);
+                    runeFx.SetActive(true);
                     Save();
                     Debug.Log("je sauvegarde");
                 }
@@ -126,9 +135,17 @@ public class ThunderEventManager : EventStoryTriggerManager
             else if(!stelesGreenOn)
             {
                 thunder.SetActive(false);
-                if(fakeForceKossi != null) fakeForceKossi.SetActive(false);
+                if(fakeForceKossi != null) 
+                {
+                    runeFx.SetActive(false);
+                    fakeForceKossi.SetActive(false);
+                }
                 GetComponent<Renderer>().material = altarOriginMat;
-            } else if(stelesGreenOn && playerManager.canThunder && fakeForceKossi != null) fakeForceKossi.SetActive(false);
+            } else if(stelesGreenOn && playerManager.canThunder && fakeForceKossi != null) 
+            {
+                runeFx.SetActive(false); 
+                fakeForceKossi.SetActive(false);
+            }
         }
 
     }
@@ -241,6 +258,9 @@ public class ThunderEventManager : EventStoryTriggerManager
         yield return new WaitForSeconds(6f);
         kaoPortalFx.SetActive(true);
         kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
+        var materials = kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials;
+        materials[1] = kaoPortalMaterial;
+        kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials = materials;
         kaoPortalCollider.enabled = false;
         storyManager.storyStep = 6;
         //Pensez à faire spawn Bomboktan
@@ -304,6 +324,7 @@ public class ThunderEventManager : EventStoryTriggerManager
                 }
                 explosionFx.SetActive(true);
                 Destroy(fakeForceKossi);
+                Destroy(runeFx);
                 //FindObjectOfType<BomboktanManager>().DisappearBomboktanSkinnedMeshRenderer();
                 
                 //this.GetComponent<MeshRenderer>().enabled = false;

@@ -9,7 +9,7 @@ public abstract class CharacterManager : MonoBehaviour
     protected Animator characterAnim;
     protected AudioSource characterAudioSource;
     protected StoryManager storyManager;
-    protected int dayPeriod;
+    public int dayPeriod;
     public GameObject questCursor;
     public Vector3 [] characterpositions = new Vector3[5];
     public Quaternion[] characterRotation = new Quaternion[5];
@@ -24,24 +24,30 @@ public abstract class CharacterManager : MonoBehaviour
         if(questCursor != null) questCursor.SetActive(false);
     }
 
-    protected virtual void Start()
+    protected virtual void OnEnable()
     {
         dayPeriod = sibongoManager.dayPeriod;
         characterAnim.SetInteger("dayPeriod", dayPeriod);
         FixedCursorPosition();
+        Debug.Log("position fixée");
     }
 
-    protected virtual void DayJob(Vector3 mornPose, Quaternion mornRot)
+    public virtual void DayJob(Vector3 mornPose, Quaternion mornRot)
     {
         transform.position = mornPose;
         transform.rotation = mornRot; 
     }
 
-    public void FixedCursorPosition()
+    public virtual void FixedCursorPosition()
     {
         if(levelStoryActions.Count > 0 && questCursor != null)
         {
-            if(levelStoryActions.Contains(storyManager.storyStep)) questCursor.SetActive(true);
+            if(levelStoryActions.Contains(storyManager.storyStep))
+            {
+                GameManager gameManager = storyManager.GetComponent<GameManager>();
+                StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep));
+                questCursor.SetActive(true);
+            } 
             else questCursor.SetActive(false);
         }        
     }

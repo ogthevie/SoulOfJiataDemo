@@ -62,12 +62,16 @@ Material:
     - _BumpScale: 2
     - _Cull: 0
     - _DiffuseStep: -0.51
+    - _DitherTexelSize: 1
+    - _DitherThreshold: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Parallax: 0.02
     - _Smoothness: 0.3
+    - _SpecShadowStrength: 1
     m_Colors:
-    - _BaseColor: {r: 0.254717, g: 0.12823312, b: 0.06848522, a: 1}
+    - _BaseColor: {r: 0.18039216, g: 0.12941177, b: 0.078431375, a: 1}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999987, g: 0.19999987, b: 0.19999987, a: 0.3}
   m_BuildTextureStacks: []

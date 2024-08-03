@@ -20499,7 +20499,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5638266018135425421}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -26125,6 +26125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword Slash Excalibur
       objectReference: {fileID: 0}
+    - target: {fileID: 1644958980890870, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1729018054953286, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -26147,7 +26151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003501900367752, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 4003501900367752, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26155,7 +26159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003501900367752, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.687428
+      value: 12.99
       objectReference: {fileID: 0}
     - target: {fileID: 4003501900367752, guid: 5e841c48be9318145af9204a7658cc2e, type: 3}
       propertyPath: m_LocalRotation.w

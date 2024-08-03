@@ -28,7 +28,7 @@ public class BomboktanManager : CharacterManager
         auraGround = transform.GetChild(3).gameObject;
     }
 
-    protected override void Start()
+    protected override void OnEnable()
     {
         if(storyManager.storyStep < 3) return;
         int id = GetComponent<BomboktanTriggerManager>().idDialog;

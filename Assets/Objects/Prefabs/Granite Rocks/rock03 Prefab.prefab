@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1667234215311230823}
   - component: {fileID: 2542473927395953605}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock03 Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,14 +26,14 @@ Transform:
   m_GameObject: {fileID: 6355269603752587500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 13.47745, y: 13.477452, z: 13.47745}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5926116944604434015}
   - {fileID: 3590879015997666333}
   - {fileID: 8360124753266599212}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &2542473927395953605
 LODGroup:
@@ -49,11 +49,11 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.35533592
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4789269422278571312}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.19829847
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2422498634192785266}
@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: granite rock03_lod1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd09cb3f314724b4b97cae44b84272e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -168,17 +173,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.135
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
@@ -228,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
         type: 3}
@@ -243,7 +248,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4058304839741748942}
   m_SourcePrefab: {fileID: 100100000, guid: 6ebfe9c7f0b398747ba19acea8fa224d, type: 3}
 --- !u!23 &4789269422278571312 stripped
 MeshRenderer:
@@ -257,6 +266,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6176531359216921012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6446369990225581285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ebfe9c7f0b398747ba19acea8fa224d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6176531359216921012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4058304839741748942
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446369990225581285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2766861854289247522, guid: 6ebfe9c7f0b398747ba19acea8fa224d, type: 3}
 --- !u!1001 &8327041731884909255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: granite rock03_lod2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c01104621f05ac347a0e1322764dba2a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

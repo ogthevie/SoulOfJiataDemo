@@ -343,6 +343,11 @@ namespace SJ
                             yield return new WaitForSeconds (5.1f);
                             if(animator != null) animator.speed = 1f;
                             component.isbreak = false;
+                            if(!playerManager.tutoManager.paralyzeTuto)
+                            {
+                                StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Figer les ennemis vous fera gagner un peu de temps afin de mieux vous organiser"));
+                                playerManager.tutoManager.paralyzeTuto = true;
+                            }
                         }
                     }
                 }
@@ -350,7 +355,11 @@ namespace SJ
                 {
                     hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[0];
                     hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
-                    FindObjectOfType<GameSaveManager>().SaveAllData();
+                    if(!playerManager.tutoManager.steleTuto)
+                    {
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("La lueur verte est la voix du héros. La lueur jaune est celle de la bête"));
+                        playerManager.tutoManager.steleTuto = true;
+                    }
                 }   
 
             }
@@ -370,13 +379,6 @@ namespace SJ
                     hit.rigidbody.isKinematic = false;
                     hit.rigidbody.AddForce(this.transform.forward * force, ForceMode.Impulse);
                     Instantiate(surchargeFX, hit.point, Quaternion.identity);
-                }
-
-                else if(hit.collider.gameObject.layer == 11)
-                {
-                    Instantiate(surchargeFX, hit.point, Quaternion.identity);
-                    TreeContainerManager treeContainerManager = hit.collider.gameObject.GetComponent<TreeContainerManager>();
-                    treeContainerManager.HandleTreeContainerProcess();
                 }
 
                 else if(hit.collider.gameObject.layer == 10)
@@ -500,7 +502,11 @@ namespace SJ
                         }                              
                         else  buffaloManager.TakeDamage(statesJiataData.d_ArcLight/2);
                     }
-
+                    if(!playerManager.tutoManager.arcLightTuto)
+                    {
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("En plus d'infliger d'importants dégâts, le souffle de Shango peut-être très utile pour étourdir les ennemis"));
+                        playerManager.tutoManager.arcLightTuto = true;
+                    }
                 }
             }
 
@@ -674,8 +680,7 @@ namespace SJ
                             StartCoroutine(HandleThunderEffect(hit.transform.position));
                             kossiKazeManager.isDead = true;
                         }
-
-                        else if(component is KeliperManager keliperManager)
+                        if(component is KeliperManager keliperManager)
                         {
                             StartCoroutine(HandleThunderEffect(hit.transform.position));
                             keliperManager.TakeDamage(statesJiataData.d_Thunder);
@@ -686,13 +691,17 @@ namespace SJ
                                 keliperManager.isPreformingAction = false;
                             }
                         }
-
                         if(component is BuffaloManager buffaloManager)
                         {
                             StartCoroutine(HandleThunderEffect(buffaloManager.lockOnTransform.position));
                             if(buffaloManager.isArmor) return;
                             buffaloManager.TakeDamage(statesJiataData.d_Thunder);
                             buffaloManager.iStun = true;
+                        }
+                        if(!playerManager.tutoManager.thunderTuto)
+                        {
+                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le cri du ciel est le chatiment réservé aux esprits malveillants.À proximité, il peut frapper plusieurs ennemis à la fois "));
+                            playerManager.tutoManager.thunderTuto = true;
                         }
                     }
                 }
@@ -731,7 +740,10 @@ namespace SJ
         public void DisableArcLightningFx()
         {
             if(arcLightningFx != null)
+            {
                 arcLightningFx.SetActive(false);
+            }
+                
         }
 
 
@@ -776,20 +788,6 @@ namespace SJ
         {
             playerStats.TakeStaminaDamage(thunderDrain);
         }
-
-        /*public void HandleInteractTree()
-        {
-            Debug.DrawRay(interactOriginRay.transform.position, interactOriginRay.transform.forward * interactMaxDistance, Color.white);
-
-            if(Physics.Raycast(interactOriginRay.transform.position, interactOriginRay.transform.forward, out RaycastHit hit, interactMaxDistance))
-            {
-                if(hit.collider.gameObject.layer == 11 && inputManager.InteractFlag)
-                {
-                    statesJiataData.isInteract = true;
-                }
-
-            }
-        }*/
 
         public void HandleSorceryPad()
         {

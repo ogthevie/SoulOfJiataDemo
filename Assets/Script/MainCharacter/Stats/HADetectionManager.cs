@@ -25,12 +25,6 @@ namespace SJ
                 }
             }
 
-            if(other.gameObject.layer == 11)
-            {
-                    TreeContainerManager treeContainerManager = other.GetComponent<TreeContainerManager>();
-                    treeContainerManager.HandleTreeContainerProcess();
-            }
-
             if(other.gameObject.layer == 13)
             {
                 if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
