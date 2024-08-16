@@ -345,7 +345,7 @@ namespace SJ
                             component.isbreak = false;
                             if(!playerManager.tutoManager.paralyzeTuto)
                             {
-                                StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Figer les ennemis vous fera gagner un peu de temps afin de mieux vous organiser"));
+                                StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Pertubez l'harmonie vibratoire de vos adversaires, vous les immobiliserez"));
                                 playerManager.tutoManager.paralyzeTuto = true;
                             }
                         }
@@ -357,7 +357,7 @@ namespace SJ
                     hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
                     if(!playerManager.tutoManager.steleTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("La lueur verte est la voix du héros. La lueur jaune est celle de la bête"));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("La lueur verte, illumine le chemin du héros. La jaune, trahit la férocité de la bête"));
                         playerManager.tutoManager.steleTuto = true;
                     }
                 }   
@@ -504,7 +504,7 @@ namespace SJ
                     }
                     if(!playerManager.tutoManager.arcLightTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("En plus d'infliger d'importants dégâts, le souffle de Shango peut-être très utile pour étourdir les ennemis"));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("L'onde de choc provoquée par le souffle de Shango assomme les ennemis et les laisse vulnérables"));
                         playerManager.tutoManager.arcLightTuto = true;
                     }
                 }
@@ -700,7 +700,7 @@ namespace SJ
                         }
                         if(!playerManager.tutoManager.thunderTuto)
                         {
-                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le cri du ciel est le chatiment réservé aux esprits malveillants.À proximité, il peut frapper plusieurs ennemis à la fois "));
+                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le cri du ciel est une punition divine qui frappe et disperse les esprits maléfiques"));
                             playerManager.tutoManager.thunderTuto = true;
                         }
                     }

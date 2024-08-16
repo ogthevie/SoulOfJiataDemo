@@ -12,6 +12,7 @@ Kossi Boss
 //commencer à travailler sur la menace fantome
 //travailler le dialogue de Teg à 6
 //Reflechir sur les quetes dans la grotte et le meilleur agencement possible -- ok
+//L'uroboros devra changer de couleur en fonction du pouvoir de la tribu activée
 
 bloquer la porte si on a pas la clé
 cacher la clé de la grotte

@@ -30,7 +30,7 @@ namespace SJ
 
         [Header("Player flags")]
         public bool isSprinting, isInAir, isGrounded, canAttack;
-        public bool haveGauntlet, haveMask, canArcLight, canThunder;
+        public bool haveGauntlet, haveMask, canArcLight /*Souffle de Shango*/, canThunder /*Cri du ciel*/;
         public bool canBaemb, canSomm;
         public bool canDoCombo;
         public bool onOption, onTutoScreen, canPass;
@@ -293,7 +293,7 @@ namespace SJ
             FindObjectOfType<GameSaveManager>().SaveAllData();
             if(!tutoManager.saveTuto)
             {
-                StartCoroutine(tutoManager.HandleToggleTipsUI("La méditation sauvegarde votre progression. Elle vous rapportera aussi un peu de vie"));
+                StartCoroutine(tutoManager.HandleToggleTipsUI("La méditation est votre alliée : elle vous permet de progresser en toute sécurité et de retrouver des forces"));
                 tutoManager.saveTuto = true;
             }            
         }  

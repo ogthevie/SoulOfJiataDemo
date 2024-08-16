@@ -13,11 +13,11 @@ public class HomeInputManager : MonoBehaviour
     RectTransform selector;
     [SerializeField] AudioClip [] selectorSfx = new AudioClip [2];
     float continueY, newGameY, quitY;
-    bool up_input, down_input, south_input, pause_input, skip_input;
+    bool up_input, down_input, south_input, pause_input;
     bool isPlaying;
     string filePath;
 
-    [SerializeField] GameObject introPlane, wind, buttonIcon, keyboardIcon;
+    [SerializeField] GameObject wind, buttonIcon, keyboardIcon;
     [SerializeField] Canvas titleGame;
 
 
@@ -30,8 +30,7 @@ public class HomeInputManager : MonoBehaviour
             playerControls.PlayerMovement.InventoryMovementUp.performed += i => up_input =  true;
             playerControls.PlayerMovement.InventoryMovementDown.performed += i => down_input =  true;
             playerControls.PlayerActions.Jump.performed += i => south_input = true;
-            playerControls.PlayerActions.OnPause.performed += i => pause_input = true;
-            playerControls.PlayerActions.Option.performed += i => skip_input = true;            
+            playerControls.PlayerActions.OnPause.performed += i => pause_input = true;           
         }
         playerControls.Enable();
         
@@ -58,18 +57,13 @@ public class HomeInputManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if(introPlane == null) return;
-        if(!introPlane.activeSelf)
-        {
-            MoveSelector();
-            ApplyChoice(selector.anchoredPosition.y);
-        }
 
-        HandlePauseAndSkip();
+        MoveSelector();
+        ApplyChoice(selector.anchoredPosition.y);
+
         up_input = false;
         down_input = false;
         south_input = false;
-        skip_input =  false;
         if(gameManager.isControllerConnected)
         {
             buttonIcon.SetActive(true);
@@ -84,6 +78,7 @@ public class HomeInputManager : MonoBehaviour
 
     void MoveSelector()
     {
+        if(isPlaying) return;
         if(up_input)
         {
             if(selector.anchoredPosition.y == continueY) selector.anchoredPosition = new Vector2 (selector.anchoredPosition.x, quitY);
@@ -102,6 +97,8 @@ public class HomeInputManager : MonoBehaviour
 
     void ApplyChoice(float selectorY)
     {
+        if(isPlaying) return;
+
         if(south_input || pause_input) 
         {
             if(selectorY == quitY) Application.Quit();
@@ -110,6 +107,7 @@ public class HomeInputManager : MonoBehaviour
                 if(gameManager.isLoading) return;
                 if(System.IO.File.Exists(filePath))
                 {
+                    isPlaying = true;
                     sceneAudioSource.Stop();
                     gameManager.ActiveOnDestroy();
                     gameManager.newGame = 0;  
@@ -121,11 +119,12 @@ public class HomeInputManager : MonoBehaviour
             else if(selectorY == newGameY) 
             {
                 if(gameManager.isLoading) return;
+                isPlaying = true;
                 gameSaveManager.ClearAllSaves();
-                introPlane.SetActive(true);
                 wind.SetActive(false);
                 titleGame.enabled = false;
                 sceneAudioSource.Stop();
+                LoadFirstScene();
             }
         }
 
@@ -149,16 +148,6 @@ public class HomeInputManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         gameManager.LoadScene(sceneName);
     }
-
-    void HandlePauseAndSkip()
-    {
-        if(skip_input)
-        {
-            if(gameManager.isLoading) return;
-            LoadFirstScene();
-            Destroy(introPlane, 0.5f);
-        }
-    } 
     void LoadFirstScene()
     {
         gameManager.ActiveOnDestroy();

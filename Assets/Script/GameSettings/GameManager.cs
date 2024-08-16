@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         InitializeQuestName();
         InitializeQuestDescription();
         Cursor.visible = false;
+        isControllerConnected = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
         questDescriptons[0] = "Parlez à Baba Nlomgan";
         questDescriptons[1] = "Récoltez des informations sur l'Homme dans la pierre";
         questDescriptons[2] = "Fouillez la grotte des kossi";
-        questDescriptons[3] = "Retrouvez les autres fragments du second brassard";
+        questDescriptons[3] = "Retrouvez les fragments manquants du brassard";
         questDescriptons[4] = "Libérez l'esprit de la roche";
         questDescriptons[6] = "Parlez à l'Homme dans la pierre";
         questDescriptons[7] = "Le début du périple";

@@ -21,7 +21,7 @@ public class TutoManager : MonoBehaviour
 
     public void ShowUI()
     {
-        this.GetComponent<RectTransform>().DOAnchorPosX(-420, 0.2f, false);
+        this.GetComponent<RectTransform>().DOAnchorPosX(-300, 0.2f, false);
     }
 
     public IEnumerator HandleToggleTipsUI(string tipText)

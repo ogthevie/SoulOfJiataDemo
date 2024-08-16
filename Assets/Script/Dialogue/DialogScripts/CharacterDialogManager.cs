@@ -75,7 +75,7 @@ public class CharacterDialogManager : MonoBehaviour
         playerUIManager.ShowUI();
         if(!tutoManager.dialogTuto)
         {
-            StartCoroutine(tutoManager.HandleToggleTipsUI("N'hésitez pas à discuter avec les habitants du village, ils savent plus de choses que vous pouvez croire"));
+            StartCoroutine(tutoManager.HandleToggleTipsUI("Discutez avec les autres, vous serez surpris de ce qu'ils savent"));
             tutoManager.dialogTuto = true;
         }
         playerUIManager.HiddenInteractionUI();

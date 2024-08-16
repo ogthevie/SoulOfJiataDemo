@@ -24,7 +24,7 @@ public class VaseContainerManager : MonoBehaviour
         StartCoroutine(HandleVaseContainer());
         if(!tutoManager.vasetuto)
         {
-            StartCoroutine(tutoManager.HandleToggleTipsUI("Les vases contiennent des denrées qui vous feront gagner soit en vitalité soit en énergie, ou les deux"));
+            StartCoroutine(tutoManager.HandleToggleTipsUI("Ces vases sont des puits de vie, prêts à vous offrir un nouveau souffle"));
             tutoManager.vasetuto = true;
         }
     }

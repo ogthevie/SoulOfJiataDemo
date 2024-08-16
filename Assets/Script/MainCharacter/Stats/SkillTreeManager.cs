@@ -35,7 +35,7 @@ namespace SJ
 
         public void HandleSkillTreeUI(bool lockOnFlag)
         {
-            if(lockOnFlag) this.GetComponent<RectTransform>().DOAnchorPosX(145, 0.4f, false);
+            if(lockOnFlag) this.GetComponent<RectTransform>().DOAnchorPosX(150, 0.4f, false);
             else this.GetComponent<RectTransform>().DOAnchorPosX(-250, 0.4f, false);
         }
     }

@@ -60,7 +60,7 @@ public class BomboktanDialogManager : CharacterDialogManager
             {
                 i = 0;
                 CloseDialogue();
-                if(storyManager.storyStep < 8)StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep));
+                if(storyManager.storyStep < 8)StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep)); 
             }
         }
 
