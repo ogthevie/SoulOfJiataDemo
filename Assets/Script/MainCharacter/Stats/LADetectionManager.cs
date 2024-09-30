@@ -28,7 +28,6 @@ namespace SJ
 
             else if(other.gameObject.layer == 12)
             {
-                playerAttacker.FxLowAttack();
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
                     if(component is TololManager tololManager)

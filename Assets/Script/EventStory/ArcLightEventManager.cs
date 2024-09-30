@@ -5,13 +5,8 @@ public class ArcLightEventManager : EventStoryTriggerManager
     BomboktanManager bomboktanManager;
     void Start()
     {
-        if(playerManager.canArcLight)
-        {
-            Destroy(transform.GetChild(0).gameObject);
-            Destroy(this);
-        }
-
         bomboktanManager = FindObjectOfType<BomboktanManager>();
+        if(playerManager.canArcLight) Destroy(this.gameObject, 0.5f);
     }
     protected override void OnTriggerEnter(Collider other)
     {
@@ -21,15 +16,10 @@ public class ArcLightEventManager : EventStoryTriggerManager
             animatorManager.PlayTargetAnimation("PowerUp", true);
             playerManager.canArcLight = true;
             
-            StartCoroutine(gameManager.StartHandleAchievement("--Wuta Lantarki--"));
-            
-            storyManager.storyStep = 31;
-            bomboktanManager.Spawn(1);
-            
-            Invoke("Save", 6f);
-
-            Destroy(this.transform.GetChild(0).gameObject);
-            Destroy(this, 30f);
+            StartCoroutine(gameManager.StartHandleAchievement("LE SOUFFLE DE SHANGO"));
+            GetComponent<ParticleSystem>().Stop();
+            Invoke("Save", 3f);
+            Destroy(this.gameObject, 5f);
         }            
     }
 }

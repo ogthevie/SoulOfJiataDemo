@@ -117,8 +117,8 @@ namespace SJ
             staminaBar.SetCurrentStamina(currentStamina);
 
             if(currentStamina <= 0) currentStamina = 0;
-
         }
+        
         public void AddStamina(int StaminaUnit)
         {
             if(playerManager.isDead) return;
@@ -142,7 +142,7 @@ namespace SJ
             currentHealth += HealthUnit;
             healthBar.SetCurrentHealth(currentHealth);
             audioManager.StatRecoverFx();
-            Vector3 impactPosition = transform.position + new Vector3 (0f, 1f, 0f);
+            Vector3 impactPosition = transform.position + new Vector3 (0f, 1.75f, 0f);
             Instantiate(healthFx, impactPosition, Quaternion.identity);
             if(currentHealth >= maxHealth)
             {
@@ -164,7 +164,6 @@ namespace SJ
                 enduranceBar.slider.value += 2f * Time.deltaTime;
                 currentEndurance = enduranceBar.slider.value;  
             }      
-       
         }
 
 

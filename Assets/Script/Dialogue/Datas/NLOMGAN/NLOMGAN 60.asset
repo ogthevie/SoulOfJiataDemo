@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 60
   m_EditorClassIdentifier: 
-  characterName: NLOMGAN
+  characterName: "P\xE8re NLOMGAN"
   mainCharacterName: Ruben
   firstConversation:
   - "oooh, Que vois-je ? le second brassard ! Je croyais que tu allais faire plus

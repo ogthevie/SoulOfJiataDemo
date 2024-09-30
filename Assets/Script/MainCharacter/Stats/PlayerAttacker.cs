@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace SJ
 {
@@ -33,7 +32,7 @@ namespace SJ
         ParticleSystem.MainModule lMain;
         ParticleSystem.MainModule rMain;
         ParticleSystem fxLA;
-        public ParticleSystem paralyzeBrassardFX, paralyzeFx, surchargeFX, smokeRecul, electrocutionFx;
+        public ParticleSystem paralyzeBrassardFX, paralyzeFx, smokeRecul, electrocutionFx;
         ParticleSystem auraFx;
         Color lekbaRuben = new(0.87f, 0.25f, 0.87f);
         Color lekbaRubenLituba = new(0.85f, 0.55f, 0.1f);
@@ -42,12 +41,12 @@ namespace SJ
         public readonly int magnetiDrain = 8;
         public readonly int arcLightningDrain = 25;
         public readonly int thunderDrain = 70;
+        public readonly int bigFireDrain = 35;
         public readonly int kikohaDrain = 3;
         public readonly float magnetiMaxDistance = 30f;
         readonly float arcLightMaxDistance = 30f;
         readonly float thunderMaxDistance = 20; //20f
         readonly float magnetiRadius = 2f;
-        readonly int magnetiDamage = 5;
         public Vector3 arclightbox = new (1f, 1f, 1f);
         readonly float thunderRadius = 15; //40f
 
@@ -57,10 +56,11 @@ namespace SJ
         public RaycastHit targetHit;
         public RaycastHit [] targetsThunderHits;
         public Material [] lightingMaterials;
-        Transform fxHAOne, fxHATwo, fxHAThree;
-        [SerializeField] GameObject haOne, haTwo, haThree;
-
-        string[] lowAttackArray = new string[] { "LowAttack1", "LowAttack2"};
+        Transform fxHAOne;
+        [SerializeField] GameObject haOne;
+        [SerializeField] Collider handCollider;
+        [SerializeField] Transform tpLeftHand;
+        [SerializeField] public List <Shader> sorceryShaders = new();
 
         private void Awake()
         {
@@ -75,9 +75,6 @@ namespace SJ
 
             cameraManager = FindObjectOfType<CameraManager>();
 
-            magicRayOrigin = transform.GetChild(20).gameObject;
-            magnetiOriginGrab = transform.GetChild(24).gameObject;
-            interactOriginRay = transform.GetChild(25).gameObject;
             //lowAttackOrigin = GameObject.Find("lowAttackOrigin");
 
             soul_Lituba_Fx = GameObject.Find("SoulLitubaFx").GetComponent<ParticleSystem>();
@@ -91,15 +88,7 @@ namespace SJ
             lMain = leffectLitubaFx.GetComponent<ParticleSystem>().main;
             rMain = reffectLitubaFx.GetComponent<ParticleSystem>().main;
 
-            Transform brassard = transform.GetChild(19);
-
-            fxHAThree = brassard.GetChild(0);
-            fxHAOne = brassard.GetChild(3);
-            fxHATwo = brassard.GetChild(1);
-            fxLA = brassard.GetChild(2).GetComponent<ParticleSystem>();           
-
-            //magnetiFX = magicRayOrigin.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-            //surchargeFX = magicRayOrigin.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+            fxHAOne = transform.GetChild(16).GetChild(0);        
 
             auraFx = transform.GetChild(21).GetComponent<ParticleSystem>();
 
@@ -131,7 +120,7 @@ namespace SJ
 
         public void HandleHighAttack()
         {
-            if (playerStats.currentStamina <= highAttackDrain)
+            if (playerStats.currentStamina <= highAttackDrain || playerStats.currentEndurance <= highAttackDrain)
                 return;
             animatorManager.PlayTargetAnimation("HighAttack1", true);
             lastAttack = "HighAttack1";
@@ -151,7 +140,7 @@ namespace SJ
                         animatorManager.PlayTargetAnimation("LowAttack2", true);
                         lastAttack = "LowAttack2";
                     }
-                    else if (inputManager.triangle && playerStats.currentStamina > 2)
+                    else if (inputManager.triangle && playerStats.currentEndurance > 2)
                     {
                         animatorManager.PlayTargetAnimation("HighAttack1", true);
                         lastAttack = "HighAttack1"; // A revoir
@@ -164,7 +153,7 @@ namespace SJ
                         animatorManager.PlayTargetAnimation("LowAttack1", true);
                         lastAttack = "LowAttack1";
                     }
-                    else if (inputManager.triangle && playerStats.currentStamina > 2)
+                    else if (inputManager.triangle && playerStats.currentEndurance > 2)
                     {
                         animatorManager.PlayTargetAnimation("HighAttack3", true);
                         lastAttack = "HighAttack3";
@@ -175,7 +164,7 @@ namespace SJ
                         animatorManager.PlayTargetAnimation("LowAttack1", true);
                         lastAttack = "LowAttack1";
                 }
-                else if(lastAttack == "LowAttack2" && inputManager.triangle && playerStats.currentStamina > 2)
+                else if(lastAttack == "LowAttack2" && inputManager.triangle && playerStats.currentEndurance > 2)
                 {
                     animatorManager.PlayTargetAnimation("HighAttack3", true);
                     lastAttack = "HighAttack3";
@@ -184,7 +173,7 @@ namespace SJ
 
                 if (lastAttack == "HighAttack1")
                 {
-                    if (inputManager.triangle && playerStats.currentStamina > 2)
+                    if (inputManager.triangle && playerStats.currentEndurance > 2)
                     {
                         animatorManager.PlayTargetAnimation("HighAttack2", true);
                         lastAttack = "HighAttack2";
@@ -197,12 +186,12 @@ namespace SJ
                 }
                 else if (lastAttack == "HighAttack2")
                 {
-                    if (inputManager.triangle && playerStats.currentStamina > 2)
+                    if (inputManager.triangle && playerStats.currentEndurance > 2)
                     {
                         animatorManager.PlayTargetAnimation("HighAttack3", true);
                         lastAttack = "HighAttack3";
                     }
-                    else if (inputManager.circle && playerStats.currentStamina > 2)
+                    else if (inputManager.circle && playerStats.currentEndurance > 2)
                     {
                         animatorManager.PlayTargetAnimation("LowAttack2", true);
                         lastAttack = "LowAttack2";
@@ -215,22 +204,19 @@ namespace SJ
 
         public void FxHighAttack()
         {
-            if(lastAttack == "HighAttack1") Instantiate(haOne, fxHAOne.transform.position, fxHAOne.transform.rotation);
-            else if (lastAttack == "HighAttack2") Instantiate(haTwo, fxHATwo.transform.position, fxHATwo.transform.rotation);
-            else if (lastAttack == "HighAttack3") Instantiate(haThree, fxHAThree.transform.position, fxHAThree.transform.rotation);
-
-            playerStats.TakeStaminaDamage(highAttackDrain);
-
+            StartCoroutine(HandleColliderFightAttack());
+            if(lastAttack == "HighAttack1")
+            {
+                Instantiate(haOne, fxHAOne.transform.position, fxHAOne.transform.rotation);
+                playerStats.TakeStaminaDamage(highAttackDrain);
+            }
         }
 
-        public void FxLowAttack()
+        IEnumerator HandleColliderFightAttack()
         {
-
-            if (lowAttackArray.Contains(lastAttack))
-            {
-                fxLA.Play();
-                audioManager.ReadLowFightAttackFx();
-            }
+            handCollider.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            handCollider.enabled = false;
         }
 
         public void HandleKikohaAttack()
@@ -238,43 +224,33 @@ namespace SJ
             GameObject projectile = Instantiate(kikohaPrefab, kikohaOrigin.transform.position, kikohaPrefab.transform.rotation);
             Rigidbody pRigibody = projectile.GetComponent<Rigidbody>();
             Vector3 direction = kikohaOrigin.transform.forward;
-            
-            FxLowAttack();
+        
             playerStats.TakeStaminaDamage(kikohaDrain);
-            pRigibody.AddForce(direction * 70f, ForceMode.Impulse);
+            pRigibody.AddForce(direction * 30f, ForceMode.Impulse);
         }
 
 
 
-        public void HandleMagicSkill()
+
+        public void HandleMagicSkill(int k)
         {
             if (animatorManager.anim.GetBool("isInteracting"))
                 return;
+            
 
             //LE MAGIC FLAG FLOTTE, XA PEUT AIDER!!!!!
-
-
-            if (inputManager.surchargeFlag)
-            {
-                if (playerStats.currentStamina < magnetiDrain)
-                    return;
-
-                playerLocomotion.moveDirection = Vector3.zero;
-                animatorManager.PlayTargetAnimation("Surcharge", true);
-                
-            }
             
-            else if(inputManager.paralyzeFlag)
+            if(k == 0)
             {
-                if (playerStats.currentStamina < magnetiDrain * 2)
+                if (playerStats.currentStamina < magnetiDrain * 2 || !playerManager.canSurcharge)
                     return;
                 playerLocomotion.moveDirection = Vector3.zero;
                 animatorManager.PlayTargetAnimation("Paralyze", true);
             }
 
-            else if(inputManager.arcLightFlag)
+            else if(k == 1)
             {
-                if (playerStats.currentStamina < arcLightningDrain)
+                if (playerStats.currentStamina < arcLightningDrain || !playerManager.canArcLight)
                     return;
 
                 playerLocomotion.moveDirection = Vector3.zero;
@@ -282,9 +258,9 @@ namespace SJ
                 
             }
 
-            else if(inputManager.thunderFlag)
+            else if(k == 2)
             {
-                if (playerStats.currentStamina < thunderDrain)
+                if (playerStats.currentStamina < thunderDrain || !playerManager.canThunder)
                     return;
                 playerLocomotion.moveDirection = Vector3.zero;
                 animatorManager.PlayTargetAnimation("Thunder", true);
@@ -293,7 +269,7 @@ namespace SJ
         
         public void ParalyzeRay()
         {
-            Instantiate(paralyzeBrassardFX, magicRayOrigin.transform.position, Quaternion.identity);
+            Instantiate(paralyzeBrassardFX, tpLeftHand.position, Quaternion.identity);
 
             //Debug.DrawRay(magnetiOriginGrab.transform.position, magnetiOriginGrab.transform.forward * magnetiMaxDistance, Color.red, duration);
             if(Physics.SphereCast(magnetiOriginGrab.transform.position, magnetiRadius, magnetiOriginGrab.transform.forward, out RaycastHit hit, magnetiMaxDistance))
@@ -301,15 +277,8 @@ namespace SJ
                 //Debug.Log(hit.collider.gameObject.name);
                 if(hit.collider.gameObject.layer ==  8)
                 {
-                    Instantiate(paralyzeFx, hit.point, Quaternion.identity);
-                    StartCoroutine(StopMagnetSphere());
-
-                    IEnumerator StopMagnetSphere()
-                    {
-                        hit.rigidbody.isKinematic = true;
-                        yield return new WaitForSeconds (5f);
-                        if(hit.collider.gameObject != null) hit.rigidbody.isKinematic = false;
-                    }
+                    //equation de droite
+                    hit.rigidbody.AddForce(transform.forward * 50f, ForceMode.Impulse);
                 }
 
                 else if(hit.collider.gameObject.layer == 10)
@@ -329,20 +298,34 @@ namespace SJ
                 {
                     if(hit.collider.TryGetComponent<EnemyManager>(out EnemyManager component))
                     {
-                        if(component.isbreak || component is BuffaloManager buffaloManager) return;
+                        if(component is BuffaloManager) return;
+
+                        if(component.isbreak) return;
 
                         Instantiate(paralyzeFx, component.lockOnTransform.position, Quaternion.identity);
                     
                         StartCoroutine (StopTime());
+
                         IEnumerator StopTime()
                         {
+                            int i;
+                            
+                            for(i=0; i < component.enemyRendererSection.Count; i++) component.enemyRendererSection[i].shader = sorceryShaders[1];
+
                             Animator animator = component.GetComponent<Animator>();
                             string animClip = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
                             component.isbreak = true;
                             animator.speed = 0f;
+
                             yield return new WaitForSeconds (5.1f);
+
+                            for(i=0; i < component.enemyRendererSection.Count; i++) component.enemyRendererSection[i].shader = sorceryShaders[0];
                             if(animator != null) animator.speed = 1f;
                             component.isbreak = false;
+
+                            if(component != null)
+                                if(component is TololManager || component is KeliperManager) component.GetComponent<EnemyAnimatorManager>().anim.SetBool("isHit", true);
+
                             if(!playerManager.tutoManager.paralyzeTuto)
                             {
                                 StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Pertubez l'harmonie vibratoire de vos adversaires, vous les immobiliserez"));
@@ -364,60 +347,6 @@ namespace SJ
 
             }
         }
-
-        public void SurchargeRay()
-        {
-            float a = 1.5f;
-            float b = 48f;
-            Instantiate(surchargeFX, magicRayOrigin.transform.position, Quaternion.identity);
-            //Debug.DrawRay(magnetiOriginGrab.transform.position, magnetiOriginGrab.transform.forward * magnetiMaxDistance, Color.red, duration);
-            if(Physics.SphereCast(magnetiOriginGrab.transform.position, magnetiRadius, magnetiOriginGrab.transform.forward, out RaycastHit hit, magnetiMaxDistance))
-            {
-                float force = (a * hit.distance) + b; //y = ax+b
-                if(hit.collider.gameObject.layer ==  8)
-                {
-                    hit.rigidbody.isKinematic = false;
-                    hit.rigidbody.AddForce(this.transform.forward * force, ForceMode.Impulse);
-                    Instantiate(surchargeFX, hit.point, Quaternion.identity);
-                }
-
-                else if(hit.collider.gameObject.layer == 10)
-                {
-                    Vector3 spawnPosition = hit.collider.gameObject.transform.position + new Vector3 (0f, 0.4f, 0f);
-                    Instantiate(surchargeFX, spawnPosition, Quaternion.identity);
-                    if(hit.collider.TryGetComponent<VaseContainerManager>(out VaseContainerManager component)) component.HandleVaseConatinerProcess();
-                }
-
-                else if(hit.collider.gameObject.layer == 12)
-                {
-                    if(hit.collider.TryGetComponent<EnemyManager>(out EnemyManager component))
-                    {
-                        Instantiate(surchargeFX, component.lockOnTransform.position, Quaternion.identity);
-
-                        if(component is kossiKazeManager kossiKazeManager) kossiKazeManager.kossiKazePattern.HandleExplosion();
-                        else if(component is KossiManager kossiManager)
-                        {
-                            kossiManager.TakeDamage(magnetiDamage);
-                        }
-                        else if(component is TololManager tololManager)
-                        {
-                            if(component.isbreak) return;
-                            component.gameObject.GetComponent<TololAnimatorManager>().anim.SetBool("isACHit", true);  
-                        }
-                        else if(component is KeliperManager keliperManager) keliperManager.TakeDamage(2);
-                    }
-                }
-                else if(hit.collider.gameObject.tag == "Stele")
-                {
-                    hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[1];
-                    hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
-                }                
-
-            }
-
-
-        }
-
         public void ArcLightningRay()
         {
             //Debug.DrawRay(magicRayOrigin.transform.position, magicRayOrigin.transform.forward * arcLightMaxDistance, Color.yellow, duration);
@@ -512,11 +441,19 @@ namespace SJ
 
             else if(Physics.BoxCast(magicRayOrigin.transform.position, arclightbox * 5f, magicRayOrigin.transform.forward, out targetHit, Quaternion.identity, arcLightMaxDistance))//(Physics.SphereCast(magicRayOrigin.transform.position, arcLightRadius, magicRayOrigin.transform.forward, out hit, arcLightMaxDistance))
             {
-                /*if(targetHit.collider.gameObject.layer == 8)
+                if(targetHit.collider.gameObject.layer == 8)
                 {
-                    StartCoroutine(HandleArcLightningEffect());
-                }*/
-                if(targetHit.collider.gameObject.layer == 10)
+                    StartCoroutine(StopMagnetSphere());
+                    
+
+                    IEnumerator StopMagnetSphere()
+                    {
+                        targetHit.rigidbody.isKinematic = true;
+                        yield return new WaitForSeconds (5f);
+                        if(targetHit.collider.gameObject != null) targetHit.rigidbody.isKinematic = false;
+                    }
+                }
+                else if(targetHit.collider.gameObject.layer == 10)
                 {
                     arcLightningFx.SetActive(true);
                     smokeRecul.Play();
@@ -762,8 +699,11 @@ namespace SJ
             lMain.startColor = lekbaRubenLituba;
             rMain.startColor = lekbaRubenLituba;
             
-            if(playerManager.haveGauntlet) leffectLitubaFx.GetComponent<ParticleSystem>().Play();
-            reffectLitubaFx.GetComponent<ParticleSystem>().Play();
+            if(playerManager.haveGauntlet)
+            {
+                leffectLitubaFx.GetComponent<ParticleSystem>().Play();
+                reffectLitubaFx.GetComponent<ParticleSystem>().Play();
+            }
         }
 
         public void StopEffectLitubaxFx()
@@ -808,12 +748,6 @@ namespace SJ
         {
             Instantiate(paralyzeBrassardFX, magicRayOrigin.transform.position, Quaternion.identity);
         }
-
-        public void HandlePowerUpBaembFx()
-        {
-            Instantiate(surchargeFX, magicRayOrigin.transform.position, Quaternion.identity);
-        }
-
     }
 }
 

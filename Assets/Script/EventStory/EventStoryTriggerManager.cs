@@ -4,7 +4,7 @@ using System.Collections;
 
 public abstract class EventStoryTriggerManager : MonoBehaviour
 {
-    protected PlayerManager playerManager;
+    [SerializeField] protected PlayerManager playerManager;
     protected InputManager inputManager;
     protected AnimatorManager animatorManager;
     protected AudioManager audioManager;
@@ -20,7 +20,6 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         inputManager = playerManager.GetComponent<InputManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
-        cameraShake = FindObjectOfType<CameraShake>();
         storyManager = gameSaveManager.GetComponent<StoryManager>();
         audioManager = playerManager.GetComponent<AudioManager>();
     }

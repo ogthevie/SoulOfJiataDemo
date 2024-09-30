@@ -130,11 +130,25 @@ public class GameManager : MonoBehaviour
                 gameSaveManager.LoadTorcheGrotteData();
                 gameSaveManager.SaveAllData();
             }
+            else
+            {
+                player.transform.position = new Vector3 (0, 0, 0);
+                gameSaveManager.playerManager.canArcLight = gameSaveManager.playerManager.canThunder = gameSaveManager.playerManager.haveGauntlet = true;
+                gameSaveManager.playerManager.gauntlet.SetActive(true);
+            }
+                
 
 
         }
 
         yield return new WaitForSeconds(1f);
+
+        GameObject [] monkeyRunes = GameObject.FindGameObjectsWithTag("Reborn");
+        foreach(GameObject monkeyRune in monkeyRunes)
+        {
+            float distance = Vector3.Distance(player.transform.position, monkeyRune.transform.position);
+            if(distance < 5) monkeyRune.transform.GetChild(2).gameObject.SetActive(true);
+        }
 
         loadingScreen.enabled = false;
         isLoading = false;
@@ -151,6 +165,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ZoneEntry("...Grotte des Kossi...", "Bongo"));
         }
+        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            StartCoroutine(ZoneEntry("...Trou blanc...", "Vide cosmique"));
+        }
 
         if(newGame != 1)
         {
@@ -158,7 +176,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartHandleToDo(storyManager.storyStep));
         } 
         player.isInteracting = false;
-        Debug.Log("index est " + newGame);
+        Debug.Log("le type de partie est :" + newGame);
                
     }
 

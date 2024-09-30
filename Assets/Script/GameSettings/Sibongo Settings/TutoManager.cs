@@ -6,11 +6,10 @@ using TMPro;
 public class TutoManager : MonoBehaviour
 {
     public bool vasetuto, steleTuto, saveTuto, dialogTuto, paralyzeTuto, arcLightTuto, thunderTuto;
-    public GameObject tipsUI, trainingUI;
+    public GameObject tipsUI;
     private void Start() 
     {
-        trainingUI = transform.GetChild(0).gameObject;
-        tipsUI = transform.GetChild(1).gameObject;
+        tipsUI = transform.GetChild(0).gameObject;
         HiddenUI();    
     }
 
@@ -27,7 +26,6 @@ public class TutoManager : MonoBehaviour
     public IEnumerator HandleToggleTipsUI(string tipText)
     {
         tipsUI.SetActive(true);
-        trainingUI.SetActive(false);
         tipsUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = tipText;
         ShowUI();
         yield return new WaitForSeconds(7f);

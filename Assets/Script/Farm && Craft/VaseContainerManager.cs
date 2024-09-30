@@ -11,7 +11,7 @@ public class VaseContainerManager : MonoBehaviour
     public List<ConsumableData> consumableDatas = new ();
     public GameObject destroyFx;
 
-    public int qtyConsumable, qtyMintoumba, qtySel, qtyColaS, qtyColaL, qtyIkok;
+    public int qtyConsumable, qtyOne, qtyTwo;
 
     void Awake()
     {
@@ -50,47 +50,27 @@ public class VaseContainerManager : MonoBehaviour
 
     private void RandomiseConsumablePKumbo()
     {
-            bool canProductMintoumba = CheckProbabilityConsumables();
             bool canProductSel = CheckProbabilityConsumables();
-
-            if(canProductMintoumba)
-            {
-                qtyMintoumba = QuantityProductionConsumable();
-                qtyConsumable = qtyMintoumba;
-                LoadConsumable(0);
-            }
 
             if(canProductSel)
             {
-                qtySel = QuantityProductionConsumable();
-                qtyConsumable = qtySel;
-                LoadConsumable(1);
+                qtyOne = QuantityProductionConsumable();
+                qtyConsumable = qtyOne;
+                int idConsumable = Random.Range(0,2);
+                LoadConsumable(idConsumable);
             }
     }
 
     private void RandomiseConsumableGKumbo()
     {
-        bool canProduceColaS = CheckProbabilityConsumables();
-        bool canProduceColaL = CheckProbabilityConsumables();
         bool canProduceIkok = CheckProbabilityConsumables();
-        
-        if(canProduceColaS)
-        {
-            qtyColaS = QuantityProductionConsumable();
-            qtyConsumable = qtyColaS;
-            LoadConsumable(2);
-        }
-        if(canProduceColaL)
-        {
-            qtyColaL = QuantityProductionConsumable();
-            qtyConsumable = qtyColaL;
-            LoadConsumable(3);
-        }
+
         if(canProduceIkok)
         {
-            qtyIkok = QuantityProductionConsumable();
-            qtyConsumable = qtyIkok;
-            LoadConsumable(4);
+            qtyTwo = QuantityProductionConsumable();
+            qtyConsumable = qtyTwo;
+            int idConsumable = Random.Range(0,2);
+            LoadConsumable(idConsumable);
         }
 
     }
@@ -98,7 +78,7 @@ public class VaseContainerManager : MonoBehaviour
     static bool CheckProbabilityConsumables()
     {
         int probability = Random.Range(1,11);
-        return (probability <= 5)? true : false;
+        return (probability <= 4)? true : false;
     }
 
     static int QuantityProductionConsumable()

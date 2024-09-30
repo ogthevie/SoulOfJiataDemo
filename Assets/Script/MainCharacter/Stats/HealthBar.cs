@@ -10,7 +10,8 @@ namespace SJ
     {
         public Slider slider;
         public Volume globalVolume;
-        public Color maxColor;
+        public Color maxHP, midHP, lowHP;
+        [SerializeField] Image fillColor;
         public List <VolumeProfile> volumeProfiles = new ();
 
         void Awake()
@@ -50,7 +51,16 @@ namespace SJ
                 globalVolume.profile = volumeProfiles[0];
                 globalVolume.weight = 0.55f;
             }
+
+            HandleColorSlider();
             
+        }
+
+        void HandleColorSlider()
+        {
+            if(slider.value <= (slider.maxValue * 0.7f) && slider.value > (slider.maxValue * 0.4f)) fillColor.color = midHP;
+            else if(slider.value <= (slider.maxValue * 0.4f)) fillColor.color = lowHP;
+            else fillColor.color = maxHP;
         }
     }
 

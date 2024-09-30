@@ -23,7 +23,7 @@ public class GhostEventManager : EventStoryTriggerManager
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
             animatorManager.PlayTargetAnimation("PowerUp", true);
-            StartCoroutine(gameManager.StartHandleAchievement("--l'esprit des hauts plateaux--"));
+            StartCoroutine(gameManager.StartHandleAchievement("l'esprit des hauts plateaux"));
             playerManager.canSomm = true;
 
             

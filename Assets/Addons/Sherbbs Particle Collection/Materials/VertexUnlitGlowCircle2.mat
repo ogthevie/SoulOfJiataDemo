@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: VertexUnlitGlowCircle2
   m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: 6549f73bb6bc82049aae009d0495c510, type: 2}
+  m_Parent: {fileID: 2100000, guid: 2455754fae391fc4f8c73235ca41ec81, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON

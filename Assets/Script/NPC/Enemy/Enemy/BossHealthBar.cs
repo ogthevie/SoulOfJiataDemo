@@ -19,7 +19,7 @@ public class BossHealthBar : EnemyHealthBar
     {
         bossHUD = FindObjectOfType<PlayerUIManager>().transform.GetChild(1).gameObject;
         slider = bossHUD.GetComponentInChildren<Slider>();
-        fillColor = bossHUD.transform.GetChild(1).GetComponentInChildren<Image>();
+        fillColor = bossHUD.transform.GetChild(0).GetChild(1).GetComponent<Image>();
         SetMaxHealth(buffaloManager.currentHealth);       
     }
 }

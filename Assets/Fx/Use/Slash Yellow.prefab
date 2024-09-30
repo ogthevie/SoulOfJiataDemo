@@ -5130,7 +5130,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.5949022, b: 0.07058823, a: 1}
+      maxColor: {r: 0.32208967, g: 0.8867924, b: 0.45280793, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10028,7 +10028,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.3490566, g: 0.29239318, b: 0, a: 1}
+      maxColor: {r: 0.47708258, g: 0.6698113, b: 0.5479113, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14717,7 +14717,7 @@ GameObject:
   - component: {fileID: 1271698572345532945}
   - component: {fileID: 179462607965033187}
   - component: {fileID: 6288033933789455850}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Slash Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19664,7 +19664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5323aabff44620c4587e463813ec54fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wishShoke: {fileID: 5634767591545691478, guid: 4fe3d627a7a52dc43a1d4348faea0f04,
+  wishShoke: {fileID: 7179411335879178766, guid: 935c0bbff7778c648ab90db11034de60,
     type: 3}
 --- !u!1 &3663554249354619373
 GameObject:
@@ -19889,7 +19889,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.5666981, b: 0, a: 0.078431375}
+      maxColor: {r: 0.7092827, g: 0.9339623, b: 0.76129186, a: 0.078431375}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

@@ -54,7 +54,7 @@ Material:
     - _Usedepth: 0
     - _Usesmoothdissolve: 0
     m_Colors:
-    - _AddColor: {r: 0.87058824, g: 0.48874876, b: 0.05490198, a: 0}
+    - _AddColor: {r: 0.501513, g: 0.9245283, b: 0.5964354, a: 1}
     - _Remap: {r: -0.3, g: 1, b: 0, a: 0}
     - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: 0.8, a: 0}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

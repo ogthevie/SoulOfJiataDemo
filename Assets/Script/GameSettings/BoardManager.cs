@@ -7,12 +7,10 @@ public class BoardManager : MonoBehaviour
     [SerializeField] GameObject boardUi, playerUi;
     [SerializeField] string description;
     [SerializeField] Color titleColor;
-    PlayerUIManager playerUIManager;
     
     void Awake()
     {
         playerUi = GameObject.Find("PlayerUI");
-        playerUIManager = FindObjectOfType<PlayerUIManager>();
         boardUi = playerUi.transform.GetChild(8).gameObject;
     }
 
@@ -20,7 +18,7 @@ public class BoardManager : MonoBehaviour
     {
         if(other.gameObject.layer == 3 && !boardUi.activeSelf)
         {
-            StartCoroutine(ShowDescription());
+            ShowDescription();
         }        
     }
 
@@ -29,23 +27,14 @@ public class BoardManager : MonoBehaviour
         if(other.gameObject.layer == 3 && boardUi.activeSelf)
         {
             boardUi.SetActive(false);
-            playerUIManager.ShowUI();
         }        
     }
 
-    IEnumerator ShowDescription()
+    void ShowDescription()
     {
-        playerUIManager.HiddenUI();
         boardUi.SetActive(true);
         TextMeshProUGUI textMeshProUGUI =  boardUi.GetComponentInChildren<TextMeshProUGUI>();
         textMeshProUGUI.color = titleColor;
         textMeshProUGUI.text = description;
-        yield return new WaitForSeconds(4f);
-        if(boardUi.activeSelf)
-        {
-            boardUi.SetActive(false);
-            playerUIManager.ShowUI();
-        }
-
     }
 }

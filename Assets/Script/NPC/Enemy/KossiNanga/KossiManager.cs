@@ -73,8 +73,7 @@ public class KossiManager : EnemyManager
     {
         if(isDead) 
         {
-            LoadConsumable(consumable);
-            kossiPattern.bulletAttack = false;
+            kossiPattern.invokeAttack = false;
             Destroy(kossiHealthBar);
         }
         base.HandleDeath();

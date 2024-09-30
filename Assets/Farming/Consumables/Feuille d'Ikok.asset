@@ -15,10 +15,7 @@ MonoBehaviour:
   consumablesprite: {fileID: 21300000, guid: 33e78cf0c78a3fb478182e3a02845a8b, type: 3}
   consumableIcon: {fileID: 21300000, guid: b258c2fbae1aa1b439b5de6a1b7adc27, type: 3}
   consumableName: Ikok
-  ConsumableDescription: "Le tresor de Lituba. La legende raconte que cette feuille
-    ne pousse sur aucun arbre de fa\xE7on naturelle, mais serait plutot deposer par
-    les ancetres sur les chemins de ceux qui sont dignes du tresor."
-  HealthPoint: 20
-  StaminaPoint: 0
+  HealthPoint: 0
+  StaminaPoint: 40
   consumablePrefab: {fileID: 6429133030633119555, guid: 9cd46bc2a293c7e4d8631db70c8e73e6,
     type: 3}

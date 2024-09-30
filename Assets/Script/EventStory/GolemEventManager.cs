@@ -10,6 +10,7 @@ public class GolemEventManager : EventStoryTriggerManager
 
     void Start()
     {
+        cameraShake = FindObjectOfType<CameraShake>();
         if(storyManager.storyStep < 6) golemCollider.enabled = false;
 
         if(storyManager.storyStep > 6)
@@ -27,7 +28,7 @@ public class GolemEventManager : EventStoryTriggerManager
         cameraShake.Shake(7, 0.15f);
         nyooRoot.SetActive(true);
         yield return new WaitForSeconds(5f);
-        StartCoroutine(gameManager.StartHandleAchievement("--L'EVEIL DE L'HOMME DANS LA PIERRE--"));
+        StartCoroutine(gameManager.StartHandleAchievement("L'EVEIL DE L'HOMME DANS LA PIERRE"));
         yield return new WaitForSeconds(3.5f);
         //gameSaveManager.SaveAllData();
     }

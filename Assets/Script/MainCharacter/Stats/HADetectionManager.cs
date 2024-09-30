@@ -15,21 +15,20 @@ namespace SJ
         // Start is called before the first frame update
         void OnTriggerEnter(Collider other)
         {
+            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
             if(other.gameObject.layer == 10)
             {
+                
+                Instantiate (wishShoke, impactPosition, Quaternion.identity);                
                 VaseContainerManager vaseContainerManager = other.GetComponent<VaseContainerManager>();
 
-                if(vaseContainerManager != null)
-                {
-                    vaseContainerManager.HandleVaseConatinerProcess();
-                }
+                if(vaseContainerManager != null) vaseContainerManager.HandleVaseConatinerProcess();
             }
 
             if(other.gameObject.layer == 13)
             {
                 if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
                 {
-                    Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
                     Instantiate (wishShoke, impactPosition, Quaternion.identity);
                     Destroy(component.gameObject);
                 }
@@ -37,9 +36,9 @@ namespace SJ
 
             if(other.gameObject.layer == 12)
             {
+                Instantiate (wishShoke, impactPosition, Quaternion.identity); 
                 if(other.TryGetComponent<EnemyManager>(out EnemyManager component))
                 {
-                    Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
                     if(component is TololManager tololManager)
                     {
                         tololManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);

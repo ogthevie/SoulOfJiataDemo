@@ -391,8 +391,9 @@ MonoBehaviour:
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
   skinnedMeshRenderer: {fileID: 3167930009662271726}
-  consumable: {fileID: 1731687447600347875, guid: 36758d9c4e40c184ca61de0cb49c04f3,
-    type: 3}
+  enemyRendererSection:
+  - {fileID: 2100000, guid: 4b70351752ecfcb46ac3f778c2df17ac, type: 2}
+  - {fileID: 2100000, guid: b7e4cc27425800746a56c8188cb1dee8, type: 2}
   keliperPattern: {fileID: 0}
   keliperHealthBar: {fileID: 0}
   awakeFx: {fileID: 3103991395893648434}
@@ -531,8 +532,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f664b419553fdc84b86ca9ea4807e755, type: 2}
-  - {fileID: 2100000, guid: 08a1f77ff8ad69349a201bcc25b4ec46, type: 2}
+  - {fileID: 2100000, guid: 4b70351752ecfcb46ac3f778c2df17ac, type: 2}
+  - {fileID: 2100000, guid: b7e4cc27425800746a56c8188cb1dee8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1171,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78431374, g: 0.003921569, b: 0, a: 1}
+  m_Color: {r: 0.6603774, g: 0.09656461, b: 0.15629056, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4947449538230918214}
   - component: {fileID: 404473358081311772}
   - component: {fileID: 1251266292694183164}
-  - component: {fileID: 3892636964716648821}
   m_Layer: 6
   m_Name: MarmiteFeu
   m_TagString: Untagged
@@ -132,19 +131,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.072974764, y: 0.072085746, z: 0.36395293}
   m_Center: {x: -0.0001884288, y: -0.0054896288, z: 0.18308109}
---- !u!114 &3892636964716648821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6892798074863959443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f73ee9f05ac04e468f9223d2e73776e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
 --- !u!1001 &93997598590888114
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace SJ
             playerLocomotion = GetComponent<PlayerLocomotion>();
             jiataAudioSource = GetComponent<AudioSource>();
             cameraAudioSource = FindObjectOfType<CameraManager>().transform.GetChild(0).GetChild(0).GetComponent<AudioSource>();
-            interactionAudioSource = transform.GetChild(25).GetComponent<AudioSource>();
+            interactionAudioSource = transform.GetChild(22).GetComponent<AudioSource>();
             playerManager = GetComponent<PlayerManager>();
         }
         
@@ -82,8 +82,8 @@ namespace SJ
             {
                 cameraAudioSource.PlayOneShot(fightSfx[4]);
             }
-            else if(playerAttacker.lastAttack == "HighAttack2")
-                cameraAudioSource.PlayOneShot(fightSfx[5]);
+            /*else if(playerAttacker.lastAttack == "HighAttack2")
+                cameraAudioSource.PlayOneShot(fightSfx[5]);*/
 
             else if(playerAttacker.lastAttack == "HighAttack3")
                 cameraAudioSource.PlayOneShot(fightSfx[6]); //l'espace 6 est vide

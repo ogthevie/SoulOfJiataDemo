@@ -29,7 +29,6 @@ public abstract class CharacterManager : MonoBehaviour
         dayPeriod = sibongoManager.dayPeriod;
         characterAnim.SetInteger("dayPeriod", dayPeriod);
         FixedCursorPosition();
-        Debug.Log("position fixée");
     }
 
     public virtual void DayJob(Vector3 mornPose, Quaternion mornRot)

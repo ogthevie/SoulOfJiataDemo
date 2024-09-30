@@ -22,7 +22,7 @@ namespace SJ
         public GameObject optionMenu;
 
         public GameObject dialogUI;
-        public GameObject brassardL, brasL, mask, maskEye, transitionScreen;
+        public GameObject gauntlet, transitionScreen;
 
         [SerializeField] GameObject deadUI;
         public Transform lockOnTransform, interactionUI;
@@ -30,7 +30,7 @@ namespace SJ
 
         [Header("Player flags")]
         public bool isSprinting, isInAir, isGrounded, canAttack;
-        public bool haveGauntlet, haveMask, canArcLight /*Souffle de Shango*/, canThunder /*Cri du ciel*/;
+        public bool haveGauntlet, canSurcharge, canArcLight, canThunder;
         public bool canBaemb, canSomm;
         public bool canDoCombo;
         public bool onOption, onTutoScreen, canPass;
@@ -44,7 +44,6 @@ namespace SJ
             playerAttacker = GetComponent<PlayerAttacker>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
             tutoManager = FindObjectOfType<TutoManager>();
-
         }
 
         public void Start() 
@@ -58,9 +57,8 @@ namespace SJ
             optionMenu.SetActive(false);
             dialogUI.SetActive(false);
             
-            HandleSurchargeBrassard();
-            HandleMask();
-
+            
+            gauntlet.SetActive(haveGauntlet);
         }
 
         public void Update()
@@ -130,7 +128,6 @@ namespace SJ
             inputManager.north_input = false;
             inputManager.west_input = false;
             inputManager.south_input = false;
-            inputManager.magicFlag = false;
 
             inputManager.left_input = false;
             inputManager.right_input = false;
@@ -226,34 +223,6 @@ namespace SJ
                 }
             }
             
-        }
-
-        public void HandleSurchargeBrassard()
-        {
-            if(haveGauntlet)
-                {
-                    brassardL.GetComponent<SkinnedMeshRenderer>().enabled = true;
-                    brasL.GetComponent<SkinnedMeshRenderer>().enabled = true;
-                }
-            else
-                {
-                    brassardL.GetComponent<SkinnedMeshRenderer>().enabled = false;
-                    brasL.GetComponent<SkinnedMeshRenderer>().enabled = false;
-                }
-        }
-
-        public void HandleMask()
-        {
-            if(haveMask)
-            {
-                mask.GetComponent<SkinnedMeshRenderer>().enabled = true;
-                maskEye.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            }
-            else
-            {
-                mask.GetComponent<SkinnedMeshRenderer>().enabled = false;
-                maskEye.GetComponent<SkinnedMeshRenderer>().enabled = false;                
-            }
         }
 
 

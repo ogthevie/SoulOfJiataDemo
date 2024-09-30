@@ -27,7 +27,7 @@ public class NotificationManager : MonoBehaviour
 
         IEnumerator startTuto(int i)
         {
-            this.GetComponent<RectTransform>().DOAnchorPosX(300f, 0.25f, false);
+            this.GetComponent<RectTransform>().DOAnchorPosX(-300f, 0.25f, false);
             tutoImage.sprite = consumableDatas[i].consumableIcon;
             tutoDescription.text = consumableDatas[i].consumableName;
             yield return new WaitForSeconds (4f);
@@ -42,7 +42,7 @@ public class NotificationManager : MonoBehaviour
 
         IEnumerator endTuto()
         {
-            this.GetComponent<RectTransform>().DOAnchorPosX(-300f, 0.25f, false);
+            this.GetComponent<RectTransform>().DOAnchorPosX(300f, 0.25f, false);
             yield return new WaitForSeconds (2f);
             playerManager.onTutoScreen = false;
         }        

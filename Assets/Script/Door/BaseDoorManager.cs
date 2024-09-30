@@ -4,7 +4,7 @@ using SJ;
 public class BaseDoorManager : MonoBehaviour 
 {
     StoryManager storyManager;
-    [SerializeField] GameObject baseWallOne, baseWallTwo, player,spk1, spk2;
+    [SerializeField] GameObject baseWallOne, baseWallTwo, player;
     [SerializeField] Animation anim;
     bool isFight;
     float distance;
@@ -22,8 +22,6 @@ public class BaseDoorManager : MonoBehaviour
         if(storyManager.storyStep >2)
         {
             transform.position = new Vector3 (transform.position.x, 3.4f, transform.position.z);
-            Destroy(spk1);
-            Destroy(spk2);
             Destroy(this);
         }
         else
@@ -38,7 +36,6 @@ public class BaseDoorManager : MonoBehaviour
     {
         CheckDistance();
         ActivateBaseDoorwall();
-        DesactivateBaseDoorWall();
     }
 
     void CheckDistance()
@@ -49,24 +46,12 @@ public class BaseDoorManager : MonoBehaviour
 
     void ActivateBaseDoorwall()
     {
-        if(distance <= 30 && !isFight)
+        if(distance <= 30)
         {
-            baseWallOne.SetActive(true);
-            baseWallTwo.SetActive(true);
-            spk1.SetActive(true);
-            spk2.SetActive(true);
-            isFight = true;
-        }
-    }
-
-    void DesactivateBaseDoorWall()
-    {
-        if(spk1 == null && spk2 == null)
-        {
-            baseWallOne.SetActive(false);
-            baseWallTwo.SetActive(false);
+            //baseWallOne.SetActive(true);
+            //baseWallTwo.SetActive(true);
             anim.Play();
-            Destroy(this);            
+            Destroy(this);
         }
     }
     
