@@ -71,13 +71,7 @@ namespace SJ
         public bool triangle;
         public bool comboFlag;
         public bool lockOnFlag;
-        public bool specialAttackFlag;
         public bool magicFlag;
-        public bool magicAttackFlag;
-        public bool paralyzeFlag;
-        public bool surchargeFlag;
-        public bool arcLightFlag;
-        public bool thunderFlag;
         public bool InteractFlag;
         
         #endregion
@@ -96,7 +90,6 @@ namespace SJ
             cameraManager = FindObjectOfType<CameraManager>();
             playerStats = GetComponent<PlayerStats>();
             skillTreeManager = FindObjectOfType<SkillTreeManager>();
-            playerManager.haveGauntlet = false;
         }
         
 
@@ -164,10 +157,6 @@ namespace SJ
             HandleLockOnInput();
             HandleFlipInput(delta);
             HandleMagicInput(delta);
-            HandleParalyzeInput();
-            HandleSurchargeInput();
-            HandleArcLighInput();
-            HandleThunderInput();
         }
 
         private void HandleMoveInput (float delta)
@@ -220,7 +209,7 @@ namespace SJ
             if(lowAttack_input)
             {
                 circle = true;
-                if(magicAttackFlag)
+                if(magicFlag)
                     return;
                     
                 if(playerManager.canDoCombo)
@@ -246,30 +235,29 @@ namespace SJ
             if(highAttack_input)
             {
                 triangle = true;
-                if(magicAttackFlag)
-                    return;
-                    
-                if(playerManager.canDoCombo)
+                if(!magicFlag)
                 {
-                    comboFlag = true;
-                    playerAttacker.HandleCombo();
-                    
-                    comboFlag = false;
-                }
-                else
-                {
-                    if(playerManager.isInteracting)
-                        return;
                     if(playerManager.canDoCombo)
-                        return;
-                    if(!playerManager.canAttack)
-                        return;
+                    {
+                        comboFlag = true;
+                        playerAttacker.HandleCombo();
+                        
+                        comboFlag = false;
+                    }
+                    else
+                    {
+                        if(playerManager.isInteracting)
+                            return;
+                        if(playerManager.canDoCombo)
+                            return;
+                        if(!playerManager.canAttack)
+                            return;
 
-                    playerAttacker.HandleHighAttack();
+                        playerAttacker.HandleHighAttack();
+                    } 
                 }
-                
-
             }
+
             if(!lowAttack_input) circle = false;
             if(!highAttack_input) triangle = false;
         }
@@ -331,57 +319,12 @@ namespace SJ
             
             if(lb_input)
             {
-                magicInputTimer += delta; //Debug.Log(magicInputTimer);
-                if(magicInputTimer > 0.4f)
-                {
-                    magicFlag = true;
-                    magicAttackFlag = false;
-                }
-                else
-                {
-                    magicFlag = false;
-                    magicAttackFlag = true; //Debug.Log("magicAttackFlag " +magicAttackFlag);
-                }
+                magicFlag = true;
+                if(west_input) playerAttacker.HandleMagicSkill(0);
+                else if(south_input) playerAttacker.HandleMagicSkill(1);
+                else if(triangle) playerAttacker.HandleMagicSkill(2);
             }
-            else
-                magicInputTimer = 0;
-
-            if(!lb_input && magicInputTimer == 0)
-                magicAttackFlag = false;
-
-            playerAttacker.HandleMagicSkill();
-        }
-
-        private void HandleSurchargeInput()
-        {
-            if(magicAttackFlag && circle ) surchargeFlag = true;    
-            else surchargeFlag = false;
-        }
-
-        private void HandleParalyzeInput()
-        {
-            if(!playerManager.haveGauntlet)
-                return;
-
-            if(magicAttackFlag && west_input) paralyzeFlag = true;
-            else paralyzeFlag = false;
-        }
-
-        private void HandleArcLighInput()
-        { 
-            if(!playerManager.canArcLight)
-                return;
-
-            if(magicAttackFlag && south_input) arcLightFlag = true;     
-            else arcLightFlag = false;   
-        }
-
-        private void HandleThunderInput()
-        {
-            if(!playerManager.canThunder)
-                return;
-            if(magicAttackFlag && triangle) thunderFlag = true;
-            else thunderFlag = false;
+            else magicFlag = false;
         }
 
         public void HandleInteractInput()

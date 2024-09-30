@@ -420,6 +420,37 @@ Transform:
   m_Father: {fileID: 794229961571843236}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4061905318539067638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464245133087609755}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464245133087609755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4061905318539067638}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22932869, y: 0.001, z: 1.673}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4651595300541912469}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4191920312287682169
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +693,7 @@ GameObject:
   - component: {fileID: 5577364482627414455}
   - component: {fileID: 6368890853377440429}
   - component: {fileID: 6485189193496775605}
+  - component: {fileID: 879830462150068033}
   m_Layer: 12
   m_Name: Kossi Nanga
   m_TagString: Untagged
@@ -685,6 +717,7 @@ Transform:
   - {fileID: 927068121429390593}
   - {fileID: 1915838457955495302}
   - {fileID: 6928921740493895995}
+  - {fileID: 464245133087609755}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -779,8 +812,13 @@ MonoBehaviour:
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
   skinnedMeshRenderer: {fileID: 1853705125825466395}
-  consumable: {fileID: 6429133030633119555, guid: 9cd46bc2a293c7e4d8631db70c8e73e6,
-    type: 3}
+  enemyRendererSection:
+  - {fileID: 2100000, guid: 5cc53c7931daa554da5c3d9563d10645, type: 2}
+  - {fileID: 2100000, guid: 7348c52c2c807f5439200dc52356447c, type: 2}
+  - {fileID: 2100000, guid: d6e6e1feb31bc5b48bb59463aa6fac3c, type: 2}
+  - {fileID: 2100000, guid: 6c2d123a28899fe4489ba9bb8fdcbd0b, type: 2}
+  - {fileID: 2100000, guid: 9ba3caa6b60d1a24c84e781da4b8ee92, type: 2}
+  - {fileID: 2100000, guid: 84d77ca875b934846a889a56195a149b, type: 2}
   kossiPattern: {fileID: 0}
   kossiHealthBar: {fileID: 0}
   isPreformingAction: 0
@@ -804,7 +842,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   playerManager: {fileID: 0}
   statesJiataData: {fileID: 11400000, guid: 3739c9a0ca7a848418e3c761ed693a0d, type: 2}
-  bulletPrefab: {fileID: 5679781952932991129, guid: f1184303d8ae35d45b398a678d48ee23,
+  kossiKazePrefab: {fileID: 6765247055590652848, guid: 01c0df834b5485840af2a966b1d03299,
     type: 3}
   detectionLayer:
     serializedVersion: 2
@@ -812,10 +850,11 @@ MonoBehaviour:
   distanceFromTarget: 0
   agentKossi: {fileID: 0}
   kossiRigibody: {fileID: 0}
+  spawnPoint: {fileID: 464245133087609755}
   decal: {x: 0, y: 1.4, z: 0}
   maxDistanceFromTarget: 40
   stoppingDistance: 10
-  bulletAttack: 0
+  invokeAttack: 0
   viewableAngle: 0
 --- !u!114 &6368890853377440429
 MonoBehaviour:
@@ -830,6 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  playerManager: {fileID: 0}
 --- !u!114 &6485189193496775605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +882,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858a3187dc31174fbe9e1d5f7a8273c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &879830462150068033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460080096635064111}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ce9b5bfca7f73e94bbb2d027a37157d3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 100
+  DopplerLevel: 1
+  MinDistance: 0.5
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5518702736830776444
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,8 +1034,8 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: 7348c52c2c807f5439200dc52356447c, type: 2}
   - {fileID: 2100000, guid: d6e6e1feb31bc5b48bb59463aa6fac3c, type: 2}
   - {fileID: 2100000, guid: 5cc53c7931daa554da5c3d9563d10645, type: 2}
-  - {fileID: 3032527368782228296, guid: f0a834767e14d1d43b21eb366b9de774, type: 3}
   - {fileID: 2100000, guid: 6c2d123a28899fe4489ba9bb8fdcbd0b, type: 2}
+  - {fileID: 2100000, guid: 5cc53c7931daa554da5c3d9563d10645, type: 2}
   - {fileID: 2100000, guid: 9ba3caa6b60d1a24c84e781da4b8ee92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1192,7 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.6397154, b: 0.027411906, a: 1}
+  m_Color: {r: 0.6627451, g: 0.09803922, b: 0.15686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

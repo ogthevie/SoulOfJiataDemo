@@ -48,7 +48,6 @@ public class TrainingManager : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             tutoManager.HiddenUI();
-            tutoManager.trainingUI.SetActive(false);
             if(FindObjectOfType<DayNightCycleManager>().dayTimer < 3) umNyobeSource.enabled = true;
             isTraining = false;
             trainingSource.enabled = false;
@@ -59,7 +58,6 @@ public class TrainingManager : MonoBehaviour
     {
         StartCoroutine(gameManager.ZoneEntry("Cercle des Prodiges", "Lituba"));
         tutoManager.ShowUI();
-        tutoManager.trainingUI.SetActive(true);
         tutoManager.tipsUI.SetActive(false);
         yield return new WaitForSeconds(1f);
         LoadEnemy(player);

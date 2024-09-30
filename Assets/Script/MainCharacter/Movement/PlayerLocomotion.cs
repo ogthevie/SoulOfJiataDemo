@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -170,13 +171,21 @@ namespace SJ
                     playerUIManager.ShowInteractionUI("Méditer");
                     if(inputManager.InteractFlag)
                     {
-                        animatorManager.PlayTargetAnimation("Save", true);
-                        playerStats.TakeStaminaDamage(100);
+                        StartCoroutine(RebornFlame(hit));
                     } 
                 }
                 
             }
             else playerUIManager.HiddenInteractionUI();
+        }
+
+        IEnumerator RebornFlame(RaycastHit hit)
+        {
+            animatorManager.PlayTargetAnimation("Save", true);
+            yield return new WaitForSeconds(6f);
+            hit.collider.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            playerStats.TakeStaminaDamage(50);
+            playerStats.AddHealth(playerStats.maxHealth / 4);
         }
 
         public void HandleMovement(float delta)

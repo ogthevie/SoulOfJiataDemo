@@ -14,13 +14,20 @@ namespace SJ
         public Image westSlot;
         public Image eastSlot;
 
+        [SerializeField] Image sorceryCanva;
+        [SerializeField] GameObject controller, dialogUI;
+        [SerializeField] Color showingColor, hidingColor;
+
+
         void Awake()
         {
             staminaBar = FindObjectOfType<StaminaBar>();
+            sorceryCanva = GetComponent<Image>();
         }
 
         void Start()
         {
+            dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
             playerAttacker = FindObjectOfType<PlayerAttacker>();
             playerManager = FindObjectOfType<PlayerManager>();
         }
@@ -29,14 +36,34 @@ namespace SJ
         {
             northSlot.enabled = playerManager.canThunder && staminaBar.slider.value >= playerAttacker.thunderDrain;
             southSlot.enabled = playerManager.canArcLight && staminaBar.slider.value >= playerAttacker.arcLightningDrain;
-            westSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.magnetiDrain;
-            eastSlot.enabled = staminaBar.slider.value >= playerAttacker.magnetiDrain;
+            westSlot.enabled = playerManager.canSurcharge && staminaBar.slider.value >= playerAttacker.magnetiDrain;
+            //eastSlot.enabled = playerManager.canBigFire && staminaBar.slider.value >= playerAttacker.bigFireDrain;
         }
 
         public void HandleSkillTreeUI(bool lockOnFlag)
-        {
-            if(lockOnFlag) this.GetComponent<RectTransform>().DOAnchorPosX(145, 0.4f, false);
-            else this.GetComponent<RectTransform>().DOAnchorPosX(-250, 0.4f, false);
+        {   
+            controller.SetActive(lockOnFlag);
+            if(lockOnFlag)
+            {
+                RectTransform tempTp = this.GetComponent<RectTransform>();
+                tempTp.DOScale(new Vector3(2.2f, 2.2f, 2.2f), 0.5f);
+                tempTp.DOAnchorPosX(320, 0.2f, false);
+                tempTp.DOAnchorPosY(-320, 0.2f, false);
+
+                sorceryCanva.color = northSlot.color = southSlot.color = westSlot.color = eastSlot.color = showingColor;
+
+            }
+            else
+            {
+                if(dialogUI.activeSelf) return;
+                RectTransform tempTp = this.GetComponent<RectTransform>();
+                tempTp.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.5f);
+                tempTp.DOAnchorPosX(200, 0.2f, false);
+                tempTp.DOAnchorPosY(-480, 0.2f, false);                
+                controller.SetActive(false);
+
+                sorceryCanva.color = northSlot.color = southSlot.color = westSlot.color = eastSlot.color = hidingColor;
+            }
         }
     }
 }

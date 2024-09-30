@@ -5501,7 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.6397154, b: 0.027411906, a: 1}
+  m_Color: {r: 0.6627451, g: 0.09803922, b: 0.15686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5847,8 +5847,9 @@ MonoBehaviour:
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
   skinnedMeshRenderer: {fileID: 5458430649578980151}
-  consumable: {fileID: 1731687447600347875, guid: 36758d9c4e40c184ca61de0cb49c04f3,
-    type: 3}
+  enemyRendererSection:
+  - {fileID: 2100000, guid: 08a1f77ff8ad69349a201bcc25b4ec46, type: 2}
+  - {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   tololAnimatorManager: {fileID: 0}
   tololPattern: {fileID: 0}
   tololHealthBar: {fileID: 0}

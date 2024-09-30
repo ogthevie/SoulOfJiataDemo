@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using SJ;
+using DG.Tweening;
 
 public class CharacterDialogManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CharacterDialogManager : MonoBehaviour
     public TextMeshProUGUI actorSentence;
     protected PlayerUIManager playerUIManager;
     protected TutoManager tutoManager;
+    protected Camera mainCamera;
     protected int i = 0;
     
     public bool canDialog;
@@ -29,6 +31,7 @@ public class CharacterDialogManager : MonoBehaviour
         dialogTriggerManager = GetComponent<DialogTriggerManager>();
         characterAnimator = GetComponent<Animator>();
         tutoManager = playerUIManager.GetComponentInChildren<TutoManager>();
+        mainCamera = FindObjectOfType<Camera>();
     }
 
 
@@ -36,7 +39,7 @@ public class CharacterDialogManager : MonoBehaviour
     protected void Start()
     {
         GameObject playerUI = GameObject.Find("PlayerUI");
-        actorName = playerUI.transform.GetChild(7).GetChild(0).GetComponent<TextMeshProUGUI>();
+        actorName = playerUI.transform.GetChild(7).GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
         actorSentence = playerUI.transform.GetChild(7).GetChild(1).GetComponent<TextMeshProUGUI>();
 
     }
@@ -75,10 +78,11 @@ public class CharacterDialogManager : MonoBehaviour
         playerUIManager.ShowUI();
         if(!tutoManager.dialogTuto)
         {
-            StartCoroutine(tutoManager.HandleToggleTipsUI("N'hésitez pas à discuter avec les habitants du village, ils savent plus de choses que vous pouvez croire"));
+            StartCoroutine(tutoManager.HandleToggleTipsUI("Discutez avec les autres, vous serez surpris de ce qu'ils savent"));
             tutoManager.dialogTuto = true;
         }
         playerUIManager.HiddenInteractionUI();
+        mainCamera.DOFieldOfView(35, 0.5f);
     }
 
     public virtual void nextFirstDialogue(int k, DialogData[] characterDialogData)
@@ -86,6 +90,7 @@ public class CharacterDialogManager : MonoBehaviour
         if(inputManager.InteractFlag && i < characterDialogData[k].firstConversation.Count) 
         {
             inputManager.InteractFlag = false;
+            mainCamera.DOFieldOfView(18, 0.5f);
             //Debug.Log("i est egal à : " +i);
             animatorManager.animationState = false;
             i++;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Bilol 13
   m_EditorClassIdentifier: 
-  characterName: Bok Bilol
+  characterName: Vieux Coq
   mainCharacterName: Ruben
   firstConversation:
   - "Tu n\u2019es toujours pas entr\xE9 dans la grotte ?  tu ferais mieux de te d\xE9p\xEAcher

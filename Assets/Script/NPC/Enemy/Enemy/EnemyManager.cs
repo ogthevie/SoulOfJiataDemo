@@ -1,5 +1,6 @@
 using UnityEngine;
 using SJ;
+using System.Collections.Generic;
 
 public abstract class EnemyManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public abstract class EnemyManager : MonoBehaviour
     public GameObject enemyExplosion;
     public SkinnedMeshRenderer skinnedMeshRenderer;
     protected PlayerAttacker playerAttacker;
-    [SerializeField]protected GameObject consumable;
+    public List <Material> enemyRendererSection = new();
 
 
     public abstract void TakeDamage(int damage);

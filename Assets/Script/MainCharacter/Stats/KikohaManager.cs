@@ -5,21 +5,27 @@ public class KikohaManager : MonoBehaviour
 {
     [SerializeField] GameObject kikohaImpact, wishShoke;
     [SerializeField] PlayerAttacker playerAttacker;
+    [SerializeField] AudioClip kikohaImpactSFX;
+    [SerializeField] AudioSource kikohaAudioSource;
     int kikohaDamage = 5;
 
     private void Awake()
     {
-        playerAttacker = FindObjectOfType<PlayerAttacker>();    
+        playerAttacker = FindObjectOfType<PlayerAttacker>();  
+        kikohaAudioSource = FindObjectOfType<PlayerUIManager>().GetComponent<AudioSource>();  
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
+        kikohaAudioSource.PlayOneShot(kikohaImpactSFX);
 
         if(other.gameObject.layer == 13)
         {
+            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
+
             if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
             {
+                
                 Instantiate (wishShoke, impactPosition, Quaternion.identity);
                 Destroy(component.gameObject);
                 Destroy(this.gameObject);
@@ -27,16 +33,18 @@ public class KikohaManager : MonoBehaviour
         }
        else if(other.gameObject.layer == 8)
         {
+            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
             Instantiate(kikohaImpact, impactPosition, Quaternion.identity);
-            if(!other.transform.GetChild(1).gameObject.activeSelf) 
+            if(!other.transform.GetChild(0).gameObject.activeSelf) 
             {
-                playerAttacker.audioManager.ReadMagnetiFireSphereFx();
-                other.transform.GetChild(1).gameObject.SetActive(true);
+                other.transform.GetChild(0).gameObject.SetActive(true);
                 other.GetComponent<MagnetSphereManager>().enabled = true;
+                Destroy(this.gameObject);
             }
         }
         if(other.gameObject.layer == 12)
         {
+            Vector3 impactPosition = other.GetComponent<EnemyManager>().lockOnTransform.position;
             Instantiate (kikohaImpact, impactPosition, Quaternion.identity);
 
             if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component))
@@ -92,10 +100,12 @@ public class KikohaManager : MonoBehaviour
                 }
                 //Destroy(gameObject);
             }
+            Destroy(this.gameObject);
         }
         else if(other.gameObject.layer == 10)
         {
             if(other.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager component))component.HandleVaseConatinerProcess();
+            Destroy(this.gameObject);
         }
     }
 }

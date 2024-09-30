@@ -8,13 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Iron MetalBrut
-  m_Shader: {fileID: -6465566751694194690, guid: 2c3c6a46626419c4f8bbdeab2ec2afbd,
+  m_Shader: {fileID: -6465566751694194690, guid: 5306af5a2eeb4df4e9fadaba4f79b29f,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_ModifiedSerializedProperties: 24
-  m_ValidKeywords:
-  - _HAFTONESHAPES_DOT
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _HAFTONESHAPES_DOT
   - _HALFTONESHAPE_DOT
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
@@ -24,7 +24,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2050
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 

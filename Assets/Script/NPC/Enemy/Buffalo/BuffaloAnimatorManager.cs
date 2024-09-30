@@ -24,6 +24,7 @@ public class BuffaloAnimatorManager : EnemyAnimatorManager
             anim.SetBool("hellbow", buffaloManager.isHellbow);
             anim.SetBool("canAttack", buffaloPattern.canAttack);
             anim.SetBool("isEndFight", buffaloPattern.playerManager.isDead);
+            anim.SetBool("isActive", buffaloManager.isReady);
             float delta = Time.deltaTime;
             buffaloPattern.buffaloRigidbody.drag = 0;
             Vector3 deltaPosition = anim.deltaPosition;

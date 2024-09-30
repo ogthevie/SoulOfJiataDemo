@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 3506811186554965293}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1605603511494986233
 MeshFilter:
@@ -149,16 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vaseContainerData: {fileID: 11400000, guid: b1b6aed025086964f9ae56748ea8e976, type: 2}
   consumableDatas:
-  - {fileID: 11400000, guid: d8efcb13d5572df4db1d3614cc4ceaee, type: 2}
   - {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
+  - {fileID: 11400000, guid: f7f3137342dd8fd4f8a72eaff0648508, type: 2}
   destroyFx: {fileID: 3506811186554965280}
   qtyConsumable: 0
-  qtyMintoumba: 0
   qtySel: 0
-  qtyGesier: 0
-  qtyKalaba: 0
-  qtyColaS: 0
-  qtyColaL: 0
   qtyIkok: 0
 --- !u!1001 &5527114912955143518
 PrefabInstance:

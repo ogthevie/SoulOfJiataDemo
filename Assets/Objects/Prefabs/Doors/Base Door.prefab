@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 808719775485228911}
   - component: {fileID: 1519321923905463219}
   - component: {fileID: 7007024356204126256}
+  - component: {fileID: 3240594817578289251}
   m_Layer: 0
   m_Name: Base Door
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3300731561887945622}
-  m_LocalRotation: {x: -0.01901984, y: -0.706851, z: -0.7068509, w: 0.01901984}
+  m_LocalRotation: {x: -0.019021854, y: -0.7068509, z: -0.7068509, w: 0.019021854}
   m_LocalPosition: {x: 0.18521118, y: -0.40011978, z: -0.83999634}
-  m_LocalScale: {x: 84.09001, y: 39.58495, z: 84.090004}
+  m_LocalScale: {x: 84.09002, y: 39.584957, z: 84.090004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -176.917}
 --- !u!33 &1236949377751123593
 MeshFilter:
@@ -64,10 +65,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fb97968431dbe74181aafb001238a25, type: 2}
-  - {fileID: 2100000, guid: 415d7979e1e66fe428528045266b1857, type: 2}
-  - {fileID: 2100000, guid: 10fb6cb78db9bf547809c51f7b278c67, type: 2}
-  - {fileID: 2100000, guid: 415d7979e1e66fe428528045266b1857, type: 2}
+  - {fileID: 2100000, guid: d3ef7d98125e8be41848833b8d53ca77, type: 2}
+  - {fileID: 2100000, guid: eb2cccdc85bffce4e8b971b2ac39cbf9, type: 2}
+  - {fileID: 2100000, guid: eb2cccdc85bffce4e8b971b2ac39cbf9, type: 2}
+  - {fileID: 2100000, guid: 357e8c47d1a837c4a8d942bd5463cf9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,8 +126,7 @@ MonoBehaviour:
   baseWallOne: {fileID: 0}
   baseWallTwo: {fileID: 0}
   player: {fileID: 0}
-  spk1: {fileID: 0}
-  spk2: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!82 &7007024356204126256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -223,3 +223,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!111 &3240594817578289251
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3300731561887945622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1155b2178e4a40a499ee0f21946ba730, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1155b2178e4a40a499ee0f21946ba730, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

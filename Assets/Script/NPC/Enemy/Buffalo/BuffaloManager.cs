@@ -6,14 +6,17 @@ public class BuffaloManager : EnemyManager
 {
     //buffalo a l'armure si et seulement si le feu est autour de lui
     public BuffaloPattern buffaloPattern;
-    [SerializeField] ThunderEventManager thunderEventManager;
+    [SerializeField] StoryManager storyManager;
     BossHealthBar bossHealthBar;
-
+    [SerializeField] GameObject chargingPop, fakeCrane, trueCrane, kaoPortalFx, limitBoss, portalActivate;
+    [SerializeField]protected CameraShake cameraShake;
+    //public GameObject [] Torche = new GameObject [8];
     public int buffaloHealth;
     public bool iStun, isTiming, isArmor, isHellbow, isReady;
     public ParticleSystem plotArmorFx, summonKossiFx, spawnKaoFx;
     public Collider plotCollider, kaoPortalCollider;
     //public ParticleSystem ragePS, breastPS, chargePS;
+    [SerializeField] Material kaoPortalMaterial;
     
     private void Awake() 
     {
@@ -21,9 +24,9 @@ public class BuffaloManager : EnemyManager
         buffaloPattern = GetComponent<BuffaloPattern>();
         playerAttacker = FindObjectOfType<PlayerAttacker>();
         bossHealthBar = GetComponent<BossHealthBar>();
-        thunderEventManager = FindObjectOfType<ThunderEventManager>();
         detectionRadius = 60f;
         buffaloHealth = 700;
+        storyManager = FindObjectOfType<StoryManager>();
 
         currentHealth = buffaloHealth;
         //ragePS = rageFx.GetComponent<ParticleSystem>();
@@ -31,27 +34,33 @@ public class BuffaloManager : EnemyManager
         //chargePS = chargeFx.GetComponent<ParticleSystem>();     
     }
 
-    private void OnEnable() 
+    private void Start()
     {
-        StartCoroutine(StartLifeKao());    
-    }
-    
-    private void OnDisable()
-    {
-        isReady = false;   
+        cameraShake = FindObjectOfType<CameraShake>();
+        if(storyManager.storyStep >= 6) HandlePortal();    
     }
 
     IEnumerator StartLifeKao()
     {
-        skinnedMeshRenderer.enabled = false;
-        yield return new WaitForSeconds(5.05f);
-        skinnedMeshRenderer.enabled = true;
-        yield return new WaitForSeconds(3f);
+        chargingPop.SetActive(true);
+        limitBoss.SetActive(true);
+        fakeCrane.SetActive(true);
+        cameraShake.Shake(4f, 0.25f);
+        yield return new WaitForSeconds(4f);
         isReady = true;
+        yield return new WaitForSeconds(3f);
+        bossHealthBar.enabled = true;
+        GetComponent<BossHealthBar>().bossHUD.SetActive(true);
     }
 
     private void Update() 
     {
+        if(!isReady && !chargingPop.activeSelf)
+        {
+            float distance = Vector3.Distance(transform.position, playerAttacker.transform.position);
+            if(distance < 30) StartCoroutine(StartLifeKao());
+        }
+
         if(isDead || !isReady) return;
 
         float delta = Time.deltaTime;
@@ -76,8 +85,6 @@ public class BuffaloManager : EnemyManager
         if(currentHealth <= 0)
         {
             currentHealth = 0;
-            thunderEventManager.HandleActivationCraneEvent();
-            thunderEventManager.bossThemeAudioSource.Stop();
             buffaloPattern.agentBuffalo.enabled = false;
             isDead = true;
         }
@@ -104,11 +111,28 @@ public class BuffaloManager : EnemyManager
             kaoPortalCollider.enabled = false;
             Destroy(buffaloPattern);
             yield return new WaitForSeconds(1.5f);
+            fakeCrane.SetActive(false);
             bossHealthBar.bossHUD.SetActive(false);
             isHellbow = isArmor = false;
             FindObjectOfType<GrotteKossiManager>().GetComponent<AudioSource>().Play();
-            Destroy(this, 3f);
+            yield return new WaitForSeconds(5f);
+            trueCrane.SetActive(true);
+            HandlePortal();
         }
+    }
+
+    private void HandlePortal()
+    {
+
+        //for(int k = 0; k < 8; k++) Torche[k].transform.GetChild(0).gameObject.SetActive(true);
+        limitBoss.SetActive(false);
+        kaoPortalCollider.enabled = false;
+        portalActivate.SetActive(true);
+        kaoPortalCollider.transform.GetChild(0).GetComponent<Renderer>().material = kaoPortalMaterial;
+        var materials = kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials;
+        materials[1] = kaoPortalMaterial;
+        kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials = materials;
+        Destroy(this, 5f);
     }
 
 }

@@ -7,7 +7,7 @@ using SJ;
 [DefaultExecutionOrder(-3)]
 public class GameSaveManager : MonoBehaviour
 {
-    [SerializeField] PlayerManager playerManager;
+    public PlayerManager playerManager;
     [SerializeField] PlayerStats playerStats;
     StoryManager storyManager;
     GameManager gameManager;
@@ -42,10 +42,7 @@ public class GameSaveManager : MonoBehaviour
     {
         int i = SceneManager.GetActiveScene().buildIndex;
 
-        if(i == 2) 
-        {
-            SaveTorcheGrotteData();
-        }
+        //if(i == 2) SaveTorcheGrotteData();
 
         SavePlayerData();
         SavePlayerPosition();
@@ -70,11 +67,12 @@ public class GameSaveManager : MonoBehaviour
         {
             playerPV = playerStats.currentHealth, 
             gauntlet = playerManager.haveGauntlet, 
-            mask = playerManager.haveMask,
             arcLight = playerManager.canArcLight, 
             thunder = playerManager.canThunder,
             canBaemb = playerManager.canBaemb,
             canSomm = playerManager.canSomm,
+            canSurcharge = playerManager.canSurcharge,
+            //canBigFire = playerManager.canBigFire,
             ikokQty = inventoryData.ikokQty,
             selQty = inventoryData.selQty,
         };
@@ -114,7 +112,7 @@ public class GameSaveManager : MonoBehaviour
         System.IO.File.WriteAllText(filepath, storyStepJson); 
     }
 
-    void SaveTorcheGrotteData()
+    /*void SaveTorcheGrotteData()
     {
         TorcheData torcheData = new TorcheData();
 
@@ -128,7 +126,7 @@ public class GameSaveManager : MonoBehaviour
         string filepath = Application.persistentDataPath + "/torcheData.json";
         System.IO.File.WriteAllText(filepath, torcheJson);
 
-    }
+    }*/
 
     void SaveTutoData()
     {
@@ -164,7 +162,7 @@ public class GameSaveManager : MonoBehaviour
         LoadTutoData();
         playerManager.isDead = false;
         playerStats.stateJiataData.isHidden = false;
-        Debug.Log("Données chargées");
+        Debug.Log("Toutes les données du jeu ont été chargées");
         isloaded = true;
     }
 
@@ -179,10 +177,10 @@ public class GameSaveManager : MonoBehaviour
 
             thunderEventManager = FindObjectOfType<ThunderEventManager>();
 
-            for(int i = 0; i < 8; i++)
+            /*for(int i = 0; i < 8; i++)
             {
                 if(thunderEventManager != null) thunderEventManager.IndexHeartSteles[i] = torcheData.HeartStelesState[i];
-            }
+            }*/
         }
     }
 
@@ -198,15 +196,14 @@ public class GameSaveManager : MonoBehaviour
             playerStats.healthBar.SetCurrentHealth(playerData.playerPV);
             playerStats.currentHealth = playerData.playerPV;
 
+            playerManager.canSurcharge = playerData.canSurcharge;
             playerManager.haveGauntlet = playerData.gauntlet;
-            playerManager.haveMask = playerData.mask;
             playerManager.canArcLight = playerData.arcLight;
             playerManager.canThunder = playerData.thunder;
             playerManager.canBaemb = playerData.canBaemb;
             playerManager.canSomm = playerData.canSomm;
             inventoryData.ikokQty = playerData.ikokQty;
             inventoryData.selQty = playerData.selQty;
-            playerManager.HandleSurchargeBrassard();
         }
 
         int i = SceneManager.GetActiveScene().buildIndex;
@@ -225,7 +222,7 @@ public class GameSaveManager : MonoBehaviour
             playerManager.gameObject.transform.position = new Vector3(playerPosition.playerX, playerPosition.playerY, playerPosition.playerZ);
         }
 
-        Debug.Log("Position chargée");
+        Debug.Log("Position intialisée");
   }
 
     void LoadStoryData()
@@ -311,7 +308,7 @@ public class GameSaveManager : MonoBehaviour
 class PlayerData
 {
     public int playerPV, ikokQty, selQty;
-    public bool gauntlet,mask, arcLight, thunder, canBaemb, canSomm;
+    public bool gauntlet, arcLight, thunder, canBaemb, canSomm, canSurcharge;
 }
 
 class PlayerPosition

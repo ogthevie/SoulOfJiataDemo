@@ -16,7 +16,7 @@ public class KossiAnimatorManager : EnemyAnimatorManager
         {
             anim.SetFloat("distAttack", kossiPattern.distanceFromTarget);
             //anim.SetFloat("timeAttack", tololPattern.timeAttack);
-            anim.SetBool("bulletAttack", kossiPattern.bulletAttack);
+            anim.SetBool("invokeAttack", kossiPattern.invokeAttack);
             float delta = Time.deltaTime;
             kossiPattern.kossiRigibody.drag = 0;
             Vector3 deltaPosition = anim.deltaPosition;

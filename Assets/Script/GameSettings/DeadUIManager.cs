@@ -38,6 +38,7 @@ public class DeadUIManager : MonoBehaviour
     IEnumerator reloadRoutine()
     {
         GetComponentInParent<PlayerUIManager>().HiddenInteractionUI();
+        this.transform.parent.GetChild(1).gameObject.SetActive(false);
         inputManager.skillTreeManager.HandleSkillTreeUI(false);
         inputManager.GetComponent<AudioManager>().jiataAudioSource.Stop();
         CharacterManager [] characterManagers = FindObjectsOfType<CharacterManager>();
@@ -59,6 +60,7 @@ public class DeadUIManager : MonoBehaviour
         {
             gameManager.newGame = 0;
             gameSaveManager.LoadAllData();
+            FindObjectOfType<InventoryManager>().HandleItemsQty();
             playerManager.isDead = false;
             animatorManager.PlayTargetAnimation("Wake", true);
             float activeScene = SceneManager.GetActiveScene().buildIndex;
@@ -66,7 +68,7 @@ public class DeadUIManager : MonoBehaviour
             yield return new WaitForSeconds (0.5f);
             this.gameObject.SetActive(false);
         }
-        FindObjectOfType<DialogTriggerManager>().EndDialogue();
+        //FindObjectOfType<DialogTriggerManager>().EndDialogue();
         tutoManager.HiddenUI();
     }
 }

@@ -8,21 +8,31 @@ Kossi Boss
 4 - Supprimer les types de sauvegardes inutiles (save all data)
 
 
-//établir le nouveau système de sauvegarde - nok
-//commencer à travailler sur la menace fantome
-//travailler le dialogue de Teg à 6
-//Reflechir sur les quetes dans la grotte et le meilleur agencement possible -- ok
+-----------------------------------------Grotte Kossi----------------------------------------------------------
 
-bloquer la porte si on a pas la clé
-cacher la clé de la grotte
+- 03 puits ardents qui renferment les pouvoirs du brassard - ok
+    //le 1er puit sera déjà activé mais surveillé par des mob
+    //pour les deux autres, il faudra trouver les boules, une boule par puit
+- 04 coffres qui renferment des objets divers tels que les brassards, des potions de santé et de Lekba // les marmites peuevent être utilisé et les socles de pierre les remplaceront
+- des piliers de grotte pour le leveldesign - ok
+- des inscriptions sur le mur pour expliquer l'existence des feux familiaux - discutable
+- des nids de KossiKaze - ok
+- Prevoir des torches
+- pour recuperer les boules :
+    trouver la clé pour la salle de la boule // il faudra vaincre des mob pour avoir une nouvelle boule
+    allumer les 06 steles pour le souffle de shango
 
-Zone psy (pour le spawn Kossicoloss) - zone avec la pierre
-Travaux sur la clé
+    chaque stele invoquera une horde de mob
+
+- Des mob apparaitront inopinement à des endroits précis.
+- Le combat avec Baffa est possible à tout moment si on veut récupérer le crane de l'homme
+- Baffa sera en pierre assis sur un trone - ok
+- Modeliser le trone de Baffa - ok
+- Ajouter l'esprit du crane dans son coeur - ok
 
 
-ajouter la voix du golem - ok
-corriger le bug de thunderevent - ok
-corriger le bug du tremblement de terre - ok
+Revoir la collision de l'epee de Tolol
 
-156.7635 1.80283 196.0732
--176.819
+Samedi (systeme sphere de verite)
+
+les brassards et King Take sont indépendants. les brassards permettent d'enclencher le mode héros

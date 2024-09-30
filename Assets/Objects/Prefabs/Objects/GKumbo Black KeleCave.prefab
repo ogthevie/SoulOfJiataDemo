@@ -149,19 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vaseContainerData: {fileID: 11400000, guid: e2d2fa0ec8846ee4ea831e5189b2ebf5, type: 2}
   consumableDatas:
-  - {fileID: 11400000, guid: d8efcb13d5572df4db1d3614cc4ceaee, type: 2}
   - {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
-  - {fileID: 11400000, guid: bbc557d1e6fff924fb260319238865ff, type: 2}
-  - {fileID: 11400000, guid: 066052df51730524abd541902ca90788, type: 2}
   - {fileID: 11400000, guid: f7f3137342dd8fd4f8a72eaff0648508, type: 2}
   destroyFx: {fileID: 181442855200897868}
   qtyConsumable: 0
-  qtyMintoumba: 0
   qtySel: 0
-  qtyGesier: 0
-  qtyKalaba: 0
-  qtyColaS: 0
-  qtyColaL: 0
   qtyIkok: 0
 --- !u!1001 &9122725885370508082
 PrefabInstance:

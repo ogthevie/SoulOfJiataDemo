@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         InitializeQuestName();
         InitializeQuestDescription();
         Cursor.visible = false;
+        isControllerConnected = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
         questDescriptons[0] = "Parlez à Baba Nlomgan";
         questDescriptons[1] = "Récoltez des informations sur l'Homme dans la pierre";
         questDescriptons[2] = "Fouillez la grotte des kossi";
-        questDescriptons[3] = "Retrouvez les autres fragments du second brassard";
+        questDescriptons[3] = "Retrouvez les fragments manquants du brassard";
         questDescriptons[4] = "Libérez l'esprit de la roche";
         questDescriptons[6] = "Parlez à l'Homme dans la pierre";
         questDescriptons[7] = "Le début du périple";
@@ -129,11 +130,25 @@ public class GameManager : MonoBehaviour
                 gameSaveManager.LoadTorcheGrotteData();
                 gameSaveManager.SaveAllData();
             }
+            else
+            {
+                player.transform.position = new Vector3 (0, 0, 0);
+                gameSaveManager.playerManager.canArcLight = gameSaveManager.playerManager.canThunder = gameSaveManager.playerManager.haveGauntlet = true;
+                gameSaveManager.playerManager.gauntlet.SetActive(true);
+            }
+                
 
 
         }
 
         yield return new WaitForSeconds(1f);
+
+        GameObject [] monkeyRunes = GameObject.FindGameObjectsWithTag("Reborn");
+        foreach(GameObject monkeyRune in monkeyRunes)
+        {
+            float distance = Vector3.Distance(player.transform.position, monkeyRune.transform.position);
+            if(distance < 5) monkeyRune.transform.GetChild(2).gameObject.SetActive(true);
+        }
 
         loadingScreen.enabled = false;
         isLoading = false;
@@ -150,6 +165,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ZoneEntry("...Grotte des Kossi...", "Bongo"));
         }
+        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            StartCoroutine(ZoneEntry("...Trou blanc...", "Vide cosmique"));
+        }
 
         if(newGame != 1)
         {
@@ -157,7 +176,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartHandleToDo(storyManager.storyStep));
         } 
         player.isInteracting = false;
-        Debug.Log("index est " + newGame);
+        Debug.Log("le type de partie est :" + newGame);
                
     }
 

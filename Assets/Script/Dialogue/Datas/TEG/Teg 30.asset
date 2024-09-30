@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: Teg 30
   m_EditorClassIdentifier: 
-  characterName: TEG
+  characterName: "Anc\xEAtre TEG"
   mainCharacterName: Ruben
   firstConversation:
   - Hm...

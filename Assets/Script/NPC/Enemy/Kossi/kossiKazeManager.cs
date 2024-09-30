@@ -7,6 +7,8 @@ public class kossiKazeManager : EnemyManager
 {
     public kossiKazePattern kossiKazePattern;
     PlayerStats playerStats;
+    
+    [SerializeField] GameObject awakeFx;
     public bool isPreformingAction;
     public readonly float maximumDetectionAngle =  180;
     public readonly float minimumDetectionAngle = -180;
@@ -18,6 +20,7 @@ public class kossiKazeManager : EnemyManager
         cameraManager = FindObjectOfType<CameraManager>();
         kossiKazePattern = GetComponent<kossiKazePattern>();
         playerAttacker = FindObjectOfType<PlayerAttacker>();
+        awakeFx.SetActive(true);
         
         isPreformingAction = true;
         
@@ -60,7 +63,6 @@ public class kossiKazeManager : EnemyManager
                 else if(elt.gameObject.TryGetComponent<TololManager>(out TololManager tololManager)) tololManager.TakeDamage(45);
             }
             
-            LoadConsumable(consumable);
             cameraManager.ClearLockOnTargets();
             Destroy(this.gameObject);
         }

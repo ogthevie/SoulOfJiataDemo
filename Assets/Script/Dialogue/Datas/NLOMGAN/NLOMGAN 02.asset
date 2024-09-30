@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 02
   m_EditorClassIdentifier: 
-  characterName: NLOMGAN
+  characterName: "P\xE8re NLOMGAN"
   mainCharacterName: Ruben
   firstConversation:
   - "Je t\u2019ai d\xE9j\xE0 tout dit, allez\u2026tu d\xE9concentres les grands esprits

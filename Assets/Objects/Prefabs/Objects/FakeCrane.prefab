@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4848,7 +4848,6 @@ GameObject:
   - component: {fileID: 1579942058559341547}
   - component: {fileID: 7696394864495417571}
   - component: {fileID: 4039716333720434262}
-  - component: {fileID: 5893862083733417714}
   - component: {fileID: 1351129577691760685}
   m_Layer: 0
   m_Name: FakeCrane
@@ -4864,7 +4863,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2653355735424890048}
-  m_LocalRotation: {x: 0.628265, y: -0.35110906, z: -0.33869252, w: 0.60604703}
+  m_LocalRotation: {x: 0.6282618, y: -0.35111302, z: -0.3386934, w: 0.6060475}
   m_LocalPosition: {x: 0, y: -0, z: 0.0489}
   m_LocalScale: {x: 0.3269193, y: 0.3269193, z: 0.32691926}
   m_ConstrainProportionsScale: 1
@@ -4872,7 +4871,7 @@ Transform:
   - {fileID: 526564815949987483}
   m_Father: {fileID: 0}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.579, y: -92.421, z: -91.268}
 --- !u!33 &7696394864495417571
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4924,27 +4923,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5893862083733417714
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653355735424890048}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a4c962d1521e4524689f91bed069619b, type: 3}
-  m_Controller: {fileID: 9100000, guid: e82ca8da5f5a1e442896ead740a96262, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &1351129577691760685
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4955,9 +4933,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 83829ff414f47a048b5387e4ab33571c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 61dcce0e9ed71a54fa14ee7794779715, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.481
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5067,7 +5045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3970218012924894193}
   m_LocalRotation: {x: -0.9632187, y: 0.1596758, z: -0.18112439, w: 0.11793016}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.005, z: -0.0002}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5094,7 +5072,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9922,7 +9900,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14768,7 +14746,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

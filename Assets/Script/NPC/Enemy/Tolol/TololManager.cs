@@ -91,7 +91,6 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
             Destroy(epeeTolol);
             Destroy(tololHealthBar);
             tololAudioManager.ReadDead();
-            LoadConsumable(consumable);
         }
         base.HandleDeath();
     }

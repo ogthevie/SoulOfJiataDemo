@@ -31,7 +31,7 @@ public class MagnetSphereManager : MonoBehaviour
     {
         if(!audioSource.enabled)
         {
-            if(this.transform.GetChild(0).gameObject.activeSelf || this.transform.GetChild(1).gameObject.activeSelf)
+            if(this.transform.GetChild(0).gameObject.activeSelf)
                 {
                     audioSource.enabled = true;  
                     msRigibody.isKinematic = false;
@@ -55,10 +55,6 @@ public class MagnetSphereManager : MonoBehaviour
             {
                 playerStats.TakeDamage(flameDamage, 1);
             }
-            else if(other.gameObject.layer == 10)
-            {
-                if(other.collider.TryGetComponent<VaseContainerManager>(out VaseContainerManager component)) component.HandleVaseConatinerProcess();
-            }
             else if(other.collider.gameObject.layer == 12)
             {
                 if(other.collider.TryGetComponent<EnemyManager>(out EnemyManager component))
@@ -73,30 +69,17 @@ public class MagnetSphereManager : MonoBehaviour
             }
             else if(other.gameObject.tag == "Stele")
             {
-                if(this.transform.GetChild(0).gameObject.activeSelf)
-                {
-                    other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[0];
-                    other.gameObject.GetComponent<AudioSource>().Play();
-                }
-
-                else if(this.transform.GetChild(1).gameObject.activeSelf)
-                    other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[1];
-            }        
+                other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[0];
+                other.gameObject.GetComponent<AudioSource>().Play();
+            }   
         }
 
     }
 
     public void HandleDestroyMagnetSphere()
     {
-
-        StartCoroutine (DestroyMagnet());
-
-        IEnumerator DestroyMagnet()
-        {
-            magnetoSourceManager.HandleSpawnMagnetSphere();
-            yield return new WaitForSeconds(0.5f);
-            Destroy(this.gameObject);
-        }
+        magnetoSourceManager.HandleSpawnMagnetSphere();
+        Destroy(this.gameObject);
     }
 
 

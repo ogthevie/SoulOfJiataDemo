@@ -1,6 +1,7 @@
 using UnityEngine;
 using SJ;
 using UnityEngine.AI;
+using System.Collections;
 
 public class KossiPattern : MonoBehaviour
 {
@@ -9,19 +10,19 @@ public class KossiPattern : MonoBehaviour
     public PlayerManager currentTarget, playerManager;
     KossiManager kossiManager;
     public StatesCharacterData statesJiataData;
-    public GameObject bulletPrefab;
+    public GameObject kossiKazePrefab;
     public LayerMask detectionLayer;
     public float distanceFromTarget;
     public NavMeshAgent agentKossi;
     public Rigidbody kossiRigibody;
     GameObject projectile;
-    Transform spawnPoint;
+    [SerializeField] Transform spawnPoint;
     Rigidbody bulletPrefabRigibody;
     [SerializeField] Vector3 decal= new Vector3 (0, 0.5f, 0);
     public float maxDistanceFromTarget;
     public float stoppingDistance;
     float rotationSpeed = 75f;
-    public bool bulletAttack;
+    public bool invokeAttack;
     public float viewableAngle;
 
 
@@ -31,7 +32,6 @@ public class KossiPattern : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         kossiAudioManager = GetComponent<KossiAudioManager>();
         kossiAnimatorManager = GetComponent<KossiAnimatorManager>();
-        spawnPoint = transform.GetChild(0);
         kossiRigibody = GetComponent<Rigidbody>();
         agentKossi = GetComponentInChildren<NavMeshAgent>();
     }
@@ -86,15 +86,15 @@ public class KossiPattern : MonoBehaviour
             if(distanceFromTarget > stoppingDistance)
             {
                 kossiAnimatorManager.anim.SetFloat("run", 1);
-                bulletAttack = true;
+                invokeAttack = true;
             }
             else if(distanceFromTarget <= stoppingDistance)
             {
                 kossiAnimatorManager.anim.SetFloat("run", 0);
-                bulletAttack = true;
+                invokeAttack = true;
             }
 
-            HandleRotateTowardsTarget();
+            if(!kossiManager.isbreak) HandleRotateTowardsTarget();
         }
 
         transform.position = new Vector3(transform.position.x, agentKossi.transform.position.y, transform.position.z);
@@ -122,7 +122,7 @@ public class KossiPattern : MonoBehaviour
             kossiAnimatorManager.anim.SetFloat("run", 0);
             kossiManager.isPreformingAction = true;
             agentKossi.enabled = false;
-            bulletAttack = false;
+            invokeAttack = false;
         }
         else
         {
@@ -134,22 +134,11 @@ public class KossiPattern : MonoBehaviour
         }
     }
 
-    private void HandleBulletAttack()
+    private void HandleInvokeAttack()
     {
-        if(projectile == null)
-        {
-            projectile = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
-
-            if(currentTarget != null) 
-            {
-                Vector3 direction = ((currentTarget.transform.position + decal) - spawnPoint.position).normalized; // A corriger
-                
-                bulletPrefabRigibody = projectile.GetComponent<Rigidbody>();
-                bulletPrefabRigibody.AddForce(direction * 100f, ForceMode.Impulse);
-            }
-        }
-        
-        if(projectile != null) Destroy(projectile, 2.5f);
+        kossiAudioManager.InvokeKossiKaze();
+        GameObject kami = Instantiate(kossiKazePrefab, spawnPoint.position, Quaternion.identity);
+        kami.transform.parent = null;
     }
 
 }

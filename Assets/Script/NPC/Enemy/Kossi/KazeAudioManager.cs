@@ -9,7 +9,7 @@ public class KazeAudioManager : MonoBehaviour
 
     void Start()
     {
-        enemyAudioSource = GetComponentInParent<AudioSource>();
+        enemyAudioSource = FindObjectOfType<PlayerUIManager>().GetComponent<AudioSource>();
     }   
     
     public void ReadDead()

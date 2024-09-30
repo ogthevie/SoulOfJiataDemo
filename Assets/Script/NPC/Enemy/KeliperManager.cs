@@ -75,7 +75,6 @@ public class KeliperManager : EnemyManager
     {
         if(isDead) 
         {
-            LoadConsumable(consumable);
             keliperPattern.bulletAttack = false;
             Destroy(keliperHealthBar);
         }

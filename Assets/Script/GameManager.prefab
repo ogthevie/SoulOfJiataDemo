@@ -35,7 +35,7 @@ Transform:
   - {fileID: 4988143695531684734}
   - {fileID: 8109915462653579272}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3507536891822074531
 MonoBehaviour:
@@ -51,12 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   playerStats: {fileID: 0}
-  arcLightEventManager: {fileID: 0}
-  baseDoor: {fileID: 0}
-  midDoor: {fileID: 0}
-  supDoor: {fileID: 0}
-  baseDoorPosition: {fileID: 0}
-  midDoorPosition: {fileID: 0}
+  thunderEventManager: {fileID: 0}
+  saveUi: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: a6bd976158eb75648bbe421d9a85d0d0, type: 2}
   isloaded: 0
 --- !u!114 &4296369031341990341
 MonoBehaviour:
@@ -83,7 +80,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689eb0670ecc8b54898c110a082eb1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyStep: 0
+  storyTitles:
+  - Le chant du vieux coq
+  - Le sommeil de la roche
+  - Le temple de BONGO
+  - Le second brassard
+  - L'esprit de la roche
+  - 
+  - L'eveil de l'HOMME
+  - Cap sur WONDO
+  storyBriefings:
+  - "Homm croise notre h\xE9ros. Il lui annonce que son p\xE8re, Nlomgan veut lui
+    parler. Intrigu\xE9, notre h\xE9ros doit se rendre au c\xF4t\xE9 de l\u2019ancien,
+    Nlomgan, o\xF9 l'atmosph\xE8re est lourde de r\xE9v\xE9lations.\r\r"
+  - "Ruben va \xE0 la rencontre du vieux Nlomgan, l'esprit troubl\xE9 par sa faible
+    ma\xEEtrise de la magie. l'ancien lui r\xE9v\xE8le que son brassard est un r\xE9ceptacle
+    de magie : il contient une partie de la force de son p\xE8re, dispers\xE9e dans
+    un second brassard qui est maintenant perdu. Pour lib\xE9rer son plein potentiel,
+    il doit retrouver le second brassard et pour \xE7a, il a besoin de l'aide de
+    l'HOMME DANS LA PIERRE.\r\r"
+  - "Isamal r\xE9v\xE8le \xE0 Ruben que l'HOMME DANS LA PIERRE est endormi depuis
+    des ann\xE9es et pour le r\xE9veiller, il faut r\xE9cup\xE9rer son esprit qui
+    se trouve dans le temple de BONGO."
+  - "Ruben a trouv\xE9 le second brassard. TEG l'a mis en garde sur le fait de faire
+    ce pourquoi il est entr\xE9 dans la grotte : Retrouver l'esprit de l'HOMME DANS
+    LA PIERRE.\r"
+  - "Ruben a d\xE9couvert une \xE9trange salle dans le temple de BONGO. Peut-\xEAtre
+    l'esprit de l'homme s'y trouve... Qui sait ?"
+  - 
+  - "Apr\xE8s une lutte titanesque, Ruben finit par terrasser le Kao BAFFA. L'esprit
+    de l'HOMME DANS LA PIERRE est lib\xE9r\xE9."
+  - "Des entrailles de la terre, un g\xE9ant s'\xE9veille ! Par la bravoure d'un
+    jeune h\xE9ros, le colosse, autrefois inerte, rugit \xE0 nouveau de vie. En guise
+    de gratitude, il offre \xE0 son sauveur un cadeau inestimable : un chemin reconstruit,
+    taill\xE9 \xE0 m\xEAme la roche, menant hors des confins de Sibongo.\r\r"
+  storyTitle: {fileID: 0}
+  storyBrief: {fileID: 0}
+  storyStep: -1
 --- !u!114 &7178145121342473730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +137,26 @@ MonoBehaviour:
   loadingScreen: {fileID: 5489805008033019380}
   needGamepad: {fileID: 6408587373051157475}
   loadSlider: {fileID: 4813080596461175697}
+  isControllerConnected: 0
+  isLoading: 0
+  canNotif: 0
+  zoneName: {fileID: 0}
+  questNotif: {fileID: 0}
+  completeNotif: {fileID: 0}
+  buttonIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  keyBoardIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &381589350124972919
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,16 +301,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Connectez une manette
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f18c313d0b478ef49867dfeeeba85c2a, type: 2}
-  m_sharedMaterial: {fileID: -8138829442592705686, guid: f18c313d0b478ef49867dfeeeba85c2a,
+  m_fontAsset: {fileID: 11400000, guid: 46a4bc211abd8ff45aed71bac4a3f525, type: 2}
+  m_sharedMaterial: {fileID: 3705329609634245954, guid: 46a4bc211abd8ff45aed71bac4a3f525,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278244351
-  m_fontColor: {r: 1, g: 0.8275918, b: 0, a: 1}
+    rgba: 4286759141
+  m_fontColor: {r: 0.8962264, g: 0.7531558, b: 0.51152545, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -932,7 +985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8109915462653579272
 RectTransform:
   m_ObjectHideFlags: 0

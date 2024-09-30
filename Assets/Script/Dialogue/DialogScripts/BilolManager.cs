@@ -7,7 +7,7 @@ public class BilolManager : CharacterManager
     {
         base.OnEnable();
         DayJob(characterpositions[dayPeriod], characterRotation[dayPeriod]);
-        Debug.Log(dayPeriod);
+        //Debug.Log(dayPeriod);
     }
 
 }

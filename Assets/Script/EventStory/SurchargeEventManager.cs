@@ -7,31 +7,19 @@ public class SurchargeEventManager : EventStoryTriggerManager
     void Start()
     {
         bomboktanManager = FindObjectOfType<BomboktanManager>();
-
-        if(playerManager.haveGauntlet)
-        {
-            Destroy(this.transform.GetChild(0).gameObject);
-            Destroy(this);
-        }
     }
     
     protected override void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 3 && !playerManager.haveGauntlet)
+        if(other.gameObject.layer == 3 && !playerManager.canSurcharge)
         {
             animatorManager.PlayTargetAnimation("PowerUp", true);
-            playerManager.haveGauntlet = true;
-            playerManager.HandleSurchargeBrassard();
-            
-            StartCoroutine(gameManager.StartHandleAchievement("--Le second brassard--"));
-            
-            storyManager.storyStep = 3;
+            playerManager.canSurcharge = true;
+            StartCoroutine(gameManager.StartHandleAchievement("LA POIGNE DU SOUVERAIN"));
             bomboktanManager.Spawn(0);
-            
+            GetComponent<ParticleSystem>().Stop();
             Invoke("Save", 3f);
-
-            Destroy(this.transform.GetChild(0).gameObject, 4);
-            Destroy(this, 30f);
+            Destroy(this.gameObject, 5f);
         }
     }
 

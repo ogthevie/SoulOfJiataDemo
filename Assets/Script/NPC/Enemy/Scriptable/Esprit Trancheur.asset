@@ -15,5 +15,5 @@ MonoBehaviour:
   mobName: Tolol
   mobHealth: 90
   mobPrefab: {fileID: 0}
-  mobFAtt: 12
-  mobSAtt: 20
+  mobFAtt: 8
+  mobSAtt: 15

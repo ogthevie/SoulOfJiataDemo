@@ -37,24 +37,24 @@ namespace SJ
         {
             if(playerManager.onOption) return;
 
-            if(inputManager.up_input) 
+            if(inputManager.left_input) 
             {
-                if(playerStats.currentHealth == playerStats.maxHealth || inventory.ikokQty < 1) audioManager.ImpossibleChoiceFx();
+                if(playerStats.currentHealth == playerStats.maxHealth || inventory.selQty < 1) audioManager.ImpossibleChoiceFx();
                 else
                 {
-                    playerStats.AddHealth(ikokData.HealthPoint);
-                    inventory.ikokQty -= 1;
+                    playerStats.AddHealth(selData.HealthPoint);
+                    inventory.selQty -= 1;
                     HandleItemsQty();
                 }
 
             }
-            else if(inputManager.down_input)
+            else if(inputManager.right_input)
             {
-                if(playerStats.currentStamina == playerStats.maxStamina || inventory.selQty < 1) audioManager.ImpossibleChoiceFx();
+                if(playerStats.currentStamina == playerStats.maxStamina || inventory.ikokQty < 1) audioManager.ImpossibleChoiceFx();
                 else
                 {
-                    playerStats.AddStamina(selData.StaminaPoint);
-                    inventory.selQty -= 1;
+                    playerStats.AddStamina(ikokData.StaminaPoint);
+                    inventory.ikokQty -= 1;
                     HandleItemsQty(); 
                 }
                

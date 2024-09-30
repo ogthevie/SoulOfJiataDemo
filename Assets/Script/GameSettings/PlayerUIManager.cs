@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerUIManager : MonoBehaviour
 {
 
-    public GameObject playerStatsUi, padUI, interactionUI;
+    public GameObject playerStatsUi, padUI, sorceryUI, interactionUI;
 
     void Awake()
     {
@@ -30,14 +30,16 @@ public class PlayerUIManager : MonoBehaviour
 
     public void HiddenUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-400, 0.4f, false);
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-800f, 0.4f, false);
         padUI.GetComponent<RectTransform>().DOAnchorPosX(250f, 0.4f, false);
+        sorceryUI.GetComponent<RectTransform>().DOAnchorPosX(-200, 0.4f, false);
     }
 
     public void ShowUI()
     {
-        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(480, 0.4f, false);
-        padUI.GetComponent<RectTransform>().DOAnchorPosX(-145, 0.4f, false);
+        playerStatsUi.GetComponent<RectTransform>().DOAnchorPosX(-1f, 0.4f, false);
+        padUI.GetComponent<RectTransform>().DOAnchorPosX(-100f, 0.4f, false);
+        sorceryUI.GetComponent<RectTransform>().DOAnchorPosX(200, 0.4f, false);
     }
 
     public void ShowInteractionUI(string action)

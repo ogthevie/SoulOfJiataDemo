@@ -7,7 +7,7 @@ namespace SJ
         public HealthBar healthBar;
         public int healthLevel = 1;
         public int staminaLevel = 10;
-        public float enduranceLevel = 1; 
+        public float enduranceLevel = 10; 
         public int maxHealth;
         public int currentHealth;
         public int maxStamina;

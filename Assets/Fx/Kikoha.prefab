@@ -1308,9 +1308,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.25, b: 0, a: 1}
-        key1: {r: 1, g: 0.63991976, b: 0, a: 1}
-        key2: {r: 1, g: 0.16666667, b: 0, a: 0.078431375}
+        key0: {r: 0, g: 1, b: 0.31783962, a: 1}
+        key1: {r: 0, g: 1, b: 0.3032241, a: 1}
+        key2: {r: 0, g: 1, b: 0.39399385, a: 0.078431375}
         key3: {r: 1, g: 0.16666667, b: 0, a: 0.078431375}
         key4: {r: 0, g: 0, b: 0, a: 1}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -10982,9 +10982,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.25, b: 0, a: 1}
-        key1: {r: 1, g: 0.6666667, b: 0, a: 0.078431375}
-        key2: {r: 1, g: 0.16666667, b: 0, a: 1}
+        key0: {r: 0, g: 1, b: 0.3275032, a: 1}
+        key1: {r: 0, g: 1, b: 0.41809154, a: 0.078431375}
+        key2: {r: 0, g: 1, b: 0.30826735, a: 1}
         key3: {r: 1, g: 0.16666667, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 1}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -11007,7 +11007,7 @@ ParticleSystem:
         atime6: 38681
         atime7: 39377
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
@@ -15819,9 +15819,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.5329268, b: 0, a: 1}
-        key1: {r: 1, g: 0.42769682, b: 0, a: 1}
-        key2: {r: 1, g: 0.16666667, b: 0, a: 0.078431375}
+        key0: {r: 0, g: 1, b: 0.266294, a: 1}
+        key1: {r: 0, g: 1, b: 0.16084719, a: 1}
+        key2: {r: 0, g: 1, b: 0.23403311, a: 0.078431375}
         key3: {r: 1, g: 0.16666667, b: 0, a: 0.078431375}
         key4: {r: 0, g: 0, b: 0, a: 1}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -19392,9 +19392,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8584906, g: 0.58251166, b: 0.19032574, a: 1}
-  m_Intensity: 10
-  m_Range: 5
+  m_Color: {r: 0.19215685, g: 0.85882354, b: 0.46917525, a: 1}
+  m_Intensity: 5
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -19432,7 +19432,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -19481,7 +19481,7 @@ GameObject:
   - component: {fileID: 8447580504325819706}
   - component: {fileID: 8985957618840116812}
   - component: {fileID: 458524606077057865}
-  - component: {fileID: 8636221301148667884}
+  - component: {fileID: -6665023141088309168}
   m_Layer: 13
   m_Name: Kikoha
   m_TagString: Untagged
@@ -24435,7 +24435,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 1
@@ -24459,7 +24459,10 @@ MonoBehaviour:
     type: 3}
   wishShoke: {fileID: 5634767591545691478, guid: 4fe3d627a7a52dc43a1d4348faea0f04,
     type: 3}
---- !u!54 &8636221301148667884
+  playerAttacker: {fileID: 0}
+  kikohaImpactSFX: {fileID: 8300000, guid: 014229db9eb345840a1fc45302fafc80, type: 3}
+  kikohaAudioSource: {fileID: 0}
+--- !u!54 &-6665023141088309168
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24467,7 +24470,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6820550086284806227}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -24481,7 +24484,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

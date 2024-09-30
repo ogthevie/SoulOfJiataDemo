@@ -20,8 +20,6 @@ public class EnemySpawnManager : MonoBehaviour
     {
         GameObject visuals = Instantiate(enemyManagers.gameObject);
         visuals.transform.SetParent(transform);
-        visuals.transform.localPosition = Vector3.zero;
-        visuals.transform.rotation = transform.rotation;
         Debug.Log("New kossikaze");
     }
 
