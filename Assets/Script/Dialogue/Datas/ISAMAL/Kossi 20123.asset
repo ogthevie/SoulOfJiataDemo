@@ -13,44 +13,17 @@ MonoBehaviour:
   m_Name: Kossi 20123
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
-  - "Dare na fushi, kwanakin tsoro. Kalmominmu suna haskaka zukata Idan komai ya
-    \u0253ace a yakin haske ege yana haskakawa a cikin taurari."
-  - "Qu\u2019est-ce que tu murmures chaque jour assis pr\xE8s de cette porte"
-  - "Tu vois cette barri\xE8re \xE9meraude...le village m'a confi\xE9 la lourde t\xE2che
-    de la stabiliser."
-  - "Et \xE7a fonctionne vraiment ?"
-  - "Oui, les n\xE9crose du pouvoir central se trouve tout juste de l'autre c\xF4t\xE9.
-    Si cette barri\xE8re se rompt, nous serons rapidement envahis."
-  - Mince... Et pourquoi ils t'ont choisi ?
-  - "l'HOMME DANS LA PIERRE repoussait la corruption mais pour une raison inconnue,
-    il s'est \xE9teint et la corruption a commenc\xE9 a rapidement gagn\xE9 du terrain."
-  - "Donc le village \xE9tait plus grand que \xE7a."
-  - "Bien plus. Nous avons perdu beaucoup d'entre nous, d'autres ont choisi d'aller
-    vivre ailleurs. Ceux pr\xE9sents ici ne veulent pas laisser la terre donn\xE9e
-    par leurs anc\xEAtres."
-  - "Et comment avez-vous fait pour stopper les n\xE9croses ?"
-  - "Baba Nlomgan, a ressembl\xE9 toutes les bribes de Lekba qui lui reste. Avec,
-    il a donn\xE9 un ordre qui a litt\xE9ralement mat\xE9rialiser cette \xE9nergie
-    mystique en ce mur \xE9meraude qui ralentit les n\xE9croses."
-  - "rien que \xE7a"
-  - "Le vieux \xE9tait tr\xE8s fort. C'est l'\xE2ge qui lui fait d\xE9faut \xE0 pr\xE9sent.
-    Il m'a donc enseign\xE9 cette parole qui permet de stabiliser cette barri\xE8re."
-  - "\xE7a risque te prendre toute la vie."
-  - "Ne t'inqui\xE8te pas pour \xE7a. Mon grand fr\xE8re Iaa est parti raviver le
-    coeur de l'HOMME DANS LA PIERRE."
-  - "Commet a t'il pu sortir du village avec les n\xE9croses ?"
-  - "Le coeur de l'HOMME se trouve dans la grotte des Kossi. Ellle se trouve \xE0
-    l'int\xE9rieur de la colline dans laquelle l'HOMME est sculpt\xE9. "
-  - "Cette colline devant nous ? Baba Nlomgan m'a dit que c'est l\xE0-bas que je
-    trouverai l'h\xE9ritage de mon p\xE8re."
-  - "Oui c'est possible. C'est le domaine spirituel de notre village. il n'est pas
-    rare d'y croiser les esprits des anc\xEAtres."
-  - "Baba Nlomgan m'a dit que c'\xE9tait toi qui avais les cl\xE9s. Je veux y entrer."
-  - "Je peux t'y faire entrer mais je n'ai pas la cl\xE9 de sortie. Donc tu risques
-    de rester bloquer \xE0 l'int\xE9rieur. Sauf si mon fr\xE8re rallume le coeur
-    de l'HOMME entre temps."
-  - "Ce n'est pas grave. Qui sait, peut-\xEAtre je croiserais ton fr\xE8re et on
-    r\xE9veillera ce gros rocher pour sortir de l\xE0."
-  - "Tr\xE8s bien, c'est comme tu voudras."
+  - Mon vieux m'a dit que tu voulais te rendre dans la grotte des Kossi
+  - "Je dois te demander une faveur. As-tu remarqu\xE9 l'immense g\xE9ant au pied
+    de la colline ? Il est devenu inerte, sans vie, et nous ne comprenons pas pourquoi."
+  - Selon Mbuu, son essence est retenue dans la grotte. Mais par quelle force, nous
+    ne le savons pas.
+  - "Une fois entr\xE9, essaie de d\xE9couvrir la v\xE9rit\xE9. Si nous ne r\xE9agissons
+    pas vite, les n\xE9croses se propageront, et nous devrons abandonner nos terres."
+  - "Sous cette apparence, je ne peux pas y acc\xE9der, et les autres habitants du
+    village sont soit inexp\xE9riment\xE9, soit trop vieux."
+  - "Cherche la rune circulaire pr\xE8s des statues du Mpodol. Mbuu t'y attend."
+  - "Il t'aidera \xE0 p\xE9n\xE9trer dans la grotte des Kossi."
+  - "Mais une fois l\xE0-bas tu devras te d\xE9brouiller pour sortir."

@@ -26,7 +26,7 @@ public class KeliperPattern : MonoBehaviour
     void Awake()
     {
         keliperManager = GetComponent<KeliperManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         keliperAnimatorManager = GetComponent<KeliperAnimatorManager>();
         keliperRigibody = GetComponent<Rigidbody>();
         agentKeliper = GetComponentInChildren<NavMeshAgent>();

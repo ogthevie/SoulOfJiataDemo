@@ -17,10 +17,11 @@ public class ItemManager : MonoBehaviour
 
     void Awake()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         playerStats = playerManager.GetComponent<PlayerStats>();
-        notificationManager = FindObjectOfType<NotificationManager>();
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        notificationManager = FindFirstObjectByType<NotificationManager>();
+        inventoryManager = FindFirstObjectByType<InventoryManager>();
+        audioManager = playerStats.GetComponent<AudioManager>();
     }
 
     private void Start()
@@ -30,64 +31,33 @@ public class ItemManager : MonoBehaviour
 
     private void HandleItemsByplayer()
     {
-        //Debug.DrawRay(transform.position, Vector3.up * 3f, Color.red, 1f);
-        if(Physics.SphereCast(transform.position, 1f, Vector3.up, out hit, 8f))
+        if(consumableData.consumableName == "Ikok" && inventory.ikokQty < 5)
         {
-            if(hit.collider.gameObject.layer == 3 )
-            {
-                if(consumableData.consumableName != "Ikok" && consumableData.consumableName != "Sel de lempoy")
-                {
-                    if(consumableData.consumableName == "Mangue") k = 3;
-                    else if(consumableData.consumableName == "Prune") k = 4;
-                    else if(consumableData.consumableName == "Nkomo") k = 5;
-                    else if(consumableData.consumableName == "Kola du lion") k = 6;
-                    else if(consumableData.consumableName == "Kola du singe") k = 7;
-                    else if(consumableData.consumableName == "Mintoumba") k = 8;
-
-                    playerStats.AddHealth(notificationManager.consumableDatas[k].HealthPoint);
-                    playerStats.AddStamina(notificationManager.consumableDatas[k].StaminaPoint);
-                }
-                else
-                {
-                    if(consumableData.consumableName == "Ikok" && inventory.ikokQty < 10)
-                    {
-                        k = 1;
-                        inventory.ikokQty += 1;
-                        
-                    }
-                    else if(consumableData.consumableName == "Sel de lempoy" && inventory.selQty < 10)
-                    {
-                        k = 2;
-                        inventory.selQty += 1;
-                    }
-
-                    audioManager.PickConsomable();
-                    inventoryManager.HandleItemsQty();
-                }
-                
-                playerManager.onTutoScreen = true;
-                Destroy(gameObject);               
-            }
+            k = 1;
+            inventory.ikokQty += 1;
+            
         }
+        else if(consumableData.consumableName == "Sel de lempoy" && inventory.selQty < 5)
+        {
+            k = 2;
+            inventory.selQty += 1;
+        }
+
+        audioManager.PickConsomable();
+        inventoryManager.HandleItemsQty();
+        
+        playerManager.onTutoScreen = true;
+        Destroy(gameObject);               
     }
 
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other) 
     {
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
-
-        if(consumableData.consumableName == "Nkomo" || consumableData.consumableName == "Mangue" || consumableData.consumableName == "Prune")
+        if(other.gameObject.layer == 3)
         {
-            if(other.gameObject.layer == 9)
-            {
-                audioManager.ImpactconsumableFx();    
-            }
+            HandleItemsByplayer();
+            notificationManager.StartTuto(k); 
         }
-    }
-
-    void OnCollisionStay(Collision other)
-    {
-        HandleItemsByplayer();
-        notificationManager.StartTuto(k);   
+ 
     }
 
 }

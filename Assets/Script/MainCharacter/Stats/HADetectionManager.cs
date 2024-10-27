@@ -10,7 +10,7 @@ namespace SJ
 
         void Awake()
         {
-            playerAttacker = FindObjectOfType<PlayerAttacker>();
+            playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         }
         // Start is called before the first frame update
         void OnTriggerEnter(Collider other)
@@ -58,7 +58,7 @@ namespace SJ
                         keliperManager.TakeDamage(playerAttacker.statesJiataData.d_HighAttack);
                         if(keliperManager.keliperPattern.currentTarget == null) 
                         {
-                            keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                            keliperManager.keliperPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                             keliperManager.isPreformingAction = false;
                         }
                     }

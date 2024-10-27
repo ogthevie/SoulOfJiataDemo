@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Iron MetalBrut
-  m_Shader: {fileID: -6465566751694194690, guid: 5306af5a2eeb4df4e9fadaba4f79b29f,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
   m_Parent: {fileID: 2100000, guid: 028582475f87f1e4184faeabddd6267d, type: 2}
   m_ModifiedSerializedProperties: 24
   m_ValidKeywords: []
@@ -26,7 +25,8 @@ Material:
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -58,6 +58,10 @@ Material:
     - _DiffuseStep: -0.19
     - _DstBlend: 0
     - _Glossiness: 0.5
+    - _OutlineWidth: 0.001
+    - _RimStep: 1
+    - _RimStepSmooth: 0.833
+    - _ShadowStepSmooth: 0
     - _Smoothness: 0.264
     - _SpecShadowStrength: 1
     - _SpecularHighlights: 1
@@ -69,8 +73,11 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.28996083, g: 0.32569468, b: 0.33962262, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0.054901965, g: 0.08235294, b: 0.09411766, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &1445307717495673130
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -83,4 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9

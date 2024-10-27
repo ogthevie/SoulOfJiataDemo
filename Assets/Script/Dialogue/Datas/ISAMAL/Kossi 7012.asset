@@ -13,16 +13,9 @@ MonoBehaviour:
   m_Name: Kossi 7012
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
   - "On dirait que tu as r\xE9ussi Ruben !"
-  - "l'Homme dans la pierre est vraiment surprenant, comment a t'il pu faire \xE7a
-    ?"
-  - "Sa r\xE9activation a provoqu\xE9 un \xE9norme tremblement de terre, puis les
-    blocs de l'ancien pont on refait surface de l'eau et se sont soud\xE9s les uns
-    et aux autres pour former ce nouveau pont."
-  - Fascinant...
-  - "Ah \xE7a... C'est ici que va commencer notre voyage."
-  - Oui, je suis devenu suffisamment fort pour braver n'importe quelle menace qu'on
-    croisera sur notre chemin
-  - Bien, allons-y !
+  - "J'\xE9tais \xE0 c\xF4t\xE9 du portali qui m\xE8ne \xE0 la for\xEAt quand le
+    tremblement s'est fait ressentir. Je dois dire que tu m'\xE9pates"
+  - "Nous pouvons d\xE8s \xE0 pr\xE9sent d\xE9buter notre p\xE9riple"

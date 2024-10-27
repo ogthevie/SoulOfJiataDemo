@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BomboktanManager : CharacterManager
 {
-    GameObject thunderBomboktan;
+    [SerializeField] GameObject spawnFx, auraGround;
     SkinnedMeshRenderer bombSkinnedMeshRenderer;
-    GameObject bExplosionFx, auraGround;
     //Faire pop up le bomboktan à des zones précises, à des moments précis.
             /// evenement surcharge
             /// evenement sommeil
@@ -20,12 +19,9 @@ public class BomboktanManager : CharacterManager
     {
         bombSkinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         characterAnim = GetComponent<Animator>();
-        playerManager = FindObjectOfType<PlayerManager>();
-        storyManager = FindObjectOfType<StoryManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
         characterAudioSource = GetComponent<AudioSource>();
-        thunderBomboktan = transform.GetChild(2).gameObject;
-        bExplosionFx = transform.GetChild(4).gameObject;
-        auraGround = transform.GetChild(3).gameObject;
     }
 
     protected override void OnEnable()
@@ -35,40 +31,17 @@ public class BomboktanManager : CharacterManager
         DayJob(characterpositions[id], characterRotation[id]);
     }
 
-
-    public void Spawn(int idStoryB)
+    public IEnumerator SpawnBomboktan(int id)
     {
-        StartCoroutine(SpawnBomboktan(idStoryB));
-    }
-
-    IEnumerator SpawnBomboktan(int id)
-    {
-        yield return new WaitForSeconds(6f);
-        thunderBomboktan.SetActive(true);
+        GetComponent<BomboktanTriggerManager>().idDialog = id;
+        yield return new WaitForSeconds(3f);
+        spawnFx.SetActive(true);
         characterAudioSource.Play();
         yield return new WaitForSeconds(0.2f);
         DayJob(characterpositions[id], characterRotation[id]);
         bombSkinnedMeshRenderer.enabled = true;
         yield return new WaitForSeconds(1.5f);
-        thunderBomboktan.SetActive(false);
+        spawnFx.SetActive(false);
 
     }
-
-    public void DisappearBomboktan()
-    {
-        StartCoroutine(DisableBomboktan());
-    }
-
-    IEnumerator DisableBomboktan()
-    {
-        bExplosionFx.SetActive(true);
-        yield return new WaitForSeconds (0.1f);
-        bombSkinnedMeshRenderer.enabled = false;
-        auraGround.SetActive(false);
-        GetComponent<BoxCollider>().enabled = false;
-        yield return new WaitForSeconds (4.8f);
-        this.transform.position = new Vector3 (0, -100, 0f);
-    }
-
-
 }

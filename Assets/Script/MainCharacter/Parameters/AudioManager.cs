@@ -22,7 +22,7 @@ namespace SJ
             playerAttacker = GetComponent<PlayerAttacker>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             jiataAudioSource = GetComponent<AudioSource>();
-            cameraAudioSource = FindObjectOfType<CameraManager>().transform.GetChild(0).GetChild(0).GetComponent<AudioSource>();
+            cameraAudioSource = FindFirstObjectByType<CameraManager>().transform.GetChild(0).GetChild(0).GetComponent<AudioSource>();
             interactionAudioSource = transform.GetChild(22).GetComponent<AudioSource>();
             playerManager = GetComponent<PlayerManager>();
         }

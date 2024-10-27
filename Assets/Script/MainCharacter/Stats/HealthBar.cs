@@ -17,8 +17,8 @@ namespace SJ
         void Awake()
         {
             slider = GetComponent<Slider>();
-            //globalVolume = FindObjectOfType<Volume>();
-            globalVolume = FindObjectOfType<GlobalVolumeManager>().GetComponent<Volume>();
+            //globalVolume = FindFirstObjectByType<Volume>();
+            globalVolume = FindFirstObjectByType<GlobalVolumeManager>().GetComponent<Volume>();
         }
 
         private void Start()

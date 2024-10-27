@@ -15,7 +15,6 @@ public class CharacterDialogManager : MonoBehaviour
     public TextMeshProUGUI actorName;
     public TextMeshProUGUI actorSentence;
     protected PlayerUIManager playerUIManager;
-    protected TutoManager tutoManager;
     protected Camera mainCamera;
     protected int i = 0;
     
@@ -23,15 +22,14 @@ public class CharacterDialogManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         storyManager = gameManager.GetComponent<StoryManager>();
-        inputManager = FindObjectOfType<InputManager>();
-        animatorManager = FindObjectOfType<AnimatorManager>();
-        playerUIManager = FindObjectOfType<PlayerUIManager>();
+        inputManager = FindFirstObjectByType<InputManager>();
+        animatorManager = FindFirstObjectByType<AnimatorManager>();
+        playerUIManager = FindFirstObjectByType<PlayerUIManager>();
         dialogTriggerManager = GetComponent<DialogTriggerManager>();
         characterAnimator = GetComponent<Animator>();
-        tutoManager = playerUIManager.GetComponentInChildren<TutoManager>();
-        mainCamera = FindObjectOfType<Camera>();
+        mainCamera = FindFirstObjectByType<Camera>();
     }
 
 
@@ -60,8 +58,8 @@ public class CharacterDialogManager : MonoBehaviour
 
         if(i < characterDialogData[k].firstConversation.Count)
         {
-            if(i % 2 == 0) actorName.text = characterDialogData[k].characterName;
-            else actorName.text = characterDialogData[k].mainCharacterName;
+            /*if(i % 2 == 0)*/ actorName.text = characterDialogData[k].characterName;
+            //else actorName.text = characterDialogData[k].mainCharacterName;
 
             actorSentence.text = characterDialogData[k].firstConversation[i];
             nextFirstDialogue(k, characterDialogData);
@@ -76,11 +74,6 @@ public class CharacterDialogManager : MonoBehaviour
         animatorManager.animationState = true;
         characterAnimator.SetBool("animState", false);
         playerUIManager.ShowUI();
-        if(!tutoManager.dialogTuto)
-        {
-            StartCoroutine(tutoManager.HandleToggleTipsUI("Discutez avec les autres, vous serez surpris de ce qu'ils savent"));
-            tutoManager.dialogTuto = true;
-        }
         playerUIManager.HiddenInteractionUI();
         mainCamera.DOFieldOfView(35, 0.5f);
     }
@@ -99,7 +92,7 @@ public class CharacterDialogManager : MonoBehaviour
                 //Debug.Log("le dialogue est long de" +characterDialogData[k].firstConversation.Count);
                 i = 0;
                 CloseDialogue();
-                FindObjectOfType<GameManager>().GlobalFixedCursorPosition();
+                FindFirstObjectByType<GameManager>().GlobalFixedCursorPosition();
             }
         }
     }

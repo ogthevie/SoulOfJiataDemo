@@ -13,35 +13,13 @@ MonoBehaviour:
   m_Name: Kossi 03
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
-  - "Pourquoi tu me regardes comme \xE7a ?"
-  - "Est-ce que tu sais que j'ignore pourquoi tu ressembles \xE0 \xE7a ?"
-  - "\xE0 quoi ?"
-  - un grand  Kossi
-  - "Ah ! tu veux parler de \xE7a... C'est juste une mal\xE9diction que mon p\xE8re
-    a port\xE9 dans sa jeunesse. Pour faire court tous ses gar\xE7ons, atteignant
-    un certain \xE2ge, mutent en Kossi"
-  - "Mais Homm n'a pas du tout chang\xE9."
-  - "Parce qu'il n'a pas encore l'\xE2ge. C'est apr\xE8s 18 ann\xE9es que \xE7a commence."
-  - "C'est \xE0 vie ?"
-  - "Non, regarde mon p\xE8re, Baba Nlomgan, il est redevenu humain alors que je
-    n'\xE9tais m\xEAme pas encore n\xE9. D'apr\xE8s ses dires, C'est une vieille
-    femme de l'est qui \xE9tait amoureuse de lui qui est \xE0 l'origine de ce sort."
-  - Que lui a-t-il fait ?
-  - "Baba Nlomgan dans sa jeunesse a fait un enfant \xE0 cette femme et il n'\xE9tait
-    pas pr\xEAt pour rencontrer les parents de la fille. Et donc ces derniers sont
-    all\xE9s voir un f\xE9ticheur qui a impos\xE9 cette mal\xE9diction sur le sang
-    de mon p\xE8re."
-  - "Et comment ton p\xE8re a fait pour renverser le mal\xE9fice ?"
-  - "Oooh la r\xE8gle est assez simple, il suffit juste d'aller voir la famille de
-    la femme en question et de leur pr\xE9senter de plates excuses."
-  - "Mais ton p\xE8re l'a d\xE9j\xE0 fait, pourquoi \xE7a continue de faire effet
-    ?"
-  - "Dans ce genre de mal\xE9diction, chacun porte sa croix. Chaque descendant devra
-    se rendre chez eux et leur pr\xE9senter des excuses s'ils souhaitent redevenir
-    humains."
-  - "Jusqu'\xE0 quand ?"
-  - Je n'en sais trop rien.
-  - Il doit bien y avoir une solution.
-  - Probablement.
+  - "Tu te demandes s\xFBrement pourquoi je ressemble \xE0 un gros lapin maintenant"
+  - "Et bien je vais te dire... mon p\xE8re dans sa jeunesse a donn\xE9 un enfant
+    \xE0 une fille de l'est mais parce qu'il \xE9tait jeune, il avait fui"
+  - "Les parents de la fille pour se venger ont maudit mon p\xE8re. Du coup, tout
+    mes fr\xE8res et soeurs pendant les premi\xE8res ann\xE9es de leur mnaturit\xE9
+    prennent l'apparence d'un Kossi"
+  - "Mon p\xE8re, le vieux Nlomgan a essay\xE9 de conjurer le mauvais sort plusieurs
+    fois mais rien. les parents de cette fille ne veulent rien comprendre."

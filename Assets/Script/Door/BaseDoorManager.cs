@@ -11,7 +11,7 @@ public class BaseDoorManager : MonoBehaviour
 
     void Awake()
     {
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
     }
 
     void Start()
@@ -26,7 +26,7 @@ public class BaseDoorManager : MonoBehaviour
         }
         else
         {
-            player = FindObjectOfType<PlayerManager>().gameObject;
+            player = FindFirstObjectByType<PlayerManager>().gameObject;
             anim = GetComponent<Animation>();
         }
 

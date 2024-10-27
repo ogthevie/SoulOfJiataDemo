@@ -121,13 +121,13 @@ namespace SJ
                 return;
 
             float delta = Time.deltaTime;
-            playerLocomotion.rigidbody.drag = 0;
+            playerLocomotion.rigidbody.linearDamping = 0;
             Vector3 deltaPosition =  anim.deltaPosition;
             deltaPosition.y = 0;
             if(Time.timeScale != 0)
             {
                 Vector3 velocity =  deltaPosition / delta;
-                playerLocomotion.rigidbody.velocity = velocity;            
+                playerLocomotion.rigidbody.linearVelocity = velocity;            
             }
          }
     }

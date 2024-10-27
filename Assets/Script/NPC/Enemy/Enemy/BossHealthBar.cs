@@ -11,15 +11,20 @@ public class BossHealthBar : EnemyHealthBar
     public GameObject bossHUD;
     protected override void Awake()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         buffaloManager = GetComponent<BuffaloManager>();
     }
 
     void OnEnable()
     {
-        bossHUD = FindObjectOfType<PlayerUIManager>().transform.GetChild(1).gameObject;
+        bossHUD = FindFirstObjectByType<PlayerUIManager>().transform.GetChild(1).gameObject;
         slider = bossHUD.GetComponentInChildren<Slider>();
         fillColor = bossHUD.transform.GetChild(0).GetChild(1).GetComponent<Image>();
         SetMaxHealth(buffaloManager.currentHealth);       
+    }
+
+    private void OnDisable()
+    {
+        if(bossHUD != null) bossHUD.SetActive(false);    
     }
 }

@@ -7,11 +7,12 @@ public class RuneManager : MonoBehaviour
     public int indexPower; //il y a 03 pouvoirs : 0 = kingTake, 1 = Shango breath, 2 = sky roar
     PlayerManager playerManager;
     [SerializeField] GameObject ringStele, powerFxGO;
+    [SerializeField] GameObject [] powerFxGOs = new GameObject[3];
     [SerializeField] Material onMaterial;
 
     private void Start() 
     {  
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         CheckPower();
     }
 
@@ -25,7 +26,7 @@ public class RuneManager : MonoBehaviour
             if(playerManager.canSurcharge)
             {
                 powerFxGO.SetActive(false);
-                Destroy(this, 1f);
+                Destroy(this,  0.2f);
             } 
         }
         else if(indexPower == 1)
@@ -36,7 +37,7 @@ public class RuneManager : MonoBehaviour
                 ringStele.GetComponent<MeshRenderer>().material = materialRing;
                 GetComponent<MeshRenderer>().material = materialPowerStone;
                 powerFxGO.SetActive(true);
-                Destroy(this, 1f);
+                Destroy(this,  0.2f);
             } 
         }
         else if(indexPower == 2)
@@ -46,20 +47,33 @@ public class RuneManager : MonoBehaviour
                 materialRing = materialPowerStone = onMaterial;
                 ringStele.GetComponent<MeshRenderer>().material = materialRing;
                 GetComponent<MeshRenderer>().material = materialPowerStone;
-                powerFxGO.SetActive(true);
-                Destroy(this, 1f);
+                foreach(GameObject power in powerFxGOs) power.SetActive(true);
+                Destroy(this, 0.2f);
             } 
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 8 && !powerFxGO.activeSelf)
+        
+        if(indexPower != 2)
         {
-            if(other.TryGetComponent<MagnetSphereManager>(out MagnetSphereManager component)) component.HandleDestroyMagnetSphere();
-            ringStele.GetComponent<MeshRenderer>().material = onMaterial;
-            GetComponent<MeshRenderer>().material = onMaterial;
-            powerFxGO.SetActive(true);
+            if(other.gameObject.layer == 8 && !powerFxGO.activeSelf)
+            {
+                if(other.TryGetComponent<MagnetSphereManager>(out MagnetSphereManager component)) component.HandleDestroyMagnetSphere();
+                ringStele.GetComponent<MeshRenderer>().material = onMaterial;
+                GetComponent<MeshRenderer>().material = onMaterial;
+                powerFxGO.SetActive(true);
+            }
+        }
+        else
+        {
+            if(powerFxGOs[1].activeSelf && powerFxGOs[0].activeSelf && powerFxGOs[2].activeSelf)
+            {
+                ringStele.GetComponent<MeshRenderer>().material = onMaterial;
+                GetComponent<MeshRenderer>().material = onMaterial;
+                if(powerFxGO != null) powerFxGO.SetActive(true);
+            }
         }
     }
 

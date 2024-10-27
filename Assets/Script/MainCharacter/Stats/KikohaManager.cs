@@ -11,71 +11,65 @@ public class KikohaManager : MonoBehaviour
 
     private void Awake()
     {
-        playerAttacker = FindObjectOfType<PlayerAttacker>();  
-        kikohaAudioSource = FindObjectOfType<PlayerUIManager>().GetComponent<AudioSource>();  
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();  
+        kikohaAudioSource = FindFirstObjectByType<PlayerUIManager>().GetComponent<AudioSource>();  
     }
 
     void OnTriggerEnter(Collider other)
     {
+        GameObject impact = Instantiate(kikohaImpact, transform.position, Quaternion.identity, null);
         kikohaAudioSource.PlayOneShot(kikohaImpactSFX);
-
-        if(other.gameObject.layer == 13)
+        
+        if(other.gameObject.layer == 8)
         {
             Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
-
-            if(other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem component))
-            {
-                
-                Instantiate (wishShoke, impactPosition, Quaternion.identity);
-                Destroy(component.gameObject);
-                Destroy(this.gameObject);
-            }
+            other.gameObject.GetComponent<Rigidbody>().AddForce(playerAttacker.transform.forward * 50f, ForceMode.Impulse);
         }
-       else if(other.gameObject.layer == 8)
+        else if(other.gameObject.layer == 12)
         {
-            Vector3 impactPosition = other.gameObject.transform.position + new Vector3 (0, 1f, 0f);
-            Instantiate(kikohaImpact, impactPosition, Quaternion.identity);
-            if(!other.transform.GetChild(0).gameObject.activeSelf) 
-            {
-                other.transform.GetChild(0).gameObject.SetActive(true);
-                other.GetComponent<MagnetSphereManager>().enabled = true;
-                Destroy(this.gameObject);
-            }
-        }
-        if(other.gameObject.layer == 12)
-        {
-            Vector3 impactPosition = other.GetComponent<EnemyManager>().lockOnTransform.position;
-            Instantiate (kikohaImpact, impactPosition, Quaternion.identity);
 
             if(other.gameObject.TryGetComponent<EnemyManager>(out EnemyManager component))
             {
-                PlayerAttacker playerAttacker = FindObjectOfType<PlayerAttacker>();
+                PlayerAttacker playerAttacker = FindFirstObjectByType<PlayerAttacker>();
                 if(component is TololManager tololManager)
                 {
-                    tololManager.TakeDamage(kikohaDamage);
+                    if(component.isbreak) component.TakeDamage(130);
+                    else component.TakeDamage(kikohaDamage);
+
+                    if(component == null) return;
+
                     playerAttacker.isHit = true;
                     if(tololManager.tololPattern.currentTarget == null) 
                     {
-                        tololManager.tololPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        tololManager.tololPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                         tololManager.isPreformingAction = false;
                     }                      
                 }
                 else if(component is KossiManager kossiManager)
                 {
-                    kossiManager.TakeDamage(kikohaDamage);
+                    if(component.isbreak) component.TakeDamage(130);
+                    else component.TakeDamage(kikohaDamage);
+
+                    if(component == null) return;
+                    
+
                     if(kossiManager.kossiPattern.currentTarget == null) 
                     {
-                        kossiManager.kossiPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        kossiManager.kossiPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                         kossiManager.isPreformingAction = false;
                     }
                 }
                 else if(component is KeliperManager keliperManager)
                 {
-                    keliperManager.TakeDamage(kikohaDamage);
+                    if(component.isbreak) component.TakeDamage(130);
+                    else component.TakeDamage(kikohaDamage);
+
+                    if(component == null) return;
+
                     keliperManager.keliperPattern.keliperAnimatorManager.anim.SetBool("isHit", true);
                     if(keliperManager.keliperPattern.currentTarget == null) 
                     {
-                        keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        keliperManager.keliperPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                         keliperManager.isPreformingAction = false;
                     }
                 }
@@ -84,28 +78,28 @@ public class KikohaManager : MonoBehaviour
                     kossiKazeManager.kossiKazePattern.HandleExplosion();
                     if(kossiKazeManager.kossiKazePattern.currentTarget == null) 
                     {
-                        kossiKazeManager.kossiKazePattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        kossiKazeManager.kossiKazePattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                         kossiKazeManager.isPreformingAction = false;
                     }                             
                 }
                 else if(component is BuffaloManager buffaloManager)
                 {
-                    if(buffaloManager.isArmor) return;
+                    if(buffaloManager.isArmor || !buffaloManager.isReady) return;
                     
                     buffaloManager.TakeDamage(kikohaDamage);
                     if(buffaloManager.buffaloPattern.currentTarget == null) 
                     {
-                        buffaloManager.buffaloPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                        buffaloManager.buffaloPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                     }                             
                 }
                 //Destroy(gameObject);
             }
-            Destroy(this.gameObject);
         }
         else if(other.gameObject.layer == 10)
         {
             if(other.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager component))component.HandleVaseConatinerProcess();
-            Destroy(this.gameObject);
         }
+
+        Destroy(this.gameObject, 0.1f);
     }
 }

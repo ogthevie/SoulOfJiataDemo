@@ -1,14 +1,11 @@
-using System.Linq;
-using System.Collections;
 using UnityEngine;
-using SJ;
 
 public class ThunderEventManager : EventStoryTriggerManager
 {
     BomboktanManager bomboktanManager;
     void Start()
     {
-        bomboktanManager = FindObjectOfType<BomboktanManager>();
+        bomboktanManager = FindFirstObjectByType<BomboktanManager>();
         if(playerManager.canThunder) Destroy(this.gameObject, 0.5f);
     }
     protected override void OnTriggerEnter(Collider other)
@@ -19,8 +16,9 @@ public class ThunderEventManager : EventStoryTriggerManager
             animatorManager.PlayTargetAnimation("PowerUp", true);
             playerManager.canThunder = true;
             
-            StartCoroutine(gameManager.StartHandleAchievement("LE CRI DU CIEL"));
+            StartCoroutine(gameManager.StartHandleAchievement("Le cri du ciel"));
             GetComponent<ParticleSystem>().Stop();
+            StartCoroutine(bomboktanManager.SpawnBomboktan(2));
             Invoke("Save", 3f);
             Destroy(this.gameObject, 5f);
         }            

@@ -15,11 +15,11 @@ public class TololManager : EnemyManager //LES ENNEMIS NE SONT PAS CENSES SE RET
     
     private void Start() 
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         tololPattern = GetComponent<TololPattern>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
         tololAudioManager = GetComponent<TololAudioManager>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
         tololHealthBar = transform.Find("UI Ennemy").gameObject;
 

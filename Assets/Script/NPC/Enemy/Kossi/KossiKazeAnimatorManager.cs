@@ -17,11 +17,11 @@ public class KossiKazeAnimatorManager : EnemyAnimatorManager
             anim.SetFloat("distAttack", kossiKazePattern.distanceFromTarget);
             anim.SetBool("canExplose", kossiKazePattern.canExplose);
             float delta = Time.deltaTime;
-            kossiKazePattern.kossiKazeRigibody.drag = 0;
+            kossiKazePattern.kossiKazeRigibody.linearDamping = 0;
             Vector3 deltaPosition = anim.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            if(delta > 0f) kossiKazePattern.kossiKazeRigibody.velocity = velocity;            
+            if(delta > 0f) kossiKazePattern.kossiKazeRigibody.linearVelocity = velocity;            
         }    
     }
 }

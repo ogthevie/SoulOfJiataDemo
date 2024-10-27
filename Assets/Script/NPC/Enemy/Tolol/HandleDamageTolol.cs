@@ -13,8 +13,8 @@ public class HandleDamageTolol : MonoBehaviour
 
     void Awake()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerStats = FindFirstObjectByType<PlayerStats>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
     }
 
 

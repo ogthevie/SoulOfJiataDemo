@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 00
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
+  characterName: Vieux NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - "C'est mon mal de nerf qui aura raison de moi. \xE7a va de mal en pire cette
-    histoire"
+  - "Tu vois, m\xEAme un vieux sage comme moi peut \xEAtre mis \xE0 mal par ces fichus
+    maux."

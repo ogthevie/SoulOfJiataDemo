@@ -15,7 +15,7 @@ namespace SJ
 
         void Start()
         {
-            inputManager = FindObjectOfType<InputManager>();
+            inputManager = FindFirstObjectByType<InputManager>();
             playerStats = inputManager.GetComponent<PlayerStats>();
             playerManager = inputManager.GetComponent<PlayerManager>();
             audioManager = inputManager.GetComponent<AudioManager>();
@@ -39,21 +39,22 @@ namespace SJ
 
             if(inputManager.left_input) 
             {
-                if(playerStats.currentHealth == playerStats.maxHealth || inventory.selQty < 1) audioManager.ImpossibleChoiceFx();
-                else
+                if(playerStats.currentStamina < playerStats.maxStamina && inventory.selQty > 0)
                 {
-                    playerStats.AddHealth(selData.HealthPoint);
+                    playerStats.AddStamina(selData.StaminaPoint);
+                    audioManager.StatRecoverFx();
                     inventory.selQty -= 1;
                     HandleItemsQty();
                 }
 
             }
-            else if(inputManager.right_input)
+            
+            if(inputManager.right_input)
             {
-                if(playerStats.currentStamina == playerStats.maxStamina || inventory.ikokQty < 1) audioManager.ImpossibleChoiceFx();
-                else
+                if(playerStats.currentHealth < playerStats.maxHealth && inventory.ikokQty > 0)
                 {
-                    playerStats.AddStamina(ikokData.StaminaPoint);
+                    playerStats.AddHealth(ikokData.HealthPoint);
+                    audioManager.StatRecoverFx();
                     inventory.ikokQty -= 1;
                     HandleItemsQty(); 
                 }

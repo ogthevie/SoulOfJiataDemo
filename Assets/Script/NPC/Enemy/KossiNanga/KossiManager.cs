@@ -14,9 +14,9 @@ public class KossiManager : EnemyManager
 
     private void Awake() 
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         kossiPattern = GetComponent<KossiPattern>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();        
     }
     private void Start()

@@ -12,14 +12,14 @@ public class GolemTriggerManager : MonoBehaviour
     void Awake()
     {
         golemDialogManager = GetComponent<GolemDialogManager>();
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
         audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
         dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
     }
 
     void OnTriggerEnter(Collider other)

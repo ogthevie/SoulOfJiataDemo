@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Ngonda 62
   m_EditorClassIdentifier: 
   characterName: Ngonda
-  mainCharacterName: Ruben
+  mainCharacterName: Ngonda
   firstConversation:
   - Tu n'aurais pas un peu grandi ?
-  - euh..non ?
   - "C'est bizarre, quelque chose a chang\xE9 en toi. Je le sens mais je ne sais
     pas ce que c'est."

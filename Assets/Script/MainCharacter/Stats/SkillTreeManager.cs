@@ -21,15 +21,15 @@ namespace SJ
 
         void Awake()
         {
-            staminaBar = FindObjectOfType<StaminaBar>();
+            staminaBar = FindFirstObjectByType<StaminaBar>();
             sorceryCanva = GetComponent<Image>();
         }
 
         void Start()
         {
             dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
-            playerAttacker = FindObjectOfType<PlayerAttacker>();
-            playerManager = FindObjectOfType<PlayerManager>();
+            playerAttacker = FindFirstObjectByType<PlayerAttacker>();
+            playerManager = FindFirstObjectByType<PlayerManager>();
         }
 
         public void HandleActivateSlot()
@@ -37,7 +37,7 @@ namespace SJ
             northSlot.enabled = playerManager.canThunder && staminaBar.slider.value >= playerAttacker.thunderDrain;
             southSlot.enabled = playerManager.canArcLight && staminaBar.slider.value >= playerAttacker.arcLightningDrain;
             westSlot.enabled = playerManager.canSurcharge && staminaBar.slider.value >= playerAttacker.magnetiDrain;
-            //eastSlot.enabled = playerManager.canBigFire && staminaBar.slider.value >= playerAttacker.bigFireDrain;
+            eastSlot.enabled = playerManager.haveGauntlet && staminaBar.slider.value >= playerAttacker.indomitableDrain;
         }
 
         public void HandleSkillTreeUI(bool lockOnFlag)

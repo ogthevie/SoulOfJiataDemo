@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SJ
 {
@@ -41,7 +42,7 @@ namespace SJ
         public readonly int magnetiDrain = 8;
         public readonly int arcLightningDrain = 25;
         public readonly int thunderDrain = 70;
-        public readonly int bigFireDrain = 35;
+        public readonly int isIndo,indomitableDrain = 5;
         public readonly int kikohaDrain = 3;
         public readonly float magnetiMaxDistance = 30f;
         readonly float arcLightMaxDistance = 30f;
@@ -55,12 +56,11 @@ namespace SJ
 
         public RaycastHit targetHit;
         public RaycastHit [] targetsThunderHits;
-        public Material [] lightingMaterials;
         Transform fxHAOne;
         [SerializeField] GameObject haOne;
         [SerializeField] Collider handCollider;
         [SerializeField] Transform tpLeftHand;
-        [SerializeField] public List <Shader> sorceryShaders = new();
+        [SerializeField] Material paralyzeMat;
 
         private void Awake()
         {
@@ -73,7 +73,7 @@ namespace SJ
             playerManager = GetComponent<PlayerManager>();
             audioManager = GetComponent<AudioManager>();
 
-            cameraManager = FindObjectOfType<CameraManager>();
+            cameraManager = FindFirstObjectByType<CameraManager>();
 
             //lowAttackOrigin = GameObject.Find("lowAttackOrigin");
 
@@ -90,7 +90,7 @@ namespace SJ
 
             fxHAOne = transform.GetChild(16).GetChild(0);        
 
-            auraFx = transform.GetChild(21).GetComponent<ParticleSystem>();
+            auraFx = transform.GetChild(18).GetComponent<ParticleSystem>();
 
 
         }
@@ -278,7 +278,7 @@ namespace SJ
                 if(hit.collider.gameObject.layer ==  8)
                 {
                     //equation de droite
-                    hit.rigidbody.AddForce(transform.forward * 50f, ForceMode.Impulse);
+                    hit.rigidbody.AddForce(-transform.forward * 50f, ForceMode.Impulse);
                 }
 
                 else if(hit.collider.gameObject.layer == 10)
@@ -308,9 +308,20 @@ namespace SJ
 
                         IEnumerator StopTime()
                         {
+
+                            var originMaterials = component.enemyRendererSection.materials;
+                            var tempMaterials = new Material[component.enemyRendererSection.materials.Count()];;
+
                             int i;
-                            
-                            for(i=0; i < component.enemyRendererSection.Count; i++) component.enemyRendererSection[i].shader = sorceryShaders[1];
+                            int qtyMat = component.enemyRendererSection.materials.Count();
+
+                            for(i = 0; i < qtyMat; i++)
+                            {
+                                tempMaterials[i] = paralyzeMat;   
+                            }
+
+                            component.enemyRendererSection.materials = tempMaterials;
+
 
                             Animator animator = component.GetComponent<Animator>();
                             string animClip = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
@@ -319,16 +330,22 @@ namespace SJ
 
                             yield return new WaitForSeconds (5.1f);
 
-                            for(i=0; i < component.enemyRendererSection.Count; i++) component.enemyRendererSection[i].shader = sorceryShaders[0];
+                            for(i = 0; i < qtyMat; i++)
+                            {
+                                tempMaterials[i] = originMaterials[i];
+                            }
+
+                            if(component != null) component.enemyRendererSection.materials = tempMaterials;
+
                             if(animator != null) animator.speed = 1f;
                             component.isbreak = false;
 
-                            if(component != null)
-                                if(component is TololManager || component is KeliperManager) component.GetComponent<EnemyAnimatorManager>().anim.SetBool("isHit", true);
+                            //if(component != null)
+                                //if(component is TololManager || component is KeliperManager) component.GetComponent<EnemyAnimatorManager>().anim.SetBool("isHit", true);
 
                             if(!playerManager.tutoManager.paralyzeTuto)
                             {
-                                StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Pertubez l'harmonie vibratoire de vos adversaires, vous les immobiliserez"));
+                                StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Efficace mais de courte durée."));
                                 playerManager.tutoManager.paralyzeTuto = true;
                             }
                         }
@@ -336,11 +353,15 @@ namespace SJ
                 }
                 else if(hit.collider.gameObject.tag == "Stele")
                 {
-                    hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = lightingMaterials[0];
-                    hit.collider.gameObject.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
+                    SteleManager steleManager = hit.collider.GetComponent<SteleManager>();
+                    hit.collider.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = steleManager.lightingMaterial;
+                    steleManager.flameActivation.SetActive(true);
+                    steleManager.GetComponent<AudioSource>().PlayOneShot(audioManager.fightSfx[14]);
+                    steleManager.state = 1;
+                    steleManager.poweFxGo.SetActive(true);
                     if(!playerManager.tutoManager.steleTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("La lueur verte, illumine le chemin du héros. La jaune, trahit la férocité de la bête"));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Ces stèles... elles réagissent à ma magie. l y a quelque chose de spécial dans ces pierres, je crois que c'est la chose à faire"));
                         playerManager.tutoManager.steleTuto = true;
                     }
                 }   
@@ -393,7 +414,7 @@ namespace SJ
 
                         if(keliperManager.keliperPattern.currentTarget == null) 
                         {
-                            keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                            keliperManager.keliperPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                             keliperManager.isPreformingAction = false;
                         }
                         if(distance <= arcLightMaxDistance)
@@ -433,7 +454,7 @@ namespace SJ
                     }
                     if(!playerManager.tutoManager.arcLightTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("L'onde de choc provoquée par le souffle de Shango assomme les ennemis et les laisse vulnérables"));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Cette nouvelle maîtrise est prometteuse. Le combat à distance ouvre de nouvelles perspectives tactiques."));
                         playerManager.tutoManager.arcLightTuto = true;
                     }
                 }
@@ -525,7 +546,7 @@ namespace SJ
 
                             if(keliperManager.keliperPattern.currentTarget == null) 
                             {
-                                keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                                keliperManager.keliperPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                                 keliperManager.isPreformingAction = false;
                             }
                             if(distance <= arcLightMaxDistance)
@@ -624,7 +645,7 @@ namespace SJ
                             keliperManager.keliperPattern.stunt = true;
                             if(keliperManager.keliperPattern.currentTarget == null) 
                             {
-                                keliperManager.keliperPattern.currentTarget = FindObjectOfType<PlayerManager>();
+                                keliperManager.keliperPattern.currentTarget = FindFirstObjectByType<PlayerManager>();
                                 keliperManager.isPreformingAction = false;
                             }
                         }
@@ -637,7 +658,7 @@ namespace SJ
                         }
                         if(!playerManager.tutoManager.thunderTuto)
                         {
-                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le cri du ciel est une punition divine qui frappe et disperse les esprits maléfiques"));
+                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le Cri du Ciel...Dingue ! jusqu'où le pouvoir du Mpodol allait-il ?"));
                             playerManager.tutoManager.thunderTuto = true;
                         }
                     }
@@ -699,11 +720,9 @@ namespace SJ
             lMain.startColor = lekbaRubenLituba;
             rMain.startColor = lekbaRubenLituba;
             
-            if(playerManager.haveGauntlet)
-            {
-                leffectLitubaFx.GetComponent<ParticleSystem>().Play();
-                reffectLitubaFx.GetComponent<ParticleSystem>().Play();
-            }
+
+            leffectLitubaFx.GetComponent<ParticleSystem>().Play();
+            reffectLitubaFx.GetComponent<ParticleSystem>().Play();
         }
 
         public void StopEffectLitubaxFx()

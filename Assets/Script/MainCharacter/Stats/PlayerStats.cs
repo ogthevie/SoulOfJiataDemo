@@ -26,10 +26,10 @@ namespace SJ
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
             audioManager = GetComponent<AudioManager>();
-            staminaBar = FindObjectOfType<StaminaBar>();
-            healthBar = FindObjectOfType<HealthBar>();
-            enduranceBar = FindObjectOfType<EnduranceBar>();
-            cameraManager = FindObjectOfType<CameraManager>();    
+            staminaBar = FindFirstObjectByType<StaminaBar>();
+            healthBar = FindFirstObjectByType<HealthBar>();
+            enduranceBar = FindFirstObjectByType<EnduranceBar>();
+            cameraManager = FindFirstObjectByType<CameraManager>();    
         }
         
         void Start()
@@ -97,9 +97,9 @@ namespace SJ
                     animatorManager.PlayTargetAnimation ("Dead", true);
                     cameraManager.ClearLockOnTargets();
                     playerManager.isDead = true;
-                    stateJiataData.isHidden = true;
-                    if(SceneManager.GetActiveScene().buildIndex == 2) GameObject.Find("PortalKao").transform.GetChild(0).GetComponent<AudioSource>().Stop();
-                    else if(SceneManager.GetActiveScene().buildIndex == 1)
+                    if(stateJiataData.isIndomitable) inputManager.sorceryPadManager.DisableSorceryEastEffect();
+
+                    if(SceneManager.GetActiveScene().buildIndex == 1)
                     {
                         GameObject.Find("SibongoManager").GetComponent<AudioSource>().Stop();
                         GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>().Stop();
@@ -125,7 +125,7 @@ namespace SJ
 
             currentStamina += StaminaUnit;
             staminaBar.SetCurrentStamina(currentStamina);
-            audioManager.StatRecoverFx();
+            //audioManager.StatRecoverFx();
             Vector3 impactPosition = transform.position + new Vector3 (0f, 1f, 0f);
             Instantiate(staminaFx, impactPosition, Quaternion.identity);
 
@@ -141,7 +141,7 @@ namespace SJ
             
             currentHealth += HealthUnit;
             healthBar.SetCurrentHealth(currentHealth);
-            audioManager.StatRecoverFx();
+            //audioManager.StatRecoverFx();
             Vector3 impactPosition = transform.position + new Vector3 (0f, 1.75f, 0f);
             Instantiate(healthFx, impactPosition, Quaternion.identity);
             if(currentHealth >= maxHealth)
@@ -166,13 +166,32 @@ namespace SJ
             }      
         }
 
+        public void HandleIsIndomitable()
+        {
+            if(stateJiataData.isIndomitable)
+            {
+                if(currentStamina >= 5)
+                {
+                    staminaBar.slider.value -= 0.75f * Time.deltaTime;
+                    currentStamina = (int)Math.Truncate(staminaBar.slider.value);
+                    staminaBar.SetCurrentStamina(currentStamina);
+                }
+                else
+                {
+                    inputManager.sorceryPadManager.DisableSorceryEastEffect();
+                    TakeDamage(5, 1);
+                    StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI(" Je dois faire attention au contre coup de l'usage permanent de ces brassards"));
+                }
+            }
+        }
+
 
         public void HandleReloadStamina(float delta)
         {
             if(playerManager.isInteracting)
                 return;
 
-            if(staminaBar.slider.value < maxStamina)
+            if(staminaBar.slider.value < maxStamina && !stateJiataData.isIndomitable)
             {
                 staminaBar.slider.value += coefRegenStamina * delta;
                 currentStamina = (int)Math.Truncate(staminaBar.slider.value);

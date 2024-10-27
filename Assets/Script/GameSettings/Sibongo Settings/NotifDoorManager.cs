@@ -14,8 +14,8 @@ public class NotifDoorManager : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        playerManager =FindObjectOfType<PlayerManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        playerManager =FindFirstObjectByType<PlayerManager>();
     }
 
     void OnTriggerEnter(Collider collider)

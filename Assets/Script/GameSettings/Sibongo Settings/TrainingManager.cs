@@ -7,14 +7,12 @@ public class TrainingManager : MonoBehaviour
 {
     bool isTraining;
     [SerializeField] GameObject tolol, spawnTolol;
-    [SerializeField] TutoManager tutoManager;
     [SerializeField] AudioSource umNyobeSource, trainingSource;
     [SerializeField] GameManager gameManager;
 
     private void Awake() 
     {
-        gameManager = FindObjectOfType<GameManager>();
-        tutoManager = GameObject.Find("Tuto").GetComponent<TutoManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         umNyobeSource = GameObject.Find("StatutUmNyobe").GetComponent<AudioSource>();
         trainingSource = GetComponent<AudioSource>();
     }
@@ -47,8 +45,7 @@ public class TrainingManager : MonoBehaviour
         }
         if(other.gameObject.layer == 3)
         {
-            tutoManager.HiddenUI();
-            if(FindObjectOfType<DayNightCycleManager>().dayTimer < 3) umNyobeSource.enabled = true;
+            if(FindFirstObjectByType<DayNightCycleManager>().dayTimer < 3) umNyobeSource.enabled = true;
             isTraining = false;
             trainingSource.enabled = false;
         }
@@ -57,8 +54,6 @@ public class TrainingManager : MonoBehaviour
     IEnumerator EnableTraining(GameObject player)
     {
         StartCoroutine(gameManager.ZoneEntry("Cercle des Prodiges", "Lituba"));
-        tutoManager.ShowUI();
-        tutoManager.tipsUI.SetActive(false);
         yield return new WaitForSeconds(1f);
         LoadEnemy(player);
         isTraining = true;

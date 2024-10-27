@@ -21,11 +21,11 @@ public class TololAnimatorManager : EnemyAnimatorManager
             anim.SetBool("attackMode", !tololManager.isPreformingAction);
             anim.SetBool("isHit", playerAttacker.isHit);
             float delta = Time.deltaTime;
-            tololPattern.tololRigibody.drag = 0;
+            tololPattern.tololRigibody.linearDamping = 0;
             Vector3 deltaPosition = anim.deltaPosition;
             deltaPosition.y = 0;
             Vector3 velocity = deltaPosition / delta;
-            if(delta > 0f && !tololPattern.tololRigibody.isKinematic ) tololPattern.tololRigibody.velocity = velocity;
+            if(delta > 0f && !tololPattern.tololRigibody.isKinematic ) tololPattern.tololRigibody.linearVelocity = velocity;
         }
 
     }

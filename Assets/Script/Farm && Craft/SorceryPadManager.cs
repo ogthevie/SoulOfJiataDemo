@@ -11,7 +11,6 @@ namespace SJ
         PlayerLocomotion playerLocomotion;
         PlayerManager playerManager;
         AnimatorManager animatorManager;
-        InventoryManager inventoryManager;
         
         public InventoryData inventoryData;
         public StatesCharacterData statesJiataData;
@@ -19,6 +18,7 @@ namespace SJ
         public List <SkinnedMeshRenderer> jiatabodyRenderer = new();
         public bool sLeft, sRight;
         readonly int coefBoostBaemb = 2;
+        [SerializeField] ParticleSystem IndomitableMode, normalMode;
 
         void Awake()
         {
@@ -27,7 +27,6 @@ namespace SJ
             playerLocomotion = GetComponent<PlayerLocomotion>();
             animatorManager = GetComponent<AnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
-            inventoryManager = FindObjectOfType<InventoryManager>();
         }
 
         void HandleSorceryWestEffect()
@@ -59,42 +58,50 @@ namespace SJ
             }
 
         }
-
-        void HandleSorceryEastEffect()
+        public void HandleSorceryEastEffect()
         {
-            StartCoroutine(effect());
+            if(!playerManager.haveGauntlet) return;
             
-            IEnumerator effect()
-            {
-                int i;
+            if(!statesJiataData.isIndomitable) EnableSorceryEastEffect();
+            else DisableSorceryEastEffect();
+        }
 
-                for (i = 0; i < jiatabodyRenderer.Count; i ++) jiatabodyRenderer[i].material.shader = jiataShaders[2];
-
-                statesJiataData.isIndomitable = true;
-                playerLocomotion.movementSpeed *= 1.7f;
-                playerLocomotion.sprintSpeed *= 1.7f;
-                HandleUpStatsAttack(coefBoostBaemb);
-                playerAttacker.PlayAuraFx();
-                animatorManager.anim.SetFloat("BoostBaemb", 1.15f);
-                playerAttacker.PlayEffectLitubaFx();
-                //ajouter un son ici
-                yield return new WaitForSeconds(30f);
-
-                for (i = 0; i < (jiatabodyRenderer.Count - 1); i++)
+        void EnableSorceryEastEffect()
+        {
+                if(playerAttacker.playerStats.currentStamina > 5)
                 {
-                    jiatabodyRenderer[i].material.shader = jiataShaders[0];
-                    jiatabodyRenderer[10].material.shader = jiataShaders[1];
+                    IndomitableMode.Play();
+
+                    int i;
+
+                    for (i = 0; i < jiatabodyRenderer.Count; i ++) jiatabodyRenderer[i].material.shader = jiataShaders[2];
+
+                    statesJiataData.isIndomitable = true;
+                    playerLocomotion.movementSpeed *= 1.7f;
+                    HandleUpStatsAttack(coefBoostBaemb);
+                    playerAttacker.PlayAuraFx();
+                    animatorManager.anim.SetFloat("BoostBaemb", 1.15f);
+                    playerAttacker.PlayEffectLitubaFx();
+                    playerManager.playerStats.AddStamina(5);
+                    //ajouter un son ici
                 }
-                playerLocomotion.movementSpeed = 6f;
-                playerLocomotion.sprintSpeed = 11f;
-                HandleDownStatsAttack(coefBoostBaemb);
+
+
+        }
+
+        public void DisableSorceryEastEffect()
+        {
+                normalMode.Play();
                 playerAttacker.StopAuraFx();
                 playerAttacker.StopEffectLitubaxFx();
+                int i;
+
+                for (i = 0; i < jiatabodyRenderer.Count; i++) jiatabodyRenderer[i].material.shader = jiataShaders[0];
+
+                playerLocomotion.movementSpeed = 6f;
+                HandleDownStatsAttack(coefBoostBaemb);
                 animatorManager.anim.SetFloat("BoostBaemb", 1f);
                 statesJiataData.isIndomitable = false;
-                
-            }
-
         }
 
         void HandleUpStatsAttack(int coeff)

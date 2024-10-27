@@ -13,8 +13,8 @@ public class CameraShake : MonoBehaviour
 
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
-        animatorManager = FindObjectOfType<AnimatorManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
+        animatorManager = FindFirstObjectByType<AnimatorManager>();
         point = new GameObject("Camera - PointInterested").transform;
     }
 

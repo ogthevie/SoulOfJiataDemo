@@ -20,15 +20,21 @@ public class BuffaloManager : EnemyManager
     
     private void Awake() 
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         buffaloPattern = GetComponent<BuffaloPattern>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         bossHealthBar = GetComponent<BossHealthBar>();
         detectionRadius = 60f;
         buffaloHealth = 700;
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
 
         currentHealth = buffaloHealth;
+        if(storyManager.storyStep > 5) 
+        {
+            plotCollider.enabled = false;
+            HandlePortal();
+            Destroy(this.gameObject);
+        }
         //ragePS = rageFx.GetComponent<ParticleSystem>();
         //breastPS = breastFx.GetComponent<ParticleSystem>();
         //chargePS = chargeFx.GetComponent<ParticleSystem>();     
@@ -36,21 +42,25 @@ public class BuffaloManager : EnemyManager
 
     private void Start()
     {
-        cameraShake = FindObjectOfType<CameraShake>();
-        if(storyManager.storyStep >= 6) HandlePortal();    
+        cameraShake = FindFirstObjectByType<CameraShake>();
+        if(storyManager.storyStep >= 6) HandlePortal();
     }
 
     IEnumerator StartLifeKao()
     {
+        PlayerManager playerManager = playerAttacker.GetComponent<PlayerManager>();
         chargingPop.SetActive(true);
         limitBoss.SetActive(true);
         fakeCrane.SetActive(true);
+        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("... "));
         cameraShake.Shake(4f, 0.25f);
         yield return new WaitForSeconds(4f);
         isReady = true;
         yield return new WaitForSeconds(3f);
         bossHealthBar.enabled = true;
-        GetComponent<BossHealthBar>().bossHUD.SetActive(true);
+        bossHealthBar.bossHUD.SetActive(true);
+        storyManager.storyStep = 5;
+        StartCoroutine(storyManager.gameManager.StartHandleToDo(5));
     }
 
     private void Update() 
@@ -114,10 +124,12 @@ public class BuffaloManager : EnemyManager
             fakeCrane.SetActive(false);
             bossHealthBar.bossHUD.SetActive(false);
             isHellbow = isArmor = false;
-            FindObjectOfType<GrotteKossiManager>().GetComponent<AudioSource>().Play();
+            FindFirstObjectByType<GrotteKossiManager>().GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(5f);
             trueCrane.SetActive(true);
             HandlePortal();
+            var bomboktanManager = FindFirstObjectByType<BomboktanManager>();
+            StartCoroutine(bomboktanManager.SpawnBomboktan(3));
         }
     }
 
@@ -132,7 +144,7 @@ public class BuffaloManager : EnemyManager
         var materials = kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials;
         materials[1] = kaoPortalMaterial;
         kaoPortalCollider.transform.GetChild(1).GetComponent<Renderer>().materials = materials;
-        Destroy(this, 5f);
+        if(this != null) Destroy(this);
     }
 
 }

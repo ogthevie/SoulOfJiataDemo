@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 8211843628618189795}
   - component: {fileID: 5069240982937568326}
   - component: {fileID: 7042917991050670220}
-  - component: {fileID: 1829446729319753111}
-  - component: {fileID: 1018265427020018910}
   - component: {fileID: 2941016072346757242}
   m_Layer: 6
   m_Name: Altar ArcLight
@@ -88,79 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1829446729319753111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844371380434096473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aff6a8c67cc53c4993a619622eee77c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
-  altarOriginMat: {fileID: 2100000, guid: bb1bf8b4a7e6dbd4c8db571f00bd2847, type: 2}
-  altarGreenMat: {fileID: 2100000, guid: f904761786082a245a66ad9c89f19565, type: 2}
-  altarYellowmat: {fileID: 2100000, guid: d6d4c69caebceab47972aae32e61d3b4, type: 2}
-  refGreenMaterial: {fileID: 2100000, guid: 15d2030d44e1ad3428866be321e68d53, type: 2}
-  refYellowmaterial: {fileID: 2100000, guid: 82bd10e787bafa448b8444efc28ae6f5, type: 2}
-  materialHeart: {fileID: 0}
-  kaoPortalMaterial: {fileID: 2100000, guid: 357e8c47d1a837c4a8d942bd5463cf9c, type: 2}
-  bossThemeAudioSource: {fileID: 0}
-  HeartSteles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Torche:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  IndexHeartSteles: 0000000000000000000000000000000000000000000000000000000000000000
-  stelesGreenOn: 0
-  stelesYellowOn: 0
-  thunder: {fileID: 0}
-  forceKossi: {fileID: 0}
-  limitBoss: {fileID: 0}
-  fakeForceKossi: {fileID: 0}
-  runeFx: {fileID: 0}
-  inSecteurFour: 0
-  kaoPortalCollider: {fileID: 0}
-  kaoBoss: {fileID: 0}
-  explosionFx: {fileID: 0}
-  kaoPortalFx: {fileID: 0}
---- !u!135 &1018265427020018910
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844371380434096473}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.051505487
-  m_Center: {x: -0.002236351, y: -0.0016835125, z: 0.025}
 --- !u!65 &2941016072346757242
 BoxCollider:
   m_ObjectHideFlags: 0

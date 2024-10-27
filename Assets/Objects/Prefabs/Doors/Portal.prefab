@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2417338779641473816}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: -0.000000014901161}
   m_LocalScale: {x: 467.5042, y: 138.24338, z: 475.6418}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4896636869531635625}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2918549717392654184
 MeshFilter:
@@ -60,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -145,6 +148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5242060114503128339}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.0029276777, y: 0.99845403, z: 0.05550761, w: 0.00016276001}
   m_LocalPosition: {x: 132.93938, y: -0.40999985, z: 377.9368}
   m_LocalScale: {x: 1.1400694, y: 1.1400694, z: 1.1400694}
@@ -153,7 +157,6 @@ Transform:
   - {fileID: 6269691998513222896}
   - {fileID: 582986274188070992}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -6.364, y: 180, z: -0.336}
 --- !u!65 &4960797092038069548
 BoxCollider:
@@ -190,8 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardUi: {fileID: 0}
   playerUi: {fileID: 0}
-  description: "Grotte des Kossi - Entr\xE9e"
-  titleColor: {r: 0.353874, g: 0.8962264, b: 0.33397114, a: 0}
+  description: Chemin du centre
+  titleColor: {r: 0.57818615, g: 0.6698113, b: 0.6698113, a: 0.69803923}
 --- !u!1 &8471124952709945223
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,13 +221,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8471124952709945223}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 45.04639, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4896636869531635625}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1580009462806155979
 MeshFilter:
@@ -251,6 +254,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

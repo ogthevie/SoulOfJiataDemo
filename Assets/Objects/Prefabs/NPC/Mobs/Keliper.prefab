@@ -390,10 +390,7 @@ MonoBehaviour:
   currentHealth: 0
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
-  skinnedMeshRenderer: {fileID: 3167930009662271726}
-  enemyRendererSection:
-  - {fileID: 2100000, guid: 4b70351752ecfcb46ac3f778c2df17ac, type: 2}
-  - {fileID: 2100000, guid: b7e4cc27425800746a56c8188cb1dee8, type: 2}
+  enemyRendererSection: {fileID: 3167930009662271726}
   keliperPattern: {fileID: 0}
   keliperHealthBar: {fileID: 0}
   awakeFx: {fileID: 3103991395893648434}

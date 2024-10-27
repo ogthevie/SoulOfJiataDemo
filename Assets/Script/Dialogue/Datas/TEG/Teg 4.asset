@@ -13,17 +13,10 @@ MonoBehaviour:
   m_Name: Teg 4
   m_EditorClassIdentifier: 
   characterName: "Anc\xEAtre TEG"
-  mainCharacterName: Ruben
+  mainCharacterName: "Anc\xEAtre TEG"
   firstConversation:
-  - Tu m'impressionnes vraiment.
-  - Quel est cette puissance, j'ai l'impression que je peux tout faire sauter.
-  - Ce n'est pas une impression, c'est WUTA WALKIYA
-  - Impressionnant !
-  - "Je ne te le fais pas dire. Rare sont ceux qui arrive \xE0 mettre la main dessus.
-    Et comme les chiens ne font les chats, tu succ\xE8des directement \xE0 ton p\xE8re."
-  - "Mon p\xE8re l'avait aussi ?"
-  - Et comment ! quand il invoquait le courroux des cieux, toute la terre tremblait.
-  - "Rien que \xE7a..."
-  - Mais fais gaffe, tu ne dois jamais l'utiliser contre quelqu'un qui ne te veut
-    pas de mal. Sinon, tu subiras le courroux des cieux
-  - C'est compris l'ancien.
+  - Les legendaires brassards du Mpodol
+  - "On raconte que c'est le tout premier lamido de Danay qui avait offert cet artefact
+    au Mpodol,  en guise de remerciements. Ils d\xE9cuplent significativement la
+    magie de celui qui les porte."
+  - Mais comme toute puissante relique , elle peut demander quelque chose en retour...

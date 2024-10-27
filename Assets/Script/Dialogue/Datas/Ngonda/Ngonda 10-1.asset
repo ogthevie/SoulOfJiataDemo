@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: Ngonda 10-1
   m_EditorClassIdentifier: 
   characterName: Ngonda
-  mainCharacterName: Ruben
+  mainCharacterName: Ngonda
   firstConversation:
   - "La rumeur de ton entr\xE9e dans la grotte des Kossi circule au village"
-  - Mince, toute le monde est au courant ?
   - Sibongo est petit, les nouvelles se propagent plus vite que la malchance ici.
-  - "Et toi, tu sais ce qu'il y a \xE0 l'int\xE9rieur ?"
-  - "Noho, je pars faire quoi l\xE0-bas ?."
-  - "Tu penses que je me pr\xE9cipite ?"
-  - "je n'en sais rien, toi seul peut r\xE9pondre \xE0 \xE7a."

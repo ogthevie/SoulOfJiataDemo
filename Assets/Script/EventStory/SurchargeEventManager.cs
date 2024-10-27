@@ -6,7 +6,7 @@ public class SurchargeEventManager : EventStoryTriggerManager
 
     void Start()
     {
-        bomboktanManager = FindObjectOfType<BomboktanManager>();
+        bomboktanManager = FindFirstObjectByType<BomboktanManager>();
     }
     
     protected override void OnTriggerEnter(Collider other)
@@ -15,10 +15,13 @@ public class SurchargeEventManager : EventStoryTriggerManager
         {
             animatorManager.PlayTargetAnimation("PowerUp", true);
             playerManager.canSurcharge = true;
-            StartCoroutine(gameManager.StartHandleAchievement("LA POIGNE DU SOUVERAIN"));
-            bomboktanManager.Spawn(0);
+            StartCoroutine(gameManager.StartHandleAchievement("La main du souverain"));
+
+            storyManager.storyStep = 3;
+            StartCoroutine(bomboktanManager.SpawnBomboktan(0));
             GetComponent<ParticleSystem>().Stop();
             Invoke("Save", 3f);
+
             Destroy(this.gameObject, 5f);
         }
     }

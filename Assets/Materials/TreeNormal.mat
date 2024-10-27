@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -21,13 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TreeNormal
-  m_Shader: {fileID: -6465566751694194690, guid: 2c3c6a46626419c4f8bbdeab2ec2afbd,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _HAFTONESHAPES_DOT
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _HAFTONESHAPES_DOT
   - _HALFTONESHAPE_DOT
   - _RECEIVESHADOWS_OFF
   - _RECEIVE_SHADOWS_OFF
@@ -38,7 +37,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -235,7 +235,7 @@ Material:
     - _OldHueVarBehavior: 0
     - _OutlineEnabled: 0
     - _OutlineMode: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.112
     - _OverrideShadowColor: 0
     - _Parallax: 0.02
     - _QueueControl: 0
@@ -247,8 +247,12 @@ Material:
     - _RimLightSmoothness: 0
     - _RimLightSmootness: 0
     - _RimPower: 0.55
+    - _RimStep: 0.896
+    - _RimStepSmooth: 0.76
     - _SPECULARHIGHLIGHTS: 0
     - _ShadowPatternSize: 0.3
+    - _ShadowStep: 0.5
+    - _ShadowStepSmooth: 0.04
     - _Shininess: 0
     - _SizeFalloff: 0
     - _Smoothness: 0.1
@@ -264,6 +268,8 @@ Material:
     - _SpecularFalloff: 0.315
     - _SpecularHighlights: 0
     - _SpecularSize: 0
+    - _SpecularStep: 0
+    - _SpecularStepSmooth: 0
     - _SpherizeNormalEnabled: 0
     - _SquashAmount: 1
     - _SrcBlend: 1
@@ -302,11 +308,13 @@ Material:
     - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.084905684, g: 0.08370419, b: 0.08370419, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 0.1}
+    - _SpecularColor: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -13,17 +13,8 @@ MonoBehaviour:
   m_Name: Kossi 73
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
-  - "On dirait que tu as r\xE9ussi Ruben !"
-  - "l'HOMME DANS LA PIERRE est vraiment surprenant ! On dirait qu'il a restaur\xE9
-    le pont de Lempoy"
-  - "Oui, j'\xE9tais \xE0 c\xF4t\xE9 du lac quand le tremblement s'est fait ressentir.
-    Les blocs de l'ancien pont on refait surface de l'eau et se sont soud\xE9s les
-    uns et aux autres pour former ce nouveau pont."
-  - Fascinant...
-  - "Ah \xE7a... On dirait bien qu'on a plus aucune raison d'entamer notre voyage
-    \xE0 travers le royaume de Kabwandu"
-  - Oui, je suis devenu suffisamment fort pour braver n'importe quelle menace qu'on
-    croisera sur notre chemin
-  - Bien, allons-y !
+  - "J'\xE9tais \xE0 c\xF4t\xE9 du portal qui m\xE8ne \xE0 la for\xEAt quand le tremblement
+    s'est fait ressentir. Je dois dire que tu m'\xE9pates"
+  - "Nous pouvons d\xE8s \xE0 pr\xE9sent d\xE9buter notre p\xE9riple"

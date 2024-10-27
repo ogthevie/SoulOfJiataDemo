@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 393424b3ce29f4843a75b5d0248836ed
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Demo/GrassLayer.terrainlayer
+  uploadId: 524285

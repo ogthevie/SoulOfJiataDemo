@@ -12,20 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 70
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
+  characterName: Vieux NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - "La terre a trembl\xE9. Tu es finalement all\xE9 voir l'HOMME DANS LA PIERRE
-    ?"
-  - Oui
-  - "Pourquoi donc ? Tu avais pourtant r\xE9uni les deux brassards"
-  - "Je devais lui rendre son esprit. Et quand la terre a trembl\xE9 c'est parce
-    qu'il a restaur\xE9 le pont sur lempoy"
-  - "Vraiment ? c'est surprenant. Quand mes nerfs vont me laisser un peu de r\xE9pit,
-    je vais aller voir \xE7a de mes propres yeux"
-  - 'Oui. Avec un peu de chance, on trouvera un bon tradipraticien qui vous donnera
-    quelque chose pour '
-  - "Je te donne ma b\xE9n\xE9diction. Malheureusement c'est la seule chose que je
-    peux t'offrir \xE0 mon \xE2ge."
-  - "C'est d\xE9j\xE0 beaucoup Poa. Et en plus, sans tes directives, jamais je n'aurai
-    acquis toute cette puissance."
+  - "Le sol s'est fissur\xE9, annon\xE7ant son retour. L'HOMME DANS LA PIERRE, cette
+    ombre qui plane sur notre village, est de retour."

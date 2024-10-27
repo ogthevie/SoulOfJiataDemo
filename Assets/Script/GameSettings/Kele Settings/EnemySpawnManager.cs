@@ -1,30 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField] EnemyManager enemyManagers;
-
-    void Start()
-    {
-        LoadEnemy();
-    }
+    [SerializeField] bool haveChild;
 
     void LateUpdate()
     {
         CheckPoint();
     }
 
-    private void LoadEnemy()
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject visuals = Instantiate(enemyManagers.gameObject);
-        visuals.transform.SetParent(transform);
-        Debug.Log("New kossikaze");
+       if(!haveChild) LoadEnemy();
+    }
+
+    public void LoadEnemy()
+    {
+        GameObject visuals = Instantiate(enemyManagers.gameObject, this.transform, false);
+        Debug.Log("nouveau " +visuals.name);
+        haveChild = true;
     }
 
     void CheckPoint()
     {
-        if(transform.childCount == 0) Destroy(this.gameObject);
+        if(haveChild && transform.childCount == 0) haveChild = false;
     }
 }

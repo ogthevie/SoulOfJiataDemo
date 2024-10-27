@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5bc1970422072ae43a5e7248f16a6213
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Materials/HDRP/GetMainLightHDRP.hlsl
+  uploadId: 524285

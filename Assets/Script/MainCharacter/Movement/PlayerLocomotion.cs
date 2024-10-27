@@ -56,7 +56,7 @@ namespace SJ
         
         private void Awake() 
         {
-            cameraManager = FindObjectOfType<CameraManager>();
+            cameraManager = FindFirstObjectByType<CameraManager>();
             normalCamera = cameraManager.transform.GetChild(0).GetChild(0).gameObject;
             rigidbody = GetComponent<Rigidbody>();
             inputManager = GetComponent<InputManager>();
@@ -65,7 +65,7 @@ namespace SJ
             playerStats = GetComponent<PlayerStats>();
             playerAttacker = GetComponent<PlayerAttacker>();
             audioManager = GetComponent<AudioManager>();
-            playerUIManager = FindObjectOfType<PlayerUIManager>();
+            playerUIManager = FindFirstObjectByType<PlayerUIManager>();
         }
         void Start()
         {
@@ -185,7 +185,7 @@ namespace SJ
             yield return new WaitForSeconds(6f);
             hit.collider.gameObject.transform.GetChild(2).gameObject.SetActive(true);
             playerStats.TakeStaminaDamage(50);
-            playerStats.AddHealth(playerStats.maxHealth / 4);
+            playerStats.AddHealth(25);
         }
 
         public void HandleMovement(float delta)
@@ -219,7 +219,7 @@ namespace SJ
             }
     
             Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
-            if(!rigidbody.isKinematic) rigidbody.velocity = projectedVelocity;
+            if(!rigidbody.isKinematic) rigidbody.linearVelocity = projectedVelocity;
 
             if(inputManager.lockOnFlag && inputManager.sprintFlag == false)
             {
@@ -336,9 +336,9 @@ namespace SJ
                     playerManager.isGrounded = false;
                 }
 
-                Vector3 vel = rigidbody.velocity;
+                Vector3 vel = rigidbody.linearVelocity;
                 vel.Normalize();
-                rigidbody.velocity = vel * (movementSpeed / 2);
+                rigidbody.linearVelocity = vel * (movementSpeed / 2);
                 playerManager.isInAir = true;
 
                 if(inAirTimer > 0.2f) animatorManager.PlayTargetAnimation("Falling", true);

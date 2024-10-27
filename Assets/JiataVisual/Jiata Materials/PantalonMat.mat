@@ -8,12 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PantalonMat
-  m_Shader: {fileID: -6465566751694194690, guid: 2c3c6a46626419c4f8bbdeab2ec2afbd,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _HAFTONESHAPES_DOT
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _
   - _ALPHABLEND_ON
@@ -21,6 +19,7 @@ Material:
   - _CFXR_OVERLAYBLEND_RGBA
   - _CFXR_OVERLAYTEX_OFF
   - _GLOSSINESS_FROM_BASE_ALPHA
+  - _HAFTONESHAPES_DOT
   - _HALFTONESHAPE_DOT
   - _SPECULARHIGHLIGHTS_OFF
   - _SPECULAR_COLOR
@@ -29,7 +28,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -272,9 +272,13 @@ Material:
     - _RimLightSmoothness: 0
     - _RimLightSmootness: 0
     - _RimPower: 0.55
+    - _RimStep: 0.095
+    - _RimStepSmooth: 0.018
     - _SPECULARHIGHLIGHTS: 0
     - _SecondColorSmooth: 0.2
     - _ShadowPatternSize: 0.3
+    - _ShadowStep: 0.5
+    - _ShadowStepSmooth: 0.04
     - _ShadowStrength: 1
     - _Shininess: 0
     - _SingleChannel: 0
@@ -294,6 +298,8 @@ Material:
     - _SpecularFalloff: 0.5
     - _SpecularHighlights: 0
     - _SpecularSize: 0.25
+    - _SpecularStep: 0
+    - _SpecularStepSmooth: 0
     - _SpherizeNormalEnabled: 0
     - _SrcBlend: 1
     - _StencilComp: 0
@@ -342,12 +348,14 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
     - _OverlayTex_Scroll: {r: 0.1, g: 0.1, b: 1, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.16078432, g: 0.14509805, b: 0.15294118, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 0.2}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: 0, a: 0}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &4860190452561179758
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -360,4 +368,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9

@@ -15,7 +15,7 @@ MonoBehaviour:
   consumablesprite: {fileID: 21300000, guid: 5d84a78f593fcf24bb3d8afa5d28aa77, type: 3}
   consumableIcon: {fileID: 21300000, guid: 9e587da209e10b045a13942d7cf78fda, type: 3}
   consumableName: Sel de lempoy
-  HealthPoint: 20
-  StaminaPoint: 0
+  HealthPoint: 0
+  StaminaPoint: 20
   consumablePrefab: {fileID: 7708116865294456131, guid: e4fb2d1bae7b1c44b9c40fa3275d33a6,
     type: 3}

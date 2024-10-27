@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Adou 63
   m_EditorClassIdentifier: 
   characterName: Adou
-  mainCharacterName: Ruben
+  mainCharacterName: Adou
   firstConversation:
   - "Quoi ? tu es d\xE9j\xE0 revenu ? Mais qu'est ce que tu as fait l\xE0-bas ?"
-  - J'ai juste...
   - "Non ne me dis rien, si tu n'as pas encore rencontr\xE9 Poa Nlomgan, vas d'abord
     le voir. Tu me diras apr\xE8s."

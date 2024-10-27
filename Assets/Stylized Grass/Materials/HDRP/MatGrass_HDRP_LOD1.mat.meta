@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1a1acb97d95bd6e42ab573ac4d468bec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Materials/HDRP/MatGrass_HDRP_LOD1.mat
+  uploadId: 524285
