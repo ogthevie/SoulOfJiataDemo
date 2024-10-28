@@ -12,59 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 10123
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
-  mainCharacterName: Ruben
+  characterName: Vieux NLOMGAN
+  mainCharacterName: Vieux NLOMGAN
   firstConversation:
-  - "Bonjour mon fils, je t'ai cherch\xE9 toute la journ\xE9e"
-  - Bonjour Poa, comment tu vas ?
-  - "Tu sais mon fils, \xE0 mon \xE2ge, ce sont des questions qui ne se posent plus,
-    on attend calmement le moment de rejoindre la terre de ses anc\xEAtres."
-  - "Ne parle pas comme \xE7a Poa..."
-  - "Ne t\u2019inqui\xE8tes pas, j\u2019ai encore 2, 3 ann\xE9es devant moi, ce n\u2019est
-    pas si mal vu mon \xE2ge. Mais bon, passons, je vois du doute dans tes yeux,
-    dis-moi, qu'est ce qu'il y a ?"
-  - "J'ai l'impression de ne pas \xEAtre \xE0 la hauteur. C'est vrai que j'ai suivi
-    l'entra\xEEnement de Poa Bok Bilol, mais je me sens si faible. Je n'ai plus l'impression
-    de pouvoir \xE9voluer. Je risque d'\xEAtre un poids pour Isamal."
-  - "Ton p\xE8re et moi quand nous \xE9tions plus jeunes, on vous ressemblait un
-    peu. J'\xE9tais un peu \xE0 la ramasse mais tu vois maintenant, je ne suis pas
-    si mauvais que \xE7a."
-  - "Je ne pense pas que ce soit la m\xEAme chose. Vous avez pass\xE9 toute votre
-    vie \xE0 Lituba, vous avez appris aupr\xE8s des meilleurs ma\xEEtres. Alors que
-    moi, je n'ai pas grandi ici et il n'y a plus suffisamment de ma\xEEtre en vie...Du
-    moins dans ce village."
-  - "C'est pour \xE7a que vous devez quitter ce village. Je suis heureux que tu aies
-    fait ce constat toi-m\xEAme, \xE7a facilitera la compr\xE9hension de ce que je
-    veux te dire."
-  - "Je suis tout ou\xEFe Poa."
-  - Sur ta main droite, tu sais ce que tu portes ?
-  - "C'est le brassard de mon p\xE8re. Ma m\xE8re me l'a donn\xE9 avant de mourir.
-    Elle m'a dit qu'il \xE9tait important pour notre famille."
-  - Et tu sais ce que cette transmission implique ?
-  - "Je ne me suis jamais pos\xE9 la question mais dans une mythologie nkana , il
-    y a une sorte de dieu qui manie un marteau qui lui conf\xE8re la magie du tonnerre.
-    Je suppose que c\u2019est un peu le m\xEAme fonctionnement pour mon brassard."
-  - "C'est \xE0 peu pr\xE8s cela. Mais pour \xEAtre plus pr\xE9cis, c'est une m\xE9moire,
-    un lien avec tes anc\xEAtres et leur savoir. Ton p\xE8re y a transmis une partie
-    de sa puissance, et toi, tu l'utilises sans m\xEAme t'en rendre compte. le sort
-    de feu, KWALLON WUTA est un bon exemple."
-  - "Comment vous connaissez le nom de ma technique ? Je ne vous ai jamais dit comment
-    elle s\u2019appelle !"
-  - "Tout simplement parce que ton p\xE8re l\u2019a utilis\xE9 \xE0 maintes reprises
-    devant moi, c\u2019est lui qui l\u2019a mise au point puis nomm\xE9e. Toi tu
-    n\u2019as fait que te souvenir sans t\u2019en rendre compte."
-  - Bana loba !
-  - "Et je sais que tu n\u2019es pas capable de lancer un autre sort que celui-l\xE0."
-  - "Oui, mais si c\u2019est juste une histoire de m\xE9moire, pourquoi je n\u2019arrive
-    pas \xE0 me souvenir des autres sorts ?"
-  - "Parce que la m\xE9moire est incompl\xE8te."
-  - "C\u2019est \xE0 dire ?"
-  - "Tam poss\xE9dait deux brassards, mais apr\xE8s sa mort, nous n\u2019avons pu
-    r\xE9cup\xE9rer qu\u2019un seul. Si tu arrives \xE0 mettre la main dessus, soit
-    s\xFBr que tu ne seras jamais plus comme avant."
-  - Et Comment moi, pourrais-je mettre la main dessus ?
-  - Il se trouve dans la grotte de Kossi.
-  - "la grotte de Kossi ? c'est o\xF9 \xE7a ?"
-  - Va voir mon fils Isamal et demande lui de t'aider. Dis lui que c'est moi qui
-    t'envoie.
-  - D'accord j'y vais.
+  - "Mon fils, je t'ai cherch\xE9 toute la journ\xE9e"
+  - "Quand je vous vois, Isamal et toi, ensemble, \xE7a me rappelle tellement mon
+    jeune temps avec ton p\xE8re. On \xE9tait comme vous deux, intr\xE9pides."
+  - "C'est pour cette raison pr\xE9cise que vous devez partir sans plus attendre.
+    Je suis content que vous ayez d\xE9j\xE0 envisag\xE9 cette solution, cela rendra
+    les choses plus faciles \xE0 mettre en \u0153uvre."
+  - "Il est courant chez les Lituba de retrouver le m\xEAme nom port\xE9 par des
+    individus sans lien de parent\xE9."
+  - "Chez nous, porter un nom, c'est bien plus qu'un simple acte d'identification.
+    C'est porter sur nos \xE9paules un morceau de notre histoire, de notre culture
+    et de notre h\xE9ritage"
+  - " Quand un nouveau-n\xE9 re\xE7oit le nom d'un anc\xEAtre, un lien particulier
+    peut se cr\xE9er entre eux, un lien qui parfois d\xE9passe la simple filiation."
+  - "Dans de rares cas, ce lien peut \xE9voluer vers ce qu'on appelle une 'raisonnance'.
+    C'est un ph\xE9nom\xE8ne mystique o\xF9 l'esprit de l'anc\xEAtre semble se manifester
+    \xE0 travers son descendant."
+  - Tes yeux verts, uniques en leur genre, sont un signe fort de cette raisonnance
+    avec celui qu'on surnommait le Mpodol.
+  - "Tu partages avec lui un don, une capacit\xE9 mystique que tu es en train de
+    d\xE9couvrir. C'est une opportunit\xE9 incroyable, mais aussi un chemin dangereux."
+  - "Pour \xE9veiller pleinement cette puissance, tu dois te rendre dans la grotte
+    des Kossi, un lieu sacr\xE9 ancestral."
+  - "Attention, cette grotte est d\xE9sormais infest\xE9e de cr\xE9atures mal\xE9fiques.
+    Il faudra te pr\xE9parer soigneusement avant de t'y aventurer."
+  - "Isamal pourra t'aider dans cette qu\xEAte. C'est un risque immense, mais c'est
+    le seul moyen de r\xE9v\xE9ler tout le potentiel que tu portes en toi."

@@ -15,9 +15,9 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
 
     void Awake()
     {
-        gameSaveManager = FindObjectOfType<GameSaveManager>();
+        gameSaveManager = FindFirstObjectByType<GameSaveManager>();
         gameManager = gameSaveManager.GetComponent<GameManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         inputManager = playerManager.GetComponent<InputManager>();
         animatorManager = playerManager.GetComponent<AnimatorManager>();
         storyManager = gameSaveManager.GetComponent<StoryManager>();

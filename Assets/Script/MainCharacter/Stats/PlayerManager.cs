@@ -40,10 +40,10 @@ namespace SJ
         private void Awake()
         { 
             developerModeManager = GetComponent<DeveloperModeManager>();
-            cameraManager = FindObjectOfType<CameraManager>();
+            cameraManager = FindFirstObjectByType<CameraManager>();
             playerAttacker = GetComponent<PlayerAttacker>();
-            skillTreeManager = FindObjectOfType<SkillTreeManager>();
-            tutoManager = FindObjectOfType<TutoManager>();
+            skillTreeManager = FindFirstObjectByType<SkillTreeManager>();
+            tutoManager = FindFirstObjectByType<TutoManager>();
         }
 
         public void Start() 
@@ -83,11 +83,11 @@ namespace SJ
             playerLocomotion.HandleFootStep();
             playerStats.HandleReloadStamina(delta);
             playerStats.HandleEndurance();
+            playerStats.HandleIsIndomitable();
             HandleOptionMenu();
             playerAttacker.HandleSorceryPad();
 
 #if UNITY_EDITOR
-            developerModeManager.HandleInstantiateVases();
             developerModeManager.HandleInstantiateMobs();
             developerModeManager.HandleStats();
             developerModeManager.LoadSave();
@@ -229,6 +229,7 @@ namespace SJ
         public void HandleDeadUI()
         {
             StartCoroutine(DeadUIActivation());
+            if(playerAttacker.arcLightningFx.activeSelf) playerAttacker.arcLightningFx.SetActive(false);
         }
         IEnumerator DeadUIActivation()
         {
@@ -238,16 +239,21 @@ namespace SJ
 
         IEnumerator HandleSaveByPlayer()
         {
+            if(!tutoManager.saveTuto)
+            {
+                StartCoroutine(tutoManager.HandleToggleTipsUI("Dans la forge de la méditation, je consume ma force pour renaître de mes cendres"));
+                tutoManager.saveTuto = true;
+            }   
             transitionScreen.GetComponent<Animation>().Play();
             yield return new WaitForSeconds(0.8f);
             if(SceneManager.GetActiveScene().buildIndex == 1)
             {
-                FindObjectOfType<DayNightCycleManager>().dayTimer = Random.Range(0,4);
-                SibongoManager sibongoManager = FindObjectOfType<SibongoManager>();
+                FindFirstObjectByType<DayNightCycleManager>().dayTimer = Random.Range(0,4);
+                SibongoManager sibongoManager = FindFirstObjectByType<SibongoManager>();
                 sibongoManager.HandleDayPeriod();
             }
 
-            CharacterManager [] characterManagers = FindObjectsOfType<CharacterManager>();
+            CharacterManager [] characterManagers = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None);
             foreach (var elt in characterManagers)
             {
                 elt.gameObject.SetActive(false);
@@ -259,12 +265,7 @@ namespace SJ
             {
                 elt.gameObject.SetActive(true);
             }
-            FindObjectOfType<GameSaveManager>().SaveAllData();
-            if(!tutoManager.saveTuto)
-            {
-                StartCoroutine(tutoManager.HandleToggleTipsUI("La méditation est votre alliée : elle vous permet de progresser en toute sécurité et de retrouver des forces"));
-                tutoManager.saveTuto = true;
-            }            
+            FindFirstObjectByType<GameSaveManager>().SaveAllData();         
         }  
     }
 }

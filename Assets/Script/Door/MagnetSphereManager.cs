@@ -7,19 +7,15 @@ public class MagnetSphereManager : MonoBehaviour
     Rigidbody msRigibody;
     AudioSource audioSource;
     PlayerStats playerStats;
-    PlayerAttacker playerAttacker;
     MagnetoSourceManager magnetoSourceManager;
-    Material magnetSphereMaterial;
     [SerializeField] readonly int flameDamage = 6;
 
     void Awake()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
-        playerAttacker = playerStats.GetComponent<PlayerAttacker>();
-        magnetoSourceManager = FindObjectOfType<MagnetoSourceManager>();
+        playerStats = FindFirstObjectByType<PlayerStats>();
+        magnetoSourceManager = FindFirstObjectByType<MagnetoSourceManager>();
         msRigibody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-        magnetSphereMaterial = GetComponent<Renderer>().materials[1];
     }
 
     void Start()
@@ -41,37 +37,23 @@ public class MagnetSphereManager : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
 
-
-        if(!audioSource.enabled)
+        if(other.gameObject.layer == 3)
         {
-            if(other.gameObject.layer == 3)
-            {
-                msRigibody.isKinematic = true;
-            }            
+            playerStats.TakeDamage(flameDamage, 1);
         }
-        else
+        else if(other.collider.gameObject.layer == 12)
         {
-            if(other.gameObject.layer == 3)
+            if(other.collider.TryGetComponent<EnemyManager>(out EnemyManager component))
             {
-                playerStats.TakeDamage(flameDamage, 1);
-            }
-            else if(other.collider.gameObject.layer == 12)
-            {
-                if(other.collider.TryGetComponent<EnemyManager>(out EnemyManager component))
-                {
+                if(component is BuffaloManager buffaloManager) return;
 
-                    if(component is kossiKazeManager kossiKazeManager)
-                    {
-                        kossiKazeManager.kossiKazePattern.HandleExplosion();
-                        HandleDestroyMagnetSphere();
-                    }
+                if(component is kossiKazeManager kossiKazeManager)
+                {
+                    kossiKazeManager.kossiKazePattern.HandleExplosion();
+                    HandleDestroyMagnetSphere();
                 }
+                else if(msRigibody.linearVelocity.magnitude > 10f) component.TakeDamage(150);
             }
-            else if(other.gameObject.tag == "Stele")
-            {
-                other.gameObject.transform.GetChild(0).GetComponent<Renderer>().material = playerAttacker.lightingMaterials[0];
-                other.gameObject.GetComponent<AudioSource>().Play();
-            }   
         }
 
     }

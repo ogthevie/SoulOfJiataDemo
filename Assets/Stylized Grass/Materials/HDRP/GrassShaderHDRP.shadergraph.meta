@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fdbf499eb6077e74c9a8a555aa79cea6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Materials/HDRP/GrassShaderHDRP.shadergraph
+  uploadId: 524285

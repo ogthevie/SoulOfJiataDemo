@@ -18,9 +18,9 @@ public abstract class CharacterManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        sibongoManager = FindObjectOfType<SibongoManager>();
+        sibongoManager = FindFirstObjectByType<SibongoManager>();
         characterAnim = GetComponent<Animator>();
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
         if(questCursor != null) questCursor.SetActive(false);
     }
 

@@ -5,23 +5,20 @@ using SJ;
 public class GrotteKossiManager : MonoBehaviour
 {
     public GameObject enemySpawnFour, kossiPortal;
-    BaseDoorManager baseDoorManager;
-    PlayerManager playerManager;
+    public SteleManager [] steleManagers = new SteleManager[3];
     GameSaveManager gameSaveManager;
 
     
     void Start()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
-        gameSaveManager = FindObjectOfType<GameSaveManager>();
-        baseDoorManager = FindObjectOfType<BaseDoorManager>();
+        gameSaveManager = FindFirstObjectByType<GameSaveManager>();
 
         StoryManager storyManager;
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
 
         if(storyManager.storyStep > 5) kossiPortal.SetActive(true);
         else kossiPortal.SetActive(false);
 
-        if(gameSaveManager.isloaded) gameSaveManager.LoadTorcheGrotteData();                  
+        if(gameSaveManager.isloaded) gameSaveManager.LoadSteleGrotteData();                  
     }
 }

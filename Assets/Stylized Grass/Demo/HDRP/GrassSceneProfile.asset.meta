@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7944cc225d8d9544aa8ffe555d223449
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Demo/HDRP/GrassSceneProfile.asset
+  uploadId: 524285

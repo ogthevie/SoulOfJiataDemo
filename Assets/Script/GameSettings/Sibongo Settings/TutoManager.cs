@@ -10,27 +10,14 @@ public class TutoManager : MonoBehaviour
     private void Start() 
     {
         tipsUI = transform.GetChild(0).gameObject;
-        HiddenUI();    
-    }
-
-    public void HiddenUI()
-    {
-        this.GetComponent<RectTransform>().DOAnchorPosX(400, 0.4f, false);  
-    }
-
-    public void ShowUI()
-    {
-        this.GetComponent<RectTransform>().DOAnchorPosX(-300, 0.2f, false);
     }
 
     public IEnumerator HandleToggleTipsUI(string tipText)
     {
+        yield return new WaitForSeconds(0.5f);
         tipsUI.SetActive(true);
-        tipsUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = tipText;
-        ShowUI();
-        yield return new WaitForSeconds(7f);
-        HiddenUI();
-        yield return new WaitForSeconds(2f);
+        tipsUI.GetComponent<TextMeshProUGUI>().text = tipText;
+        yield return new WaitForSeconds(6f);
         tipsUI.SetActive(false);
     }
 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0ba4c5b94703e349957fe0152315e49
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Demo/BuiltIn/Grass_Skybox_BuiltIn.mat
+  uploadId: 524285

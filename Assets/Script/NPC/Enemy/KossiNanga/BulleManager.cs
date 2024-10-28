@@ -12,7 +12,7 @@ public class BulleManager : MonoBehaviour
 
     void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();    
+        playerStats = FindFirstObjectByType<PlayerStats>();    
     }
 
     void OnTriggerEnter(Collider other)

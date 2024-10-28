@@ -13,16 +13,8 @@ MonoBehaviour:
   m_Name: Kossi 60123
   m_EditorClassIdentifier: 
   characterName: Isamal
-  mainCharacterName: Ruben
+  mainCharacterName: Isamal
   firstConversation:
   - "Tu en as mis du temps, je commen\xE7ais \xE0 m'inqui\xE9ter."
-  - "Cette grotte est un v\xE9ritable labyrinthe. Si mon anc\xEAtre n'\xE9tait pas
-    l\xE0 pour me guider, je ne sais pas si je serais ressorti de l\xE0 un jour. "
-  - "Wow ! tu as vraiment vu l'anc\xEAtre de la grande famille Sibongo ??"
-  - "C'est incroyable n'est ce pas ? mais je t'assure que c'est vrai. J'ai l'impression
-    que j'\xE9tais dans une autre dimension. Tout \xE9tait si...diff\xE9rent."
-  - "Ton discours me laisse sans voix. C'est vrai que j'ai d\xE9j\xE0 entendu des
-    \xE9chos sur cette grotte mais je ne croyais que c'\xE9tait vrai."
-  - "Mais au final, j'ai pu r\xE9cup\xE9rer l'esprit de l'HOMME."
-  - "parfait ! je savais que tu pouvais arriver, file r\xE9activer l'HOMME DANS LA
-    PIERRE."
+  - "Regarde, le village a retrouv\xE9 son \xE9clat d'autrefois, gr\xE2ce \xE0 toi
+    !"

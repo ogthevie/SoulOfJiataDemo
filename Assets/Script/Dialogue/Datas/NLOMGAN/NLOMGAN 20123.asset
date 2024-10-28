@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 20123
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
-  mainCharacterName: Ruben
+  characterName: Vieux NLOMGAN
+  mainCharacterName: Vieux NLOMGAN
   firstConversation:
-  - Tu as pu voir Isamal ?
-  - "Oui, il m'a racont\xE9 ce que tu as fait. Tu es si fort que \xE7a ??"
-  - "HAHAHAHA... je suis s\xFBr que votre g\xE9n\xE9ration nous surpassera rapidement.
-    Quand tu auras mom \xE2ge, tu seras capable de bien plus."
-  - "J'ai d\xFB mal \xE0 imaginer cela."
-  - "Laisse le temps faire. Allez, file... tu as une m\xE9moire \xE0 retrouver."
+  - "Vous \xEAtes l'avenir. Je suis impatient de voir tout ce que vous allez r\xE9aliser."

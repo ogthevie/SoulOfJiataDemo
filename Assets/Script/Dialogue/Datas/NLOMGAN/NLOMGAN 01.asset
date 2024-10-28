@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 01
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
+  characterName: Vieux NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - Il est presque midi, le temps de partir et revenir, tu risques louper le Mbongo
-    Tchobi de Ngomaa.
+  - "Le Mbongo Tchobi, c'est maintenant ! Fonce, ou tu vas passer \xE0 c\xF4t\xE9
+    d'un r\xE9gal !"

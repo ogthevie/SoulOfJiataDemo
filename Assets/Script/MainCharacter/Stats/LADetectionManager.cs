@@ -9,7 +9,7 @@ namespace SJ
 
         void Awake()
         {
-            playerAttacker = FindObjectOfType<PlayerAttacker>();
+            playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         }
 
         void OnTriggerEnter(Collider other)

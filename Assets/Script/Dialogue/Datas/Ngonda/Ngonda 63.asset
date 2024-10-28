@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ngonda 63
   m_EditorClassIdentifier: 
   characterName: Ngonda
-  mainCharacterName: Ruben
+  mainCharacterName: Ngonda
   firstConversation:
   - Tu n'aurais pas un peu grandi ?
-  - euh..non ?
-  - "C'est bizarre, quelque chose a chang\xE9 en toi. Je le sens mais je ne sais
-    pas ce que c'est."
+  - "Maintenant que l'HOMME DANS LA PIERRE est de retour parmis nous, le village
+    brille de milles feux dans l'obscurit\xE9. Mais \xE7a ne va pas me convaincre
+    de rester."

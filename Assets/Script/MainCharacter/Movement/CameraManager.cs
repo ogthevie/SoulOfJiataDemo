@@ -67,18 +67,18 @@ namespace SJ
             singleton = this;
             myTransform = transform;
             defautlPosition = cameraTransform.localPosition.z;
-            /*targetTransform = FindObjectOfType<PlayerManager>().transform;
-            inputManager = FindObjectOfType<InputManager>();
-            playerManager = FindObjectOfType<PlayerManager>();*/
-            enemyManager = FindObjectOfType<EnemyManager>();
+            /*targetTransform = FindFirstObjectByType<PlayerManager>().transform;
+            inputManager = FindFirstObjectByType<InputManager>();
+            playerManager = FindFirstObjectByType<PlayerManager>();*/
+            enemyManager = FindFirstObjectByType<EnemyManager>();
         }
         private void Start() 
         {          
-            targetTransform = FindObjectOfType<PlayerManager>().transform;
-            inputManager = FindObjectOfType<InputManager>();
-            playerManager = FindObjectOfType<PlayerManager>();
+            targetTransform = FindFirstObjectByType<PlayerManager>().transform;
+            inputManager = FindFirstObjectByType<InputManager>();
+            playerManager = FindFirstObjectByType<PlayerManager>();
             environmentLayer = LayerMask.NameToLayer("Environment");
-            gameManager = FindObjectOfType<GameManager>();
+            gameManager = FindFirstObjectByType<GameManager>();
         }
         public void FollowTarget()
         {
@@ -267,8 +267,7 @@ namespace SJ
                 inputManager.lockOnFlag = false;
                 availableTargets.Clear();
                 nearestLockOnTarget = null;
-                currentLockOnTarget = null;
-                if(!inputManager.playerStats.stateJiataData.isIndomitable) inputManager.playerAttacker.StopEffectLitubaxFx();         
+                currentLockOnTarget = null;       
             }
         }
         public void SetCameraHeight()

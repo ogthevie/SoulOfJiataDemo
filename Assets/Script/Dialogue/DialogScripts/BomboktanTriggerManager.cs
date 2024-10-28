@@ -15,23 +15,20 @@ public class BomboktanTriggerManager : MonoBehaviour
     void Awake()
     {
         bomboktanDialogManager = GetComponent<BomboktanDialogManager>();
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
         audioSource = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
-        HandleBomboktanPosition();
     }
 
 
     void Start()
     {
         dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
     }
 
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        HandleBomboktanPosition();
-
         if(other.gameObject.layer == 3)
         {
             dialogUI.SetActive(true);
@@ -39,14 +36,6 @@ public class BomboktanTriggerManager : MonoBehaviour
             audioSource.Play();
             //Time.timeScale = 0f;
         }         
-    }
-
-    public void HandleBomboktanPosition()
-    {
-        if(storyManager.storyStep == 3) idDialog = 0;
-        else if(storyManager.storyStep == 31) idDialog = 1;
-        else if(storyManager.storyStep == 32) idDialog = 2;
-        else if(storyManager.storyStep == 4) idDialog = 3;
     }
 
     void OnTriggerStay(Collider other)

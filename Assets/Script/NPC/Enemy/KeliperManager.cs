@@ -12,9 +12,9 @@ public class KeliperManager : EnemyManager
 
     private void Awake() 
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         keliperPattern = GetComponent<KeliperPattern>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();        
     }
 

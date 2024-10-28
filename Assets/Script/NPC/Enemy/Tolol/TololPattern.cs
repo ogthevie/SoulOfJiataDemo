@@ -34,8 +34,8 @@ public class TololPattern : MonoBehaviour
     
     void Start()
     {
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         tololAnimatorManager = GetComponent<TololAnimatorManager>();
         handleDamageTolol = GetComponentInChildren<HandleDamageTolol>();
         tololRigibody.isKinematic = false;
@@ -117,11 +117,11 @@ public class TololPattern : MonoBehaviour
     private void HandleRotateTowardsTarget()
     {
         //Vector3 relativeDirection = transform.InverseTransformDirection(agentTolol.desiredVelocity);
-        Vector3 targetVelocity = tololRigibody.velocity;
+        Vector3 targetVelocity = tololRigibody.linearVelocity;
         
         agentTolol.enabled = true;
         agentTolol.SetDestination(currentTarget.transform.position);
-        tololRigibody.velocity = targetVelocity;
+        tololRigibody.linearVelocity = targetVelocity;
         transform.rotation = Quaternion.Slerp(transform.rotation, agentTolol.transform.rotation, rotationSpeed/Time.deltaTime);
     }
 
@@ -129,7 +129,7 @@ public class TololPattern : MonoBehaviour
     {
         if(currentTarget == null)
         {
-            currentTarget = FindObjectOfType<PlayerManager>();
+            currentTarget = FindFirstObjectByType<PlayerManager>();
             tololManager.isPreformingAction = false;
         }
     }

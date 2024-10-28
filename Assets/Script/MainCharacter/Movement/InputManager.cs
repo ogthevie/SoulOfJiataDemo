@@ -27,6 +27,7 @@ namespace SJ
         public StatesCharacterData jiatastats;
         public PlayerStats playerStats;
         public SkillTreeManager skillTreeManager;
+        public SorceryPadManager sorceryPadManager;
 
         #region variables
         public Vector2 movementInput;
@@ -87,9 +88,10 @@ namespace SJ
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerAttacker = GetComponent<PlayerAttacker>();  
             playerManager = GetComponent<PlayerManager>();
-            cameraManager = FindObjectOfType<CameraManager>();
+            cameraManager = FindFirstObjectByType<CameraManager>();
             playerStats = GetComponent<PlayerStats>();
-            skillTreeManager = FindObjectOfType<SkillTreeManager>();
+            skillTreeManager = FindFirstObjectByType<SkillTreeManager>();
+            sorceryPadManager = FindFirstObjectByType<SorceryPadManager>();
         }
         
 
@@ -272,7 +274,6 @@ namespace SJ
                 {
                     cameraManager.currentLockOnTarget = cameraManager.nearestLockOnTarget;
                     lockOnFlag = true;
-                    playerAttacker.PlayEffectLitubaFx();
                 }
             }
             else if(lockOn_input && lockOnFlag)
@@ -323,6 +324,7 @@ namespace SJ
                 if(west_input) playerAttacker.HandleMagicSkill(0);
                 else if(south_input) playerAttacker.HandleMagicSkill(1);
                 else if(triangle) playerAttacker.HandleMagicSkill(2);
+                else if(circle) sorceryPadManager.HandleSorceryEastEffect();
             }
             else magicFlag = false;
         }

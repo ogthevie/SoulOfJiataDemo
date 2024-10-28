@@ -5,3 +5,10 @@ VisualEffectImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 224155
+  packageName: Electric Arc Lightning Particles
+  packageVersion: 1.0
+  assetPath: Assets/Fx/Arclightning/Electric Prefabs/VFXGraphs/vfxgraph_ElectricArc.vfx
+  uploadId: 507361

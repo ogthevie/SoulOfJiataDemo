@@ -74,7 +74,6 @@ Shader "Hovl/Particles/BlendDistort"
 		uniform float _Softedges;
 		uniform float _Usedepth;
 		UNITY_DECLARE_DEPTH_TEXTURE( _CameraDepthTexture );
-		uniform float4 _CameraDepthTexture_TexelSize;
 		uniform float _Depthpower;
 
 

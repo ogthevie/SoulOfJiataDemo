@@ -811,14 +811,7 @@ MonoBehaviour:
   currentHealth: 0
   enemyExplosion: {fileID: 3948369574261559632, guid: d100d6faeb5b21a48841ce854ea6c838,
     type: 3}
-  skinnedMeshRenderer: {fileID: 1853705125825466395}
-  enemyRendererSection:
-  - {fileID: 2100000, guid: 5cc53c7931daa554da5c3d9563d10645, type: 2}
-  - {fileID: 2100000, guid: 7348c52c2c807f5439200dc52356447c, type: 2}
-  - {fileID: 2100000, guid: d6e6e1feb31bc5b48bb59463aa6fac3c, type: 2}
-  - {fileID: 2100000, guid: 6c2d123a28899fe4489ba9bb8fdcbd0b, type: 2}
-  - {fileID: 2100000, guid: 9ba3caa6b60d1a24c84e781da4b8ee92, type: 2}
-  - {fileID: 2100000, guid: 84d77ca875b934846a889a56195a149b, type: 2}
+  enemyRendererSection: {fileID: 1853705125825466395}
   kossiPattern: {fileID: 0}
   kossiHealthBar: {fileID: 0}
   isPreformingAction: 0
@@ -882,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858a3187dc31174fbe9e1d5f7a8273c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kossiAudioSource: {fileID: 0}
 --- !u!82 &879830462150068033
 AudioSource:
   m_ObjectHideFlags: 0

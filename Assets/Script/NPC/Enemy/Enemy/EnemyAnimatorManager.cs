@@ -9,8 +9,8 @@ public class EnemyAnimatorManager : MonoBehaviour
 
     protected void Awake()
     {
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
     }
 
     public void PlayTargetAnimation(string targetAnim, bool isInteracting)

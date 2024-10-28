@@ -10,9 +10,8 @@ public abstract class EnemyManager : MonoBehaviour
     public Transform lockOnTransform;
     public int currentHealth;
     public GameObject enemyExplosion;
-    public SkinnedMeshRenderer skinnedMeshRenderer;
     protected PlayerAttacker playerAttacker;
-    public List <Material> enemyRendererSection = new();
+    public SkinnedMeshRenderer enemyRendererSection;
 
 
     public abstract void TakeDamage(int damage);
@@ -22,7 +21,7 @@ public abstract class EnemyManager : MonoBehaviour
         if(isDead)
         {
             Instantiate(enemyExplosion, this.gameObject.transform.position, Quaternion.identity);
-            skinnedMeshRenderer.enabled = false;
+            enemyRendererSection.enabled = false;
             cameraManager.ClearLockOnTargets();
             Destroy(this.gameObject);
         }

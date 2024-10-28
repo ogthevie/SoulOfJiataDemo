@@ -15,7 +15,7 @@ public class NotificationManager : MonoBehaviour
 
     void Start()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
     }
 
     public void StartTuto(int i)

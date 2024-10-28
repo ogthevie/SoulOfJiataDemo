@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: Bilol 1012
   m_EditorClassIdentifier: 
   characterName: Vieux Coq
-  mainCharacterName: Ruben
+  mainCharacterName: Vieux Coq
   firstConversation:
   - "Il para\xEEt que tu te rends dans la grotte des Kossi"
-  - "Oui, Poa Nlomgan m\u2019a dit que j'y trouverai mon h\xE9ritage."
   - "La derni\xE8re fois que j'y suis all\xE9, un de mes anc\xEAtres m'a annonc\xE9
     que j'aurai une fille comme h\xE9riti\xE8re."
-  - "Et finalement ? \xE7a s'est pass\xE9 comment."
   - "Tu as probablement d\xE9j\xE0 crois\xE9 Ngonda."
-  - Maintenant que tu le dis, c'est vrai qu'il y a un air de famille

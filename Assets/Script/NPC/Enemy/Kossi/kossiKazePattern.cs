@@ -28,7 +28,7 @@ public class kossiKazePattern : MonoBehaviour
 
     void Start()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         kossiKazeManager = GetComponent<kossiKazeManager>();
         kazeAudioManager = GetComponent<KazeAudioManager>();
         kossiKazeAnimatorManager = GetComponent<KossiKazeAnimatorManager>();
@@ -112,7 +112,7 @@ public class kossiKazePattern : MonoBehaviour
 
         agentKossiKaze.enabled = true;
         agentKossiKaze.SetDestination(currentTarget.transform.position);
-        kossiKazeRigibody.velocity = targetVelocity;
+        kossiKazeRigibody.linearVelocity = targetVelocity;
         transform.rotation = Quaternion.Slerp(transform.rotation, agentKossiKaze.transform.rotation, rotationSpeed / Time.deltaTime);
     }
 

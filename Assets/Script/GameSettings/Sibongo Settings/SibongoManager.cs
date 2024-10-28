@@ -12,7 +12,6 @@ public class SibongoManager : MonoBehaviour
     public int dayPeriod;
     public GameObject sun, tBilol, tLibum, tNgoMaa, tNgonda, fireKokoa;
     [SerializeField] GameObject lightPortal;
-    public  GameObject KossiPortal;
     [SerializeField] GameObject house05, house09, house07, house04, house03, nyooCrane, sibongoGate;
     AudioSource sibongoAudiosource;
     [SerializeField] AudioSource umAudioSource;
@@ -21,7 +20,7 @@ public class SibongoManager : MonoBehaviour
 
     void OnEnable()
     {
-        dayNightCycleManager = FindObjectOfType<DayNightCycleManager>();
+        dayNightCycleManager = FindFirstObjectByType<DayNightCycleManager>();
 
         sibongoAudiosource = GetComponent<AudioSource>();
         HandleDayPeriod();
@@ -33,10 +32,7 @@ public class SibongoManager : MonoBehaviour
         dayPeriod = dayNightCycleManager.dayTimer;
         
         StoryManager storyManager;
-        storyManager = FindObjectOfType<StoryManager>();
-
-        if(storyManager.storyStep > 1 && storyManager.storyStep < 5) KossiPortal.SetActive(true);
-        else KossiPortal.SetActive(false);
+        storyManager = FindFirstObjectByType<StoryManager>();
 
         if(dayPeriod > 2)
         {

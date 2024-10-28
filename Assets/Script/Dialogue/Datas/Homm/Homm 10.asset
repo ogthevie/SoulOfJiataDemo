@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Homm 10
   m_EditorClassIdentifier: 
   characterName: Homm
-  mainCharacterName: Ruben
+  mainCharacterName: Homm
   firstConversation:
   - "Un jour je regardais cette pierre dont le coeur est \xE9teint et je suis s\xFBr
     que le temps d\u2019une fraction de seconde, une lumi\xE8re a \xE9man\xE9 des

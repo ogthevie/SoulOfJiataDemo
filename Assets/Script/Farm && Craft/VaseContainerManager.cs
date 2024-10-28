@@ -15,8 +15,8 @@ public class VaseContainerManager : MonoBehaviour
 
     void Awake()
     {
-        tutoManager = FindObjectOfType<TutoManager>();
-        audioManager = FindObjectOfType<AudioManager>();
+        tutoManager = FindFirstObjectByType<TutoManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public void HandleVaseConatinerProcess()
@@ -24,7 +24,7 @@ public class VaseContainerManager : MonoBehaviour
         StartCoroutine(HandleVaseContainer());
         if(!tutoManager.vasetuto)
         {
-            StartCoroutine(tutoManager.HandleToggleTipsUI("Ces vases sont des puits de vie, prêts à vous offrir un nouveau souffle"));
+            StartCoroutine(tutoManager.HandleToggleTipsUI("D'où proviennent ces jarres ? La grotte ci et la sorcellerie"));
             tutoManager.vasetuto = true;
         }
     }

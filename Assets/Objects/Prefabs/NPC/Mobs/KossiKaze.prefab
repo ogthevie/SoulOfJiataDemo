@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 483918908983999531}
   - component: {fileID: 483918908983999530}
   - component: {fileID: 483918908983999529}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Instability (loop)
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 483918910038387717}
   - component: {fileID: 483918910038387719}
   - component: {fileID: 483918910038387718}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: CenterFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10673,10 +10673,7 @@ MonoBehaviour:
   lockOnTransform: {fileID: 815116607754410739}
   currentHealth: 0
   enemyExplosion: {fileID: 0}
-  skinnedMeshRenderer: {fileID: 4986838049063256807}
-  enemyRendererSection:
-  - {fileID: 2100000, guid: 8a2b2a060aaa0ee4294c903cae628b93, type: 2}
-  - {fileID: 2100000, guid: ce02e6050b1b7d44ea3eb27dfe32b88d, type: 2}
+  enemyRendererSection: {fileID: 4986838049063256807}
   kossiKazePattern: {fileID: 0}
   awakeFx: {fileID: 996552699880950472}
   isPreformingAction: 0

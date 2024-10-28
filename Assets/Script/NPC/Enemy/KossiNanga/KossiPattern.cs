@@ -29,7 +29,7 @@ public class KossiPattern : MonoBehaviour
     void Awake()
     {
         kossiManager = GetComponent<KossiManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         kossiAudioManager = GetComponent<KossiAudioManager>();
         kossiAnimatorManager = GetComponent<KossiAnimatorManager>();
         kossiRigibody = GetComponent<Rigidbody>();
@@ -110,7 +110,7 @@ public class KossiPattern : MonoBehaviour
 
         agentKossi.enabled = true;
         agentKossi.SetDestination(currentTarget.transform.position);
-        kossiRigibody.velocity = targetVelocity;
+        kossiRigibody.linearVelocity = targetVelocity;
         transform.rotation = Quaternion.Slerp(transform.rotation, agentKossi.transform.rotation, rotationSpeed / Time.deltaTime);
     }
 

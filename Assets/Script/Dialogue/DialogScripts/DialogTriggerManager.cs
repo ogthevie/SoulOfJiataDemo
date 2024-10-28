@@ -23,10 +23,10 @@ public class DialogTriggerManager : MonoBehaviour
 
     void Awake()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         characterDialogManager = GetComponent<CharacterDialogManager>();
-        storyManager = FindObjectOfType<StoryManager>();
-        sibongoManager = FindObjectOfType<SibongoManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
+        sibongoManager = FindFirstObjectByType<SibongoManager>();
         audioSource = GetComponent<AudioSource>();
     }
     void OnEnable()
@@ -37,7 +37,7 @@ public class DialogTriggerManager : MonoBehaviour
     void Start()
     {
         dialogUI = GameObject.Find("PlayerUI").transform.GetChild(7).gameObject;
-        storyManager = FindObjectOfType<StoryManager>();
+        storyManager = FindFirstObjectByType<StoryManager>();
     }
 
     void InitializePartsManager()
@@ -53,7 +53,7 @@ public class DialogTriggerManager : MonoBehaviour
     }
     public virtual void OnTriggerEnter(Collider other)
     {
-        if(FindObjectOfType<StoryManager>().storyStep == -1) return;
+        if(FindFirstObjectByType<StoryManager>().storyStep == -1) return;
         
         if(other.gameObject.layer == 3)
         {

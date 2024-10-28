@@ -16,10 +16,10 @@ public class kossiKazeManager : EnemyManager
 
     private void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
-        cameraManager = FindObjectOfType<CameraManager>();
+        playerStats = FindFirstObjectByType<PlayerStats>();
+        cameraManager = FindFirstObjectByType<CameraManager>();
         kossiKazePattern = GetComponent<kossiKazePattern>();
-        playerAttacker = FindObjectOfType<PlayerAttacker>();
+        playerAttacker = FindFirstObjectByType<PlayerAttacker>();
         awakeFx.SetActive(true);
         
         isPreformingAction = true;
@@ -57,7 +57,11 @@ public class kossiKazeManager : EnemyManager
 
             foreach(var elt in colliders)
             {
-                if(elt.gameObject.layer == 3) playerStats.TakeDamage(kamikazeDamage, 0);
+                if(elt.gameObject.layer == 3)
+                {
+                    float distance = Vector3.Distance(transform.position, elt.gameObject.transform.position);
+                    if(distance <= 12) playerStats.TakeDamage(kamikazeDamage, 0);
+                } 
 
                 else if(elt.gameObject.TryGetComponent<VaseContainerManager>(out VaseContainerManager vaseContainerManager)) vaseContainerManager.HandleVaseConatinerProcess();
                 else if(elt.gameObject.TryGetComponent<TololManager>(out TololManager tololManager)) tololManager.TakeDamage(45);

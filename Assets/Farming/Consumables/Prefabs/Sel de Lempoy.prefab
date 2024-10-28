@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8212391999487964310}
   - component: {fileID: 5279407087469318589}
   - component: {fileID: 8113277531175716515}
-  - component: {fileID: 471994317388407181}
   - component: {fileID: -745425861989922797}
+  - component: {fileID: 6425213680941002268}
+  - component: {fileID: 6933925612755599149}
   m_Layer: 14
   m_Name: Sel de Lempoy
   m_TagString: Untagged
@@ -29,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7708116865294456131}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 14, y: 14, z: 14}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6205028221833805916
 MeshFilter:
@@ -62,6 +63,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -131,29 +135,6 @@ MonoBehaviour:
   consumableData: {fileID: 11400000, guid: 737cba5fede5be442bed138077caa32d, type: 2}
   notificationManager: {fileID: 0}
   inventory: {fileID: 11400000, guid: a6bd976158eb75648bbe421d9a85d0d0, type: 2}
---- !u!136 &471994317388407181
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7708116865294456131}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.012786953
-  m_Height: 0.050972912
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.0009247884, z: 0.022287188}
 --- !u!114 &-745425861989922797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +148,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timetoDestroy: 30
+--- !u!135 &6425213680941002268
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708116865294456131}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 259959
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.060781147
+  m_Center: {x: -0.00052716903, y: 5.0753055e-16, z: 0.03573666}
+--- !u!135 &6933925612755599149
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708116865294456131}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.029764354
+  m_Center: {x: 0, y: -0.00020489948, z: 0.021149335}

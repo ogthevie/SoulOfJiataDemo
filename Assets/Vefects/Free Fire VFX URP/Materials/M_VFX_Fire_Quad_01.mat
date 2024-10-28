@@ -113,7 +113,7 @@ Material:
     - _Dst1: 10
     - _DstBlend: 1
     - _Emissive: 50
-    - _EmissiveIntensity: 123
+    - _EmissiveIntensity: 25
     - _Emissive_Amount: 10
     - _EnableFogOnTransparent: 1
     - _Global_Speed: -2
@@ -164,9 +164,9 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorBottom: {r: 0.7075472, g: 0.050062295, b: 0.13500682, a: 0}
+    - _ColorBottom: {r: 0.11236138, g: 0.7058824, b: 0.0509804, a: 0}
     - _ColorDown: {r: 1, g: 0.5, b: 0, a: 0}
-    - _ColorTop: {r: 0.7924528, g: 0.041117843, b: 0.04111784, a: 0}
+    - _ColorTop: {r: 0.12896572, g: 0.7921569, b: 0.039215676, a: 0}
     - _ColorUp: {r: 1, g: 0.3333333, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

@@ -9,13 +9,13 @@ public class BomboktanDialogManager : CharacterDialogManager
     GameSaveManager gameSaveManager;
     protected override void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         storyManager = gameManager.GetComponent<StoryManager>();
-        inputManager = FindObjectOfType<InputManager>();
-        animatorManager = FindObjectOfType<AnimatorManager>();
-        playerUIManager = FindObjectOfType<PlayerUIManager>();
+        inputManager = FindFirstObjectByType<InputManager>();
+        animatorManager = FindFirstObjectByType<AnimatorManager>();
+        playerUIManager = FindFirstObjectByType<PlayerUIManager>();
         bomboktanTriggerManager = GetComponent<BomboktanTriggerManager>();
-        gameSaveManager = FindObjectOfType<GameSaveManager>();
+        gameSaveManager = FindFirstObjectByType<GameSaveManager>();
     }
 
     public override void StartDialogue()
@@ -60,7 +60,7 @@ public class BomboktanDialogManager : CharacterDialogManager
             {
                 i = 0;
                 CloseDialogue();
-                if(storyManager.storyStep < 8)StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep)); 
+                if(storyManager.storyStep == 3)StartCoroutine(gameManager.StartHandleToDo(storyManager.storyStep));
             }
         }
 

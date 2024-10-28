@@ -7,11 +7,11 @@ public class GolemDialogManager : CharacterDialogManager
 
     protected override void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         storyManager = gameManager.GetComponent<StoryManager>();
-        inputManager = FindObjectOfType<InputManager>();
+        inputManager = FindFirstObjectByType<InputManager>();
         animatorManager = inputManager.GetComponent<AnimatorManager>();
-        playerUIManager = FindObjectOfType<PlayerUIManager>();
+        playerUIManager = FindFirstObjectByType<PlayerUIManager>();
         golemTriggerManager = GetComponent<GolemTriggerManager>();
         golemEventManager = GetComponent<GolemEventManager>();
     }

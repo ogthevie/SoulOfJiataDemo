@@ -8,7 +8,6 @@ using System.Collections;
 public class BuffaloPattern : MonoBehaviour
 {
     public BuffaloAnimatorManager buffaloAnimatorManager;
-    public BuffaloAudioManager buffaloAudioManager;
     [SerializeField] HandleDamageTolol handleDamageTolol;
     public PlayerManager currentTarget, playerManager;
     BuffaloManager buffaloManager;
@@ -17,7 +16,7 @@ public class BuffaloPattern : MonoBehaviour
     public float distanceFromTarget, stoppingDistance, timer, stunDelay;
     [SerializeField]float hellbowDelay = 5;
     public int indexDistance, indexAttack;
-    [SerializeField] List<float> duration = new List<float>() { 2.5f, 5f, 7f };
+    [SerializeField] List<float> duration = new List<float>() { 1.5f, 2.5f, 5f };
     public NavMeshAgent agentBuffalo;
     public Rigidbody buffaloRigidbody;
     float rotationSpeed = 400f;
@@ -35,8 +34,7 @@ public class BuffaloPattern : MonoBehaviour
     void Awake()
     {
         buffaloManager = GetComponent<BuffaloManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
-        buffaloAudioManager = GetComponent<BuffaloAudioManager>();
+        playerManager = FindFirstObjectByType<PlayerManager>();
         buffaloAnimatorManager = GetComponent<BuffaloAnimatorManager>();
         buffaloRigidbody = GetComponent<Rigidbody>();
         agentBuffalo = GetComponentInChildren<NavMeshAgent>();
@@ -105,7 +103,7 @@ public class BuffaloPattern : MonoBehaviour
         if(agentBuffalo.enabled)
         {
             agentBuffalo.SetDestination(currentTarget.transform.position);
-            buffaloRigidbody.velocity = targetVelocity;
+            buffaloRigidbody.linearVelocity = targetVelocity;
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, agentBuffalo.transform.rotation, rotationSpeed / Time.deltaTime);
@@ -167,7 +165,7 @@ public class BuffaloPattern : MonoBehaviour
         if(buffaloManager.iStun) 
         {
             stunDelay += delta;
-            if(stunDelay > 6)
+            if(stunDelay > 10)
             {
                 stunDelay = 0;
                 buffaloManager.iStun = false;
@@ -246,8 +244,7 @@ public class BuffaloPattern : MonoBehaviour
 
     private void HandleRageSpawn()
     {
-        if(stele.transform.childCount > 3)
-        {}
+        if(stele.transform.childCount > 3) return;
         else
         {
             if(distanceFromTarget >= 10  || statesJiataData.isHidden) StartCoroutine(Spawnkossikaze());

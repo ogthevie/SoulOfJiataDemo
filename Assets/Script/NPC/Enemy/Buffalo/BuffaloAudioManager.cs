@@ -5,12 +5,7 @@ using UnityEngine;
 public class BuffaloAudioManager : MonoBehaviour
 {
     public List<AudioClip> buffaloSfx = new ();
-    AudioSource buffaloAudioSource;
-
-    void OnEnable()
-    {
-        buffaloAudioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource buffaloAudioSource;
 
     public void ReadFootStep()
     {

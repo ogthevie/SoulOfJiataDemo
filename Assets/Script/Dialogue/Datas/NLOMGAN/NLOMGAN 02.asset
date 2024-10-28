@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f811c0795314f419a1687968ad9bac, type: 3}
   m_Name: NLOMGAN 02
   m_EditorClassIdentifier: 
-  characterName: "P\xE8re NLOMGAN"
+  characterName: Vieux NLOMGAN
   mainCharacterName: Ruben
   firstConversation:
-  - "Je t\u2019ai d\xE9j\xE0 tout dit, allez\u2026tu d\xE9concentres les grands esprits
-    du jeu des sages. "
+  - "Tu as toutes les cl\xE9s en main. Le reste, c'est \xE0 toi de le d\xE9couvrir."

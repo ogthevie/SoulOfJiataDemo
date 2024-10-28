@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5503b5ee036a40a498f50d30d2322718
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187667
+  packageName: Simple Stylized Grass Shader
+  packageVersion: 1.2.1
+  assetPath: Assets/Stylized Grass/Demo/URP/GrassDemoSceneURP.unity
+  uploadId: 524285

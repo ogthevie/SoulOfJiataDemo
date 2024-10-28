@@ -1519,6 +1519,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "9b150d4d3458447a93ddd7475533071f"
@@ -2316,8 +2317,8 @@
     "m_ObjectId": "1671c7088d1443c681d236f298396a68",
     "m_Title": "Opacity",
     "m_Position": {
-        "x": -1640.0003662109375,
-        "y": 957.0000610351563
+        "x": -746.0,
+        "y": 954.0
     }
 }
 
@@ -2339,7 +2340,7 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 1.0
     },
     "m_Labels": [
         "X",
@@ -4105,8 +4106,8 @@
     "m_ObjectId": "439b71b5dea14691be57a75030c2db57",
     "m_Title": "Main Color",
     "m_Position": {
-        "x": -4860.00048828125,
-        "y": -426.0000305175781
+        "x": -4860.0,
+        "y": -428.0
     }
 }
 
@@ -6223,10 +6224,10 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.10588236153125763,
-        "g": 0.2392157018184662,
-        "b": 0.019607843831181527,
-        "a": 1.0
+        "r": 0.05882350355386734,
+        "g": 0.29411762952804568,
+        "b": 0.28129228949546816,
+        "a": 0.0
     },
     "isMainColor": false,
     "m_ColorMode": 0
@@ -6346,10 +6347,10 @@
         "w": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
     },
     "m_Labels": []
 }
@@ -6894,8 +6895,8 @@
     "m_ObjectId": "9a520eb72f2e4082ba04f73942e76292",
     "m_Title": "Wind",
     "m_Position": {
-        "x": -3424.0,
-        "y": -3367.0
+        "x": -3438.0,
+        "y": -3256.0
     }
 }
 
@@ -6964,6 +6965,9 @@
     "m_AlphaClip": true,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
+    "m_DisableTint": false,
+    "m_AdditionalMotionVectorMode": 0,
+    "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -7149,13 +7153,13 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.08143210411071778,
-        "g": 0.4716981053352356,
-        "b": 0.011124953627586365,
+        "r": 0.12156861275434494,
+        "g": 0.46713364124298098,
+        "b": 0.5098039507865906,
         "a": 1.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -7982,8 +7986,8 @@
         "y": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0
+        "x": 1.0,
+        "y": 1.0
     },
     "m_Labels": [
         "X",
@@ -8542,7 +8546,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -9499,8 +9503,8 @@
     "m_ObjectId": "d96b173c3ebc468db4d5179c8c77c5e3",
     "m_Title": "Translucency",
     "m_Position": {
-        "x": -4860.0,
-        "y": -1576.9998779296875
+        "x": -4876.0,
+        "y": -1627.0
     }
 }
 
@@ -9589,10 +9593,10 @@
         "w": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
     },
     "m_Labels": []
 }
