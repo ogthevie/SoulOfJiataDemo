@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     {
         questDescriptons[0] = "Parlez au vieux Nlomgan";
         questDescriptons[1] = "Trouvez le passage pour la grotte des Kossi";
-        questDescriptons[2] = "Rencontrez l'esprit Mbuu";
+        questDescriptons[2] = "Explorez la grotte";
         questDescriptons[3] = "Trouvez les autres reliques";
         questDescriptons[4] = "Trouvez l'esprit de la roche";
         questDescriptons[5] = "Terrassez BAFFA et récupérer l'ESPRIT DE L'HOMME";

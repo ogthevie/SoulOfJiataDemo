@@ -205,8 +205,8 @@ Material:
     - _RimStepSmooth: 0
     - _SPECULARHIGHLIGHTS: 0
     - _ShadowPatternSize: 0.3
-    - _ShadowStep: 0.5
-    - _ShadowStepSmooth: 0.04
+    - _ShadowStep: 0.462
+    - _ShadowStepSmooth: 0
     - _Shininess: 0
     - _SizeFalloff: 0
     - _Smoothness: 0.2

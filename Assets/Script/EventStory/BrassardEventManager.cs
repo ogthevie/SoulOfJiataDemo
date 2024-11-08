@@ -20,8 +20,8 @@ public class BrassardEventManager : EventStoryTriggerManager
             playerManager.gauntlet.SetActive(true);
             playerManager.haveGauntlet = true;
             StartCoroutine(gameManager.StartHandleAchievement("la rage du Mpodol"));
+            StartCoroutine(tutoManager.HandleDescriptionSkillTutos(0,3));
             storyManager.storyStep = 4;
-            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Qu'est ce que ce truc ?"));
             StartCoroutine(bomboktanManager.SpawnBomboktan(4));
             Invoke("Save", 3f);
             Destroy(this.gameObject, 15f);

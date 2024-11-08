@@ -17,10 +17,11 @@ public class ThunderEventManager : EventStoryTriggerManager
             playerManager.canThunder = true;
             
             StartCoroutine(gameManager.StartHandleAchievement("Le cri du ciel"));
+            StartCoroutine(tutoManager.HandleDescriptionSkillTutos(0,2));
             GetComponent<ParticleSystem>().Stop();
             StartCoroutine(bomboktanManager.SpawnBomboktan(2));
             Invoke("Save", 3f);
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 15f);
         }            
     }
 

@@ -17,10 +17,11 @@ public class ArcLightEventManager : EventStoryTriggerManager
             playerManager.canArcLight = true;
             
             StartCoroutine(gameManager.StartHandleAchievement("Le souffle de Shango"));
+            StartCoroutine(tutoManager.HandleDescriptionSkillTutos(0,1));
             GetComponent<ParticleSystem>().Stop();
             StartCoroutine(bomboktanManager.SpawnBomboktan(1));
             Invoke("Save", 3f);
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 15f);
         }            
     }
 }

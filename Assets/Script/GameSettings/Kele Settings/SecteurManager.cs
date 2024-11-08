@@ -1,18 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SecteurManager : MonoBehaviour
 {
     [SerializeField] int indexSecteur;
     [SerializeField] StoryManager storyManager;
+    [SerializeField] TutoManager tutoManager;
     [SerializeField] GameObject [] wallSecteurs;
     [SerializeField] EnemySpawnManager enemySpawnManager;
     
 
     private void Awake()
     {
-        storyManager = FindFirstObjectByType<StoryManager>();    
+        storyManager = FindFirstObjectByType<StoryManager>();
+        tutoManager = FindFirstObjectByType<TutoManager>();    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +36,7 @@ public class SecteurManager : MonoBehaviour
         enemySpawnManager.LoadEnemy();
         yield return new WaitForSeconds(0.1f);
         foreach(var wallSecteur in wallSecteurs) wallSecteur.SetActive(true);
+        StartCoroutine(tutoManager.HandleToggleTipsUI("C'est à ça que ressemble une créature du Kao ? on dirait un être humain"));
     }
 
     private void HandleClosingZeroSecteur()

@@ -171,6 +171,7 @@ namespace SJ
                     playerUIManager.ShowInteractionUI("Méditer");
                     if(inputManager.InteractFlag)
                     {
+                        if(hit.collider.gameObject.tag == "Rune") this.transform.position = new Vector3(-84.37f, 0.596f, -23.87f);
                         StartCoroutine(RebornFlame(hit));
                     } 
                 }

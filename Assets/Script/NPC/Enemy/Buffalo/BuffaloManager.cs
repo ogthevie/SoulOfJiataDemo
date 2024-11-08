@@ -8,7 +8,7 @@ public class BuffaloManager : EnemyManager
     public BuffaloPattern buffaloPattern;
     [SerializeField] StoryManager storyManager;
     BossHealthBar bossHealthBar;
-    [SerializeField] GameObject chargingPop, fakeCrane, trueCrane, kaoPortalFx, limitBoss, portalActivate;
+    [SerializeField] GameObject chargingPop, fakeCrane, trueCrane, kaoPortalFx, limitBoss, portalActivate, wallBaffaZone;
     [SerializeField]protected CameraShake cameraShake;
     //public GameObject [] Torche = new GameObject [8];
     public int buffaloHealth;
@@ -50,7 +50,6 @@ public class BuffaloManager : EnemyManager
     {
         PlayerManager playerManager = playerAttacker.GetComponent<PlayerManager>();
         chargingPop.SetActive(true);
-        limitBoss.SetActive(true);
         fakeCrane.SetActive(true);
         StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("... "));
         cameraShake.Shake(4f, 0.25f);
@@ -137,6 +136,7 @@ public class BuffaloManager : EnemyManager
     {
 
         //for(int k = 0; k < 8; k++) Torche[k].transform.GetChild(0).gameObject.SetActive(true);
+        wallBaffaZone.SetActive(false);
         limitBoss.SetActive(false);
         kaoPortalCollider.enabled = false;
         portalActivate.SetActive(true);

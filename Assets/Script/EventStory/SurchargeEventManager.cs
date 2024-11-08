@@ -16,13 +16,13 @@ public class SurchargeEventManager : EventStoryTriggerManager
             animatorManager.PlayTargetAnimation("PowerUp", true);
             playerManager.canSurcharge = true;
             StartCoroutine(gameManager.StartHandleAchievement("La main du souverain"));
-
+            StartCoroutine(tutoManager.HandleDescriptionSkillTutos(0,0));
             storyManager.storyStep = 3;
             StartCoroutine(bomboktanManager.SpawnBomboktan(0));
             GetComponent<ParticleSystem>().Stop();
-            Invoke("Save", 3f);
+            //Invoke("Save", 3f);
 
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 15f);
         }
     }
 

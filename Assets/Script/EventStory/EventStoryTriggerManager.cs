@@ -11,6 +11,7 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
     protected GameSaveManager gameSaveManager;
     protected GameManager gameManager;
     protected StoryManager storyManager;
+    protected TutoManager tutoManager;
     [SerializeField]protected CameraShake cameraShake;
 
     void Awake()
@@ -22,6 +23,7 @@ public abstract class EventStoryTriggerManager : MonoBehaviour
         animatorManager = playerManager.GetComponent<AnimatorManager>();
         storyManager = gameSaveManager.GetComponent<StoryManager>();
         audioManager = playerManager.GetComponent<AudioManager>();
+        tutoManager = FindFirstObjectByType<TutoManager>();
     }
 
     protected void Save()

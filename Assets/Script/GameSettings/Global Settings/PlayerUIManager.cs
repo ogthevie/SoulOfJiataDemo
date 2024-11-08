@@ -1,11 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using SJ;
 
 public class PlayerUIManager : MonoBehaviour
 {
 
     public GameObject playerStatsUi, padUI, sorceryUI, interactionUI;
+    GameManager gameManager;
 
     void Awake()
     {
@@ -24,8 +26,15 @@ public class PlayerUIManager : MonoBehaviour
 
     void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         transform.GetChild(1).gameObject.SetActive(false);
         interactionUI.SetActive(false);
+        if(gameManager.newGame == 1)
+        {
+            InventoryManager inventoryManager = padUI.GetComponent<InventoryManager>();
+            inventoryManager.inventory.selQty = inventoryManager.inventory.ikokQty = 0;
+            inventoryManager.HandleItemsQty();
+        }
     }
 
     public void HiddenUI()

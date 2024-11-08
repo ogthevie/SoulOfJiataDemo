@@ -16,28 +16,24 @@ MonoBehaviour:
   mainCharacterName: Vieux NLOMGAN
   firstConversation:
   - "Mon fils, je t'ai cherch\xE9 toute la journ\xE9e"
-  - "Quand je vous vois, Isamal et toi, ensemble, \xE7a me rappelle tellement mon
-    jeune temps avec ton p\xE8re. On \xE9tait comme vous deux, intr\xE9pides."
-  - "C'est pour cette raison pr\xE9cise que vous devez partir sans plus attendre.
-    Je suis content que vous ayez d\xE9j\xE0 envisag\xE9 cette solution, cela rendra
-    les choses plus faciles \xE0 mettre en \u0153uvre."
-  - "Il est courant chez les Lituba de retrouver le m\xEAme nom port\xE9 par des
-    individus sans lien de parent\xE9."
-  - "Chez nous, porter un nom, c'est bien plus qu'un simple acte d'identification.
-    C'est porter sur nos \xE9paules un morceau de notre histoire, de notre culture
-    et de notre h\xE9ritage"
-  - " Quand un nouveau-n\xE9 re\xE7oit le nom d'un anc\xEAtre, un lien particulier
+  - "J'avais envie de te parler de quelque chose. Il est peu probable que ta m\xEAre
+    aie abord\xE9 ce sujet avec toi."
+  - "chez nous les Lituba, il est courant de retrouver des individus sans lien de
+    parent\xE9 portant le m\xEAme nom"
+  - "Porter un nom, c'est bien plus qu'un simple acte identitaire. C'est porter sur
+    nos \xE9paules un morceau de notre histoire, de notre culture et de notre h\xE9ritage"
+  - "Quand un nouveau-n\xE9 re\xE7oit le nom d'un anc\xEAtre, un lien particulier
     peut se cr\xE9er entre eux, un lien qui parfois d\xE9passe la simple filiation."
   - "Dans de rares cas, ce lien peut \xE9voluer vers ce qu'on appelle une 'raisonnance'.
     C'est un ph\xE9nom\xE8ne mystique o\xF9 l'esprit de l'anc\xEAtre semble se manifester
     \xE0 travers son descendant."
   - Tes yeux verts, uniques en leur genre, sont un signe fort de cette raisonnance
-    avec celui qu'on surnommait le Mpodol.
+    avec celui qu'on surnommait autre fois le Mpodol.
   - "Tu partages avec lui un don, une capacit\xE9 mystique que tu es en train de
     d\xE9couvrir. C'est une opportunit\xE9 incroyable, mais aussi un chemin dangereux."
-  - "Pour \xE9veiller pleinement cette puissance, tu dois te rendre dans la grotte
-    des Kossi, un lieu sacr\xE9 ancestral."
-  - "Attention, cette grotte est d\xE9sormais infest\xE9e de cr\xE9atures mal\xE9fiques.
-    Il faudra te pr\xE9parer soigneusement avant de t'y aventurer."
-  - "Isamal pourra t'aider dans cette qu\xEAte. C'est un risque immense, mais c'est
-    le seul moyen de r\xE9v\xE9ler tout le potentiel que tu portes en toi."
+  - "Pour avoir une chance d'aller au bout de ta qu\xEAte, il est primordial pour
+    toi d'\xE9veiller cette puissance qui sommeille en toi, tu dois te rendre au
+    lieu ancestral qu'on appelle la GROTTE DES KOSSI. Tous les sorciers qui sortent
+    de l\xE0 sont transform\xE9s d'une mani\xE8re ou d'une autre."
+  - "Mais avant d'y aller, passes voir Isamal, il avait un service \xE0 te demander.
+    Il me l'a dit mais toutes ces ann\xE9es commencent \xE0 peser sir moi..."

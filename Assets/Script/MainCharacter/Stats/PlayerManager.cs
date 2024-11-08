@@ -241,7 +241,7 @@ namespace SJ
         {
             if(!tutoManager.saveTuto)
             {
-                StartCoroutine(tutoManager.HandleToggleTipsUI("Dans la forge de la méditation, je consume ma force pour renaître de mes cendres"));
+                StartCoroutine(tutoManager.HandleToggleTipsUI("Les ancêtres, que disent-ils..."));
                 tutoManager.saveTuto = true;
             }   
             transitionScreen.GetComponent<Animation>().Play();

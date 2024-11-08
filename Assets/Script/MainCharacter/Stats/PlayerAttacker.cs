@@ -361,7 +361,7 @@ namespace SJ
                     steleManager.poweFxGo.SetActive(true);
                     if(!playerManager.tutoManager.steleTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Ces stèles... elles réagissent à ma magie. l y a quelque chose de spécial dans ces pierres, je crois que c'est la chose à faire"));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Ces stèles... elles réagissent à ma magie. l y a quelque chose de spécial dans ces pierres"));
                         playerManager.tutoManager.steleTuto = true;
                     }
                 }   
@@ -454,7 +454,7 @@ namespace SJ
                     }
                     if(!playerManager.tutoManager.arcLightTuto)
                     {
-                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Cette nouvelle maîtrise est prometteuse. Le combat à distance ouvre de nouvelles perspectives tactiques."));
+                        StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Cette nouvelle maîtrise est prometteuse."));
                         playerManager.tutoManager.arcLightTuto = true;
                     }
                 }
@@ -658,7 +658,7 @@ namespace SJ
                         }
                         if(!playerManager.tutoManager.thunderTuto)
                         {
-                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le Cri du Ciel...Dingue ! jusqu'où le pouvoir du Mpodol allait-il ?"));
+                            StartCoroutine(playerManager.tutoManager.HandleToggleTipsUI("Le Cri du Ciel... jusqu'où le pouvoir du Mpodol allait-il ?"));
                             playerManager.tutoManager.thunderTuto = true;
                         }
                     }
